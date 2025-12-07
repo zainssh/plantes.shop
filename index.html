@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pépinière Benslimane | Plantes, Palmiers et Arbres Fruitiers</title>
-    <meta name="description" content="Pépinière spécialisée dans la vente de plantes, palmiers, arbres fruitiers, oliviers et plantes décoratives. Livraison dans tout le Maroc.">
-    <meta name="keywords" content="plantes, pépinière, palmiers, arbres fruitiers, oliviers, plantes décoratives, jardinage, Maroc, Benslimane">
-    <meta name="author" content="Pépinière Benslimane">
+    <title>Pépinière Verte | Votre pépinière en ligne de plantes d'exception</title>
+    <meta name="description" content="Pépinière spécialisée dans la vente de plantes d'intérieur, d'extérieur, fleurs, arbres fruitiers et plantes rares. Livraison dans toute l'Algérie.">
+    <meta name="keywords" content="plantes, pépinière, jardinage, plantes intérieur, plantes extérieur, fleurs, arbres fruitiers, cactus, plantes rares, Algérie">
+    <meta name="author" content="Pépinière Verte">
+    <meta property="og:title" content="Pépinière Verte | Plantes d'exception">
+    <meta property="og:description" content="Découvrez notre collection exclusive de plantes et créez votre oasis verte">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://votre-site.com/images/og-image.jpg">
+    <meta property="og:url" content="https://votre-site.com">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +21,9 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     
     <style>
         /* Reset & Base */
@@ -292,8 +301,28 @@
         .hero-image img {
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            height: 400px;
-            object-fit: cover;
+        }
+        
+        .floating-plants {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .plant-1 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+        
+        .plant-2 {
+            bottom: 30px;
+            left: -30px;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
         
         /* Categories */
@@ -504,89 +533,50 @@
             color: #EF4444;
         }
         
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-green);
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--white);
         }
         
-        .contact-container {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
         }
         
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: var(--dark);
-        }
-        
-        .contact-info p {
-            color: var(--gray);
-            margin-bottom: 40px;
-            font-size: 1.125rem;
-        }
-        
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-green);
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-        
-        .contact-text h4 {
-            font-size: 1.125rem;
-            margin-bottom: 4px;
-            color: var(--dark);
-        }
-        
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #25D366;
-            color: white;
-            padding: 14px 28px;
+        .gallery-item {
             border-radius: var(--radius);
-            font-weight: 600;
-            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            cursor: pointer;
         }
         
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
         
-        .contact-form-container {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
         
-        .contact-form h3 {
-            font-size: 1.75rem;
-            margin-bottom: 24px;
-            color: var(--dark);
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: var(--white);
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
         }
         
         /* Shopping Cart Modal */
@@ -723,7 +713,96 @@
             font-size: 1.125rem;
         }
         
-        /* Form Styles */
+        /* Checkout Form */
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .checkout-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .checkout-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.4s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .checkout-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .checkout-steps {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: var(--gray);
+        }
+        
+        .step.active {
+            color: var(--primary-green);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .step.active .step-number {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        
+        .checkout-content {
+            padding: 24px;
+        }
+        
         .form-group {
             margin-bottom: 24px;
         }
@@ -748,6 +827,192 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary-green);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .city-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            background-color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--dark);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+        }
+        
+        .delivery-cost {
+            background-color: var(--light-green);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .checkout-summary {
+            background-color: var(--light-gray);
+            padding: 24px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: var(--gray);
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .payment-method:hover, .payment-method.active {
+            border-color: var(--primary-green);
+            background-color: var(--light-green);
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .payment-method.active .payment-icon {
+            color: var(--primary-green);
+        }
+        
+        .checkout-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-green);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-size: 1.125rem;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+            color: var(--dark);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .contact-form-container {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 40px;
         }
         
         /* Footer */
@@ -781,6 +1046,29 @@
         
         .footer-links a:hover {
             color: var(--white);
+        }
+        
+        .newsletter p {
+            color: #CBD5E1;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 12px 16px;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        .newsletter-input::placeholder {
+            color: #9CA3AF;
         }
         
         .social-links {
@@ -829,6 +1117,146 @@
         .overlay.active {
             opacity: 1;
             visibility: visible;
+        }
+        
+        /* Plant Details Modal */
+        .plant-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            z-index: 2000;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .plant-modal.active {
+            display: block;
+        }
+        
+        .plant-modal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        .plant-modal-images {
+            position: relative;
+        }
+        
+        .plant-modal-main-image {
+            height: 400px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .plant-modal-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .plant-modal-thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .plant-modal-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .plant-modal-thumbnail.active {
+            border-color: var(--primary-green);
+        }
+        
+        .plant-modal-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .plant-modal-info h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .plant-modal-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 24px;
+        }
+        
+        .plant-modal-description {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .care-instructions {
+            background-color: var(--light-green);
+            padding: 24px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+        }
+        
+        .care-instructions h4 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .care-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .care-item i {
+            color: var(--primary-green);
+        }
+        
+        .plant-modal-actions {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: var(--light-gray);
+            padding: 12px 20px;
+            border-radius: var(--radius);
+        }
+        
+        .quantity-btn-modal {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--dark);
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Responsive Design */
@@ -891,13 +1319,30 @@
                 gap: 40px;
             }
             
+            .checkout-container {
+                max-width: 95%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .plant-modal-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .plant-modal-main-image {
+                height: 300px;
+            }
+            
             .section-padding {
                 padding: 60px 0;
             }
         }
         
         @media (max-width: 480px) {
-            .plants-grid, .categories-grid {
+            .plants-grid, .categories-grid, .gallery-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -909,9 +1354,29 @@
                 font-size: 1.75rem;
             }
             
+            .plant-modal-actions {
+                flex-direction: column;
+            }
+            
             .btn {
                 padding: 10px 20px;
             }
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--light-green);
+            border-top: 4px solid var(--primary-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Toast Notification */
@@ -934,6 +1399,24 @@
             transform: translateY(0);
             opacity: 1;
         }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-green);
+        }
     </style>
 </head>
 <body>
@@ -942,7 +1425,7 @@
         <div class="container header-container">
             <a href="#" class="logo">
                 <i class="fas fa-leaf"></i>
-                <span>Pépinière Benslimane</span>
+                <span>Pépinière Verte</span>
             </a>
             
             <nav>
@@ -950,6 +1433,7 @@
                     <li><a href="#home" class="nav-link">Accueil</a></li>
                     <li><a href="#plants" class="nav-link">Nos Plantes</a></li>
                     <li><a href="#categories" class="nav-link">Catégories</a></li>
+                    <li><a href="#gallery" class="nav-link">Galerie</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -970,31 +1454,37 @@
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1>Votre Pépinière Spécialisée au Maroc</h1>
-                <p>Découvrez notre large sélection de plantes, palmiers, arbres fruitiers et oliviers. Qualité garantie et prix compétitifs.</p>
+                <h1>Créez Votre Oasis Verte</h1>
+                <p>Découvrez notre collection exclusive de plantes d'intérieur et d'extérieur, soigneusement sélectionnées pour apporter la nature dans votre espace de vie.</p>
                 <div class="hero-buttons">
-                    <a href="#plants" class="btn btn-primary">Voir les Produits</a>
-                    <a href="#contact" class="btn btn-secondary">Demander un Devis</a>
+                    <a href="#plants" class="btn btn-primary">Explorer la Collection</a>
+                    <a href="#contact" class="btn btn-secondary">Contactez-nous</a>
                 </div>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <h3>50+</h3>
+                        <h3>500+</h3>
                         <p>Espèces de Plantes</p>
                     </div>
                     <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Années d'Expérience</p>
+                        <h3>10K+</h3>
+                        <p>Clients Satisfaits</p>
                     </div>
                     <div class="stat-item">
-                        <h3>30+</h3>
+                        <h3>50+</h3>
                         <p>Villes Desservies</p>
                     </div>
                 </div>
             </div>
             
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pépinière Benslimane">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Collection de plantes d'intérieur">
+                <div class="floating-plants plant-1">
+                    <i class="fas fa-seedling" style="font-size: 3rem; color: var(--primary-green);"></i>
+                </div>
+                <div class="floating-plants plant-2">
+                    <i class="fas fa-leaf" style="font-size: 2.5rem; color: var(--secondary-green);"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -1004,51 +1494,91 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nos Catégories</h2>
-                <p>Découvrez notre gamme complète de produits horticoles</p>
+                <p>Explorez notre vaste collection organisée par type de plantes</p>
             </div>
             
             <div class="categories-grid">
                 <!-- Catégorie 1 -->
-                <div class="category-card" data-category="palmiers">
+                <div class="category-card" data-category="interior">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1574197634777-6bfc8ef37f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Palmiers">
+                        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantes d'intérieur">
                     </div>
                     <div class="category-content">
-                        <h3>Palmiers</h3>
-                        <p>Palmiers nains, moyens et de grande taille pour tous vos projets d'aménagement.</p>
+                        <h3>Plantes d'Intérieur</h3>
+                        <p>Purifiez votre air et embellissez votre intérieur avec nos plantes adaptées aux espaces fermés.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
                     </div>
                 </div>
                 
                 <!-- Catégorie 2 -->
-                <div class="category-card" data-category="fruitiers">
+                <div class="category-card" data-category="exterior">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arbres fruitiers">
+                        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantes d'extérieur">
                     </div>
                     <div class="category-content">
-                        <h3>Arbres Fruitiers</h3>
-                        <p>Citronniers, orangers, figuiers, grenadiers et autres arbres fruitiers locaux.</p>
+                        <h3>Plantes d'Extérieur</h3>
+                        <p>Transformez votre jardin en un paradis végétal avec nos plantes résistantes et florissantes.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
                     </div>
                 </div>
                 
                 <!-- Catégorie 3 -->
-                <div class="category-card" data-category="oliviers">
+                <div class="category-card" data-category="flowers">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1581314877204-2b9aa0d690d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oliviers">
+                        <img src="https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fleurs">
                     </div>
                     <div class="category-content">
-                        <h3>Oliviers</h3>
-                        <p>Oliviers de différentes tailles et âges, pour production ou ornement.</p>
+                        <h3>Fleurs</h3>
+                        <p>Ajoutez de la couleur et du parfum à votre environnement avec notre sélection de fleurs.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
                     </div>
                 </div>
                 
                 <!-- Catégorie 4 -->
-                <div class="category-card" data-category="gazon">
+                <div class="category-card" data-category="fruit-trees">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1542353436-312f0e1f67ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gazon">
+                        <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arbres fruitiers">
                     </div>
                     <div class="category-content">
-                        <h3>Gazon et Plantes Couvre-sol</h3>
-                        <p>Gazon en rouleaux et plantes couvre-sol pour espaces verts et jardins.</p>
+                        <h3>Arbres Fruitiers</h3>
+                        <p>Cultivez vos propres fruits avec nos arbres fruitiers sains et productifs.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
+                    </div>
+                </div>
+                
+                <!-- Catégorie 5 -->
+                <div class="category-card" data-category="aromatic">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantes aromatiques">
+                    </div>
+                    <div class="category-content">
+                        <h3>Plantes Aromatiques</h3>
+                        <p>Parfumez votre jardin et cuisinez avec nos herbes aromatiques fraîches.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
+                    </div>
+                </div>
+                
+                <!-- Catégorie 6 -->
+                <div class="category-card" data-category="cactus">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cactus et succulentes">
+                    </div>
+                    <div class="category-content">
+                        <h3>Cactus & Succulentes</h3>
+                        <p>Des plantes résistantes et décoratives, parfaites pour les débutants et les collectionneurs.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
+                    </div>
+                </div>
+                
+                <!-- Catégorie 7 -->
+                <div class="category-card" data-category="rare">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantes rares">
+                    </div>
+                    <div class="category-content">
+                        <h3>Plantes Rares & Collection</h3>
+                        <p>Découvrez nos espèces rares et uniques pour les passionnés de botanique.</p>
+                        <a href="#plants" class="btn btn-secondary" style="padding: 8px 20px;">Voir les plantes</a>
                     </div>
                 </div>
             </div>
@@ -1059,20 +1589,95 @@
     <section class="featured-plants section-padding" id="plants">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Produits Phares</h2>
-                <p>Des plantes de qualité aux prix compétitifs du marché marocain</p>
+                <h2>Notre Sélection de Plantes</h2>
+                <p>Découvrez nos meilleures plantes, soigneusement sélectionnées pour leur qualité et leur beauté</p>
             </div>
             
             <div class="plants-filter">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="palmiers">Palmiers</button>
-                <button class="filter-btn" data-filter="fruitiers">Arbres Fruitiers</button>
-                <button class="filter-btn" data-filter="oliviers">Oliviers</button>
-                <button class="filter-btn" data-filter="gazon">Gazon & Couvre-sol</button>
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="interior">Intérieur</button>
+                <button class="filter-btn" data-filter="exterior">Extérieur</button>
+                <button class="filter-btn" data-filter="flowers">Fleurs</button>
+                <button class="filter-btn" data-filter="fruit-trees">Arbres Fruitiers</button>
+                <button class="filter-btn" data-filter="aromatic">Aromatiques</button>
+                <button class="filter-btn" data-filter="cactus">Cactus</button>
+                <button class="filter-btn" data-filter="rare">Rares</button>
             </div>
             
             <div class="plants-grid" id="plantsGrid">
-                <!-- Les plantes seront chargées dynamiquement -->
+                <!-- Les plantes seront chargées dynamiquement via JavaScript -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn btn-primary" id="loadMorePlants">
+                    <i class="fas fa-plus"></i> Charger Plus de Plantes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Galerie</h2>
+                <p>Découvrez nos réalisations et projets de jardinage</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Projet 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jardin moderne">
+                    <div class="gallery-overlay">
+                        <h3>Jardin Moderne</h3>
+                        <p>Design contemporain avec plantes architecturales</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Terrase végétalisée">
+                    <div class="gallery-overlay">
+                        <h3>Terrasse Végétalisée</h3>
+                        <p>Transformation d'une terrasse en oasis urbaine</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Avant/Après jardin">
+                    <div class="gallery-overlay">
+                        <h3>Transformation Complète</h3>
+                        <p>De l'espace vide au jardin luxuriant</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563302111-eab4b145e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mur végétal">
+                    <div class="gallery-overlay">
+                        <h3>Mur Végétal Intérieur</h3>
+                        <p>Création d'un mur vivant pour un espace bureau</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jardin aromatique">
+                    <div class="gallery-overlay">
+                        <h3>Jardin Aromatique</h3>
+                        <p>Création d'un jardin d'herbes pour la cuisine</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Collection de cactus">
+                    <div class="gallery-overlay">
+                        <h3>Collection de Cactus</h3>
+                        <p>Aménagement d'une collection pour un passionné</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1082,13 +1687,13 @@
         <div class="container">
             <div class="section-title">
                 <h2>Contactez-Nous</h2>
-                <p>Demandez un devis ou posez vos questions à notre équipe</p>
+                <p>Nous sommes à votre écoute pour tous vos projets de jardinage</p>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Notre Pépinière</h3>
-                    <p>Spécialistes en plantes ornementales et arbres fruitiers depuis plus de 15 ans. Nous fournissons particuliers, paysagistes et promoteurs immobiliers.</p>
+                    <h3>Parlons de Votre Projet Vert</h3>
+                    <p>Que vous ayez besoin de conseils pour choisir vos plantes ou que vous planifiez un aménagement complet, notre équipe d'experts est là pour vous accompagner.</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
@@ -1096,8 +1701,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Adresse</h4>
-                                <p>Route de Casablanca, Benslimane, Maroc</p>
+                                <h4>Notre Adresse</h4>
+                                <p>123 Rue des Jardins, Alger Centre, Algérie</p>
                             </div>
                         </div>
                         
@@ -1107,7 +1712,17 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Téléphone</h4>
-                                <p>+212 5 22 98 76 54</p>
+                                <p>+213 123 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>contact@pepiniereverte.dz</p>
                             </div>
                         </div>
                         
@@ -1116,21 +1731,22 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Horaires d'Ouverture</h4>
-                                <p>Lundi - Samedi: 8h00 - 19h00<br>Dimanche: 9h00 - 13h00</p>
+                                <h4>Heures d'Ouverture</h4>
+                                <p>Lundi - Samedi: 8h00 - 18h00</p>
+                                <p>Dimanche: 9h00 - 13h00</p>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="https://wa.me/212522987654" target="_blank" class="whatsapp-btn">
+                    <a href="https://wa.me/213123456789" target="_blank" class="whatsapp-btn">
                         <i class="fab fa-whatsapp"></i>
-                        Contact WhatsApp
+                        Discuter sur WhatsApp
                     </a>
                 </div>
                 
                 <div class="contact-form-container">
                     <form id="contactForm" class="contact-form">
-                        <h3>Demande de Devis</h3>
+                        <h3>Envoyez-nous un Message</h3>
                         
                         <div class="form-group">
                             <label for="contactName">Nom Complet *</label>
@@ -1138,35 +1754,49 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="contactEmail">Email *</label>
+                            <label for="contactEmail">Adresse Email *</label>
                             <input type="email" id="contactEmail" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="contactPhone">Téléphone *</label>
-                            <input type="tel" id="contactPhone" class="form-control" required>
+                            <label for="contactPhone">Numéro de Téléphone</label>
+                            <input type="tel" id="contactPhone" class="form-control">
                         </div>
                         
                         <div class="form-group">
-                            <label for="contactSubject">Type de Projet</label>
+                            <label for="contactSubject">Sujet</label>
                             <select id="contactSubject" class="form-control">
-                                <option value="">Sélectionnez</option>
-                                <option value="particulier">Particulier</option>
-                                <option value="professionnel">Professionnel</option>
-                                <option value="promoteur">Promoteur immobilier</option>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="advice">Conseil sur les plantes</option>
+                                <option value="project">Projet d'aménagement</option>
+                                <option value="order">Suivi de commande</option>
+                                <option value="other">Autre</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="contactMessage">Votre Demande *</label>
-                            <textarea id="contactMessage" class="form-control" rows="5" placeholder="Décrivez votre projet, les plantes qui vous intéressent, la surface à aménager..." required></textarea>
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" class="form-control" rows="5" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Envoyer la Demande
+                            <i class="fas fa-paper-plane"></i> Envoyer le Message
                         </button>
                     </form>
                 </div>
+            </div>
+            
+            <div class="map-container">
+                <!-- Google Maps Integration -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.715103898738!2d3.058707315720676!3d36.75324797996293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb2c3e6c8b5d7%3A0x8a5c5b5b5b5b5b5b!2sAlger%20Centre%2C%20Alg%C3%A9rie!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -1176,50 +1806,54 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h4>Pépinière Benslimane</h4>
-                    <p>Votre partenaire de confiance pour tous vos projets d'aménagement paysager et horticole.</p>
+                    <h4>Pépinière Verte</h4>
+                    <p>Votre partenaire de confiance pour tous vos projets de jardinage et d'aménagement végétal.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Produits</h4>
+                    <h4>Liens Rapides</h4>
                     <ul class="footer-links">
-                        <li><a href="#" data-category="palmiers">Palmiers</a></li>
-                        <li><a href="#" data-category="fruitiers">Arbres Fruitiers</a></li>
-                        <li><a href="#" data-category="oliviers">Oliviers</a></li>
-                        <li><a href="#" data-category="gazon">Gazon</a></li>
-                        <li><a href="#" data-category="all">Tous les produits</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Conseil en aménagement</a></li>
-                        <li><a href="#">Livraison sur site</a></li>
-                        <li><a href="#">Plantation professionnelle</a></li>
-                        <li><a href="#">Entretien de jardins</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Informations</h4>
-                    <ul class="footer-links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#plants">Nos Plantes</a></li>
+                        <li><a href="#categories">Catégories</a></li>
+                        <li><a href="#gallery">Galerie</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#contact">Demande de devis</a></li>
-                        <li><a href="#">Conditions de vente</a></li>
-                        <li><a href="#">Livraison</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Catégories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-category="interior">Plantes d'Intérieur</a></li>
+                        <li><a href="#" data-category="exterior">Plantes d'Extérieur</a></li>
+                        <li><a href="#" data-category="flowers">Fleurs</a></li>
+                        <li><a href="#" data-category="fruit-trees">Arbres Fruitiers</a></li>
+                        <li><a href="#" data-category="aromatic">Plantes Aromatiques</a></li>
+                        <li><a href="#" data-category="cactus">Cactus & Succulentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Abonnez-vous pour recevoir nos conseils de jardinage et nos offres spéciales.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Votre email" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 12px 20px;">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Pépinière Benslimane. Tous droits réservés.</p>
-                <p>SIRET: 123 456 789 00000</p>
+                <p>&copy; 2024 Pépinière Verte. Tous droits réservés.</p>
+                <p>Conçu avec <i class="fas fa-heart" style="color: #EF4444;"></i> pour les amoureux des plantes</p>
             </div>
         </div>
     </footer>
@@ -1234,6 +1868,7 @@
         </div>
         
         <div class="cart-items" id="cartItems">
+            <!-- Les articles du panier seront ajoutés ici dynamiquement -->
             <div class="empty-cart" id="emptyCart" style="text-align: center; padding: 60px 20px;">
                 <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--light-gray); margin-bottom: 20px;"></i>
                 <h4 style="margin-bottom: 10px;">Votre panier est vide</h4>
@@ -1244,12 +1879,209 @@
         <div class="cart-footer" id="cartFooter" style="display: none;">
             <div class="cart-total">
                 <span>Total:</span>
-                <span id="cartTotalPrice">0 MAD</span>
+                <span id="cartTotalPrice">0 DZD</span>
             </div>
             <button class="btn btn-primary checkout-btn" id="checkoutButton">
-                <i class="fas fa-whatsapp"></i> Commander via WhatsApp
+                <i class="fas fa-shopping-bag"></i> Passer la Commande
             </button>
         </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h3>Finaliser la Commande</h3>
+                <button class="close-cart" id="closeCheckout">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="checkout-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Informations</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Livraison</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Paiement</span>
+                </div>
+            </div>
+            
+            <form id="checkoutForm">
+                <!-- Step 1: Customer Information -->
+                <div class="checkout-content" id="step1">
+                    <h4 style="margin-bottom: 24px;">Informations Personnelles</h4>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelCheckout">
+                            Annuler
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextStep1">
+                            Suivant <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Delivery Information -->
+                <div class="checkout-content" id="step2" style="display: none;">
+                    <h4 style="margin-bottom: 24px;">Informations de Livraison</h4>
+                    
+                    <div class="form-group">
+                        <label for="address">Adresse Complète *</label>
+                        <textarea id="address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">Ville *</label>
+                            <select id="city" class="city-select" required>
+                                <option value="">Sélectionnez votre ville</option>
+                                <option value="algiers">Alger - 500 DZD</option>
+                                <option value="blida">Blida - 600 DZD</option>
+                                <option value="tiziouzou">Tizi Ouzou - 700 DZD</option>
+                                <option value="constantine">Constantine - 800 DZD</option>
+                                <option value="oran">Oran - 900 DZD</option>
+                                <option value="annaba">Annaba - 850 DZD</option>
+                                <option value="batna">Batna - 750 DZD</option>
+                                <option value="setif">Sétif - 700 DZD</option>
+                                <option value="other">Autre ville - 1000 DZD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">Code Postal</label>
+                            <input type="text" id="zipCode" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-cost" id="deliveryCost" style="display: none;">
+                        <p>Frais de livraison : <strong id="deliveryPrice">0 DZD</strong></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notes de livraison (optionnel)</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Instructions spéciales pour la livraison..."></textarea>
+                    </div>
+                    
+                    <div class="checkout-summary">
+                        <h4 style="margin-bottom: 20px;">Récapitulatif de la Commande</h4>
+                        <div class="summary-item">
+                            <span>Sous-total</span>
+                            <span id="summarySubtotal">0 DZD</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Livraison</span>
+                            <span id="summaryDelivery">0 DZD</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="summaryTotal">0 DZD</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button type="button" class="btn btn-secondary" id="prevStep2">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextStep2">
+                            Suivant <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Payment -->
+                <div class="checkout-content" id="step3" style="display: none;">
+                    <h4 style="margin-bottom: 24px;">Méthode de Paiement</h4>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method" data-method="cash">
+                            <div class="payment-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h5>Paiement à la Livraison</h5>
+                            <p>Payez en espèces à la réception</p>
+                        </div>
+                        
+                        <div class="payment-method" data-method="card">
+                            <div class="payment-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h5>Carte Bancaire</h5>
+                            <p>Paiement sécurisé en ligne</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-summary">
+                        <h4 style="margin-bottom: 20px;">Détails de la Commande</h4>
+                        <div class="summary-item">
+                            <span>Articles</span>
+                            <span id="finalItems">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Sous-total</span>
+                            <span id="finalSubtotal">0 DZD</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Livraison</span>
+                            <span id="finalDelivery">0 DZD</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total à Payer</span>
+                            <span id="finalTotal">0 DZD</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 30px;">
+                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                            <input type="checkbox" id="terms" required style="margin-top: 4px;">
+                            <label for="terms" style="font-size: 0.875rem;">
+                                J'accepte les <a href="#" style="color: var(--primary-green);">conditions générales de vente</a> et la <a href="#" style="color: var(--primary-green);">politique de confidentialité</a> *
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button type="button" class="btn btn-secondary" id="prevStep3">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitOrder">
+                            <i class="fas fa-check"></i> Confirmer la Commande
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Plant Details Modal -->
+    <div class="plant-modal" id="plantModal">
+        <!-- Le contenu sera injecté dynamiquement via JavaScript -->
     </div>
 
     <!-- Overlay for modals -->
@@ -1260,133 +2092,218 @@
 
     <!-- JavaScript -->
     <script>
-        // Données des plantes RÉELLES avec prix du marché marocain
+        // Données des plantes (simulées)
         const plantsData = [
             {
                 id: 1,
-                name_fr: "Palmier Nain (Phoenix roebelenii)",
-                price: 450,
-                category: "palmiers",
-                image: "https://images.unsplash.com/photo-1574197634777-6bfc8ef37f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Palmier nain d'intérieur/extérieur, parfait pour terrasses et jardins. Hauteur: 80-120 cm.",
-                availability: 25,
-                height: "80-120 cm"
+                name: "Monstera Deliciosa",
+                name_fr: "Monstera Deliciosa",
+                price: 4500,
+                category: "interior",
+                images: [
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1563302111-eab4b145e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "La Monstera Deliciosa, également connue sous le nom de plante fromage suisse, est une plante d'intérieur tropicale très populaire pour ses grandes feuilles découpées caractéristiques.",
+                care: {
+                    water: "Arrosage modéré, laissez sécher le substrat entre deux arrosages",
+                    light: "Lumière indirecte vive, évitez le soleil direct",
+                    temperature: "18-27°C, protégez des courants d'air",
+                    humidity: "Humidité moyenne à élevée"
+                },
+                availability: 15,
+                difficulty: "Facile",
+                height: "60-120 cm"
             },
             {
                 id: 2,
-                name_fr: "Palmier Washingtonia",
-                price: 1200,
-                category: "palmiers",
-                image: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Palmier résistant adapté au climat marocain. Hauteur: 2-3 mètres.",
-                availability: 15,
-                height: "2-3 m"
+                name: "Lavande Anglaise",
+                name_fr: "Lavandula Angustifolia",
+                price: 2500,
+                category: "exterior",
+                images: [
+                    "https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "La lavande anglaise est un arbuste aromatique méditerranéen célèbre pour ses épis floraux parfumés et ses propriétés relaxantes.",
+                care: {
+                    water: "Arrosage léger, supporte bien la sécheresse",
+                    light: "Plein soleil, minimum 6 heures par jour",
+                    temperature: "-15 à 35°C, très rustique",
+                    soil: "Sol bien drainé, plutôt pauvre et calcaire"
+                },
+                availability: 8,
+                difficulty: "Facile",
+                height: "40-80 cm"
             },
             {
                 id: 3,
-                name_fr: "Citronnier 4 Saisons",
-                price: 280,
-                category: "fruitiers",
-                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Citronnier productif, fruits toute l'année. En pot 30L.",
-                availability: 40,
-                height: "1.2-1.5 m"
+                name: "Orchidée Phalaenopsis",
+                name_fr: "Orchidée Papillon",
+                price: 3500,
+                category: "flowers",
+                images: [
+                    "https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "L'orchidée papillon est une plante d'intérieur florifère aux fleurs élégantes qui durent plusieurs mois.",
+                care: {
+                    water: "Arrosage par immersion hebdomadaire",
+                    light: "Lumière tamisée, pas de soleil direct",
+                    temperature: "18-25°C, éviter les variations brusques",
+                    humidity: "Humidité élevée (60-80%)"
+                },
+                availability: 12,
+                difficulty: "Intermédiaire",
+                height: "40-70 cm"
             },
             {
                 id: 4,
-                name_fr: "Oranger Maroc Late",
-                price: 320,
-                category: "fruitiers",
-                image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Variété marocaine tardive, fruits sucrés. En pot 40L.",
-                availability: 30,
-                height: "1.5-1.8 m"
+                name: "Citronnier 4 Saisons",
+                name_fr: "Citrus Limon",
+                price: 8500,
+                category: "fruit-trees",
+                images: [
+                    "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Le citronnier 4 saisons produit des fruits pratiquement toute l'année. Parfait pour la culture en pot ou en pleine terre.",
+                care: {
+                    water: "Arrosage régulier en été, réduit en hiver",
+                    light: "Plein soleil, minimum 8 heures par jour",
+                    temperature: "5-30°C, à rentrer si < 0°C",
+                    fertilizer: "Engrais spécial agrumes de mars à octobre"
+                },
+                availability: 6,
+                difficulty: "Moyenne",
+                height: "80-150 cm"
             },
             {
                 id: 5,
-                name_fr: "Figuier (Ficus carica)",
-                price: 220,
-                category: "fruitiers",
-                image: "https://images.unsplash.com/photo-1590080667306-eb444a5c5c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Figuier résistant à la sécheresse, production abondante.",
-                availability: 35,
-                height: "1-1.5 m"
+                name: "Basilic Grand Vert",
+                name_fr: "Ocimum Basilicum",
+                price: 800,
+                category: "aromatic",
+                images: [
+                    "https://images.unsplash.com/photo-1563302111-eab4b145e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Le basilic est une plante aromatique indispensable en cuisine méditerranéenne, particulièrement apprécié avec les tomates.",
+                care: {
+                    water: "Arrosage régulier pour garder le sol frais",
+                    light: "Plein soleil à mi-ombre",
+                    temperature: "15-25°C, sensible au froid",
+                    harvest: "Couper les tiges régulièrement pour favoriser la croissance"
+                },
+                availability: 25,
+                difficulty: "Facile",
+                height: "30-60 cm"
             },
             {
                 id: 6,
-                name_fr: "Grenadier (Punica granatum)",
-                price: 250,
-                category: "fruitiers",
-                image: "https://images.unsplash.com/photo-1592921450465-f7e2d3e7b39a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Arbre fruitier décoratif, fruits riches en antioxydants.",
-                availability: 28,
-                height: "1.2-1.6 m"
+                name: "Cactus Cierge",
+                name_fr: "Cereus Peruvianus",
+                price: 2200,
+                category: "cactus",
+                images: [
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Cactus colonnaire à croissance rapide, très résistant et parfait pour les débutants. Produit de grandes fleurs nocturnes.",
+                care: {
+                    water: "Arrosage modéré en été, très réduit en hiver",
+                    light: "Plein soleil, supporte la lumière directe",
+                    temperature: "10-35°C, minimum 5°C",
+                    soil: "Mélange drainant spécial cactus"
+                },
+                availability: 18,
+                difficulty: "Très facile",
+                height: "40-200 cm"
             },
             {
                 id: 7,
-                name_fr: "Olivier d'Ornement (50 ans)",
-                price: 3800,
-                category: "oliviers",
-                image: "https://images.unsplash.com/photo-1581314877204-2b9aa0d690d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Olivier mature au tronc sculptural, parfait pour décoration.",
-                availability: 8,
-                height: "2.5-3 m"
+                name: "Alocasia Polly",
+                name_fr: "Alocasia Amazonica",
+                price: 5200,
+                category: "rare",
+                images: [
+                    "https://images.unsplash.com/photo-1563302111-eab4b145e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Plante tropicale rare aux feuilles vert foncé nervurées de blanc. Une pièce maîtresse pour tout collectionneur.",
+                care: {
+                    water: "Maintenir le substrat légèrement humide",
+                    light: "Lumière indirecte vive, pas de soleil direct",
+                    temperature: "18-25°C, minimum 15°C",
+                    humidity: "Humidité élevée (>60%) indispensable"
+                },
+                availability: 3,
+                difficulty: "Difficile",
+                height: "50-80 cm"
             },
             {
                 id: 8,
-                name_fr: "Olivier Jeune (5 ans)",
-                price: 650,
-                category: "oliviers",
-                image: "https://images.unsplash.com/photo-1561046882-7dff7378c0c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Olivier jeune pour plantation en masse ou début de production.",
-                availability: 50,
-                height: "1.5-1.8 m"
+                name: "Rosier Arbustif",
+                name_fr: "Rosa 'Peace'",
+                price: 3800,
+                category: "flowers",
+                images: [
+                    "https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Rosier célèbre pour ses grandes fleurs jaunes bordées de rose. Floraison abondante et parfumée.",
+                care: {
+                    water: "Arrosage régulier sans mouiller le feuillage",
+                    light: "Plein soleil (6-8 heures minimum)",
+                    temperature: "Rustique jusqu'à -15°C",
+                    pruning: "Taille annuelle en fin d'hiver"
+                },
+                availability: 10,
+                difficulty: "Moyenne",
+                height: "100-150 cm"
             },
             {
                 id: 9,
-                name_fr: "Gazon en Rouleaux (m²)",
-                price: 45,
-                category: "gazon",
-                image: "https://images.unsplash.com/photo-1542353436-312f0e1f67ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Gazon de qualité professionnelle, prêt à poser.",
-                availability: 500,
-                height: "4-6 cm"
+                name: "Menthe Marocaine",
+                name_fr: "Mentha Spicata",
+                price: 700,
+                category: "aromatic",
+                images: [
+                    "https://images.unsplash.com/photo-1563302111-eab4b145e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Menthe très aromatique parfaite pour le thé à la menthe traditionnel. Croissance vigoureuse.",
+                care: {
+                    water: "Sol toujours frais, arrosage régulier",
+                    light: "Soleil à mi-ombre",
+                    temperature: "Rustique, supporte jusqu'à -10°C",
+                    container: "Planter en pot pour contrôler l'expansion"
+                },
+                availability: 30,
+                difficulty: "Très facile",
+                height: "40-80 cm"
             },
             {
                 id: 10,
-                name_fr: "Lierre (Hedera helix)",
-                price: 35,
-                category: "gazon",
-                image: "https://images.unsplash.com/photo-1599140786121-7c3c1c6d6e2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Plante couvre-sol pour ombre et zones difficiles.",
-                availability: 200,
-                height: "20-30 cm"
-            },
-            {
-                id: 11,
-                name_fr: "Palmier Canariensis (Jeune)",
-                price: 850,
-                category: "palmiers",
-                image: "https://images.unsplash.com/photo-1574197634777-6bfc8ef37f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Palmier des Canaries, croissance rapide, très ornemental.",
-                availability: 20,
-                height: "1.5-2 m"
-            },
-            {
-                id: 12,
-                name_fr: "Mandarinière Satsuma",
-                price: 310,
-                category: "fruitiers",
-                image: "https://images.unsplash.com/photo-1590080667306-eb444a5c5c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                description: "Mandarines sans pépins, récolte hivernale.",
-                availability: 25,
-                height: "1.3-1.6 m"
+                name: "Olivier Centenaire",
+                name_fr: "Olea Europaea",
+                price: 25000,
+                category: "rare",
+                images: [
+                    "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Olivier d'ornement au tronc noueux et sculptural, symbole de paix et de longévité.",
+                care: {
+                    water: "Très peu d'arrosage une fois établi",
+                    light: "Plein soleil exclusivement",
+                    temperature: "-10 à 40°C, très résistant",
+                    growth: "Croissance lente, taille légère au printemps"
+                },
+                availability: 2,
+                difficulty: "Facile",
+                height: "200-300 cm"
             }
         ];
 
         // Panier d'achat
         let cart = JSON.parse(localStorage.getItem('plantCart')) || [];
         let currentFilter = 'all';
+        let currentStep = 1;
+        let deliveryCost = 0;
+        let selectedPaymentMethod = null;
 
         // DOM Elements
         const cartButton = document.getElementById('cartButton');
@@ -1397,11 +2314,16 @@
         const cartFooter = document.getElementById('cartFooter');
         const emptyCart = document.getElementById('emptyCart');
         const checkoutButton = document.getElementById('checkoutButton');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckout = document.getElementById('closeCheckout');
+        const cancelCheckout = document.getElementById('cancelCheckout');
         const overlay = document.getElementById('overlay');
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const navLinks = document.querySelector('.nav-links');
         const plantsGrid = document.getElementById('plantsGrid');
         const filterButtons = document.querySelectorAll('.filter-btn');
+        const loadMorePlants = document.getElementById('loadMorePlants');
+        const plantModal = document.getElementById('plantModal');
         const toast = document.getElementById('toast');
 
         // Initialisation
@@ -1409,6 +2331,7 @@
             updateCartCount();
             renderPlants();
             setupEventListeners();
+            setupCheckoutSteps();
         });
 
         // Configuration des écouteurs d'événements
@@ -1421,7 +2344,9 @@
             closeCart.addEventListener('click', closeCartModal);
             
             // Checkout
-            checkoutButton.addEventListener('click', checkoutViaWhatsApp);
+            checkoutButton.addEventListener('click', openCheckout);
+            closeCheckout.addEventListener('click', closeCheckoutModal);
+            cancelCheckout.addEventListener('click', closeCheckoutModal);
             
             // Filtres des plantes
             filterButtons.forEach(button => {
@@ -1433,18 +2358,28 @@
                 });
             });
             
+            // Charger plus de plantes
+            loadMorePlants.addEventListener('click', loadMorePlantsHandler);
+            
             // Overlay
             overlay.addEventListener('click', () => {
                 closeCartModal();
+                closeCheckoutModal();
+                closePlantModal();
             });
             
             // Contact form
             document.getElementById('contactForm').addEventListener('submit', handleContactSubmit);
             
+            // Newsletter form
+            document.getElementById('newsletterForm').addEventListener('submit', handleNewsletterSubmit);
+            
             // Fermer le modal avec Escape
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeCartModal();
+                    closeCheckoutModal();
+                    closePlantModal();
                 }
             });
             
@@ -1474,22 +2409,30 @@
                     navLinks.classList.remove('active');
                 });
             });
+        }
+
+        // Configuration des étapes de checkout
+        function setupCheckoutSteps() {
+            // Navigation entre les étapes
+            document.getElementById('nextStep1').addEventListener('click', () => goToStep(2));
+            document.getElementById('nextStep2').addEventListener('click', () => goToStep(3));
+            document.getElementById('prevStep2').addEventListener('click', () => goToStep(1));
+            document.getElementById('prevStep3').addEventListener('click', () => goToStep(2));
             
-            // Filtrer par catégorie depuis le footer
-            document.querySelectorAll('.footer-links a[data-category]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const category = this.dataset.category;
-                    
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    document.querySelector(`.filter-btn[data-filter="${category}"]`).classList.add('active');
-                    currentFilter = category;
-                    renderPlants();
-                    
-                    // Scroll to plants section
-                    document.querySelector('#plants').scrollIntoView({ behavior: 'smooth' });
+            // Méthodes de paiement
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', () => {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                    method.classList.add('active');
+                    selectedPaymentMethod = method.dataset.method;
                 });
             });
+            
+            // Calcul des frais de livraison
+            document.getElementById('city').addEventListener('change', updateDeliveryCost);
+            
+            // Soumission de la commande
+            document.getElementById('checkoutForm').addEventListener('submit', handleOrderSubmit);
         }
 
         // Afficher le menu mobile
@@ -1512,35 +2455,166 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Commander via WhatsApp
-        function checkoutViaWhatsApp() {
+        // Ouvrir le checkout
+        function openCheckout() {
             if (cart.length === 0) {
                 showToast('Votre panier est vide', 'error');
                 return;
             }
             
-            let message = "Bonjour, je souhaite commander les produits suivants:\n\n";
+            closeCartModal();
+            checkoutModal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateCheckoutSummary();
+        }
+
+        // Fermer le checkout
+        function closeCheckoutModal() {
+            checkoutModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            resetCheckoutForm();
+        }
+
+        // Ouvrir les détails d'une plante
+        function openPlantModal(plantId) {
+            const plant = plantsData.find(p => p.id === plantId);
+            if (!plant) return;
             
-            cart.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} x${item.quantity} = ${(item.price * item.quantity).toLocaleString()} MAD\n`;
+            const modalContent = `
+                <div class="plant-modal-content">
+                    <button class="close-cart" id="closePlantModal" style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                    <div class="plant-modal-images">
+                        <div class="plant-modal-main-image">
+                            <img src="${plant.images[0]}" alt="${plant.name_fr}" id="mainPlantImage">
+                        </div>
+                        <div class="plant-modal-thumbnails">
+                            ${plant.images.map((img, index) => `
+                                <div class="plant-modal-thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}">
+                                    <img src="${img}" alt="${plant.name_fr} - Vue ${index + 1}">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="plant-modal-info">
+                        <h2>${plant.name_fr}</h2>
+                        <div class="plant-modal-price">${plant.price.toLocaleString()} DZD</div>
+                        
+                        <div class="availability ${plant.availability > 0 ? 'available' : 'unavailable'}">
+                            <i class="fas ${plant.availability > 0 ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                            ${plant.availability > 0 ? 'En stock' : 'Rupture de stock'}
+                            ${plant.availability > 0 ? `(${plant.availability} disponibles)` : ''}
+                        </div>
+                        
+                        <div class="plant-modal-description">
+                            <p>${plant.description}</p>
+                            <p><strong>Difficulté:</strong> ${plant.difficulty}</p>
+                            <p><strong>Hauteur:</strong> ${plant.height}</p>
+                        </div>
+                        
+                        <div class="care-instructions">
+                            <h4><i class="fas fa-seedling"></i> Instructions d'Entretien</h4>
+                            <div class="care-item">
+                                <i class="fas fa-tint"></i>
+                                <span><strong>Arrosage:</strong> ${plant.care.water}</span>
+                            </div>
+                            <div class="care-item">
+                                <i class="fas fa-sun"></i>
+                                <span><strong>Lumière:</strong> ${plant.care.light}</span>
+                            </div>
+                            <div class="care-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span><strong>Température:</strong> ${plant.care.temperature}</span>
+                            </div>
+                            ${plant.care.humidity ? `
+                            <div class="care-item">
+                                <i class="fas fa-cloud"></i>
+                                <span><strong>Humidité:</strong> ${plant.care.humidity}</span>
+                            </div>
+                            ` : ''}
+                            ${plant.care.soil ? `
+                            <div class="care-item">
+                                <i class="fas fa-mountain"></i>
+                                <span><strong>Sol:</strong> ${plant.care.soil}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+                        
+                        ${plant.availability > 0 ? `
+                        <div class="plant-modal-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn-modal" id="decreaseQuantity">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span id="plantQuantity">1</span>
+                                <button class="quantity-btn-modal" id="increaseQuantity">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button class="btn btn-primary" id="addToCartModal" data-plant-id="${plant.id}">
+                                <i class="fas fa-cart-plus"></i> Ajouter au Panier
+                            </button>
+                        </div>
+                        ` : `
+                        <button class="btn btn-secondary" disabled style="width: 100%;">
+                            <i class="fas fa-clock"></i> Bientôt Disponible
+                        </button>
+                        `}
+                    </div>
+                </div>
+            `;
+            
+            plantModal.innerHTML = modalContent;
+            plantModal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Écouteurs pour le modal des plantes
+            document.getElementById('closePlantModal').addEventListener('click', closePlantModal);
+            
+            // Changer les images miniatures
+            document.querySelectorAll('.plant-modal-thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    document.querySelectorAll('.plant-modal-thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('mainPlantImage').src = this.dataset.image;
+                });
             });
             
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            message += `\nTotal: ${total.toLocaleString()} MAD\n\n`;
-            message += "Merci de me contacter pour finaliser la commande.";
+            // Gérer la quantité
+            let quantity = 1;
+            document.getElementById('decreaseQuantity').addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    document.getElementById('plantQuantity').textContent = quantity;
+                }
+            });
             
-            const phoneNumber = "212522987654";
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            document.getElementById('increaseQuantity').addEventListener('click', () => {
+                if (quantity < plant.availability) {
+                    quantity++;
+                    document.getElementById('plantQuantity').textContent = quantity;
+                }
+            });
             
-            window.open(whatsappUrl, '_blank');
-            
-            // Vider le panier après commande
-            cart = [];
-            saveCart();
-            updateCartCount();
-            closeCartModal();
-            showToast('Redirection vers WhatsApp', 'success');
+            // Ajouter au panier depuis le modal
+            document.getElementById('addToCartModal').addEventListener('click', () => {
+                addToCart(plant.id, quantity);
+                closePlantModal();
+                showToast(`${plant.name_fr} ajouté au panier`, 'success');
+            });
+        }
+
+        // Fermer les détails d'une plante
+        function closePlantModal() {
+            plantModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         // Afficher les plantes
@@ -1551,57 +2625,88 @@
             
             plantsGrid.innerHTML = filteredPlants.map(plant => `
                 <div class="plant-card" data-category="${plant.category}">
-                    <div class="plant-image">
-                        <img src="${plant.image}" alt="${plant.name_fr}">
+                    ${plant.availability > 0 ? '' : '<div class="plant-badge">Rupture</div>'}
+                    <div class="plant-image" style="cursor: pointer;" onclick="openPlantModal(${plant.id})">
+                        <img src="${plant.images[0]}" alt="${plant.name_fr}">
                     </div>
                     <div class="plant-content">
                         <span class="plant-category">${getCategoryName(plant.category)}</span>
                         <h3 class="plant-title">${plant.name_fr}</h3>
-                        <p class="plant-description">${plant.description}</p>
+                        <p class="plant-description">${plant.description.substring(0, 100)}...</p>
+                        
+                        <div class="availability ${plant.availability > 0 ? 'available' : 'unavailable'}">
+                            <i class="fas ${plant.availability > 0 ? 'fa-check-circle' : 'fa-times-circle'}"></i>
+                            ${plant.availability > 0 ? 'En stock' : 'Rupture'}
+                        </div>
                         
                         <div class="plant-footer">
-                            <div class="plant-price">${plant.price.toLocaleString()} MAD</div>
+                            <div class="plant-price">${plant.price.toLocaleString()} DZD</div>
+                            ${plant.availability > 0 ? `
                             <button class="add-to-cart" data-plant-id="${plant.id}">
                                 <i class="fas fa-cart-plus"></i>
                             </button>
+                            ` : `
+                            <button class="add-to-cart" disabled style="opacity: 0.5;">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                            `}
                         </div>
                     </div>
                 </div>
             `).join('');
             
             // Ajouter les écouteurs d'événements pour les boutons "Ajouter au panier"
-            document.querySelectorAll('.add-to-cart').forEach(button => {
+            document.querySelectorAll('.add-to-cart:not([disabled])').forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const plantId = parseInt(button.dataset.plantId);
-                    addToCart(plantId);
-                    showToast('Produit ajouté au panier', 'success');
+                    addToCart(plantId, 1);
+                    showToast('Plante ajoutée au panier', 'success');
                 });
             });
         }
 
+        // Charger plus de plantes (simulé)
+        function loadMorePlantsHandler() {
+            showToast('Chargement de plus de plantes...', 'info');
+            setTimeout(() => {
+                showToast('Fonctionnalité à venir bientôt!', 'info');
+            }, 1000);
+        }
+
         // Ajouter au panier
-        function addToCart(plantId) {
+        function addToCart(plantId, quantity = 1) {
             const plant = plantsData.find(p => p.id === plantId);
-            if (!plant) return;
+            if (!plant || plant.availability < quantity) {
+                showToast('Stock insuffisant', 'error');
+                return;
+            }
             
             const existingItem = cart.find(item => item.id === plantId);
             
             if (existingItem) {
-                existingItem.quantity += 1;
+                if (existingItem.quantity + quantity > plant.availability) {
+                    showToast('Stock insuffisant pour cette quantité', 'error');
+                    return;
+                }
+                existingItem.quantity += quantity;
             } else {
                 cart.push({
                     id: plant.id,
                     name: plant.name_fr,
                     price: plant.price,
-                    image: plant.image,
-                    quantity: 1
+                    image: plant.images[0],
+                    quantity: quantity
                 });
             }
+            
+            // Mettre à jour le stock (simulé)
+            plant.availability -= quantity;
             
             saveCart();
             updateCartCount();
             renderCartItems();
+            showToast(`${quantity} × ${plant.name_fr} ajouté au panier`, 'success');
         }
 
         // Retirer du panier
@@ -1609,18 +2714,35 @@
             const itemIndex = cart.findIndex(item => item.id === plantId);
             if (itemIndex === -1) return;
             
+            const item = cart[itemIndex];
+            const plant = plantsData.find(p => p.id === plantId);
+            
+            // Restaurer le stock
+            if (plant) {
+                plant.availability += item.quantity;
+            }
+            
             cart.splice(itemIndex, 1);
             saveCart();
             updateCartCount();
             renderCartItems();
+            renderPlants(); // Mettre à jour l'affichage des disponibilités
             showToast('Article retiré du panier', 'info');
         }
 
         // Mettre à jour la quantité dans le panier
         function updateCartQuantity(plantId, newQuantity) {
             const item = cart.find(item => item.id === plantId);
+            const plant = plantsData.find(p => p.id === plantId);
             
-            if (!item) return;
+            if (!item || !plant) return;
+            
+            const quantityDifference = newQuantity - item.quantity;
+            
+            if (plant.availability < quantityDifference) {
+                showToast('Stock insuffisant', 'error');
+                return;
+            }
             
             if (newQuantity < 1) {
                 removeFromCart(plantId);
@@ -1628,9 +2750,12 @@
             }
             
             item.quantity = newQuantity;
+            plant.availability -= quantityDifference;
+            
             saveCart();
             updateCartCount();
             renderCartItems();
+            renderPlants(); // Mettre à jour l'affichage des disponibilités
         }
 
         // Afficher les articles du panier
@@ -1645,6 +2770,7 @@
             cartFooter.style.display = 'block';
             
             cartItems.innerHTML = cart.map(item => {
+                const plant = plantsData.find(p => p.id === item.id);
                 return `
                     <div class="cart-item">
                         <div class="cart-item-image">
@@ -1652,7 +2778,7 @@
                         </div>
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.name}</div>
-                            <div class="cart-item-price">${item.price.toLocaleString()} MAD</div>
+                            <div class="cart-item-price">${item.price.toLocaleString()} DZD</div>
                             <div class="cart-item-quantity">
                                 <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">
                                     <i class="fas fa-minus"></i>
@@ -1676,7 +2802,7 @@
         // Mettre à jour le total du panier
         function updateCartTotal() {
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            cartTotalPrice.textContent = `${total.toLocaleString()} MAD`;
+            cartTotalPrice.textContent = `${total.toLocaleString()} DZD`;
         }
 
         // Mettre à jour le compteur du panier
@@ -1688,6 +2814,245 @@
         // Sauvegarder le panier dans le localStorage
         function saveCart() {
             localStorage.setItem('plantCart', JSON.stringify(cart));
+        }
+
+        // Navigation entre les étapes du checkout
+        function goToStep(step) {
+            // Validation des étapes
+            if (step === 2 && !validateStep1()) return;
+            if (step === 3 && !validateStep2()) return;
+            
+            // Masquer toutes les étapes
+            document.querySelectorAll('.checkout-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Désactiver toutes les étapes
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Afficher l'étape courante
+            document.getElementById(`step${step}`).style.display = 'block';
+            document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+            
+            currentStep = step;
+            
+            // Mettre à jour le récapitulatif si on est à l'étape 2
+            if (step === 2) {
+                updateCheckoutSummary();
+            }
+        }
+
+        // Valider l'étape 1
+        function validateStep1() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!firstName || !lastName || !email || !phone) {
+                showToast('Veuillez remplir tous les champs obligatoires', 'error');
+                return false;
+            }
+            
+            if (!validateEmail(email)) {
+                showToast('Veuillez entrer une adresse email valide', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Valider l'étape 2
+        function validateStep2() {
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value;
+            
+            if (!address || !city) {
+                showToast('Veuillez remplir tous les champs obligatoires', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Mettre à jour les frais de livraison
+        function updateDeliveryCost() {
+            const citySelect = document.getElementById('city');
+            const selectedOption = citySelect.options[citySelect.selectedIndex];
+            
+            if (selectedOption.value) {
+                const priceText = selectedOption.text.split('-')[1]?.trim();
+                if (priceText) {
+                    deliveryCost = parseInt(priceText.replace(' DZD', '').trim());
+                    document.getElementById('deliveryPrice').textContent = `${deliveryCost.toLocaleString()} DZD`;
+                    document.getElementById('deliveryCost').style.display = 'block';
+                }
+            } else {
+                document.getElementById('deliveryCost').style.display = 'none';
+            }
+            
+            updateCheckoutSummary();
+        }
+
+        // Mettre à jour le récapitulatif de commande
+        function updateCheckoutSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Mettre à jour l'étape 2
+            document.getElementById('summarySubtotal').textContent = `${subtotal.toLocaleString()} DZD`;
+            document.getElementById('summaryDelivery').textContent = `${deliveryCost.toLocaleString()} DZD`;
+            document.getElementById('summaryTotal').textContent = `${(subtotal + deliveryCost).toLocaleString()} DZD`;
+            
+            // Mettre à jour l'étape 3
+            document.getElementById('finalItems').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('finalSubtotal').textContent = `${subtotal.toLocaleString()} DZD`;
+            document.getElementById('finalDelivery').textContent = `${deliveryCost.toLocaleString()} DZD`;
+            document.getElementById('finalTotal').textContent = `${(subtotal + deliveryCost).toLocaleString()} DZD`;
+        }
+
+        // Traiter la soumission de commande
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            
+            if (!selectedPaymentMethod) {
+                showToast('Veuillez sélectionner une méthode de paiement', 'error');
+                return;
+            }
+            
+            if (!document.getElementById('terms').checked) {
+                showToast('Veuillez accepter les conditions générales', 'error');
+                return;
+            }
+            
+            // Collecter les données de la commande
+            const orderData = {
+                customer: {
+                    firstName: document.getElementById('firstName').value.trim(),
+                    lastName: document.getElementById('lastName').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    phone: document.getElementById('phone').value.trim(),
+                    address: document.getElementById('address').value.trim(),
+                    city: document.getElementById('city').value,
+                    zipCode: document.getElementById('zipCode').value.trim(),
+                    notes: document.getElementById('notes').value.trim()
+                },
+                items: cart,
+                deliveryCost: deliveryCost,
+                paymentMethod: selectedPaymentMethod,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + deliveryCost,
+                orderDate: new Date().toISOString(),
+                orderId: 'CMD-' + Date.now().toString().slice(-8)
+            };
+            
+            // Simuler l'envoi de la commande
+            showToast('Traitement de votre commande...', 'info');
+            
+            setTimeout(() => {
+                // Générer une facture PDF (simulé)
+                generateInvoicePDF(orderData);
+                
+                // Envoyer les notifications (simulé)
+                sendOrderNotifications(orderData);
+                
+                // Vider le panier
+                cart = [];
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+                
+                // Fermer les modals
+                closeCheckoutModal();
+                
+                // Afficher le message de confirmation
+                showOrderConfirmation(orderData);
+                
+                // Réinitialiser le formulaire
+                resetCheckoutForm();
+                
+            }, 2000);
+        }
+
+        // Générer une facture PDF (simulation)
+        function generateInvoicePDF(orderData) {
+            console.log('Génération de la facture PDF pour la commande:', orderData.orderId);
+            // Dans une vraie application, on utiliserait une bibliothèque comme jsPDF
+            // ou on enverrait une requête au serveur pour générer le PDF
+        }
+
+        // Envoyer les notifications de commande
+        function sendOrderNotifications(orderData) {
+            // Email (simulé)
+            console.log('Envoi de l\'email de confirmation à:', orderData.customer.email);
+            
+            // WhatsApp (simulé)
+            const whatsappMessage = `Nouvelle commande ${orderData.orderId}\nClient: ${orderData.customer.firstName} ${orderData.customer.lastName}\nTotal: ${orderData.total} DZD`;
+            console.log('Notification WhatsApp:', whatsappMessage);
+            
+            // Dans une vraie application, on utiliserait une API d'email et l'API WhatsApp Business
+        }
+
+        // Afficher la confirmation de commande
+        function showOrderConfirmation(orderData) {
+            const confirmationHTML = `
+                <div style="text-align: center; padding: 40px 20px;">
+                    <div style="width: 80px; height: 80px; background-color: var(--light-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                        <i class="fas fa-check" style="font-size: 2.5rem; color: var(--primary-green);"></i>
+                    </div>
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Commande Confirmée!</h3>
+                    <p style="color: var(--gray); margin-bottom: 10px;">Merci pour votre commande <strong>${orderData.customer.firstName}</strong>!</p>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Votre numéro de commande est: <strong>${orderData.orderId}</strong></p>
+                    <p style="color: var(--gray); margin-bottom: 30px;">Un email de confirmation avec votre facture a été envoyé à <strong>${orderData.customer.email}</strong></p>
+                    
+                    <div style="background-color: var(--light-gray); padding: 20px; border-radius: var(--radius); max-width: 400px; margin: 0 auto 30px;">
+                        <h4 style="margin-bottom: 15px; color: var(--dark);">Récapitulatif</h4>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Articles:</span>
+                            <span>${orderData.items.reduce((sum, item) => sum + item.quantity, 0)}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Livraison:</span>
+                            <span>${orderData.deliveryCost.toLocaleString()} DZD</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--gray); font-weight: 600;">
+                            <span>Total:</span>
+                            <span>${orderData.total.toLocaleString()} DZD</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="this.parentElement.parentElement.remove(); overlay.classList.remove('active');">
+                        <i class="fas fa-home"></i> Retour à l'Accueil
+                    </button>
+                </div>
+            `;
+            
+            const confirmationModal = document.createElement('div');
+            confirmationModal.className = 'checkout-container';
+            confirmationModal.innerHTML = confirmationHTML;
+            
+            overlay.classList.add('active');
+            overlay.appendChild(confirmationModal);
+        }
+
+        // Réinitialiser le formulaire de commande
+        function resetCheckoutForm() {
+            document.getElementById('checkoutForm').reset();
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+            selectedPaymentMethod = null;
+            deliveryCost = 0;
+            currentStep = 1;
+            
+            // Réinitialiser les étapes
+            document.querySelectorAll('.checkout-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.getElementById('step1').style.display = 'block';
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelector('.step[data-step="1"]').classList.add('active');
         }
 
         // Traiter le formulaire de contact
@@ -1703,7 +3068,7 @@
             };
             
             // Validation
-            if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+            if (!formData.name || !formData.email || !formData.message) {
                 showToast('Veuillez remplir tous les champs obligatoires', 'error');
                 return;
             }
@@ -1713,31 +3078,46 @@
                 return;
             }
             
-            // Préparer le message WhatsApp
-            let whatsappMessage = `Nouvelle demande de devis:\n`;
-            whatsappMessage += `Nom: ${formData.name}\n`;
-            whatsappMessage += `Téléphone: ${formData.phone}\n`;
-            whatsappMessage += `Email: ${formData.email}\n`;
-            whatsappMessage += `Type: ${formData.subject || 'Non spécifié'}\n`;
-            whatsappMessage += `Message: ${formData.message}`;
+            // Simuler l'envoi
+            showToast('Envoi de votre message...', 'info');
             
-            const phoneNumber = "212522987654";
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                showToast('Message envoyé avec succès! Nous vous répondrons bientôt.', 'success');
+                
+                // Dans une vraie application, on enverrait les données au serveur
+                console.log('Message de contact:', formData);
+            }, 1500);
+        }
+
+        // Traiter l'inscription à la newsletter
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
             
-            // Rediriger vers WhatsApp
-            window.open(whatsappUrl, '_blank');
+            const emailInput = document.querySelector('.newsletter-input');
+            const email = emailInput.value.trim();
             
-            // Réinitialiser le formulaire
-            document.getElementById('contactForm').reset();
-            showToast('Redirection vers WhatsApp pour finaliser votre demande', 'success');
+            if (!email || !validateEmail(email)) {
+                showToast('Veuillez entrer une adresse email valide', 'error');
+                return;
+            }
+            
+            showToast('Inscription à la newsletter...', 'info');
+            
+            setTimeout(() => {
+                emailInput.value = '';
+                showToast('Merci pour votre inscription!', 'success');
+                console.log('Inscription newsletter:', email);
+            }, 1000);
         }
 
         // Afficher une notification toast
         function showToast(message, type = 'info') {
+            // Définir la couleur selon le type
             let backgroundColor = 'var(--primary-green)';
             if (type === 'error') backgroundColor = '#EF4444';
             if (type === 'warning') backgroundColor = '#F59E0B';
+            if (type === 'info') backgroundColor = '#3B82F6';
             
             toast.textContent = message;
             toast.style.backgroundColor = backgroundColor;
@@ -1757,15 +3137,21 @@
         // Obtenir le nom de la catégorie
         function getCategoryName(category) {
             const categories = {
-                'palmiers': 'Palmiers',
-                'fruitiers': 'Arbres Fruitiers',
-                'oliviers': 'Oliviers',
-                'gazon': 'Gazon & Couvre-sol'
+                'interior': 'Plantes d\'Intérieur',
+                'exterior': 'Plantes d\'Extérieur',
+                'flowers': 'Fleurs',
+                'fruit-trees': 'Arbres Fruitiers',
+                'aromatic': 'Plantes Aromatiques',
+                'cactus': 'Cactus & Succulentes',
+                'rare': 'Plantes Rares'
             };
             return categories[category] || category;
         }
 
         // Exposer les fonctions globales
+        window.openPlantModal = openPlantModal;
+        window.closePlantModal = closePlantModal;
+        window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateCartQuantity = updateCartQuantity;
     </script>
