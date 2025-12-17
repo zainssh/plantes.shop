@@ -432,6 +432,10 @@
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
         }
+
+        .hero-image-desktop {
+            display: none;
+        }
         
         /* طبقة شفافة لتحسين قراءة النص */
         .hero-overlay {
@@ -1214,6 +1218,15 @@
             }
         }
         
+        @media (min-width: 769px) {
+            .hero-image-mobile {
+                display: none;
+            }
+            .hero-image-desktop {
+                display: block;
+            }
+        }
+
         @media (max-width: 768px) {
             .header {
                 height: 60px;
@@ -1471,7 +1484,8 @@
     <!-- Hero Section with Image directly under header -->
     <section class="hero" id="home">
         <div class="hero-image-container">
-            <img src="Gemini_Generated_Image_bow59qbow59qbow5.jpg" alt="Collection de plantes luxuriantes" class="hero-image">
+            <img src="Gemini_Generated_Image_bow59qbow59qbow5.jpg" alt="Collection de plantes luxuriantes" class="hero-image hero-image-mobile">
+            <img src="Gemini_Generated_Image_dwwfzdwwfzdwwfzd.png" alt="Collection de plantes luxuriantes" class="hero-image hero-image-desktop">
             <div class="hero-overlay"></div>
         </div>
         
