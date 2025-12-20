@@ -2620,7 +2620,7 @@
                                 <span class="blog-tag">Entretien</span>
                                 <span class="blog-tag">Saison</span>
                             </div>
-                            <a href="#read-more" class="btn btn-outline btn-small">Lire l'article</a>
+                            <button onclick="openArticleModal(1)" class="btn btn-outline btn-small">Lire l'article</button>
                         </div>
                     </article>
                     
@@ -2640,7 +2640,7 @@
                                 <span class="blog-tag">Intérieur</span>
                                 <span class="blog-tag">Purification</span>
                             </div>
-                            <a href="#read-more" class="btn btn-outline btn-small">Lire l'article</a>
+                            <button onclick="openArticleModal(2)" class="btn btn-outline btn-small">Lire l'article</button>
                         </div>
                     </article>
                     
@@ -2660,7 +2660,7 @@
                                 <span class="blog-tag">Extérieur</span>
                                 <span class="blog-tag">Climat</span>
                             </div>
-                            <a href="#read-more" class="btn btn-outline btn-small">Lire l'article</a>
+                            <button onclick="openArticleModal(3)" class="btn btn-outline btn-small">Lire l'article</button>
                         </div>
                     </article>
                 </div>
@@ -2919,6 +2919,19 @@
         <!-- Quick view content will be loaded here -->
     </div>
     
+    <!-- Article Modal -->
+    <div class="article-modal" id="articleModal">
+        <div class="modal-header">
+            <h3 id="articleModalTitle" style="margin: 0; flex: 1; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"></h3>
+            <button class="modal-close" onclick="closeArticleModal()" aria-label="Fermer l'article">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="article-modal-body" id="articleModalBody">
+            <!-- Article content will be loaded by JavaScript -->
+        </div>
+    </div>
+
     <!-- Overlay -->
     <div class="modal-overlay" id="modalOverlay"></div>
     
@@ -3162,6 +3175,79 @@
                 isNew: true,
                 isPopular: true,
                 sku: "PS-MND-008"
+            }
+        ];
+
+        const ARTICLES = [
+            {
+                id: 1,
+                title: "10 Conseils pour Entretenir vos Plantes d'Intérieur en Hiver",
+                image: "WhatsApp Image 2025-12-20 at 14.31.16.jpeg",
+                date: "15 Mars 2024",
+                readTime: "5 min",
+                excerpt: "Découvrez comment protéger vos plantes pendant la saison froide et les maintenir en pleine santé jusqu'au printemps.",
+                tags: ["Conseils", "Entretien", "Saison"],
+                content: `
+                    <h4>Introduction</h4>
+                    <p>L'hiver peut être une période difficile pour les plantes d'intérieur. La baisse de luminosité, l'air sec causé par le chauffage et les courants d'air froid sont autant de défis à relever. Voici 10 conseils essentiels pour aider vos plantes à traverser la saison froide en pleine forme.</p>
+
+                    <h4>1. Réduisez l'arrosage</h4>
+                    <p>En hiver, la plupart des plantes entrent en période de dormance et leur croissance ralentit. Elles ont donc besoin de moins d'eau. Laissez le terreau sécher davantage entre deux arrosages. Un excès d'eau peut rapidement entraîner la pourriture des racines.</p>
+
+                    <h4>2. Augmentez l'humidité</h4>
+                    <p>Le chauffage assèche l'air, ce qui est néfaste pour de nombreuses plantes tropicales. Pour y remédier, vous pouvez :</p>
+                    <ul>
+                        <li>Vaporiser régulièrement le feuillage avec de l'eau non calcaire.</li>
+                        <li>Placer les pots sur des plateaux remplis de billes d'argile et d'eau.</li>
+                        <li>Utiliser un humidificateur d'air.</li>
+                    </ul>
+
+                    <h4>3. Maximisez la lumière</h4>
+                    <p>Rapprochez vos plantes des fenêtres les mieux exposées (généralement au sud) pour qu'elles profitent au maximum de la lumière naturelle, qui est plus faible en hiver. Pensez à nettoyer régulièrement les vitres.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Top 5 des Plantes qui Purifient l'Air de votre Maison",
+                image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                date: "28 Février 2024",
+                readTime: "7 min",
+                excerpt: "Certaines plantes sont particulièrement efficaces pour filtrer les polluants et améliorer la qualité de l'air intérieur.",
+                tags: ["Santé", "Intérieur", "Purification"],
+                content: `
+                    <h4>Pourquoi purifier l'air intérieur ?</h4>
+                    <p>Nos intérieurs sont souvent plus pollués que l'air extérieur à cause des composés organiques volatils (COV) émis par les peintures, les meubles, les produits d'entretien, etc. Heureusement, certaines plantes sont de véritables stations d'épuration naturelles.</p>
+
+                    <h4>1. Le Sansevieria (Langue de belle-mère)</h4>
+                    <p>C'est l'une des plantes les plus efficaces. Elle a la particularité de produire de l'oxygène la nuit, ce qui en fait une excellente plante pour la chambre à coucher. Elle filtre le benzène, le formaldéhyde et le trichloréthylène.</p>
+
+                    <h4>2. Le Spathiphyllum (Fleur de lune)</h4>
+                    <p>En plus de ses élégantes fleurs blanches, le Spathiphyllum est un champion de la purification, éliminant l'ammoniac, le benzène, le formaldéhyde et le trichloréthylène.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "Comment Créer un Jardin Méditerranéen au Maroc",
+                image: "WhatsApp Image 2025-12-20 at 07.19.24.jpeg",
+                date: "12 Février 2024",
+                readTime: "10 min",
+                excerpt: "Guide complet pour créer un jardin résistant à la sécheresse, typique du climat méditerranéen marocain.",
+                tags: ["Jardinage", "Extérieur", "Climat"],
+                content: `
+                    <h4>Les principes du jardin méditerranéen</h4>
+                    <p>Créer un jardin méditerranéen, c'est avant tout travailler avec le climat local, et non contre lui. Cela implique de choisir des plantes résistantes à la chaleur et à la sécheresse, d'économiser l'eau et de créer des espaces de vie ombragés.</p>
+
+                    <h4>Choix des plantes</h4>
+                    <p>Optez pour des espèces locales ou adaptées au climat marocain :</p>
+                    <ul>
+                        <li><b>Arbres :</b> Olivier, Arganier, Palmier dattier.</li>
+                        <li><b>Arbustes :</b> Laurier-rose, Bougainvillier, Lavande, Romarin.</li>
+                        <li><b>Plantes vivaces :</b> Agaves, Aloès, Gazanias.</li>
+                    </ul>
+
+                    <h4>Aménagement et paillage</h4>
+                    <p>Utilisez des matériaux locaux comme la pierre et le gravier pour créer des allées et des terrasses. Le paillage minéral (gravier, pouzzolane) est essentiel pour limiter l'évaporation de l'eau et réduire la croissance des mauvaises herbes.</p>
+                `
             }
         ];
 
@@ -4080,6 +4166,41 @@
         window.scrollToTop = scrollToTop;
         window.prevTestimonial = prevTestimonial;
         window.nextTestimonial = nextTestimonial;
+
+        // ============================================
+        // ARTICLE MODAL FUNCTIONS
+        // ============================================
+        function openArticleModal(articleId) {
+            const article = ARTICLES.find(a => a.id === articleId);
+            if (!article) return;
+
+            document.getElementById('articleModalTitle').textContent = article.title;
+            const body = document.getElementById('articleModalBody');
+            body.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="article-modal-image">
+                <div class="article-modal-meta">
+                    <span><i class="far fa-calendar"></i> ${article.date}</span>
+                    <span><i class="far fa-clock"></i> ${article.readTime} lecture</span>
+                </div>
+                <div class="article-modal-content">
+                    ${article.content}
+                </div>
+            `;
+
+            document.getElementById('articleModal').classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.openArticleModal = openArticleModal;
+        window.closeArticleModal = closeArticleModal;
+
     </script>
 
     <!-- Style supplémentaire pour les notifications -->
@@ -4174,6 +4295,81 @@
             }
         }
         
+        /* =============================== */
+        /* ARTICLE MODAL STYLES */
+        /* =============================== */
+        .article-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .article-modal-body {
+            padding: 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .article-modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .article-modal-meta {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .article-modal-content {
+            padding: 2rem;
+            line-height: 1.8;
+        }
+
+        .article-modal-content h4 {
+            color: var(--primary-green);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-modal-content ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-modal-image {
+                height: 200px;
+            }
+            .article-modal-content {
+                padding: 1.5rem;
+            }
+        }
+
         /* Optimisations de performance */
         @media (prefers-reduced-motion: reduce) {
             *,
