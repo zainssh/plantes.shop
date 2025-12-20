@@ -1338,29 +1338,6 @@
         .service-features li i {
             color: var(--accent-green);
         }
-
-        .service-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-
-        .service-gallery img {
-            width: 100%;
-            height: 80px;
-            object-fit: cover;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: var(--transition-normal);
-            border: 1px solid var(--gray-200);
-        }
-
-        .service-gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-green);
-        }
         
         /* =============================== */
         /* TESTIMONIALS SECTION */
@@ -2193,48 +2170,6 @@
         }
         
         /* =============================== */
-        /* IMAGE MODAL STYLES */
-        /* =============================== */
-        .image-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 90%;
-            max-width: 900px;
-            max-height: 90vh;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            z-index: 10000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
-            padding: 1rem;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .image-modal.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .image-modal .modal-close {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            z-index: 10001;
-        }
-
-        .image-modal img {
-            width: 100%;
-            height: 100%;
-            max-height: calc(90vh - 2rem);
-            object-fit: contain;
-            border-radius: var(--radius-md);
-        }
-
-        /* =============================== */
         /* ACCESSIBILITY */
         /* =============================== */
         @media (prefers-reduced-motion: reduce) {
@@ -2621,18 +2556,19 @@
                             <li><i class="fas fa-check"></i> Installation professionnelle</li>
                         </ul>
                         
-                        <div class="service-gallery">
-                            <img src="amenagement-paysager-1.jpeg" alt="Aménagement Paysager 1">
-                            <img src="amenagement-paysager-2.jpeg" alt="Aménagement Paysager 2">
-                            <img src="amenagement-paysager-3.jpeg" alt="Aménagement Paysager 3">
-                            <img src="amenagement-paysager-4.jpeg" alt="Aménagement Paysager 4">
-                            <img src="amenagement-paysager-5.jpeg" alt="Aménagement Paysager 5">
-                            <img src="amenagement-paysager-6.jpeg" alt="Aménagement Paysager 6">
-                            <img src="amenagement-paysager-7.jpeg" alt="Aménagement Paysager 7">
-                            <img src="amenagement-paysager-8.jpeg" alt="Aménagement Paysager 8">
-                        </div>
-
                         <a href="#contact" class="btn btn-outline">Demander un Devis</a>
+                        <div class="gallery-section">
+                          <div class="image-gallery">
+                            <img src="Amenagement_Paysager_1.jpeg" alt="Aménagement Paysager 1" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_2.jpeg" alt="Aménagement Paysager 2" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_3.jpeg" alt="Aménagement Paysager 3" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_4.jpeg" alt="Aménagement Paysager 4" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_5.jpeg" alt="Aménagement Paysager 5" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_6.jpeg" alt="Aménagement Paysager 6" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_7.jpeg" alt="Aménagement Paysager 7" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_8.jpeg" alt="Aménagement Paysager 8" class="gallery-thumbnail">
+                          </div>
+                        </div>
                     </div>
                     
                     <div class="service-card animate-on-scroll" style="animation-delay: 0.2s;">
@@ -2649,6 +2585,19 @@
                         </ul>
                         
                         <a href="#contact" class="btn btn-outline">Programmer un Entretien</a>
+
+                        <div class="gallery-section">
+                          <div class="image-gallery">
+                            <img src="Amenagement_Paysager_1.jpeg" alt="Aménagement Paysager 1" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_2.jpeg" alt="Aménagement Paysager 2" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_3.jpeg" alt="Aménagement Paysager 3" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_4.jpeg" alt="Aménagement Paysager 4" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_5.jpeg" alt="Aménagement Paysager 5" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_6.jpeg" alt="Aménagement Paysager 6" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_7.jpeg" alt="Aménagement Paysager 7" class="gallery-thumbnail">
+                            <img src="Amenagement_Paysager_8.jpeg" alt="Aménagement Paysager 8" class="gallery-thumbnail">
+                          </div>
+                        </div>
                     </div>
                     
                     <div class="service-card animate-on-scroll" style="animation-delay: 0.4s;">
@@ -2995,466 +2944,1636 @@
         <!-- Quick view content will be loaded here -->
     </div>
     
+    <!-- Image Modal -->
+    <div class="image-modal-overlay" id="imageModal">
+        <div class="image-modal-content">
+            <img src="" alt="Image en grand" id="modalImage">
+            <button class="image-modal-close" id="closeImageModal" aria-label="Fermer l'image"><i class="fas fa-times"></i></button>
+            <button class="image-modal-nav image-modal-prev" id="prevImage" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="image-modal-nav image-modal-next" id="nextImage" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
     <!-- Article Modal -->
     <div class="article-modal" id="articleModal">
         <div class="modal-header">
             <h3 id="articleModalTitle" style="margin: 0; flex: 1; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"></h3>
-            <button class="modal-close" id="closeArticleModal" aria-label="Fermer l'article">
+            <button class="modal-close" onclick="closeArticleModal()" aria-label="Fermer l'article">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <div class="article-modal-content" id="articleModalContent">
-            <!-- Article content will be loaded here -->
+        <div class="article-modal-body" id="articleModalBody">
+            <!-- Article content will be loaded by JavaScript -->
         </div>
     </div>
 
-    <!-- Image Modal -->
-    <div class="image-modal" id="imageModal">
-        <button class="modal-close" id="closeImageModal" aria-label="Fermer l'image">
-            <i class="fas fa-times"></i>
-        </button>
-        <img src="" alt="Image agrandie" id="modalImage">
-    </div>
-
-    <!-- Modal Overlay -->
+    <!-- Overlay -->
     <div class="modal-overlay" id="modalOverlay"></div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast"></div>
 
+    <!-- JavaScript -->
     <script>
+        // ============================================
+        // CONFIGURATION & DONNÉES
+        // ============================================
+        const CONFIG = {
+            freeShippingThreshold: 500,
+            currency: 'MAD',
+            languages: {
+                fr: 'Français',
+                ar: 'العربية',
+                en: 'English'
+            },
+            defaultLanguage: 'fr'
+        };
+
+        // Données des produits (réelles)
+        const PRODUCTS = [
+            {
+                id: 1,
+                name: "Ficus nitida Tressé",
+                name_ar: "فيكوس نيتيدا مضفر",
+                name_en: "Braided Ficus nitida",
+                price: 840,
+                oldPrice: 980,
+                category: "interior",
+                subcategory: "bonsai",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2021/11/ficus-nitida-tresse-1.jpg",
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Ficus nitida magnifiquement tressé, idéal pour l'intérieur. Plante purificatrice d'air avec un tronc artistique.",
+                description_ar: "فيكوس نيتيدا مضفر بشكل جميل، مثالي للداخل. نبات ينقي الهواء مع جذع فني.",
+                description_en: "Beautifully braided Ficus nitida, perfect for indoors. Air-purifying plant with artistic trunk.",
+                care: {
+                    water: "Arrosage modéré quand le sol est sec",
+                    light: "Lumière vive indirecte",
+                    temperature: "18-25°C",
+                    soil: "Terreau bien drainé"
+                },
+                availability: 15,
+                stock: 70,
+                difficulty: "Facile",
+                height: "60-80 cm",
+                rating: 4.8,
+                reviews: 42,
+                tags: ["purificateur", "interieur", "decoration", "bonsai"],
+                isNew: true,
+                isPopular: true,
+                sku: "PS-FNT-001"
+            },
+            {
+                id: 2,
+                name: "Ficus moclame Tressé",
+                name_ar: "فيكوس موكلام مضفر",
+                name_en: "Braided Ficus moclame",
+                price: 720,
+                oldPrice: 850,
+                category: "interior",
+                subcategory: "bonsai",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2021/11/ficus-moclame-tresse-clorofila-1.jpg"
+                ],
+                description: "Ficus moclame au tronc tressé élégant. Feuillage vert foncé brillant parfait pour la décoration intérieure.",
+                description_ar: "فيكوس موكلام مع جذع مضفر أنيق. أوراق خضراء داكنة لامعة مثالية للديكور الداخلي.",
+                description_en: "Ficus moclame with elegant braided trunk. Shiny dark green foliage perfect for interior decoration.",
+                availability: 8,
+                stock: 45,
+                difficulty: "Facile",
+                height: "50-70 cm",
+                rating: 4.7,
+                reviews: 31,
+                tags: ["interieur", "decoration", "bonsai"],
+                isNew: false,
+                isPopular: true,
+                sku: "PS-FMC-002"
+            },
+            {
+                id: 3,
+                name: "Figue de barbarie – sans épines",
+                name_ar: "تين شوكي - بدون أشواك",
+                name_en: "Spineless Prickly Pear",
+                price: 48,
+                oldPrice: 60,
+                category: "exterior",
+                subcategory: "cactus",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2021/11/cactus-figue-barbarie.jpg"
+                ],
+                description: "Figuier de barbarie sans épines, variété rare produisant des fruits délicieux. Adapté au climat marocain.",
+                description_ar: "تين شوكي بدون أشواك، صنف نادر ينتج فاكهة لذيذة. مناسب للمناخ المغربي.",
+                description_en: "Spineless prickly pear, rare variety producing delicious fruits. Adapted to Moroccan climate.",
+                availability: 50,
+                stock: 200,
+                difficulty: "Très facile",
+                height: "40-60 cm",
+                rating: 4.3,
+                reviews: 89,
+                tags: ["exterieur", "fruitier", "cactus", "resistant"],
+                isNew: true,
+                isPopular: false,
+                sku: "PS-FGB-003"
+            },
+            {
+                id: 4,
+                name: "Cactus variété marocaine",
+                name_ar: "صبار أصناف مغربية",
+                name_en: "Moroccan Cactus Variety",
+                price: 51,
+                oldPrice: null,
+                category: "exterior",
+                subcategory: "cactus",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2021/11/cactus-maroc-clorofila.jpg"
+                ],
+                description: "Collection de cactus marocains adaptés aux conditions arides. Parfaits pour les jardins secs.",
+                description_ar: "مجموعة من الصبار المغربي المتكيف مع الظروف الجافة. مثالي للحدائق الجافة.",
+                description_en: "Collection of Moroccan cacti adapted to arid conditions. Perfect for dry gardens.",
+                availability: 100,
+                stock: 500,
+                difficulty: "Très facile",
+                height: "20-50 cm",
+                rating: 4.2,
+                reviews: 124,
+                tags: ["exterieur", "cactus", "resistant", "maroc"],
+                isNew: false,
+                isPopular: true,
+                sku: "PS-CCT-004"
+            },
+            {
+                id: 5,
+                name: "Washingtonia robusta",
+                name_ar: "واشنطونيا روبوستا",
+                name_en: "Washingtonia robusta",
+                price: 240,
+                oldPrice: 280,
+                category: "exterior",
+                subcategory: "palm",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2021/11/washintognia-robusta-maroc-casablanca-marrakech.jpeg"
+                ],
+                description: "Washingtonia robusta, palmier mexicain à croissance rapide. Très résistant et parfait pour les alignements.",
+                description_ar: "واشنطونيا روبوستا، نخلة مكسيكية سريعة النمو. مقاومة جدا ومثالية للصفوف.",
+                description_en: "Washingtonia robusta, fast-growing Mexican palm. Very resistant and perfect for alignments.",
+                availability: 50,
+                stock: 250,
+                difficulty: "Très facile",
+                height: "10-20 m",
+                rating: 4.5,
+                reviews: 89,
+                tags: ["exterieur", "palmier", "alignement", "resistant"],
+                isNew: false,
+                isPopular: true,
+                sku: "PS-WSR-005"
+            },
+            {
+                id: 6,
+                name: "Olivier Picholine Marocaine",
+                name_ar: "زيتون بيشولين مغربي",
+                name_en: "Moroccan Picholine Olive Tree",
+                price: 8,
+                oldPrice: 10,
+                category: "exterior",
+                subcategory: "fruit",
+                images: [
+                    "https://www.clorofila.ma/wp-content/uploads/2023/02/picholine-marocaine.jpeg"
+                ],
+                description: "Olivier Picholine, variété marocaine traditionnelle. Excellente productivité et huile de qualité supérieure.",
+                description_ar: "زيتون بيشولين، صنف مغربي تقليدي. إنتاجية ممتازة وزيت بجودة عالية.",
+                description_en: "Picholine olive tree, traditional Moroccan variety. Excellent productivity and superior quality oil.",
+                availability: 500,
+                stock: 2500,
+                difficulty: "Très facile",
+                height: "3-6 m",
+                rating: 4.6,
+                reviews: 156,
+                tags: ["exterieur", "fruitier", "olivier", "productif"],
+                isNew: false,
+                isPopular: true,
+                sku: "PS-OLP-006"
+            },
+            {
+                id: 7,
+                name: "Palmier dattier Medjool",
+                name_ar: "نخلة التمر مجهول",
+                name_en: "Medjool Date Palm",
+                price: 350,
+                oldPrice: 420,
+                category: "exterior",
+                subcategory: "palm",
+                images: [
+                    "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Palmier dattier Medjool produisant des dattes de qualité premium. Adapté aux régions chaudes du Maroc.",
+                description_ar: "نخلة التمر مجهول تنتج تمور بجودة ممتازة. مناسبة للمناطق الحارة في المغرب.",
+                description_en: "Medjool date palm producing premium quality dates. Suitable for hot regions of Morocco.",
+                availability: 30,
+                stock: 150,
+                difficulty: "Moyen",
+                height: "8-15 m",
+                rating: 4.7,
+                reviews: 67,
+                tags: ["exterieur", "palmier", "fruitier", "datte"],
+                isNew: true,
+                isPopular: false,
+                sku: "PS-PDM-007"
+            },
+            {
+                id: 8,
+                name: "Monstera Deliciosa",
+                name_ar: "مونستيرا دليسوسا",
+                name_en: "Monstera Deliciosa",
+                price: 120,
+                oldPrice: 150,
+                category: "interior",
+                subcategory: "interior",
+                images: [
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                description: "Plante d'intérieur tendance avec ses feuilles percées caractéristiques. Purificatrice d'air et facile d'entretien.",
+                description_ar: "نبات داخلي عصري بأوراقه المثقوبة المميزة. ينقي الهواء وسهل العناية.",
+                description_en: "Trendy indoor plant with its characteristic perforated leaves. Air purifying and easy to maintain.",
+                availability: 25,
+                stock: 100,
+                difficulty: "Facile",
+                height: "40-60 cm",
+                rating: 4.9,
+                reviews: 203,
+                tags: ["interieur", "tendance", "purificateur", "decoration"],
+                isNew: true,
+                isPopular: true,
+                sku: "PS-MND-008"
+            }
+        ];
+
+        const ARTICLES = [
+            {
+                id: 1,
+                title: "10 Conseils pour Entretenir vos Plantes d'Intérieur en Hiver",
+                image: "WhatsApp Image 2025-12-20 at 14.31.16.jpeg",
+                date: "15 Mars 2024",
+                readTime: "5 min",
+                excerpt: "Découvrez comment protéger vos plantes pendant la saison froide et les maintenir en pleine santé jusqu'au printemps.",
+                tags: ["Conseils", "Entretien", "Saison"],
+                content: `
+                    <h4>Introduction</h4>
+                    <p>L'hiver peut être une période difficile pour les plantes d'intérieur. La baisse de luminosité, l'air sec causé par le chauffage et les courants d'air froid sont autant de défis à relever. Voici 10 conseils essentiels pour aider vos plantes à traverser la saison froide en pleine forme.</p>
+                    
+                    <h4>1. Réduisez l'arrosage</h4>
+                    <p>En hiver, la plupart des plantes entrent en période de dormance et leur croissance ralentit. Elles ont donc besoin de moins d'eau. Laissez le terreau sécher davantage entre deux arrosages. Un excès d'eau peut rapidement entraîner la pourriture des racines.</p>
+                    
+                    <h4>2. Augmentez l'humidité</h4>
+                    <p>Le chauffage assèche l'air, ce qui est néfaste pour de nombreuses plantes tropicales. Pour y remédier, vous pouvez :</p>
+                    <ul>
+                        <li>Vaporiser régulièrement le feuillage avec de l'eau non calcaire.</li>
+                        <li>Placer les pots sur des plateaux remplis de billes d'argile et d'eau.</li>
+                        <li>Utiliser un humidificateur d'air.</li>
+                    </ul>
+                    
+                    <h4>3. Maximisez la lumière</h4>
+                    <p>Rapprochez vos plantes des fenêtres les mieux exposées (généralement au sud) pour qu'elles profitent au maximum de la lumière naturelle, qui est plus faible en hiver. Pensez à nettoyer régulièrement les vitres.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Top 5 des Plantes qui Purifient l'Air de votre Maison",
+                image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                date: "28 Février 2024",
+                readTime: "7 min",
+                excerpt: "Certaines plantes sont particulièrement efficaces pour filtrer les polluants et améliorer la qualité de l'air intérieur.",
+                tags: ["Santé", "Intérieur", "Purification"],
+                content: `
+                    <h4>Pourquoi purifier l'air intérieur ?</h4>
+                    <p>Nos intérieurs sont souvent plus pollués que l'air extérieur à cause des composés organiques volatils (COV) émis par les peintures, les meubles, les produits d'entretien, etc. Heureusement, certaines plantes sont de véritables stations d'épuration naturelles.</p>
+
+                    <h4>1. Le Sansevieria (Langue de belle-mère)</h4>
+                    <p>C'est l'une des plantes les plus efficaces. Elle a la particularité de produire de l'oxygène la nuit, ce qui en fait une excellente plante pour la chambre à coucher. Elle filtre le benzène, le formaldéhyde et le trichloréthylène.</p>
+
+                    <h4>2. Le Spathiphyllum (Fleur de lune)</h4>
+                    <p>En plus de ses élégantes fleurs blanches, le Spathiphyllum est un champion de la purification, éliminant l'ammoniac, le benzène, le formaldéhyde et le trichloréthylène.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "Comment Créer un Jardin Méditerranéen au Maroc",
+                image: "WhatsApp Image 2025-12-20 at 07.19.24.jpeg",
+                date: "12 Février 2024",
+                readTime: "10 min",
+                excerpt: "Guide complet pour créer un jardin résistant à la sécheresse, typique du climat méditerranéen marocain.",
+                tags: ["Jardinage", "Extérieur", "Climat"],
+                content: `
+                    <h4>Les principes du jardin méditerranéen</h4>
+                    <p>Créer un jardin méditerranéen, c'est avant tout travailler avec le climat local, et non contre lui. Cela implique de choisir des plantes résistantes à la chaleur et à la sécheresse, d'économiser l'eau et de créer des espaces de vie ombragés.</p>
+
+                    <h4>Choix des plantes</h4>
+                    <p>Optez pour des espèces locales ou adaptées au climat marocain :</p>
+                    <ul>
+                        <li><b>Arbres :</b> Olivier, Arganier, Palmier dattier.</li>
+                        <li><b>Arbustes :</b> Laurier-rose, Bougainvillier, Lavande, Romarin.</li>
+                        <li><b>Plantes vivaces :</b> Agaves, Aloès, Gazanias.</li>
+                    </ul>
+
+                    <h4>Aménagement et paillage</h4>
+                    <p>Utilisez des matériaux locaux comme la pierre et le gravier pour créer des allées et des terrasses. Le paillage minéral (gravier, pouzzolane) est essentiel pour limiter l'évaporation de l'eau et réduire la croissance des mauvaises herbes.</p>
+                `
+            }
+        ];
+
+        // ============================================
+        // ÉTAT DE L'APPLICATION
+        // ============================================
+        let state = {
+            cart: JSON.parse(localStorage.getItem('plantesShopCart')) || [],
+            wishlist: JSON.parse(localStorage.getItem('plantesShopWishlist')) || [],
+            currentLanguage: localStorage.getItem('plantesShopLanguage') || CONFIG.defaultLanguage,
+            currentFilter: 'all',
+            currentSort: 'popular',
+            displayedProducts: 6,
+            currentHeroSlide: 0,
+            currentTestimonial: 0,
+            isCartOpen: false,
+            isMobileMenuOpen: false
+        };
+
+        // ============================================
+        // INITIALISATION
+        // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            
-            /* =============================== */
-            /* DATA */
-            /* =============================== */
-            const productsData = [
-                // Product data here, same as before
-                {
-                    id: 1,
-                    name: 'Monstera Deliciosa',
-                    category: 'Intérieur',
-                    price: 250,
-                    oldPrice: 300,
-                    rating: 4.8,
-                    reviews: 120,
-                    description: 'Plante tropicale emblématique, facile d\'entretien, parfaite pour apporter une touche de jungle à votre intérieur.',
-                    image: 'https://images.unsplash.com/photo-1591634591583-a00a2f44a838?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 15,
-                    new: true,
-                    sale: true,
-                    popular: true
-                },
-                {
-                    id: 2,
-                    name: 'Olivier (Olea europaea)',
-                    category: 'Extérieur',
-                    price: 850,
-                    oldPrice: null,
-                    rating: 4.9,
-                    reviews: 210,
-                    description: 'Symbole de paix et de longévité, cet arbre méditerranéen est parfait pour les jardins ensoleillés.',
-                    image: 'https://images.unsplash.com/photo-1601683313444-fdd268481358?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 8,
-                    new: false,
-                    sale: false,
-                    popular: true
-                },
-                {
-                    id: 3,
-                    name: 'Citronnier 4 Saisons',
-                    category: 'Fruitiers',
-                    price: 450,
-                    oldPrice: 500,
-                    rating: 4.7,
-                    reviews: 95,
-                    description: 'Profitez de citrons frais toute l\'année avec ce citronnier productif et parfumé. Idéal pour pot ou pleine terre.',
-                    image: 'https://images.unsplash.com/photo-1612450406409-773a4b276b7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 20,
-                    new: false,
-                    sale: true,
-                    popular: true
-                },
-                {
-                    id: 4,
-                    name: 'Bonsaï Ficus Ginseng',
-                    category: 'Bonsaïs',
-                    price: 600,
-                    oldPrice: null,
-                    rating: 4.6,
-                    reviews: 75,
-                    description: 'Un bonsaï facile à entretenir avec des racines aériennes spectaculaires, idéal pour les débutants.',
-                    image: 'https://images.unsplash.com/photo-1612338380856-7517e4093933?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 12,
-                    new: true,
-                    sale: false,
-                    popular: false
-                },
-                {
-                    id: 5,
-                    name: 'Palmier Kentia',
-                    category: 'Palmiers',
-                    price: 750,
-                    oldPrice: null,
-                    rating: 4.8,
-                    reviews: 150,
-                    description: 'Élégant et résistant, le Kentia est un palmier d\'intérieur qui apporte une touche tropicale chic.',
-                    image: 'https://images.unsplash.com/photo-1614594975525-e4d6a66a8d9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 10,
-                    new: false,
-                    sale: false,
-                    popular: true
-                },
-                {
-                    id: 6,
-                    name: 'Lavande (Lavandula)',
-                    category: 'Extérieur',
-                    price: 120,
-                    oldPrice: null,
-                    rating: 4.7,
-                    reviews: 180,
-                    description: 'Plante aromatique méditerranéenne, appréciée pour son parfum et sa floraison estivale.',
-                    image: 'https://images.unsplash.com/photo-1597843431102-0695079e0147?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 30,
-                    new: false,
-                    sale: false,
-                    popular: false
-                },
-                 {
-                    id: 7,
-                    name: 'Cactus Cierge (Cereus)',
-                    category: 'Cactus',
-                    price: 350,
-                    oldPrice: 400,
-                    rating: 4.9,
-                    reviews: 110,
-                    description: 'Un cactus colonnaire spectaculaire qui apporte une touche désertique et moderne à votre décoration.',
-                    image: 'https://images.unsplash.com/photo-1519708226487-9e8a1a31d9a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 18,
-                    new: true,
-                    sale: true,
-                    popular: false
-                },
-                {
-                    id: 8,
-                    name: 'Strelitzia Nicolai (Oiseau de Paradis)',
-                    category: 'Intérieur',
-                    price: 950,
-                    oldPrice: null,
-                    rating: 4.8,
-                    reviews: 130,
-                    description: 'Avec ses grandes feuilles luxuriantes, cette plante majestueuse crée un impact visuel saisissant.',
-                    image: 'https://images.unsplash.com/photo-1600411833190-888b1a43a7a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                    stock: 5,
-                    new: false,
-                    sale: false,
-                    popular: true
-                }
-            ];
+            initializeApp();
+            setupEventListeners();
+            startAnimations();
+        });
 
-            const ARTICLES = [
-                {
-                    id: 1,
-                    title: '10 Conseils pour Entretenir vos Plantes d\'Intérieur en Hiver',
-                    content: `
-                        <h3>Adaptez l'arrosage</h3>
-                        <p>En hiver, les plantes ont besoin de moins d'eau. Laissez la terre sécher en surface avant d'arroser de nouveau. Un excès d'eau peut entraîner la pourriture des racines.</p>
-                        <h3>Augmentez l'humidité</h3>
-                        <p>Le chauffage assèche l'air. Vaporisez régulièrement le feuillage, placez un humidificateur ou regroupez vos plantes pour créer un microclimat plus humide.</p>
-                        <h3>Maximisez la lumière</h3>
-                        <p>Placez vos plantes près des fenêtres les mieux exposées. Nettoyez les vitres et les feuilles pour optimiser la photosynthèse.</p>
-                        <h3>Évitez les courants d'air</h3>
-                        <p>Les changements brusques de température sont stressants pour les plantes. Éloignez-les des portes, fenêtres mal isolées et radiateurs.</p>
-                        <h3>Stoppez la fertilisation</h3>
-                        <p>La plupart des plantes sont en dormance en hiver. Arrêtez l'apport d'engrais jusqu'au début du printemps.</p>
-                    `
-                },
-                {
-                    id: 2,
-                    title: 'Top 5 des Plantes qui Purifient l\'Air de votre Maison',
-                    content: `
-                        <h3>1. Le Spathiphyllum (Fleur de Lune)</h3>
-                        <p>Efficace contre le benzène, le formaldéhyde, le trichloréthylène, l'ammoniac et le xylène. Facile d'entretien.</p>
-                        <h3>2. Le Sansevieria (Langue de belle-mère)</h3>
-                        <p>Très résistante, elle convertit le CO2 en oxygène la nuit. Idéale pour les chambres.</p>
-                        <h3>3. L'Aloe Vera</h3>
-                        <p>Connue pour ses vertus médicinales, elle filtre le formaldéhyde et le benzène. A besoin de beaucoup de lumière.</p>
-                        <h3>4. Le Chlorophytum (Plante araignée)</h3>
-                        <p>Facile à multiplier, elle est très efficace contre le monoxyde de carbone et le xylène.</p>
-                        <h3>5. Le Dracaena</h3>
-                        <p>Il existe de nombreuses variétés, toutes efficaces pour éliminer les toxines comme le formaldéhyde et le trichloréthylène.</p>
-                    `
-                },
-                {
-                    id: 3,
-                    title: 'Comment Créer un Jardin Méditerranéen au Maroc',
-                    content: `
-                        <h3>Choisissez des plantes adaptées</h3>
-                        <p>Optez pour des plantes résistantes à la sécheresse : oliviers, lavande, romarin, bougainvilliers, cactus et succulentes.</p>
-                        <h3>Utilisez des matériaux locaux</h3>
-                        <p>Privilégiez la terre cuite, la pierre naturelle, le bois et le fer forgé pour un style authentique.</p>
-                        <h3>Aménagez des zones d'ombre</h3>
-                        <p>Créez des pergolas ou plantez des arbres pour offrir des espaces de fraîcheur pendant les mois les plus chauds.</p>
-                        <h3>Pensez à l'irrigation</h3>
-                        <p>Installez un système de goutte-à-goutte pour économiser l'eau et arroser efficacement vos plantes à la base.</p>
-                        <h3>Créez des points d'eau</h3>
-                        <p>Une petite fontaine ou un bassin apporte de la fraîcheur et un son apaisant, tout en attirant la faune locale.</p>
-                    `
-                }
-            ];
+        function initializeApp() {
+            // Mettre à jour les compteurs
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Rendre les produits
+            renderProducts();
+            
+            // Mettre à jour la langue
+            updateLanguage();
+            
+            // Démarrer le slider hero
+            startHeroSlider();
+            
+            // Démarrer le slider témoignages
+            startTestimonialSlider();
+            
+            // Vérifier le défilement pour le header
+            checkScroll();
+            
+            // Observer les éléments pour les animations
+            setupIntersectionObserver();
+        }
 
+        // ============================================
+        // ÉCOUTEURS D'ÉVÉNEMENTS
+        // ============================================
+        function setupEventListeners() {
+            // Header scroll
+            window.addEventListener('scroll', checkScroll);
             
-            /* =============================== */
-            /* HEADER & NAVIGATION */
-            /* =============================== */
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
+            // Menu mobile
+            document.getElementById('mobileMenuButton').addEventListener('click', toggleMobileMenu);
+            document.getElementById('closeMobileMenu').addEventListener('click', toggleMobileMenu);
             
-            // Mobile Menu
-            const mobileMenuButton = document.getElementById('mobileMenuButton');
-            const closeMobileMenu = document.getElementById('closeMobileMenu');
-            const mobileNav = document.getElementById('mobileNav');
+            // Panier
+            document.getElementById('cartButton').addEventListener('click', openCart);
+            document.getElementById('closeCart').addEventListener('click', closeCart);
+            document.getElementById('checkoutButton').addEventListener('click', proceedToCheckout);
             
-            mobileMenuButton.addEventListener('click', () => mobileNav.classList.add('active'));
-            closeMobileMenu.addEventListener('click', () => mobileNav.classList.remove('active'));
+            // Overlay
+            document.getElementById('modalOverlay').addEventListener('click', closeAllModals);
             
-            // Close mobile menu when a link is clicked
-            mobileNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileNav.classList.remove('active'));
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            // Filtres produits
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    setProductFilter(filter);
                 });
             });
             
-            /* =============================== */
-            /* HERO SLIDER */
-            /* =============================== */
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            let currentSlide = 0;
-            
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === index);
-                    dots[i].classList.toggle('active', i === index);
-                });
-                currentSlide = index;
-            }
-            
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
-            });
-            
-            setInterval(() => {
-                showSlide((currentSlide + 1) % slides.length);
-            }, 5000);
-            
-            /* =============================== */
-            /* PRODUCTS DISPLAY */
-            /* =============================== */
-            const productsGrid = document.getElementById('productsGrid');
-            const loadMoreButton = document.getElementById('loadMoreProducts');
-            let productsToShow = 4;
-            
-            function renderProducts() {
-                productsGrid.innerHTML = '';
-                const productsToRender = productsData.slice(0, productsToShow);
-
-                productsToRender.forEach(product => {
-                    const productCard = document.createElement('div');
-                    productCard.className = 'product-card animate-on-scroll';
-                    productCard.innerHTML = `
-                    <div class="product-badges">
-                        ${product.new ? '<span class="badge badge-new">Nouveau</span>' : ''}
-                        ${product.sale ? '<span class="badge badge-sale">Promo</span>' : ''}
-                    </div>
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-id="${product.id}" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
-                            <button class="wishlist-btn" data-id="${product.id}" aria-label="Ajouter à la liste de souhaits"><i class="far fa-heart"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">${product.category}</span>
-                        <h3 class="product-title">${product.name}</h3>
-                        <div class="product-rating">
-                            <span class="stars">${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5 - Math.round(product.rating))}</span>
-                            <span class="rating-count">(${product.reviews})</span>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                ${product.price} MAD
-                                ${product.oldPrice ? `<span class="old-price">${product.oldPrice} MAD</span>` : ''}
-                            </div>
-                            <button class="add-to-cart-btn" data-id="${product.id}" aria-label="Ajouter au panier"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                    `;
-                    productsGrid.appendChild(productCard);
-                });
-
-                 // Re-observe elements for animation
-                observeElements();
-            }
-            
-            loadMoreButton.addEventListener('click', () => {
-                productsToShow += 4;
-                if (productsToShow >= productsData.length) {
-                    loadMoreButton.style.display = 'none';
-                }
+            // Tri produits
+            document.getElementById('sortProducts').addEventListener('change', (e) => {
+                state.currentSort = e.target.value;
                 renderProducts();
             });
             
-            // Initial render
-            renderProducts();
+            // Charger plus de produits
+            document.getElementById('loadMoreProducts').addEventListener('click', loadMoreProducts);
             
-            /* =============================== */
-            /* CART LOGIC */
-            /* =============================== */
-            const cartButton = document.getElementById('cartButton');
-            const closeCartButton = document.getElementById('closeCart');
-            const cartModal = document.getElementById('cartModal');
-            const modalOverlay = document.getElementById('modalOverlay');
+            // Témoignages navigation
+            document.querySelector('.prev-testimonial').addEventListener('click', prevTestimonial);
+            document.querySelector('.next-testimonial').addEventListener('click', nextTestimonial);
             
-            function openCart() {
-                cartModal.classList.add('active');
-                modalOverlay.classList.add('active');
-            }
+            // Formulaire contact
+            document.getElementById('contactForm').addEventListener('submit', handleContactSubmit);
             
-            function closeCart() {
-                cartModal.classList.remove('active');
-                modalOverlay.classList.remove('active');
-            }
+            // Newsletter
+            document.getElementById('newsletterForm').addEventListener('submit', handleNewsletterSubmit);
             
-            cartButton.addEventListener('click', openCart);
-            closeCartButton.addEventListener('click', closeCart);
-            modalOverlay.addEventListener('click', () => {
-                closeCart();
-                closeArticleModal();
-                closeImageModal();
+            // Retour en haut
+            document.getElementById('backToTop').addEventListener('click', scrollToTop);
+            
+            // Touche Échap pour fermer les modals
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeAllModals();
+            });
+            
+            // Navigation fluide
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', smoothScroll);
             });
 
-            /* =============================== */
-            /* ARTICLE MODAL LOGIC */
-            /* =============================== */
-            const articleModal = document.getElementById('articleModal');
-            const articleModalTitle = document.getElementById('articleModalTitle');
-            const articleModalContent = document.getElementById('articleModalContent');
-            const closeArticleModalBtn = document.getElementById('closeArticleModal');
-            
-            window.openArticleModal = function(articleId) {
-                const article = ARTICLES.find(a => a.id === articleId);
-                if (article) {
-                    articleModalTitle.textContent = article.title;
-                    articleModalContent.innerHTML = article.content;
-                    articleModal.classList.add('active');
-                    modalOverlay.classList.add('active');
-                }
-            }
+            // Image Gallery
+            document.querySelectorAll('.gallery-thumbnail').forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => openImageModal(thumbnail));
+            });
 
-            function closeArticleModal() {
-                articleModal.classList.remove('active');
-                modalOverlay.classList.remove('active');
-            }
+            document.getElementById('closeImageModal').addEventListener('click', closeImageModal);
+            document.getElementById('prevImage').addEventListener('click', showPrevImage);
+            document.getElementById('nextImage').addEventListener('click', showNextImage);
+        }
 
-            closeArticleModalBtn.addEventListener('click', closeArticleModal);
-            
-             /* =============================== */
-            /* IMAGE MODAL LOGIC */
-            /* =============================== */
-            const imageModal = document.getElementById('imageModal');
+        // ============================================
+        // IMAGE GALLERY MODAL
+        // ============================================
+        let currentImageIndex;
+        let currentGallery;
+
+        function openImageModal(thumbnail) {
+            const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
-            const closeImageModalBtn = document.getElementById('closeImageModal');
-            const serviceGalleryImages = document.querySelectorAll('.service-gallery img');
-
-            function openImageModal(src, alt) {
-                modalImage.src = src;
-                modalImage.alt = alt;
-                imageModal.classList.add('active');
-                modalOverlay.classList.add('active');
-            }
-
-            function closeImageModal() {
-                imageModal.classList.remove('active');
-                modalOverlay.classList.remove('active');
-            }
-
-            serviceGalleryImages.forEach(img => {
-                img.addEventListener('click', () => {
-                    openImageModal(img.src, img.alt);
-                });
-            });
-
-            closeImageModalBtn.addEventListener('click', closeImageModal);
-
-
-            /* =============================== */
-            /* SCROLL ANIMATIONS */
-            /* =============================== */
-            function observeElements() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-
-                document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                    observer.observe(el);
-                });
-            }
             
-            observeElements();
+            currentGallery = Array.from(thumbnail.closest('.image-gallery').querySelectorAll('.gallery-thumbnail'));
+            currentImageIndex = currentGallery.indexOf(thumbnail);
+            
+            modalImage.src = thumbnail.src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-
-            /* =============================== */
-            /* CONTACT FORM */
-            /* =============================== */
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
-            const formError = document.getElementById('formError');
-
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Simulate form submission
-                formSuccess.style.display = 'block';
-                formError.style.display = 'none';
-                contactForm.reset();
-                setTimeout(() => {
-                    formSuccess.style.display = 'none';
-                }, 5000);
-            });
-        });
-
-        /* =============================== */
-        /* LANGUAGE SWITCHER */
-        /* =============================== */
-        function changeLanguage(lang) {
-            console.log(`Language changed to: ${lang}`);
-            // In a real application, you would load translations here
-            // For now, we'll just update the button text and select
-            const langBtnText = document.querySelector('.language-btn span');
-            if(langBtnText) {
-                langBtnText.textContent = lang.toUpperCase();
-            }
-            const mobileLangSelect = document.getElementById('mobile-lang-select');
-            if(mobileLangSelect) {
-                mobileLangSelect.value = lang;
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            if (!state.isCartOpen && !state.isMobileMenuOpen) {
+                document.body.style.overflow = '';
             }
         }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+            document.getElementById('modalImage').src = currentGallery[currentImageIndex].src;
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+            document.getElementById('modalImage').src = currentGallery[currentImageIndex].src;
+        }
+
+        // ============================================
+        // FONCTIONS DU HEADER
+        // ============================================
+        function checkScroll() {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const isOpening = !mobileNav.classList.contains('active');
+            
+            state.isMobileMenuOpen = isOpening;
+            mobileNav.classList.toggle('active');
+            
+            if (isOpening) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // ============================================
+        // FONCTIONS DES PRODUITS
+        // ============================================
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            
+            // Filtrer les produits
+            let filteredProducts = state.currentFilter === 'all' 
+                ? PRODUCTS 
+                : PRODUCTS.filter(p => p.category === state.currentFilter || p.subcategory === state.currentFilter);
+            
+            // Trier les produits
+            filteredProducts = sortProducts(filteredProducts, state.currentSort);
+            
+            // Limiter le nombre affiché
+            const productsToShow = filteredProducts.slice(0, state.displayedProducts);
+            
+            // Rendre les produits
+            grid.innerHTML = productsToShow.map(product => createProductCard(product)).join('');
+            
+            // Mettre à jour le bouton "Charger plus"
+            updateLoadMoreButton(filteredProducts.length);
+        }
+
+        function createProductCard(product) {
+            const isInCart = state.cart.some(item => item.id === product.id);
+            const isInWishlist = state.wishlist.includes(product.id);
+            const discount = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0;
+            const availabilityPercentage = (product.availability / product.stock) * 100;
+            
+            return `
+                <div class="product-card animate-on-scroll" data-id="${product.id}">
+                    <div class="product-badges">
+                        ${product.isNew ? '<span class="badge badge-new">Nouveau</span>' : ''}
+                        ${discount > 0 ? `<span class="badge badge-sale">-${discount}%</span>` : ''}
+                        ${product.isPopular ? '<span class="badge badge-popular">Populaire</span>' : ''}
+                        ${product.availability < 10 ? '<span class="badge badge-stock">Stock limité</span>' : ''}
+                    </div>
+                    
+                    <div class="product-image">
+                        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
+                        
+                        <div class="product-actions">
+                            <button class="quick-view-btn" onclick="quickViewProduct(${product.id})" aria-label="Vue rapide">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(${product.id})" aria-label="${isInWishlist ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+                                <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-content">
+                        <span class="product-category">${getCategoryName(product.category)}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        
+                        <p class="product-description">${product.description}</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                ${generateStars(product.rating)}
+                            </div>
+                            <span class="rating-count">(${product.reviews})</span>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="product-availability">
+                                <span class="availability-dot ${product.availability > 10 ? 'available' : product.availability > 0 ? 'low' : 'unavailable'}"></span>
+                                <span>${product.availability > 0 ? `${product.availability} en stock` : 'Rupture'}</span>
+                            </div>
+                            <div class="product-size">
+                                <i class="fas fa-ruler-vertical"></i> ${product.height}
+                            </div>
+                        </div>
+                        
+                        ${product.availability > 0 ? `
+                        <div class="stock-progress">
+                            <div class="stock-progress-bar" style="width: ${availabilityPercentage}%"></div>
+                        </div>
+                        ` : ''}
+                        
+                        <div class="product-footer">
+                            <div class="product-price">
+                                ${formatPrice(product.price)}
+                                ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                            </div>
+                            <button class="add-to-cart-btn ${isInCart ? 'added' : ''}" 
+                                    onclick="addToCart(${product.id})"
+                                    ${product.availability === 0 ? 'disabled' : ''}
+                                    aria-label="${isInCart ? 'Déjà dans le panier' : 'Ajouter au panier'}">
+                                <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setProductFilter(filter) {
+            // Mettre à jour le bouton actif
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Mettre à jour l'état et rendre
+            state.currentFilter = filter;
+            state.displayedProducts = 6;
+            renderProducts();
+            
+            // Scroll vers les produits
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sortProducts(products, sortType) {
+            const sorted = [...products];
+            
+            switch (sortType) {
+                case 'new':
+                    return sorted.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+                case 'price-low':
+                    return sorted.sort((a, b) => a.price - b.price);
+                case 'price-high':
+                    return sorted.sort((a, b) => b.price - a.price);
+                case 'rating':
+                    return sorted.sort((a, b) => b.rating - a.rating);
+                case 'popular':
+                default:
+                    return sorted.sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0));
+            }
+        }
+
+        function loadMoreProducts() {
+            state.displayedProducts += 6;
+            renderProducts();
+            showNotification('Plus de produits chargés', 'info');
+        }
+
+        function updateLoadMoreButton(totalProducts) {
+            const button = document.getElementById('loadMoreProducts');
+            if (!button) return;
+            
+            if (state.displayedProducts >= totalProducts) {
+                button.style.display = 'none';
+            } else {
+                button.style.display = 'inline-flex';
+            }
+        }
+
+        // ============================================
+        // FONCTIONS DU PANIER
+        // ============================================
+        function addToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product || product.availability < 1) {
+                showNotification('Stock insuffisant', 'error');
+                return;
+            }
+            
+            const existingItem = state.cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                state.cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.images[0],
+                    quantity: 1,
+                    sku: product.sku,
+                    maxQuantity: product.availability
+                });
+            }
+            
+            // Mettre à jour le stock virtuel
+            product.availability -= 1;
+            
+            saveState();
+            updateCartCount();
+            renderProducts(); // Re-render pour mettre à jour le stock
+            showNotification(`${product.name} ajouté au panier`, 'success');
+            
+            // Ouvrir le panier sur desktop
+            if (window.innerWidth > 768) {
+                openCart();
+            }
+        }
+
+        function removeFromCart(productId) {
+            const itemIndex = state.cart.findIndex(item => item.id === productId);
+            if (itemIndex === -1) return;
+            
+            const item = state.cart[itemIndex];
+            const product = PRODUCTS.find(p => p.id === productId);
+            
+            // Restaurer le stock
+            if (product) {
+                product.availability += item.quantity;
+            }
+            
+            state.cart.splice(itemIndex, 1);
+            
+            saveState();
+            updateCartCount();
+            renderCartItems();
+            renderProducts();
+            showNotification('Article retiré du panier', 'info');
+        }
+
+        function updateCartQuantity(productId, change) {
+            const item = state.cart.find(item => item.id === productId);
+            if (!item) return;
+            
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+            
+            const newQuantity = item.quantity + change;
+            
+            // Vérifier les limites
+            if (newQuantity < 1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            if (newQuantity > product.availability + item.quantity) {
+                showNotification('Stock insuffisant', 'error');
+                return;
+            }
+            
+            // Mettre à jour le stock
+            product.availability -= change;
+            item.quantity = newQuantity;
+            
+            saveState();
+            updateCartCount();
+            renderCartItems();
+            renderProducts();
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItems');
+            const footer = document.querySelector('.cart-footer');
+            
+            if (state.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Votre panier est vide</h4>
+                        <p>Découvrez nos magnifiques plantes</p>
+                        <button class="btn btn-primary" onclick="closeAllModals()">
+                            <i class="fas fa-store"></i> Explorer la boutique
+                        </button>
+                    </div>
+                `;
+                footer.style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = state.cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})" aria-label="Retirer">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+            
+            updateCartSummary();
+            footer.style.display = 'block';
+        }
+
+        function updateCartSummary() {
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= CONFIG.freeShippingThreshold ? 0 : 50;
+            const total = subtotal + shipping;
+            
+            document.getElementById('cartSubtotal').textContent = formatPrice(subtotal);
+            document.getElementById('cartShipping').textContent = shipping === 0 ? 'Gratuite' : formatPrice(shipping);
+            document.getElementById('cartTotal').textContent = formatPrice(total);
+            
+            // Mettre à jour le message de livraison gratuite
+            const freeShippingRemaining = CONFIG.freeShippingThreshold - subtotal;
+            if (freeShippingRemaining > 0) {
+                document.querySelector('.cart-footer p').innerHTML = `
+                    <i class="fas fa-shipping-fast"></i> Plus que ${formatPrice(freeShippingRemaining)} pour la livraison gratuite
+                `;
+            }
+        }
+
+        function updateCartCount() {
+            const count = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function openCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            renderCartItems();
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function proceedToCheckout() {
+            if (state.cart.length === 0) {
+                showNotification('Votre panier est vide', 'error');
+                return;
+            }
+            
+            closeCart();
+            showNotification('Fonctionnalité de paiement à implémenter', 'info');
+            // Ici, vous pouvez rediriger vers une page de paiement
+        }
+
+        // ============================================
+        // FONCTIONS DE LA WISHLIST
+        // ============================================
+        function toggleWishlist(productId) {
+            const index = state.wishlist.indexOf(productId);
+            
+            if (index === -1) {
+                state.wishlist.push(productId);
+                showNotification('Ajouté aux favoris', 'success');
+            } else {
+                state.wishlist.splice(index, 1);
+                showNotification('Retiré des favoris', 'info');
+            }
+            
+            saveState();
+            updateWishlistCount();
+            renderProducts(); // Pour mettre à jour l'icône cœur
+        }
+
+        function updateWishlistCount() {
+            document.getElementById('wishlistCount').textContent = state.wishlist.length;
+        }
+
+        // ============================================
+        // FONCTIONS DE LA VUE RAPIDE
+        // ============================================
+        function quickViewProduct(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+            
+            // Créer le contenu de la vue rapide
+            const modalContent = `
+                <div class="modal-header">
+                    <h3 style="margin: 0;">${product.name}</h3>
+                    <button class="modal-close" onclick="closeQuickView()" aria-label="Fermer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div style="padding: 2rem; max-height: 70vh; overflow-y: auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                        <div>
+                            <img src="${product.images[0]}" alt="${product.name}" style="width: 100%; border-radius: var(--radius-md);">
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <span class="product-category">${getCategoryName(product.category)}</span>
+                                <h2 style="margin: 0.5rem 0;">${product.name}</h2>
+                                <div class="product-rating" style="margin-bottom: 1rem;">
+                                    <div class="stars">
+                                        ${generateStars(product.rating)}
+                                    </div>
+                                    <span class="rating-count">(${product.reviews} avis)</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <div class="product-price" style="font-size: 2rem; margin-bottom: 0.5rem;">
+                                    ${formatPrice(product.price)}
+                                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                                </div>
+                                
+                                <div class="product-availability" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <span class="availability-dot ${product.availability > 10 ? 'available' : product.availability > 0 ? 'low' : 'unavailable'}"></span>
+                                    <span>${product.availability > 0 ? `${product.availability} en stock` : 'Rupture de stock'}</span>
+                                </div>
+                            </div>
+                            
+                            <p style="color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6;">${product.description}</p>
+                            
+                            <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                                <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" ${product.availability === 0 ? 'disabled' : ''}>
+                                    <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                </button>
+                                <button class="btn btn-outline" onclick="toggleWishlist(${product.id})">
+                                    <i class="${state.wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                                </button>
+                            </div>
+                            
+                            <div style="background: var(--light-green); padding: 1rem; border-radius: var(--radius-md);">
+                                <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-info-circle"></i> Caractéristiques</h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                    <div><strong>Hauteur:</strong> ${product.height}</div>
+                                    <div><strong>Difficulté:</strong> ${product.difficulty}</div>
+                                    <div><strong>Code:</strong> ${product.sku}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: var(--radius-md);">
+                        <h4 style="margin-bottom: 1rem;"><i class="fas fa-seedling"></i> Conseils d'entretien</h4>
+                        ${product.care ? `
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div><strong>Arrosage:</strong> ${product.care.water}</div>
+                            <div><strong>Lumière:</strong> ${product.care.light}</div>
+                            <div><strong>Température:</strong> ${product.care.temperature}</div>
+                            <div><strong>Sol:</strong> ${product.care.soil}</div>
+                        </div>
+                        ` : '<p>Instructions d\'entretien non disponibles.</p>'}
+                    </div>
+                </div>
+            `;
+            
+            const modal = document.getElementById('quickViewModal');
+            modal.innerHTML = modalContent;
+            modal.classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ============================================
+        // FONCTIONS DES SLIDERS
+        // ============================================
+        function startHeroSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            // Changer de slide toutes les 5 secondes
+            setInterval(() => {
+                state.currentHeroSlide = (state.currentHeroSlide + 1) % slides.length;
+                updateHeroSlider();
+            }, 5000);
+            
+            // Écouteurs pour les dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    state.currentHeroSlide = index;
+                    updateHeroSlider();
+                });
+            });
+        }
+
+        function updateHeroSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === state.currentHeroSlide);
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === state.currentHeroSlide);
+            });
+        }
+
+        function startTestimonialSlider() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === state.currentTestimonial);
+            });
+        }
+
+        function prevTestimonial() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            state.currentTestimonial = (state.currentTestimonial - 1 + slides.length) % slides.length;
+            updateTestimonialSlider();
+        }
+
+        function nextTestimonial() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            state.currentTestimonial = (state.currentTestimonial + 1) % slides.length;
+            updateTestimonialSlider();
+        }
+
+        function updateTestimonialSlider() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === state.currentTestimonial);
+            });
+        }
+
+        // ============================================
+        // FONCTIONS DES FORMULAIRES
+        // ============================================
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const successEl = document.getElementById('formSuccess');
+            const errorEl = document.getElementById('formError');
+            
+            // Validation simple
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'var(--error-red)';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+            
+            if (!isValid) {
+                errorEl.style.display = 'block';
+                successEl.style.display = 'none';
+                showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+                return;
+            }
+            
+            // Simuler l'envoi
+            setTimeout(() => {
+                successEl.style.display = 'block';
+                errorEl.style.display = 'none';
+                form.reset();
+                showNotification('Message envoyé avec succès!', 'success');
+                
+                // Cacher le message après 5 secondes
+                setTimeout(() => {
+                    successEl.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        }
+
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input[type="email"]');
+            
+            if (!input.value || !isValidEmail(input.value)) {
+                showNotification('Veuillez entrer une adresse email valide', 'error');
+                return;
+            }
+            
+            showNotification('Merci pour votre inscription à notre newsletter!', 'success');
+            input.value = '';
+        }
+
+        // ============================================
+        // FONCTIONS DE LANGUE
+        // ============================================
+        function changeLanguage(lang) {
+            state.currentLanguage = lang;
+            saveState();
+            updateLanguage();
+            showNotification(`Langue changée en ${CONFIG.languages[lang]}`, 'info');
+        }
+
+        function updateLanguage() {
+            // Mettre à jour le bouton de langue
+            const langBtn = document.querySelector('.language-btn span');
+            if (langBtn) {
+                langBtn.textContent = state.currentLanguage.toUpperCase();
+            }
+            
+            // Ici, vous pourriez mettre à jour tout le contenu textuel
+            // Pour l'instant, nous gardons le français comme langue par défaut
+        }
+
+        // ============================================
+        // FONCTIONS UTILITAIRES
+        // ============================================
+        function formatPrice(price) {
+            return `${price.toLocaleString('fr-MA')} ${CONFIG.currency}`;
+        }
+
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
+            if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
+            for (let i = 0; i < emptyStars; i++) stars += '<i class="far fa-star"></i>';
+            
+            return stars;
+        }
+
+        function getCategoryName(category) {
+            const categories = {
+                'interior': 'Intérieur',
+                'exterior': 'Extérieur',
+                'fruit': 'Fruitier',
+                'palm': 'Palmier',
+                'bonsai': 'Bonsaï',
+                'cactus': 'Cactus'
+            };
+            return categories[category] || category;
+        }
+
+        function showNotification(message, type = 'info') {
+            const toast = document.getElementById('notificationToast');
+            if (!toast) return;
+            
+            const typeClass = {
+                'success': 'success',
+                'error': 'error',
+                'info': 'info',
+                'warning': 'warning'
+            }[type] || 'info';
+            
+            const icon = {
+                'success': 'fa-check-circle',
+                'error': 'fa-exclamation-circle',
+                'info': 'fa-info-circle',
+                'warning': 'fa-exclamation-triangle'
+            }[type] || 'fa-info-circle';
+            
+            toast.innerHTML = `
+                <div class="toast-content toast-${typeClass}">
+                    <i class="fas ${icon}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function smoothScroll(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                closeAllModals();
+                
+                // Mettre à jour le lien actif
+                updateActiveNavLink(targetId);
+            }
+        }
+
+        function updateActiveNavLink(targetId) {
+            // Mettre à jour les liens desktop
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === targetId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Mettre à jour les liens mobile
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === targetId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function closeAllModals() {
+            closeCart();
+            closeQuickView();
+            closeImageModal();
+            
+            if (state.isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function saveState() {
+            localStorage.setItem('plantesShopCart', JSON.stringify(state.cart));
+            localStorage.setItem('plantesShopWishlist', JSON.stringify(state.wishlist));
+            localStorage.setItem('plantesShopLanguage', state.currentLanguage);
+        }
+
+        // ============================================
+        // ANIMATIONS
+        // ============================================
+        function startAnimations() {
+            // Animation d'entrée pour le contenu hero
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        }
+
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ============================================
+        // EXPORT DES FONCTIONS GLOBALES
+        // ============================================
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.updateCartQuantity = updateCartQuantity;
+        window.toggleWishlist = toggleWishlist;
+        window.quickViewProduct = quickViewProduct;
+        window.closeQuickView = closeQuickView;
+        window.closeAllModals = closeAllModals;
+        window.changeLanguage = changeLanguage;
+        window.scrollToTop = scrollToTop;
+        window.prevTestimonial = prevTestimonial;
+        window.nextTestimonial = nextTestimonial;
+
+        // ============================================
+        // ARTICLE MODAL FUNCTIONS
+        // ============================================
+        function openArticleModal(articleId) {
+            const article = ARTICLES.find(a => a.id === articleId);
+            if (!article) return;
+
+            document.getElementById('articleModalTitle').textContent = article.title;
+            const body = document.getElementById('articleModalBody');
+            body.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="article-modal-image">
+                <div class="article-modal-meta">
+                    <span><i class="far fa-calendar"></i> ${article.date}</span>
+                    <span><i class="far fa-clock"></i> ${article.readTime} lecture</span>
+                </div>
+                <div class="article-modal-content">
+                    ${article.content}
+                </div>
+            `;
+            
+            document.getElementById('articleModal').classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.openArticleModal = openArticleModal;
+        window.closeArticleModal = closeArticleModal;
+
     </script>
+
+    <!-- Style supplémentaire pour les notifications -->
+    <style>
+        .notification-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 10000;
+            max-width: 350px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .notification-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .toast-content {
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .toast-success {
+            background: var(--success-green);
+            color: white;
+        }
+        
+        .toast-error {
+            background: var(--error-red);
+            color: white;
+        }
+        
+        .toast-info {
+            background: var(--info-blue);
+            color: white;
+        }
+        
+        .toast-warning {
+            background: var(--warning-yellow);
+            color: var(--dark);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition-normal);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-green);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* =============================== */
+        /* GALLERY STYLES */
+        /* =============================== */
+
+        .gallery-section {
+          margin-top: 1.5rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .gallery-thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .gallery-thumbnail:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-green);
+        }
+
+        /* Image Modal Styles */
+        .image-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+
+        .image-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .image-modal-close:hover {
+            background: var(--error-red);
+        }
+
+        .image-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal-nav:hover {
+            background: var(--primary-green);
+        }
+
+        .image-modal-prev {
+            left: -60px;
+        }
+
+        .image-modal-next {
+            right: -60px;
+        }
+        
+        /* =============================== */
+        /* ARTICLE MODAL STYLES */
+        /* =============================== */
+        .article-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .article-modal-body {
+            padding: 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .article-modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .article-modal-meta {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .article-modal-content {
+            padding: 2rem;
+            line-height: 1.8;
+        }
+
+        .article-modal-content h4 {
+            color: var(--primary-green);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-modal-content ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-modal-image {
+                height: 200px;
+            }
+            .article-modal-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Optimisations de performance */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </body>
 </html>
