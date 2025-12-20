@@ -572,6 +572,57 @@
             background: var(--primary-green);
             color: var(--white);
         }
+
+        .mobile-nav-actions {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #mobileWishlistBtn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #mobileWishlistBtn .action-count {
+            background-color: var(--error-red);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .mobile-language-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .mobile-language-selector select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .mobile-language-selector select:focus {
+            outline: none;
+        }
         
         /* Mobile Navigation */
         .mobile-nav {
@@ -2020,6 +2071,10 @@
         }
         
         @media (max-width: 992px) {
+            .header-actions .action-btn#wishlistButton,
+            .header-actions .language-selector {
+                display: none;
+            }
             .header {
                 height: var(--mobile-header-height);
             }
@@ -2249,6 +2304,21 @@
                 <a href="#palmiers" class="mobile-category">Palmiers</a>
                 <a href="#bonsai" class="mobile-category">Bonsaïs</a>
                 <a href="#cactus" class="mobile-category">Cactus</a>
+            </div>
+
+            <div class="mobile-nav-actions">
+                <a href="#wishlist" class="mobile-nav-link" id="mobileWishlistBtn">
+                    <span><i class="far fa-heart"></i> Liste de souhaits</span>
+                    <span class="action-count" id="mobileWishlistCount">0</span>
+                </a>
+               <div class="mobile-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
             </div>
             
             <div class="mobile-nav-footer">
