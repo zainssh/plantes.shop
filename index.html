@@ -3360,8 +3360,13 @@
             document.getElementById('loadMoreProducts').addEventListener('click', loadMoreProducts);
             
             // Témoignages navigation
-            document.querySelector('.prev-testimonial').addEventListener('click', prevTestimonial);
-            document.querySelector('.next-testimonial').addEventListener('click', nextTestimonial);
+            const prevTestimonialBtn = document.querySelector('.prev-testimonial');
+            const nextTestimonialBtn = document.querySelector('.next-testimonial');
+
+            if (prevTestimonialBtn && nextTestimonialBtn) {
+                prevTestimonialBtn.addEventListener('click', prevTestimonial);
+                nextTestimonialBtn.addEventListener('click', nextTestimonial);
+            }
             
             // Formulaire contact
             document.getElementById('contactForm').addEventListener('submit', handleContactSubmit);
