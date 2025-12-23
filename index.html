@@ -1013,8 +1013,7 @@
         .olive-gallery .main-olive-image {
             width: 100%;
             height: auto;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -2526,10 +2525,10 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full">
+                <a href="#" data-contact-link="tel" class="btn btn-outline btn-full">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                <a href="#" data-contact-link="whatsapp" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -2814,10 +2813,10 @@
                             <span class="cta-price">Prix sur Devis</span>
                             <p>Contactez-nous pour une consultation personnalisée et un devis adapté à votre projet.</p>
                             <div class="cta-buttons">
-                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis." target="_blank" class="btn btn-primary whatsapp-btn-large">
+                                <a href="#" data-contact-link="whatsapp-quote" target="_blank" class="btn btn-primary whatsapp-btn-large">
                                     <i class="fab fa-whatsapp"></i> Demander un Devis WhatsApp
                                 </a>
-                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
+                                <a href="#" data-contact-link="tel" class="btn btn-secondary">
                                     <i class="fas fa-phone"></i> Appeler
                                 </a>
                             </div>
@@ -2938,7 +2937,7 @@
                                     <i class="fas fa-phone-alt"></i>
                                     <div>
                                         <h4>Téléphone</h4>
-                                        <p>${CONTACT_INFO.phone}</p>
+                                        <p><a href="#" data-contact-link="tel" data-contact-text="phone"></a></p>
                                     </div>
                                 </div>
                                 
@@ -2946,7 +2945,7 @@
                                     <i class="fas fa-envelope"></i>
                                     <div>
                                         <h4>Email</h4>
-                                        <p>${CONTACT_INFO.email}</p>
+                                        <p><a href="#" data-contact-link="email" data-contact-text="email"></a></p>
                                     </div>
                                 </div>
                                 
@@ -2954,12 +2953,12 @@
                                     <i class="fab fa-whatsapp"></i>
                                     <div>
                                         <h4>WhatsApp</h4>
-                                        <p>${CONTACT_INFO.whatsapp}</p>
+                                        <p><a href="#" data-contact-link="whatsapp" data-contact-text="whatsapp"></a></p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="whatsapp-btn">
+                            <a href="#" data-contact-link="whatsapp" target="_blank" class="whatsapp-btn">
                                 <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
                             </a>
                         </div>
@@ -3107,11 +3106,11 @@
                         <div class="footer-contact">
                             <div class="footer-contact-item">
                                 <i class="fas fa-phone-alt"></i>
-                                <span>${CONTACT_INFO.phone}</span>
+                                <a href="#" data-contact-link="tel" data-contact-text="phone"></a>
                             </div>
                             <div class="footer-contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>${CONTACT_INFO.email}</span>
+                                <a href="#" data-contact-link="email" data-contact-text="email"></a>
                             </div>
                         </div>
                     </div>
@@ -3408,6 +3407,37 @@
             
             // Observer les éléments pour les animations
             setupIntersectionObserver();
+
+            // Mettre à jour les liens de contact
+            updateContactLinks();
+        }
+
+        function updateContactLinks() {
+            const contactLinks = document.querySelectorAll('[data-contact-link]');
+            contactLinks.forEach(link => {
+                const type = link.dataset.contactLink;
+                const textType = link.dataset.contactText;
+
+                switch (type) {
+                    case 'tel':
+                        link.href = `tel:${CONTACT_INFO.phone}`;
+                        break;
+                    case 'whatsapp':
+                        link.href = `https://wa.me/${CONTACT_INFO.whatsapp}`;
+                        break;
+                    case 'whatsapp-quote':
+                        const quoteText = "Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis.";
+                        link.href = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(quoteText)}`;
+                        break;
+                    case 'email':
+                        link.href = `mailto:${CONTACT_INFO.email}`;
+                        break;
+                }
+
+                if (textType) {
+                    link.textContent = CONTACT_INFO[textType];
+                }
+            });
         }
 
         // ============================================
@@ -3429,22 +3459,6 @@
             // Overlay
             document.getElementById('modalOverlay').addEventListener('click', closeAllModals);
             
-            // Filtres produits
-            document.querySelectorAll('.category-filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.dataset.filter;
-                    setProductFilter(filter);
-                });
-            });
-            
-            // Tri produits
-            document.getElementById('sortProducts').addEventListener('change', (e) => {
-                state.currentSort = e.target.value;
-                renderProducts();
-            });
-            
-            // Charger plus de produits
-            document.getElementById('loadMoreProducts').addEventListener('click', loadMoreProducts);
             
             // Témoignages navigation
             const prevTestimonialBtn = document.querySelector('.prev-testimonial');
@@ -3579,8 +3593,9 @@
             // 2. Charger les miniatures
             thumbnailsContainer.innerHTML = ''; // Vider le conteneur
             product.images.forEach((imgSrc, index) => {
+                const encodedSrc = imgSrc.replace(/ /g, '%20'); // URL-encode spaces
                 const thumb = document.createElement('img');
-                thumb.src = imgSrc;
+                thumb.src = encodedSrc;
                 thumb.alt = `${product.name} - vue ${index + 1}`;
 
                 // Mettre la première miniature en actif
@@ -3590,7 +3605,7 @@
 
                 thumb.addEventListener('click', () => {
                     // Mettre à jour l'image principale
-                    mainImage.src = imgSrc;
+                    mainImage.src = encodedSrc;
 
                     // Gérer la classe 'active'
                     document.querySelectorAll('#oliveThumbnails img').forEach(t => t.classList.remove('active'));
@@ -3632,7 +3647,6 @@
             
             saveState();
             updateCartCount();
-            renderProducts(); // Re-render pour mettre à jour le stock
             showNotification(`${product.name} ajouté au panier`, 'success');
             
             // Ouvrir le panier sur desktop
@@ -3658,7 +3672,6 @@
             saveState();
             updateCartCount();
             renderCartItems();
-            renderProducts();
             showNotification('Article retiré du panier', 'info');
         }
 
@@ -3689,7 +3702,6 @@
             saveState();
             updateCartCount();
             renderCartItems();
-            renderProducts();
         }
 
         function renderCartItems() {
@@ -4042,7 +4054,6 @@
 
         function closeAllModals() {
             closeCart();
-            closeQuickView();
             closeImageModal();
             
             if (state.isMobileMenuOpen) {
