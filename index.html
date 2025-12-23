@@ -1014,7 +1014,7 @@
             width: 100%;
             height: auto;
             aspect-ratio: 4 / 3;
-            object-fit: contain;
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
@@ -3429,22 +3429,6 @@
             // Overlay
             document.getElementById('modalOverlay').addEventListener('click', closeAllModals);
             
-            // Filtres produits
-            document.querySelectorAll('.category-filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.dataset.filter;
-                    setProductFilter(filter);
-                });
-            });
-            
-            // Tri produits
-            document.getElementById('sortProducts').addEventListener('change', (e) => {
-                state.currentSort = e.target.value;
-                renderProducts();
-            });
-            
-            // Charger plus de produits
-            document.getElementById('loadMoreProducts').addEventListener('click', loadMoreProducts);
             
             // Témoignages navigation
             const prevTestimonialBtn = document.querySelector('.prev-testimonial');
@@ -3632,7 +3616,6 @@
             
             saveState();
             updateCartCount();
-            renderProducts(); // Re-render pour mettre à jour le stock
             showNotification(`${product.name} ajouté au panier`, 'success');
             
             // Ouvrir le panier sur desktop
@@ -3658,7 +3641,6 @@
             saveState();
             updateCartCount();
             renderCartItems();
-            renderProducts();
             showNotification('Article retiré du panier', 'info');
         }
 
@@ -3689,7 +3671,6 @@
             saveState();
             updateCartCount();
             renderCartItems();
-            renderProducts();
         }
 
         function renderCartItems() {
