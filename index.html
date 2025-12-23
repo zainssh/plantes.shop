@@ -1156,6 +1156,60 @@
             background: #128C7E !important;
         }
 
+        .info-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-green);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card-header i {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .info-card-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-card ul li {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 992px) {
             .olive-showcase-grid {
                 grid-template-columns: 1fr;
@@ -2810,29 +2864,6 @@
                         </div>
 
                         <div class="details-description">
-                            <h4><i class="fas fa-ruler-combined"></i> Caractéristiques de nos oliviers :</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Tailles et formes maîtrisées (taille ornementale professionnelle)</li>
-                                <li><i class="fas fa-check"></i> Système racinaire préparé pour une reprise optimale</li>
-                                <li><i class="fas fa-check"></i> Arbres robustes, adaptés au climat marocain</li>
-                                <li><i class="fas fa-check"></i> Disponibles en grandes quantités</li>
-                            </ul>
-
-                            <h4><i class="fas fa-concierge-bell"></i> Nos services inclus :</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Sélection de l’olivier selon l’espace et le projet</li>
-                                <li><i class="fas fa-check"></i> Transport sécurisé</li>
-                                <li><i class="fas fa-check"></i> Plantation professionnelle</li>
-                                <li><i class="fas fa-check"></i> Conseils d’entretien après installation</li>
-                            </ul>
-
-                            <h4><i class="fas fa-building"></i> Idéal pour :</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Résidences et copropriétés</li>
-                                <li><i class="fas fa-check"></i> Villas et jardins privés</li>
-                                <li><i class="fas fa-check"></i> Hôtels, maisons d’hôtes</li>
-                                <li><i class="fas fa-check"></i> Projets paysagers haut de gamme</li>
-                            </ul>
                         </div>
 
                         <div class="details-cta-box">
