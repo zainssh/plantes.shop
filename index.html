@@ -1014,7 +1014,7 @@
             width: 100%;
             height: auto;
             aspect-ratio: 4 / 3;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -4042,7 +4042,6 @@
 
         function closeAllModals() {
             closeCart();
-            closeQuickView();
             closeImageModal();
             
             if (state.isMobileMenuOpen) {
