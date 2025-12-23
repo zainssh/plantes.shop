@@ -582,21 +582,6 @@
             gap: 0.5rem;
         }
 
-        #mobileWishlistBtn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #mobileWishlistBtn .action-count {
-            background-color: var(--error-red);
-            color: var(--white);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.1rem 0.5rem;
-            border-radius: 10px;
-        }
-
         .mobile-language-selector {
             display: flex;
             align-items: center;
@@ -1001,6 +986,192 @@
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
+        }
+        
+        /* =============================== */
+        /* OLIVE SHOWCASE SECTION */
+        /* =============================== */
+        .olive-showcase-section {
+            background: var(--white);
+        }
+
+        .olive-showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .olive-gallery .main-image-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .olive-gallery .main-olive-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image-container:hover .main-olive-image {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-strip {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail-strip img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition-normal);
+        }
+        
+        .thumbnail-strip img:hover, .thumbnail-strip img.active {
+            border-color: var(--primary-green);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .olive-details .details-subtitle {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary-green);
+            background: var(--light-green);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+        
+        .olive-details .details-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .olive-details .details-intro {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .details-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .details-pills .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        .details-pills .pill i {
+            color: var(--accent-green);
+        }
+
+        .details-description {
+            margin-bottom: 2rem;
+        }
+        
+        .details-description h4 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+        }
+        
+        .details-description ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .details-description ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-600);
+        }
+        
+        .details-description ul li i {
+            color: var(--primary-green);
+            margin-top: 5px;
+        }
+
+        .details-cta-box {
+            background: var(--light-green);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--primary-green);
+        }
+
+        .details-cta-box .cta-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .details-cta-box p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-cta-box .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .whatsapp-btn-large {
+            background: #25D366 !important;
+        }
+        .whatsapp-btn-large:hover {
+            background: #128C7E !important;
+        }
+
+        @media (max-width: 992px) {
+            .olive-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .thumbnail-strip {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thumbnail-strip {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .details-title {
+                font-size: 1.8rem;
+            }
+            .details-cta-box {
+                padding: 1.5rem;
+            }
         }
         
         /* =============================== */
@@ -2115,7 +2286,6 @@
         }
         
         @media (max-width: 992px) {
-            .header-actions .action-btn#wishlistButton,
             .header-actions .language-selector {
                 display: none;
             }
@@ -2284,12 +2454,6 @@
             
             <!-- Header Actions -->
             <div class="header-actions">
-                <!-- Wishlist Button -->
-                <button class="action-btn" id="wishlistButton" aria-label="Liste de souhaits">
-                    <i class="far fa-heart"></i>
-                    <span class="action-count" id="wishlistCount">0</span>
-                </button>
-                
                 <!-- Cart Button -->
                 <button class="action-btn" id="cartButton" aria-label="Panier d'achat">
                     <i class="fas fa-shopping-cart"></i>
@@ -2351,10 +2515,6 @@
             </div>
 
             <div class="mobile-nav-actions">
-                <a href="#wishlist" class="mobile-nav-link" id="mobileWishlistBtn">
-                    <span><i class="far fa-heart"></i> Liste de souhaits</span>
-                    <span class="action-count" id="mobileWishlistCount">0</span>
-                </a>
                <div class="mobile-language-selector">
                     <i class="fas fa-globe"></i>
                     <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
@@ -2615,38 +2775,54 @@
             </div>
         </section>
         
-        <!-- Products Section -->
-        <section class="products-section section-padding" id="products">
+        <!-- Olive Tree Showcase Section -->
+        <section class="olive-showcase-section section-padding" id="products">
             <div class="container">
-                <div class="products-header">
-                    <div class="section-title" style="text-align: left; margin-bottom: 0;">
-                        <h2>Nos Produits Phares</h2>
-                        <p>Découvrez nos meilleures ventes et nouvelles arrivées</p>
-                    </div>
-                    
-                    <div class="products-filter-sort">
-                        <select class="sort-select" id="sortProducts">
-                            <option value="popular">Les plus populaires</option>
-                            <option value="new">Nouveautés</option>
-                            <option value="price-low">Prix croissant</option>
-                            <option value="price-high">Prix décroissant</option>
-                            <option value="rating">Meilleures notes</option>
-                        </select>
-                        
-                        <a href="#all-products" class="btn btn-outline">
-                            Voir Tout <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="section-title">
+                    <h2>Notre Produit d'Exception</h2>
+                    <p>Une exclusivité Plantes Shop pour des projets grandioses</p>
                 </div>
-                
-                <div class="products-grid" id="productsGrid">
-                    <!-- Products will be loaded dynamically -->
-                </div>
-                
-                <div class="load-more-container">
-                    <button class="btn btn-primary" id="loadMoreProducts">
-                        <i class="fas fa-plus"></i> Charger Plus de Produits
-                    </button>
+
+                <div class="olive-showcase-grid">
+                    <div class="olive-gallery">
+                        <div class="main-image-container">
+                            <img src="WhatsApp Image 2025-12-23 at 17.58.10.jpeg" alt="Grand olivier" id="mainOliveImage" class="main-olive-image">
+                        </div>
+                        <div class="thumbnail-strip" id="oliveThumbnails">
+                            <!-- Thumbnails will be loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="olive-details">
+                        <span class="details-subtitle">Projets Paysagers Haut de Gamme</span>
+                        <h1 class="details-title">Oliviers Adultes de Grande Taille</h1>
+                        <p class="details-intro">
+                            Nous disposons d’un large stock d’oliviers adultes de grande taille, soigneusement sélectionnés et préparés pour l’aménagement paysager des résidences, villas, hôtels et espaces professionnels.
+                        </p>
+
+                        <div class="details-pills">
+                            <span class="pill"><i class="fas fa-check-circle"></i> Reprise garantie</span>
+                            <span class="pill"><i class="fas fa-truck"></i> Transport sécurisé</span>
+                            <span class="pill"><i class="fas fa-seedling"></i> Plantation Pro</span>
+                        </div>
+
+                        <div class="details-description" id="oliveFullDescription">
+                           <!-- Full description will be loaded here -->
+                        </div>
+
+                        <div class="details-cta-box">
+                            <span class="cta-price">Prix sur Devis</span>
+                            <p>Contactez-nous pour une consultation personnalisée et un devis adapté à votre projet.</p>
+                            <div class="cta-buttons">
+                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis." target="_blank" class="btn btn-primary whatsapp-btn-large">
+                                    <i class="fab fa-whatsapp"></i> Demander un Devis WhatsApp
+                                </a>
+                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
+                                    <i class="fas fa-phone"></i> Appeler
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3115,221 +3291,6 @@
                 isNew: true,
                 isPopular: true,
                 sku: "PS-OLV-LG-009"
-            },
-            {
-                id: 1,
-                name: "Ficus nitida Tressé",
-                name_ar: "فيكوس نيتيدا مضفر",
-                name_en: "Braided Ficus nitida",
-                price: 840,
-                oldPrice: 980,
-                category: "interior",
-                subcategory: "bonsai",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2021/11/ficus-nitida-tresse-1.jpg",
-                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                description: "Ficus nitida magnifiquement tressé, idéal pour l'intérieur. Plante purificatrice d'air avec un tronc artistique.",
-                description_ar: "فيكوس نيتيدا مضفر بشكل جميل، مثالي للداخل. نبات ينقي الهواء مع جذع فني.",
-                description_en: "Beautifully braided Ficus nitida, perfect for indoors. Air-purifying plant with artistic trunk.",
-                care: {
-                    water: "Arrosage modéré quand le sol est sec",
-                    light: "Lumière vive indirecte",
-                    temperature: "18-25°C",
-                    soil: "Terreau bien drainé"
-                },
-                availability: 15,
-                stock: 70,
-                difficulty: "Facile",
-                height: "60-80 cm",
-                rating: 4.8,
-                reviews: 42,
-                tags: ["purificateur", "interieur", "decoration", "bonsai"],
-                isNew: true,
-                isPopular: true,
-                sku: "PS-FNT-001"
-            },
-            {
-                id: 2,
-                name: "Ficus moclame Tressé",
-                name_ar: "فيكوس موكلام مضفر",
-                name_en: "Braided Ficus moclame",
-                price: 720,
-                oldPrice: 850,
-                category: "interior",
-                subcategory: "bonsai",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2021/11/ficus-moclame-tresse-clorofila-1.jpg"
-                ],
-                description: "Ficus moclame au tronc tressé élégant. Feuillage vert foncé brillant parfait pour la décoration intérieure.",
-                description_ar: "فيكوس موكلام مع جذع مضفر أنيق. أوراق خضراء داكنة لامعة مثالية للديكور الداخلي.",
-                description_en: "Ficus moclame with elegant braided trunk. Shiny dark green foliage perfect for interior decoration.",
-                availability: 8,
-                stock: 45,
-                difficulty: "Facile",
-                height: "50-70 cm",
-                rating: 4.7,
-                reviews: 31,
-                tags: ["interieur", "decoration", "bonsai"],
-                isNew: false,
-                isPopular: true,
-                sku: "PS-FMC-002"
-            },
-            {
-                id: 3,
-                name: "Figue de barbarie – sans épines",
-                name_ar: "تين شوكي - بدون أشواك",
-                name_en: "Spineless Prickly Pear",
-                price: 48,
-                oldPrice: 60,
-                category: "exterior",
-                subcategory: "cactus",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2021/11/cactus-figue-barbarie.jpg"
-                ],
-                description: "Figuier de barbarie sans épines, variété rare produisant des fruits délicieux. Adapté au climat marocain.",
-                description_ar: "تين شوكي بدون أشواك، صنف نادر ينتج فاكهة لذيذة. مناسب للمناخ المغربي.",
-                description_en: "Spineless prickly pear, rare variety producing delicious fruits. Adapted to Moroccan climate.",
-                availability: 50,
-                stock: 200,
-                difficulty: "Très facile",
-                height: "40-60 cm",
-                rating: 4.3,
-                reviews: 89,
-                tags: ["exterieur", "fruitier", "cactus", "resistant"],
-                isNew: true,
-                isPopular: false,
-                sku: "PS-FGB-003"
-            },
-            {
-                id: 4,
-                name: "Cactus variété marocaine",
-                name_ar: "صبار أصناف مغربية",
-                name_en: "Moroccan Cactus Variety",
-                price: 51,
-                oldPrice: null,
-                category: "exterior",
-                subcategory: "cactus",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2021/11/cactus-maroc-clorofila.jpg"
-                ],
-                description: "Collection de cactus marocains adaptés aux conditions arides. Parfaits pour les jardins secs.",
-                description_ar: "مجموعة من الصبار المغربي المتكيف مع الظروف الجافة. مثالي للحدائق الجافة.",
-                description_en: "Collection of Moroccan cacti adapted to arid conditions. Perfect for dry gardens.",
-                availability: 100,
-                stock: 500,
-                difficulty: "Très facile",
-                height: "20-50 cm",
-                rating: 4.2,
-                reviews: 124,
-                tags: ["exterieur", "cactus", "resistant", "maroc"],
-                isNew: false,
-                isPopular: true,
-                sku: "PS-CCT-004"
-            },
-            {
-                id: 5,
-                name: "Washingtonia robusta",
-                name_ar: "واشنطونيا روبوستا",
-                name_en: "Washingtonia robusta",
-                price: 240,
-                oldPrice: 280,
-                category: "exterior",
-                subcategory: "palm",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2021/11/washintognia-robusta-maroc-casablanca-marrakech.jpeg"
-                ],
-                description: "Washingtonia robusta, palmier mexicain à croissance rapide. Très résistant et parfait pour les alignements.",
-                description_ar: "واشنطونيا روبوستا، نخلة مكسيكية سريعة النمو. مقاومة جدا ومثالية للصفوف.",
-                description_en: "Washingtonia robusta, fast-growing Mexican palm. Very resistant and perfect for alignments.",
-                availability: 50,
-                stock: 250,
-                difficulty: "Très facile",
-                height: "10-20 m",
-                rating: 4.5,
-                reviews: 89,
-                tags: ["exterieur", "palmier", "alignement", "resistant"],
-                isNew: false,
-                isPopular: true,
-                sku: "PS-WSR-005"
-            },
-            {
-                id: 6,
-                name: "Olivier Picholine Marocaine",
-                name_ar: "زيتون بيشولين مغربي",
-                name_en: "Moroccan Picholine Olive Tree",
-                price: 8,
-                oldPrice: 10,
-                category: "exterior",
-                subcategory: "fruit",
-                images: [
-                    "https://www.clorofila.ma/wp-content/uploads/2023/02/picholine-marocaine.jpeg"
-                ],
-                description: "Olivier Picholine, variété marocaine traditionnelle. Excellente productivité et huile de qualité supérieure.",
-                description_ar: "زيتون بيشولين، صنف مغربي تقليدي. إنتاجية ممتازة وزيت بجودة عالية.",
-                description_en: "Picholine olive tree, traditional Moroccan variety. Excellent productivity and superior quality oil.",
-                availability: 500,
-                stock: 2500,
-                difficulty: "Très facile",
-                height: "3-6 m",
-                rating: 4.6,
-                reviews: 156,
-                tags: ["exterieur", "fruitier", "olivier", "productif"],
-                isNew: false,
-                isPopular: true,
-                sku: "PS-OLP-006"
-            },
-            {
-                id: 7,
-                name: "Palmier dattier Medjool",
-                name_ar: "نخلة التمر مجهول",
-                name_en: "Medjool Date Palm",
-                price: 350,
-                oldPrice: 420,
-                category: "exterior",
-                subcategory: "palm",
-                images: [
-                    "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                description: "Palmier dattier Medjool produisant des dattes de qualité premium. Adapté aux régions chaudes du Maroc.",
-                description_ar: "نخلة التمر مجهول تنتج تمور بجودة ممتازة. مناسبة للمناطق الحارة في المغرب.",
-                description_en: "Medjool date palm producing premium quality dates. Suitable for hot regions of Morocco.",
-                availability: 30,
-                stock: 150,
-                difficulty: "Moyen",
-                height: "8-15 m",
-                rating: 4.7,
-                reviews: 67,
-                tags: ["exterieur", "palmier", "fruitier", "datte"],
-                isNew: true,
-                isPopular: false,
-                sku: "PS-PDM-007"
-            },
-            {
-                id: 8,
-                name: "Monstera Deliciosa",
-                name_ar: "مونستيرا دليسوسا",
-                name_en: "Monstera Deliciosa",
-                price: 120,
-                oldPrice: 150,
-                category: "interior",
-                subcategory: "interior",
-                images: [
-                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ],
-                description: "Plante d'intérieur tendance avec ses feuilles percées caractéristiques. Purificatrice d'air et facile d'entretien.",
-                description_ar: "نبات داخلي عصري بأوراقه المثقوبة المميزة. ينقي الهواء وسهل العناية.",
-                description_en: "Trendy indoor plant with its characteristic perforated leaves. Air purifying and easy to maintain.",
-                availability: 25,
-                stock: 100,
-                difficulty: "Facile",
-                height: "40-60 cm",
-                rating: 4.9,
-                reviews: 203,
-                tags: ["interieur", "tendance", "purificateur", "decoration"],
-                isNew: true,
-                isPopular: true,
-                sku: "PS-MND-008"
             }
         ];
 
@@ -3411,7 +3372,6 @@
         // ============================================
         let state = {
             cart: JSON.parse(localStorage.getItem('plantesShopCart')) || [],
-            wishlist: JSON.parse(localStorage.getItem('plantesShopWishlist')) || [],
             currentLanguage: localStorage.getItem('plantesShopLanguage') || CONFIG.defaultLanguage,
             currentFilter: 'all',
             currentSort: 'popular',
@@ -3434,10 +3394,9 @@
         function initializeApp() {
             // Mettre à jour les compteurs
             updateCartCount();
-            updateWishlistCount();
             
             // Rendre les produits
-            renderProducts();
+            initializeOliveShowcase(); // Remplacer renderProducts()
             
             // Mettre à jour la langue
             updateLanguage();
@@ -3602,167 +3561,48 @@
         // ============================================
         // FONCTIONS DES PRODUITS
         // ============================================
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            if (!grid) return;
-            
-            // Filtrer les produits
-            let filteredProducts = state.currentFilter === 'all' 
-                ? PRODUCTS 
-                : PRODUCTS.filter(p => p.category === state.currentFilter || p.subcategory === state.currentFilter);
-            
-            // Trier les produits
-            filteredProducts = sortProducts(filteredProducts, state.currentSort);
-            
-            // Limiter le nombre affiché
-            const productsToShow = filteredProducts.slice(0, state.displayedProducts);
-            
-            // Rendre les produits
-            grid.innerHTML = productsToShow.map(product => createProductCard(product)).join('');
-            
-            // Mettre à jour le bouton "Charger plus"
-            updateLoadMoreButton(filteredProducts.length);
-        }
+        function initializeOliveShowcase() {
+            const product = PRODUCTS.find(p => p.id === 9); // Hardcoded ID for olive tree
+            if (!product) {
+                console.error("Olive tree product not found.");
+                return;
+            }
 
-        function createProductCard(product) {
-            const isInCart = state.cart.some(item => item.id === product.id);
-            const isInWishlist = state.wishlist.includes(product.id);
-            const discount = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0;
-            const availabilityPercentage = (product.availability / product.stock) * 100;
-            
-            return `
-                <div class="product-card animate-on-scroll" data-id="${product.id}">
-                    <div class="product-badges">
-                        ${product.isNew ? '<span class="badge badge-new">Nouveau</span>' : ''}
-                        ${discount > 0 ? `<span class="badge badge-sale">-${discount}%</span>` : ''}
-                        ${product.isPopular ? '<span class="badge badge-popular">Populaire</span>' : ''}
-                        ${product.availability < 10 ? '<span class="badge badge-stock">Stock limité</span>' : ''}
-                    </div>
-                    
-                    <div class="product-image">
-                        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
-                        
-                        <div class="product-actions">
-                            <button class="quick-view-btn" onclick="quickViewProduct(${product.id})" aria-label="Vue rapide">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="wishlist-btn" onclick="toggleWishlist(${product.id})" aria-label="${isInWishlist ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
-                                <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="product-content">
-                        <span class="product-category">${getCategoryName(product.category)}</span>
-                        <h3 class="product-title">${product.name}</h3>
-                        
-                        <p class="product-description">${product.description}</p>
-                        
-                        <div class="product-rating">
-                            <div class="stars">
-                                ${generateStars(product.rating)}
-                            </div>
-                            <span class="rating-count">(${product.reviews})</span>
-                        </div>
-                        
-                        <div class="product-meta">
-                            <div class="product-availability">
-                                <span class="availability-dot ${product.availability > 10 ? 'available' : product.availability > 0 ? 'low' : 'unavailable'}"></span>
-                                <span>${product.availability > 0 ? `${product.availability} en stock` : 'Rupture'}</span>
-                            </div>
-                            <div class="product-size">
-                                <i class="fas fa-ruler-vertical"></i> ${product.height}
-                            </div>
-                        </div>
-                        
-                        ${product.availability > 0 ? `
-                        <div class="stock-progress">
-                            <div class="stock-progress-bar" style="width: ${availabilityPercentage}%"></div>
-                        </div>
-                        ` : ''}
-                        
-                        <div class="product-footer">
-                            ${product.onDemand ? `
-                                <div class="product-on-demand">
-                                    <span class="price-on-demand-text">Sur devis</span>
-                                    <div class="on-demand-buttons">
-                                        <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le produit : ${encodeURIComponent(product.name)}" target="_blank" class="btn btn-small whatsapp-contact-btn" aria-label="Contacter sur WhatsApp">
-                                            <i class="fab fa-whatsapp"></i>
-                                        </a>
-                                        <a href="tel:${CONTACT_INFO.phone}" class="btn btn-small phone-contact-btn" aria-label="Appeler">
-                                            <i class="fas fa-phone"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            ` : `
-                                <div class="product-price">
-                                    ${formatPrice(product.price)}
-                                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
-                                </div>
-                                <button class="add-to-cart-btn ${isInCart ? 'added' : ''}" 
-                                        onclick="addToCart(${product.id})"
-                                        ${product.availability === 0 ? 'disabled' : ''}
-                                        aria-label="${isInCart ? 'Déjà dans le panier' : 'Ajouter au panier'}">
-                                    <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i>
-                                </button>
-                            `}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+            const thumbnailsContainer = document.getElementById('oliveThumbnails');
+            const mainImage = document.getElementById('mainOliveImage');
+            const fullDescriptionContainer = document.getElementById('oliveFullDescription');
 
-        function setProductFilter(filter) {
-            // Mettre à jour le bouton actif
-            document.querySelectorAll('.category-filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.filter === filter) {
-                    btn.classList.add('active');
+            if (!thumbnailsContainer || !mainImage || !fullDescriptionContainer) {
+                console.error("One or more showcase elements are missing from the DOM.");
+                return;
+            }
+
+            // 1. Charger la description complète
+            fullDescriptionContainer.innerHTML = product.fullDescription;
+
+            // 2. Charger les miniatures
+            thumbnailsContainer.innerHTML = ''; // Vider le conteneur
+            product.images.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.alt = `${product.name} - vue ${index + 1}`;
+                
+                // Mettre la première miniature en actif
+                if (index === 0) {
+                    thumb.classList.add('active');
                 }
+
+                thumb.addEventListener('click', () => {
+                    // Mettre à jour l'image principale
+                    mainImage.src = imgSrc;
+
+                    // Gérer la classe 'active'
+                    document.querySelectorAll('#oliveThumbnails img').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                
+                thumbnailsContainer.appendChild(thumb);
             });
-            
-            // Mettre à jour l'état et rendre
-            state.currentFilter = filter;
-            state.displayedProducts = 6;
-            renderProducts();
-            
-            // Scroll vers les produits
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function sortProducts(products, sortType) {
-            const sorted = [...products];
-            
-            switch (sortType) {
-                case 'new':
-                    return sorted.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
-                case 'price-low':
-                    return sorted.sort((a, b) => a.price - b.price);
-                case 'price-high':
-                    return sorted.sort((a, b) => b.price - a.price);
-                case 'rating':
-                    return sorted.sort((a, b) => b.rating - a.rating);
-                case 'popular':
-                default:
-                    return sorted.sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0));
-            }
-        }
-
-        function loadMoreProducts() {
-            state.displayedProducts += 6;
-            renderProducts();
-            showNotification('Plus de produits chargés', 'info');
-        }
-
-        function updateLoadMoreButton(totalProducts) {
-            const button = document.getElementById('loadMoreProducts');
-            if (!button) return;
-            
-            if (state.displayedProducts >= totalProducts) {
-                button.style.display = 'none';
-            } else {
-                button.style.display = 'inline-flex';
-            }
         }
 
         // ============================================
@@ -3957,29 +3797,6 @@
         }
 
         // ============================================
-        // FONCTIONS DE LA WISHLIST
-        // ============================================
-        function toggleWishlist(productId) {
-            const index = state.wishlist.indexOf(productId);
-            
-            if (index === -1) {
-                state.wishlist.push(productId);
-                showNotification('Ajouté aux favoris', 'success');
-            } else {
-                state.wishlist.splice(index, 1);
-                showNotification('Retiré des favoris', 'info');
-            }
-            
-            saveState();
-            updateWishlistCount();
-            renderProducts(); // Pour mettre à jour l'icône cœur
-        }
-
-        function updateWishlistCount() {
-            document.getElementById('wishlistCount').textContent = state.wishlist.length;
-        }
-
-        // ============================================
         // FONCTIONS DE LA VUE RAPIDE
         // ============================================
         function quickViewProduct(productId) {
@@ -4037,9 +3854,6 @@
                                 ` : `
                                     <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" ${product.availability === 0 ? 'disabled' : ''}>
                                         <i class="fas fa-cart-plus"></i> Ajouter au panier
-                                    </button>
-                                    <button class="btn btn-outline" onclick="toggleWishlist(${product.id})">
-                                        <i class="${state.wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
                                     </button>
                                 `}
                             </div>
@@ -4349,7 +4163,6 @@
 
         function saveState() {
             localStorage.setItem('plantesShopCart', JSON.stringify(state.cart));
-            localStorage.setItem('plantesShopWishlist', JSON.stringify(state.wishlist));
             localStorage.setItem('plantesShopLanguage', state.currentLanguage);
         }
 
@@ -4387,7 +4200,6 @@
         window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateCartQuantity = updateCartQuantity;
-        window.toggleWishlist = toggleWishlist;
         window.quickViewProduct = quickViewProduct;
         window.closeQuickView = closeQuickView;
         window.closeAllModals = closeAllModals;
