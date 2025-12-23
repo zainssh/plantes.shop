@@ -1252,6 +1252,50 @@
             background: var(--primary-green);
             color: var(--white);
         }
+
+        .product-on-demand {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-on-demand-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        .on-demand-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-contact-btn, .phone-contact-btn {
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .whatsapp-contact-btn {
+            background-color: #25D366;
+            color: var(--white);
+        }
+
+        .whatsapp-contact-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .phone-contact-btn {
+            background-color: var(--gray-200);
+            color: var(--dark);
+        }
+
+        .phone-contact-btn:hover {
+            background-color: var(--gray-300);
+        }
         
         .stock-progress {
             height: 4px;
@@ -2322,10 +2366,10 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:+212522987654" class="btn btn-outline btn-full">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/212661234567" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -2718,7 +2762,7 @@
                                     <i class="fas fa-phone-alt"></i>
                                     <div>
                                         <h4>Téléphone</h4>
-                                        <p>+212 6 61 19 37 52</p>
+                                        <p>${CONTACT_INFO.phone}</p>
                                     </div>
                                 </div>
                                 
@@ -2726,7 +2770,7 @@
                                     <i class="fas fa-envelope"></i>
                                     <div>
                                         <h4>Email</h4>
-                                        <p>contact.plantes.shop@gmail.com</p>
+                                        <p>${CONTACT_INFO.email}</p>
                                     </div>
                                 </div>
                                 
@@ -2734,12 +2778,12 @@
                                     <i class="fab fa-whatsapp"></i>
                                     <div>
                                         <h4>WhatsApp</h4>
-                                        <p>+212 6 61 19 37 52</p>
+                                        <p>${CONTACT_INFO.whatsapp}</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <a href="https://wa.me/212661234567" target="_blank" class="whatsapp-btn">
+                            <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="whatsapp-btn">
                                 <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
                             </a>
                         </div>
@@ -2887,11 +2931,11 @@
                         <div class="footer-contact">
                             <div class="footer-contact-item">
                                 <i class="fas fa-phone-alt"></i>
-                                <span>+212 6 61 19 37 52</span>
+                                <span>${CONTACT_INFO.phone}</span>
                             </div>
                             <div class="footer-contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>contact.plantes.shop@gmail.com</span>
+                                <span>${CONTACT_INFO.email}</span>
                             </div>
                         </div>
                     </div>
@@ -2992,6 +3036,12 @@
         // ============================================
         // CONFIGURATION & DONNÉES
         // ============================================
+        const CONTACT_INFO = {
+            phone: "+212661193752",
+            whatsapp: "+212661193752",
+            email: "contact.plantes.shop@gmail.com"
+        };
+
         const CONFIG = {
             freeShippingThreshold: 500,
             currency: 'MAD',
@@ -3005,6 +3055,67 @@
 
         // Données des produits (réelles)
         const PRODUCTS = [
+            {
+                id: 9,
+                name: "Oliviers de Grande Taille",
+                name_ar: "أشجار الزيتون كبيرة الحجم",
+                name_en: "Large Olive Trees",
+                price: 0,
+                onDemand: true,
+                category: "exterior",
+                subcategory: "trees",
+                images: [
+                    "WhatsApp Image 2025-12-23 at 17.58.10.jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.01.24.jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.01.23 (2).jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.01.23 (1).jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.01.23.jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.00.17 (3).jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.00.17 (2).jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.00.17 (1).jpeg",
+                    "WhatsApp Image 2025-12-23 at 18.00.17.jpeg",
+                    "WhatsApp Image 2025-12-23 at 17.59.37.jpeg",
+                    "WhatsApp Image 2025-12-23 at 17.58.12.jpeg",
+                    "WhatsApp Image 2025-12-23 at 17.58.11.jpeg"
+                ],
+                description: "Vente & Installation d’Oliviers de Grande Taille pour l'aménagement paysager. Large stock disponible.",
+                description_ar: "بيع وتركيب أشجار الزيتون كبيرة الحجم لتنسيق الحدائق. لدينا مخزون كبير.",
+                description_en: "Sale & Installation of Large Olive Trees for landscaping. Large stock available.",
+                fullDescription: `
+                    <p>Nous disposons d’un large stock d’oliviers adultes de grande taille, soigneusement sélectionnés et préparés pour l’aménagement paysager des résidences, villas, hôtels et espaces professionnels.</p>
+                    <h4>Caractéristiques de nos oliviers :</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Tailles et formes maîtrisées (taille ornementale professionnelle)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Système racinaire préparé pour une reprise optimale</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Arbres robustes, adaptés au climat marocain</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Disponibles en grandes quantités</li>
+                    </ul>
+                    <h4>Nos services inclus :</h4>
+                    <ul>
+                        <li>Sélection de l’olivier selon l’espace et le projet</li>
+                        <li>Transport sécurisé</li>
+                        <li>Plantation professionnelle</li>
+                        <li>Conseils d’entretien après installation</li>
+                    </ul>
+                    <h4>Idéal pour :</h4>
+                    <ul>
+                        <li>Résidences et copropriétés</li>
+                        <li>Villas et jardins privés</li>
+                        <li>Hôtels, maisons d’hôtes</li>
+                        <li>Projets paysagers haut de gamme</li>
+                    </ul>
+                `,
+                availability: 100,
+                stock: 100,
+                difficulty: "Moyen",
+                height: "Sur mesure",
+                rating: 5.0,
+                reviews: 15,
+                tags: ["exterieur", "olivier", "aménagement", "luxe"],
+                isNew: true,
+                isPopular: true,
+                sku: "PS-OLV-LG-009"
+            },
             {
                 id: 1,
                 name: "Ficus nitida Tressé",
@@ -3571,16 +3682,30 @@
                         ` : ''}
                         
                         <div class="product-footer">
-                            <div class="product-price">
-                                ${formatPrice(product.price)}
-                                ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
-                            </div>
-                            <button class="add-to-cart-btn ${isInCart ? 'added' : ''}" 
-                                    onclick="addToCart(${product.id})"
-                                    ${product.availability === 0 ? 'disabled' : ''}
-                                    aria-label="${isInCart ? 'Déjà dans le panier' : 'Ajouter au panier'}">
-                                <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i>
-                            </button>
+                            ${product.onDemand ? `
+                                <div class="product-on-demand">
+                                    <span class="price-on-demand-text">Sur devis</span>
+                                    <div class="on-demand-buttons">
+                                        <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le produit : ${encodeURIComponent(product.name)}" target="_blank" class="btn btn-small whatsapp-contact-btn" aria-label="Contacter sur WhatsApp">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="tel:${CONTACT_INFO.phone}" class="btn btn-small phone-contact-btn" aria-label="Appeler">
+                                            <i class="fas fa-phone"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            ` : `
+                                <div class="product-price">
+                                    ${formatPrice(product.price)}
+                                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                                </div>
+                                <button class="add-to-cart-btn ${isInCart ? 'added' : ''}"
+                                        onclick="addToCart(${product.id})"
+                                        ${product.availability === 0 ? 'disabled' : ''}
+                                        aria-label="${isInCart ? 'Déjà dans le panier' : 'Ajouter au panier'}">
+                                    <i class="fas ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i>
+                                </button>
+                            `}
                         </div>
                     </div>
                 </div>
@@ -3899,15 +4024,24 @@
                                 </div>
                             </div>
                             
-                            <p style="color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6;">${product.description}</p>
+                            <div style="color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6;">${product.fullDescription || product.description}</div>
                             
                             <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                                <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" ${product.availability === 0 ? 'disabled' : ''}>
-                                    <i class="fas fa-cart-plus"></i> Ajouter au panier
-                                </button>
-                                <button class="btn btn-outline" onclick="toggleWishlist(${product.id})">
-                                    <i class="${state.wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
-                                </button>
+                                ${product.onDemand ? `
+                                    <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le produit : ${encodeURIComponent(product.name)}" target="_blank" class="btn btn-primary" style="background-color: #25D366;">
+                                        <i class="fab fa-whatsapp"></i> Demander un devis
+                                    </a>
+                                    <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
+                                        <i class="fas fa-phone"></i> Appeler
+                                    </a>
+                                ` : `
+                                    <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" ${product.availability === 0 ? 'disabled' : ''}>
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                    <button class="btn btn-outline" onclick="toggleWishlist(${product.id})">
+                                        <i class="${state.wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                                    </button>
+                                `}
                             </div>
                             
                             <div style="background: var(--light-green); padding: 1rem; border-radius: var(--radius-md);">
