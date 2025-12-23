@@ -3168,10 +3168,6 @@
         </div>
     </div>
     
-    <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quickViewModal">
-        <!-- Quick view content will be loaded here -->
-    </div>
     
     <!-- Image Modal -->
     <div class="image-modal-overlay" id="imageModal">
@@ -3797,106 +3793,6 @@
         }
 
         // ============================================
-        // FONCTIONS DE LA VUE RAPIDE
-        // ============================================
-        function quickViewProduct(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-            
-            // Créer le contenu de la vue rapide
-            const modalContent = `
-                <div class="modal-header">
-                    <h3 style="margin: 0;">${product.name}</h3>
-                    <button class="modal-close" onclick="closeQuickView()" aria-label="Fermer">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                
-                <div style="padding: 2rem; max-height: 70vh; overflow-y: auto;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                        <div>
-                            <img src="${product.images[0]}" alt="${product.name}" style="width: 100%; border-radius: var(--radius-md);">
-                        </div>
-                        <div>
-                            <div style="margin-bottom: 1.5rem;">
-                                <span class="product-category">${getCategoryName(product.category)}</span>
-                                <h2 style="margin: 0.5rem 0;">${product.name}</h2>
-                                <div class="product-rating" style="margin-bottom: 1rem;">
-                                    <div class="stars">
-                                        ${generateStars(product.rating)}
-                                    </div>
-                                    <span class="rating-count">(${product.reviews} avis)</span>
-                                </div>
-                            </div>
-                            
-                            <div style="margin-bottom: 1.5rem;">
-                                <div class="product-price" style="font-size: 2rem; margin-bottom: 0.5rem;">
-                                    ${formatPrice(product.price)}
-                                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
-                                </div>
-                                
-                                <div class="product-availability" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-                                    <span class="availability-dot ${product.availability > 10 ? 'available' : product.availability > 0 ? 'low' : 'unavailable'}"></span>
-                                    <span>${product.availability > 0 ? `${product.availability} en stock` : 'Rupture de stock'}</span>
-                                </div>
-                            </div>
-                            
-                            <div style="color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6;">${product.fullDescription || product.description}</div>
-                            
-                            <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                                ${product.onDemand ? `
-                                    <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le produit : ${encodeURIComponent(product.name)}" target="_blank" class="btn btn-primary" style="background-color: #25D366;">
-                                        <i class="fab fa-whatsapp"></i> Demander un devis
-                                    </a>
-                                    <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
-                                        <i class="fas fa-phone"></i> Appeler
-                                    </a>
-                                ` : `
-                                    <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" ${product.availability === 0 ? 'disabled' : ''}>
-                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
-                                    </button>
-                                `}
-                            </div>
-                            
-                            <div style="background: var(--light-green); padding: 1rem; border-radius: var(--radius-md);">
-                                <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-info-circle"></i> Caractéristiques</h4>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                                    <div><strong>Hauteur:</strong> ${product.height}</div>
-                                    <div><strong>Difficulté:</strong> ${product.difficulty}</div>
-                                    <div><strong>Code:</strong> ${product.sku}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: var(--radius-md);">
-                        <h4 style="margin-bottom: 1rem;"><i class="fas fa-seedling"></i> Conseils d'entretien</h4>
-                        ${product.care ? `
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                            <div><strong>Arrosage:</strong> ${product.care.water}</div>
-                            <div><strong>Lumière:</strong> ${product.care.light}</div>
-                            <div><strong>Température:</strong> ${product.care.temperature}</div>
-                            <div><strong>Sol:</strong> ${product.care.soil}</div>
-                        </div>
-                        ` : '<p>Instructions d\'entretien non disponibles.</p>'}
-                    </div>
-                </div>
-            `;
-            
-            const modal = document.getElementById('quickViewModal');
-            modal.innerHTML = modalContent;
-            modal.classList.add('active');
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeQuickView() {
-            document.getElementById('quickViewModal').classList.remove('active');
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // ============================================
         // FONCTIONS DES SLIDERS
         // ============================================
         function startHeroSlider() {
@@ -4200,8 +4096,6 @@
         window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateCartQuantity = updateCartQuantity;
-        window.quickViewProduct = quickViewProduct;
-        window.closeQuickView = closeQuickView;
         window.closeAllModals = closeAllModals;
         window.changeLanguage = changeLanguage;
         window.scrollToTop = scrollToTop;
