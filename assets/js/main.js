@@ -72,10 +72,10 @@
                 content: `
                     <h4>Introduction</h4>
                     <p>L'hiver peut être une période difficile pour les plantes d'intérieur. La baisse de luminosité, l'air sec causé par le chauffage et les courants d'air froid sont autant de défis à relever. Voici 10 conseils essentiels pour aider vos plantes à traverser la saison froide en pleine forme.</p>
-
+                    
                     <h4>1. Réduisez l'arrosage</h4>
                     <p>En hiver, la plupart des plantes entrent en période de dormance et leur croissance ralentit. Elles ont donc besoin de moins d'eau. Laissez le terreau sécher davantage entre deux arrosages. Un excès d'eau peut rapidement entraîner la pourriture des racines.</p>
-
+                    
                     <h4>2. Augmentez l'humidité</h4>
                     <p>Le chauffage assèche l'air, ce qui est néfaste pour de nombreuses plantes tropicales. Pour y remédier, vous pouvez :</p>
                     <ul>
@@ -83,7 +83,7 @@
                         <li>Placer les pots sur des plateaux remplis de billes d'argile et d'eau.</li>
                         <li>Utiliser un humidificateur d'air.</li>
                     </ul>
-
+                    
                     <h4>3. Maximisez la lumière</h4>
                     <p>Rapprochez vos plantes des fenêtres les mieux exposées (généralement au sud) pour qu'elles profitent au maximum de la lumière naturelle, qui est plus faible en hiver. Pensez à nettoyer régulièrement les vitres.</p>
                 `
@@ -160,22 +160,22 @@
         function initializeApp() {
             // Mettre à jour les compteurs
             updateCartCount();
-
+            
             // Rendre les produits
             initializeOliveShowcase(); // Remplacer renderProducts()
-
+            
             // Mettre à jour la langue
             updateLanguage();
-
+            
             // Démarrer le slider hero
             startHeroSlider();
-
+            
             // Démarrer le slider témoignages
             startTestimonialSlider();
-
+            
             // Vérifier le défilement pour le header
             checkScroll();
-
+            
             // Observer les éléments pour les animations
             setupIntersectionObserver();
 
@@ -221,19 +221,19 @@
                     element.addEventListener(event, handler);
                 }
             };
-
+            
             // Header scroll
             window.addEventListener('scroll', checkScroll);
-
+            
             // Menu mobile
             onId('mobileMenuButton', 'click', toggleMobileMenu);
             onId('closeMobileMenu', 'click', toggleMobileMenu);
-
+            
             // Panier
             onId('cartButton', 'click', openCart);
             onId('closeCart', 'click', closeCart);
             onId('checkoutButton', 'click', proceedToCheckout);
-
+            
             // Modals
             onId('modalOverlay', 'click', closeAllModals);
             onId('closeImageModal', 'click', closeImageModal);
@@ -243,19 +243,19 @@
             // Témoignages navigation
             on('.prev-testimonial', 'click', prevTestimonial);
             on('.next-testimonial', 'click', nextTestimonial);
-
+            
             // Formulaires
             onId('contactForm', 'submit', handleContactSubmit);
             onId('newsletterForm', 'submit', handleNewsletterSubmit);
-
+            
             // Retour en haut
             onId('backToTop', 'click', scrollToTop);
-
+            
             // Touche Échap pour fermer les modals
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeAllModals();
             });
-
+            
             // Navigation fluide
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', smoothScroll);
@@ -279,10 +279,10 @@
         function openImageModal(thumbnail) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
-
+            
             currentGallery = Array.from(thumbnail.closest('.image-gallery').querySelectorAll('.gallery-thumbnail'));
             currentImageIndex = currentGallery.indexOf(thumbnail);
-
+            
             modalImage.src = thumbnail.src;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -312,13 +312,13 @@
         function checkScroll() {
             const header = document.getElementById('header');
             const backToTop = document.getElementById('backToTop');
-
+            
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-
+            
             if (window.scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
@@ -329,10 +329,10 @@
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const isOpening = !mobileNav.classList.contains('active');
-
+            
             state.isMobileMenuOpen = isOpening;
             mobileNav.classList.toggle('active');
-
+            
             if (isOpening) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -363,7 +363,7 @@
                 thumb.src = imgSrc;
                 thumb.alt = `${product.name} - vue ${index + 1}`;
                 thumb.classList.add('gallery-thumbnail'); // Add class for modal functionality
-
+                
                 galleryContainer.appendChild(thumb);
             });
         }
@@ -377,9 +377,9 @@
                 showNotification('Stock insuffisant', 'error');
                 return;
             }
-
+            
             const existingItem = state.cart.find(item => item.id === productId);
-
+            
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -393,14 +393,14 @@
                     maxQuantity: product.availability
                 });
             }
-
+            
             // Mettre à jour le stock virtuel
             product.availability -= 1;
-
+            
             saveState();
             updateCartCount();
             showNotification(`${product.name} ajouté au panier`, 'success');
-
+            
             // Ouvrir le panier sur desktop
             if (window.innerWidth > 768) {
                 openCart();
@@ -410,17 +410,17 @@
         function removeFromCart(productId) {
             const itemIndex = state.cart.findIndex(item => item.id === productId);
             if (itemIndex === -1) return;
-
+            
             const item = state.cart[itemIndex];
             const product = PRODUCTS.find(p => p.id === productId);
-
+            
             // Restaurer le stock
             if (product) {
                 product.availability += item.quantity;
             }
-
+            
             state.cart.splice(itemIndex, 1);
-
+            
             saveState();
             updateCartCount();
             renderCartItems();
@@ -430,27 +430,27 @@
         function updateCartQuantity(productId, change) {
             const item = state.cart.find(item => item.id === productId);
             if (!item) return;
-
+            
             const product = PRODUCTS.find(p => p.id === productId);
             if (!product) return;
-
+            
             const newQuantity = item.quantity + change;
-
+            
             // Vérifier les limites
             if (newQuantity < 1) {
                 removeFromCart(productId);
                 return;
             }
-
+            
             if (newQuantity > product.availability + item.quantity) {
                 showNotification('Stock insuffisant', 'error');
                 return;
             }
-
+            
             // Mettre à jour le stock
             product.availability -= change;
             item.quantity = newQuantity;
-
+            
             saveState();
             updateCartCount();
             renderCartItems();
@@ -459,7 +459,7 @@
         function renderCartItems() {
             const container = document.getElementById('cartItems');
             const footer = document.querySelector('.cart-footer');
-
+            
             if (state.cart.length === 0) {
                 container.innerHTML = `
                     <div class="cart-empty">
@@ -474,7 +474,7 @@
                 footer.style.display = 'none';
                 return;
             }
-
+            
             container.innerHTML = state.cart.map(item => `
                 <div class="cart-item">
                     <div class="cart-item-image">
@@ -498,7 +498,7 @@
                     </button>
                 </div>
             `).join('');
-
+            
             updateCartSummary();
             footer.style.display = 'block';
         }
@@ -507,11 +507,11 @@
             const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const shipping = subtotal >= CONFIG.freeShippingThreshold ? 0 : 50;
             const total = subtotal + shipping;
-
+            
             document.getElementById('cartSubtotal').textContent = formatPrice(subtotal);
             document.getElementById('cartShipping').textContent = shipping === 0 ? 'Gratuite' : formatPrice(shipping);
             document.getElementById('cartTotal').textContent = formatPrice(total);
-
+            
             // Mettre à jour le message de livraison gratuite
             const freeShippingRemaining = CONFIG.freeShippingThreshold - subtotal;
             if (freeShippingRemaining > 0) {
@@ -529,7 +529,7 @@
         function openCart() {
             const modal = document.getElementById('cartModal');
             const overlay = document.getElementById('modalOverlay');
-
+            
             renderCartItems();
             modal.classList.add('active');
             overlay.classList.add('active');
@@ -539,7 +539,7 @@
         function closeCart() {
             const modal = document.getElementById('cartModal');
             const overlay = document.getElementById('modalOverlay');
-
+            
             modal.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
@@ -550,7 +550,7 @@
                 showNotification('Votre panier est vide', 'error');
                 return;
             }
-
+            
             closeCart();
             showNotification('Fonctionnalité de paiement à implémenter', 'info');
             // Ici, vous pouvez rediriger vers une page de paiement
@@ -562,13 +562,13 @@
         function startHeroSlider() {
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.slider-dot');
-
+            
             // Changer de slide toutes les 5 secondes
             setInterval(() => {
                 state.currentHeroSlide = (state.currentHeroSlide + 1) % slides.length;
                 updateHeroSlider();
             }, 5000);
-
+            
             // Écouteurs pour les dots
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
@@ -581,11 +581,11 @@
         function updateHeroSlider() {
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.slider-dot');
-
+            
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === state.currentHeroSlide);
             });
-
+            
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === state.currentHeroSlide);
             });
@@ -622,15 +622,15 @@
         // ============================================
         function handleContactSubmit(e) {
             e.preventDefault();
-
+            
             const form = e.target;
             const successEl = document.getElementById('formSuccess');
             const errorEl = document.getElementById('formError');
-
+            
             // Validation simple
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
-
+            
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     isValid = false;
@@ -639,21 +639,21 @@
                     field.style.borderColor = '';
                 }
             });
-
+            
             if (!isValid) {
                 errorEl.style.display = 'block';
                 successEl.style.display = 'none';
                 showNotification('Veuillez remplir tous les champs obligatoires', 'error');
                 return;
             }
-
+            
             // Simuler l'envoi
             setTimeout(() => {
                 successEl.style.display = 'block';
                 errorEl.style.display = 'none';
                 form.reset();
                 showNotification('Message envoyé avec succès!', 'success');
-
+                
                 // Cacher le message après 5 secondes
                 setTimeout(() => {
                     successEl.style.display = 'none';
@@ -664,12 +664,12 @@
         function handleNewsletterSubmit(e) {
             e.preventDefault();
             const input = e.target.querySelector('input[type="email"]');
-
+            
             if (!input.value || !isValidEmail(input.value)) {
                 showNotification('Veuillez entrer une adresse email valide', 'error');
                 return;
             }
-
+            
             showNotification('Merci pour votre inscription à notre newsletter!', 'success');
             input.value = '';
         }
@@ -690,7 +690,7 @@
             if (langBtn) {
                 langBtn.textContent = state.currentLanguage.toUpperCase();
             }
-
+            
             // Ici, vous pourriez mettre à jour tout le contenu textuel
             // Pour l'instant, nous gardons le français comme langue par défaut
         }
@@ -706,13 +706,13 @@
             const fullStars = Math.floor(rating);
             const halfStar = rating % 1 >= 0.5;
             const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
+            
             let stars = '';
-
+            
             for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
             if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
             for (let i = 0; i < emptyStars; i++) stars += '<i class="far fa-star"></i>';
-
+            
             return stars;
         }
 
@@ -731,30 +731,30 @@
         function showNotification(message, type = 'info') {
             const toast = document.getElementById('notificationToast');
             if (!toast) return;
-
+            
             const typeClass = {
                 'success': 'success',
                 'error': 'error',
                 'info': 'info',
                 'warning': 'warning'
             }[type] || 'info';
-
+            
             const icon = {
                 'success': 'fa-check-circle',
                 'error': 'fa-exclamation-circle',
                 'info': 'fa-info-circle',
                 'warning': 'fa-exclamation-triangle'
             }[type] || 'fa-info-circle';
-
+            
             toast.innerHTML = `
                 <div class="toast-content toast-${typeClass}">
                     <i class="fas ${icon}"></i>
                     <span>${message}</span>
                 </div>
             `;
-
+            
             toast.classList.add('show');
-
+            
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
@@ -768,19 +768,19 @@
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
+            
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = document.getElementById('header').offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight;
-
+                
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-
+                
                 closeAllModals();
-
+                
                 // Mettre à jour le lien actif
                 updateActiveNavLink(targetId);
             }
@@ -794,7 +794,7 @@
                     link.classList.add('active');
                 }
             });
-
+            
             // Mettre à jour les liens mobile
             document.querySelectorAll('.mobile-nav-link').forEach(link => {
                 link.classList.remove('active');
@@ -807,7 +807,7 @@
         function closeAllModals() {
             closeCart();
             closeImageModal();
-
+            
             if (state.isMobileMenuOpen) {
                 toggleMobileMenu();
             }
@@ -847,7 +847,7 @@
                 threshold: 0.1,
                 rootMargin: '0px 0px -100px 0px'
             });
-
+            
             document.querySelectorAll('.animate-on-scroll').forEach(el => {
                 observer.observe(el);
             });
@@ -884,7 +884,7 @@
                     ${article.content}
                 </div>
             `;
-
+            
             document.getElementById('articleModal').classList.add('active');
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -899,3 +899,4 @@
         window.openArticleModal = openArticleModal;
         window.closeArticleModal = closeArticleModal;
 
+    
