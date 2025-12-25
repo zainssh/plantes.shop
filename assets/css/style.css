@@ -968,7 +968,7 @@
         }
 
 .product-spacing {
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 
         .olive-showcase-grid {
@@ -978,7 +978,17 @@
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
         }
+
+.olive-showcase-grid:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
 
         .olive-gallery .main-image-container {
             border-radius: var(--radius-lg);
