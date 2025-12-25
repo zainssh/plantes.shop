@@ -2856,10 +2856,7 @@
 
                 <div class="olive-showcase-grid">
                     <div class="olive-gallery">
-                        <div class="main-image-container">
-                            <img src="assets/images/olive-gallery-13.jpeg" alt="Grand olivier" id="mainOliveImage" class="main-olive-image">
-                        </div>
-                        <div class="thumbnail-strip" id="oliveThumbnails">
+                        <div class="image-gallery olive-showcase-gallery" id="oliveThumbnails">
                             <!-- Thumbnails will be loaded dynamically -->
                         </div>
                     </div>
@@ -3527,9 +3524,12 @@
                 anchor.addEventListener('click', smoothScroll);
             });
 
-            // Image Gallery
-            document.querySelectorAll('.gallery-thumbnail').forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => openImageModal(thumbnail));
+            // Image Gallery Event Delegation
+            document.addEventListener('click', function(e) {
+                const thumbnail = e.target.closest('.gallery-thumbnail');
+                if (thumbnail) {
+                    openImageModal(thumbnail);
+                }
             });
 
             document.getElementById('closeImageModal').addEventListener('click', closeImageModal);
@@ -3617,36 +3617,21 @@
                 return;
             }
 
-            const thumbnailsContainer = document.getElementById('oliveThumbnails');
-            const mainImage = document.getElementById('mainOliveImage');
-
-            if (!thumbnailsContainer || !mainImage) {
-                console.error("One or more showcase elements are missing from the DOM.");
+            const galleryContainer = document.getElementById('oliveThumbnails');
+            if (!galleryContainer) {
+                console.error("Olive showcase gallery container not found.");
                 return;
             }
 
-            // Charger les miniatures
-            thumbnailsContainer.innerHTML = ''; // Vider le conteneur
+            // Load thumbnails into the gallery
+            galleryContainer.innerHTML = ''; // Clear container
             product.images.forEach((imgSrc, index) => {
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
                 thumb.alt = `${product.name} - vue ${index + 1}`;
+                thumb.classList.add('gallery-thumbnail'); // Add class for modal functionality
                 
-                // Mettre la première miniature en actif
-                if (index === 0) {
-                    thumb.classList.add('active');
-                }
-
-                thumb.addEventListener('click', () => {
-                    // Mettre à jour l'image principale
-                    mainImage.src = imgSrc;
-
-                    // Gérer la classe 'active'
-                    document.querySelectorAll('#oliveThumbnails img').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                });
-                
-                thumbnailsContainer.appendChild(thumb);
+                galleryContainer.appendChild(thumb);
             });
         }
 
@@ -4302,6 +4287,16 @@
         .gallery-thumbnail:hover {
             transform: scale(1.05);
             border-color: var(--primary-green);
+        }
+
+        /* Custom styles for the main olive showcase gallery */
+        .olive-showcase-gallery {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .olive-showcase-gallery .gallery-thumbnail {
+            height: 120px;
         }
 
         /* Image Modal Styles */
