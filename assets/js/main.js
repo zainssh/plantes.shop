@@ -163,6 +163,9 @@
             
             // Rendre les produits
             initializeOliveShowcase(); // Remplacer renderProducts()
+            initializeYuccaShowcase();
+            initializeArecaShowcase();
+            initializeFicusBonsaiShowcase();
             
             // Mettre à jour la langue
             updateLanguage();
@@ -343,6 +346,24 @@
         // ============================================
         // FONCTIONS DES PRODUITS
         // ============================================
+        const YUCCA_IMAGES = [
+            "assets/images/yucca-09.jpeg",
+            "assets/images/yucca-08.jpeg",
+            "assets/images/yucca-07.jpeg",
+            "assets/images/yucca-06.jpeg",
+            "assets/images/yucca-10.jpeg"
+        ];
+
+        const ARECA_IMAGES = [
+            "assets/images/areca-01.jpeg"
+        ];
+
+        const FICUS_BONSAI_IMAGES = [
+            "assets/images/ficus-bonsai-03.jpeg",
+            "assets/images/ficus-bonsai-01.jpeg",
+            "assets/images/ficus-bonsai-02.jpeg"
+        ];
+
         function initializeOliveShowcase() {
             const product = PRODUCTS.find(p => p.id === 9); // Hardcoded ID for olive tree
             if (!product) {
@@ -352,7 +373,6 @@
 
             const galleryContainer = document.getElementById('oliveThumbnails');
             if (!galleryContainer) {
-                console.error("Olive showcase gallery container not found.");
                 return;
             }
 
@@ -364,6 +384,48 @@
                 thumb.alt = `${product.name} - vue ${index + 1}`;
                 thumb.classList.add('gallery-thumbnail'); // Add class for modal functionality
                 
+                galleryContainer.appendChild(thumb);
+            });
+        }
+
+        function initializeYuccaShowcase() {
+            const galleryContainer = document.getElementById('yuccaThumbnails');
+            if (!galleryContainer) return;
+
+            galleryContainer.innerHTML = ''; // Clear container
+            YUCCA_IMAGES.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.alt = `Yucca elephantipes - vue ${index + 1}`;
+                thumb.classList.add('gallery-thumbnail');
+                galleryContainer.appendChild(thumb);
+            });
+        }
+
+        function initializeArecaShowcase() {
+            const galleryContainer = document.getElementById('arecaThumbnails');
+            if (!galleryContainer) return;
+
+            galleryContainer.innerHTML = ''; // Clear container
+            ARECA_IMAGES.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.alt = `Areca catechu - vue ${index + 1}`;
+                thumb.classList.add('gallery-thumbnail');
+                galleryContainer.appendChild(thumb);
+            });
+        }
+
+        function initializeFicusBonsaiShowcase() {
+            const galleryContainer = document.getElementById('ficusBonsaiThumbnails');
+            if (!galleryContainer) return;
+
+            galleryContainer.innerHTML = ''; // Clear container
+            FICUS_BONSAI_IMAGES.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.alt = `Ficus bonsai - vue ${index + 1}`;
+                thumb.classList.add('gallery-thumbnail');
                 galleryContainer.appendChild(thumb);
             });
         }
