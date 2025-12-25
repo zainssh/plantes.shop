@@ -967,6 +967,10 @@
             background: var(--white);
         }
 
+.product-spacing {
+    margin-top: 4rem;
+}
+
         .olive-showcase-grid {
             display: grid;
     grid-template-columns: 0.8fr 1fr;

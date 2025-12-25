@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Plantes Shop | Yucca Elephantipes (Pied d'Éléphant) - Robuste et Sculpturale</title>
+    <meta name="description" content="Découvrez notre Yucca Elephantipes, aussi appelé pied d'éléphant. Une plante d'intérieur et d'extérieur sculpturale, robuste et facile d'entretien.">
+    <meta name="keywords" content="yucca elephantipes, pied d'éléphant, yucca, plante robuste, plante d'intérieur, maroc">
+    <meta name="author" content="Plantes Shop">
+    <meta property="og:title" content="Plantes Shop | Yucca Elephantipes (Pied d'Éléphant)">
+    <meta property="og:description" content="Une plante sculpturale et facile d'entretien pour tous vos espaces.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/yucca-01.jpeg">
+    <meta property="og:url" content="https://plantes.shop/product-yucca.html">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Animate.css for smooth animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html#home" class="logo">
+                <img src="assets/images/logo.png" alt="Plantes Shop Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <span class="logo-text">Plantes Shop</span>
+                    <span class="logo-slogan">Votre Oasis Verte</span>
+                </div>
+            </a>
+
+            <nav class="nav-desktop" aria-label="Navigation principale">
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="index.html#categories" class="nav-link"><i class="fas fa-layer-group"></i> Catégories</a></li>
+                    <li><a href="index.html#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="index.html#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="index.html#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="action-count" id="cartCount">0</span>
+                </button>
+                <div class="language-selector">
+                    <button class="language-btn" aria-label="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span>FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" onclick="changeLanguage('fr')"><span>🇫🇷</span> Français</div>
+                        <div class="language-option" onclick="changeLanguage('ar')"><span>🇲🇦</span> العربية</div>
+                        <div class="language-option" onclick="changeLanguage('en')"><span>🇬🇧</span> English</div>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <h3>Menu</h3>
+                <button class="mobile-menu-btn" id="closeMobileMenu"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="index.html#home" class="mobile-nav-link">Accueil</a>
+                <a href="index.html#categories" class="mobile-nav-link">Catégories</a>
+                <a href="index.html#products" class="mobile-nav-link">Produits</a>
+                <a href="index.html#services" class="mobile-nav-link">Services</a>
+                <a href="index.html#blog" class="mobile-nav-link">Blog</a>
+                <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            </div>
+            <div class="mobile-nav-actions">
+               <div class="mobile-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" style="padding-top: var(--header-height);">
+        <section class="olive-showcase-section section-padding" id="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Notre Produit d'Exception</h2>
+                    <p>Une exclusivité Plantes Shop pour des projets grandioses</p>
+                </div>
+
+                <div class="olive-showcase-grid">
+                    <div class="olive-gallery">
+                        <div class="main-image-container">
+                            <img src="assets/images/yucca-01.jpeg" alt="Yucca Elephantipes (Pied d'Éléphant) - Vue principale" class="main-olive-image" id="mainProductImage">
+                        </div>
+                        <div class="image-gallery olive-showcase-gallery" id="productThumbnails">
+                            <!-- Les miniatures seront chargées ici par JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="olive-details">
+                        <span class="details-subtitle">Sculpturale et Robuste</span>
+                        <h1 class="details-title">Yucca Elephantipes (Pied d'Éléphant)</h1>
+                        <p class="details-intro">
+                            Le Yucca Elephantipes, ou pied d'éléphant, est une plante majestueuse reconnue pour son tronc robuste et son feuillage luxuriant. Parfaite pour ajouter une touche de caractère et d'exotisme, elle est incroyablement facile à entretenir, ce qui en fait un choix idéal pour les débutants comme pour les experts.
+                        </p>
+
+                        <div class="details-pills">
+                            <span class="pill"><i class="fas fa-check-circle"></i> Facile d'entretien</span>
+                            <span class="pill"><i class="fas fa-tint-slash"></i> Tolère la sécheresse</span>
+                            <span class="pill"><i class="fas fa-wind"></i> Purificateur d'air</span>
+                        </div>
+
+                        <div class="details-description">
+                            <h4><i class="fas fa-ruler-combined"></i> Caractéristiques :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Tronc épais et texturé rappelant une patte d'éléphant.</li>
+                                <li><i class="fas fa-check"></i> Longues feuilles vertes, persistantes et en forme d'épée.</li>
+                                <li><i class="fas fa-check"></i> Croissance lente, idéale pour une maîtrise de l'espace.</li>
+                                <li><i class="fas fa-check"></i> Extrêmement résistant au manque d'eau.</li>
+                            </ul>
+
+                            <h4><i class="fas fa-concierge-bell"></i> Nos services inclus :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Conseils de placement et d'entretien</li>
+                                <li><i class="fas fa-check"></i> Livraison sécurisée à domicile</li>
+                                <li><i class="fas fa-check"></i> Garantie de qualité et de reprise</li>
+                            </ul>
+
+                            <h4><i class="fas fa-building"></i> Idéal pour :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Intérieurs modernes et espaces de bureau</li>
+                                <li><i class="fas fa-check"></i> Halls d'entrée, salons et vérandas</li>
+                                <li><i class="fas fa-check"></i> Patios, terrasses et jardins secs</li>
+                                <li><i class="fas fa-check"></i> Projets nécessitant peu d'entretien</li>
+                            </ul>
+                        </div>
+
+                        <div class="details-cta-box">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark-color); margin-bottom: 1rem;">
+                                À partir de 918 MAD / TTC
+                            </div>
+                            <p>Contactez-nous pour choisir votre Yucca et obtenir des conseils personnalisés.</p>
+                            <div class="cta-buttons">
+                                <a data-href-template="https://wa.me/{{whatsapp}}?text=Bonjour, je suis intéressé par votre Yucca Elephantipes." target="_blank" class="btn btn-primary whatsapp-btn-large" id="whatsapp-link">
+                                    <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+                                </a>
+                                <a data-href-template="tel:{{phone}}" class="btn btn-secondary" id="phone-link">
+                                    <i class="fas fa-phone"></i> Appeler
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="image-modal-overlay" id="imageModal">
+        <div class="image-modal-content">
+            <img src="" alt="Image en grand" id="modalImage">
+            <button class="image-modal-close" id="closeImageModal" aria-label="Fermer l'image"><i class="fas fa-times"></i></button>
+            <button class="image-modal-nav image-modal-prev" id="prevImage" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="image-modal-nav image-modal-next" id="nextImage" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- IMAGE GALLERY LOGIC ---
+            const YUCCA_IMAGES = [
+                "assets/images/yucca-01.jpeg",
+                "assets/images/yucca-02.jpeg",
+                "assets/images/yucca-03.jpeg",
+                "assets/images/yucca-04.jpeg",
+                "assets/images/yucca-05.jpeg",
+                "assets/images/yucca-06.jpeg"
+            ];
+
+            const mainImage = document.getElementById('mainProductImage');
+            const thumbnailsContainer = document.getElementById('productThumbnails');
+
+            if (mainImage && thumbnailsContainer) {
+                YUCCA_IMAGES.forEach((src, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = src;
+                    thumb.alt = `Yucca Elephantipes - Image ${index + 1}`;
+                    thumb.classList.add('gallery-thumbnail');
+                    if (index === 0) thumb.classList.add('active');
+
+                    thumb.addEventListener('click', () => {
+                        mainImage.src = src;
+                        document.querySelectorAll('#productThumbnails .gallery-thumbnail').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    thumbnailsContainer.appendChild(thumb);
+                });
+
+                mainImage.addEventListener('click', () => {
+                    // This relies on the global openImageModal function from main.js
+                    // We find the correct thumbnail element to pass to it
+                    const activeThumb = thumbnailsContainer.querySelector('.gallery-thumbnail.active') || thumbnailsContainer.querySelector('.gallery-thumbnail');
+                    if(activeThumb) openImageModal(activeThumb);
+                });
+            }
+
+            // --- DYNAMIC CONTACT LINKS LOGIC ---
+            // This waits for CONTACT_INFO to be defined in main.js
+            if (typeof CONTACT_INFO !== 'undefined') {
+                const whatsappLink = document.getElementById('whatsapp-link');
+                const phoneLink = document.getElementById('phone-link');
+
+                if (whatsappLink) {
+                    let template = whatsappLink.getAttribute('data-href-template');
+                    whatsappLink.href = template.replace('{{whatsapp}}', CONTACT_INFO.whatsapp);
+                }
+                if (phoneLink) {
+                    let template = phoneLink.getAttribute('data-href-template');
+                    phoneLink.href = template.replace('{{phone}}', CONTACT_INFO.phone);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
