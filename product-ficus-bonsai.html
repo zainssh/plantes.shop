@@ -3,57 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Plantes Shop | Ficus bonsai</title>
-    <meta name="description" content="Découvrez notre Ficus bonsai, une œuvre d'art vivante qui apporte sérénité et élégance à votre intérieur.">
-    <meta name="keywords" content="ficus bonsai, bonsaï, plante d'intérieur, art vivant, maroc">
+    <title>Ficus Bonsai | Plantes Shop - L'Art du Bonsaï au Maroc</title>
+    <meta name="description" content="Découvrez notre Ficus bonsai, une œuvre d'art vivante qui apporte sérénité et élégance à votre intérieur. Facile d'entretien, idéal pour débutants.">
+    <meta name="keywords" content="ficus bonsai, bonsaï, plante d'intérieur, art vivant, maroc, bonsaï facile">
     <meta name="author" content="Plantes Shop">
-    <meta property="og:title" content="Plantes Shop | Ficus bonsai">
-    <meta property="og:description" content="Facile d'entretien et esthétiquement captivant, le Ficus bonsai est idéal pour les débutants et les experts.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/images/ficus-bonsai-03.jpeg">
-    <meta property="og:url" content="https://plantes.shop/product-ficus-bonsai.html">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-    <!-- Fonts -->
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Ficus bonsai",
+        "description": "Le Ficus bonsai est une magnifique introduction à l'art du bonsaï. Avec son tronc sinueux, ses racines aériennes et ses feuilles brillantes, il est esthétiquement captivant et relativement facile à entretenir.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Plantes Shop"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "1199",
+            "priceCurrency": "MAD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "78"
+        }
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Animate.css for smooth animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/product-page.css">
 </head>
 <body>
+    <!-- Skip to main content link -->
     <a href="#main-content" class="sr-only">Passer au contenu principal</a>
 
+    <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="index.html#home" class="logo">
-                <img src="assets/images/logo.png" alt="Plantes Shop Logo" class="logo-img">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
                 <div class="logo-text-container">
                     <span class="logo-text">Plantes Shop</span>
                     <span class="logo-slogan">Votre Oasis Verte</span>
                 </div>
             </a>
+
+            <!-- Desktop Navigation -->
             <nav class="nav-desktop" aria-label="Navigation principale">
                 <ul class="nav-links">
                     <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-link-dropdown">
+                        <a href="index.html#categories" class="nav-link"><i class="fas fa-layer-group"></i> Catégories</a>
+                        <div class="dropdown-menu">
+                            <a href="index.html#interior" class="dropdown-item">Plantes d'Intérieur</a>
+                            <a href="index.html#exterior" class="dropdown-item">Plantes d'Extérieur</a>
+                            <a href="index.html#fruit-trees" class="dropdown-item">Arbres Fruitiers</a>
+                            <a href="index.html#palmiers" class="dropdown-item">Palmiers</a>
+                            <a href="index.html#bonsai" class="dropdown-item">Bonsaïs & Tressés</a>
+                            <a href="index.html#cactus" class="dropdown-item">Cactus & Succulentes</a>
+                        </div>
+                    </li>
                     <li><a href="index.html#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li>
                     <li><a href="index.html#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="index.html#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li>
                     <li><a href="index.html#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li>
                 </ul>
             </nav>
+
+            <!-- Header Actions -->
             <div class="header-actions">
+                <!-- Cart Button -->
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="action-count" id="cartCount">0</span>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" aria-label="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span>FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" onclick="changeLanguage('fr')">
+                            <span>🇫🇷</span> Français
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar')">
+                            <span>🇲🇦</span> العربية
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en')">
+                            <span>🇬🇧</span> English
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <div class="mobile-nav-header">
                 <h3>Menu</h3>
@@ -61,33 +123,110 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+
             <div class="mobile-nav-links">
-                <a href="index.html#home" class="mobile-nav-link">Accueil</a>
+                <a href="index.html#home" class="mobile-nav-link active">Accueil</a>
+                <a href="index.html#categories" class="mobile-nav-link">Catégories</a>
                 <a href="index.html#products" class="mobile-nav-link">Produits</a>
                 <a href="index.html#services" class="mobile-nav-link">Services</a>
+                <a href="index.html#blog" class="mobile-nav-link">Blog</a>
                 <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            </div>
+
+            <div class="mobile-categories">
+                <a href="index.html#interior" class="mobile-category">Intérieur</a>
+                <a href="index.html#exterior" class="mobile-category">Extérieur</a>
+                <a href="index.html#fruit-trees" class="mobile-category">Fruitiers</a>
+                <a href="index.html#palmiers" class="mobile-category">Palmiers</a>
+                <a href="index.html#bonsai" class="mobile-category">Bonsaïs</a>
+                <a href="index.html#cactus" class="mobile-category">Cactus</a>
+            </div>
+
+            <div class="mobile-nav-actions">
+               <div class="mobile-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mobile-nav-footer">
+                <a href="#" data-phone-link="true" class="btn btn-outline btn-full">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="#" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
         </div>
     </header>
 
-    <main id="main-content" style="padding-top: var(--header-height);">
-        <section class="olive-showcase-section section-padding" id="products">
+    <!-- Breadcrumb -->
+    <div class="product-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#products">Produits</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#bonsai">Bonsaïs</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Ficus bonsai</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Product Showcase Section -->
+        <section class="olive-showcase-section section-padding">
             <div class="container">
-                <div class="section-title">
-                    <h2>Notre Produit d'Exception</h2>
+                <div class="section-title animate-on-scroll">
+                    <h2>Ficus Bonsai</h2>
                     <p>Une œuvre d'art vivante pour votre intérieur</p>
                 </div>
 
-                <div class="olive-showcase-grid">
+                <div class="olive-showcase-grid animate-on-scroll">
                     <div class="olive-gallery">
-                        <div class="image-gallery olive-showcase-gallery" id="ficusBonsaiThumbnails">
-                            <!-- Thumbnails will be loaded dynamically -->
+                        <!-- Main Image -->
+                        <div class="main-image-container">
+                            <img src="assets/images/ficus-bonsai-03.jpeg"
+                                 alt="Ficus bonsai sur une table"
+                                 class="main-olive-image"
+                                 id="mainProductImage">
+                            <div class="product-badges">
+                                <span class="badge badge-popular">Idéal Débutant</span>
+                                <span class="badge badge-new">Zen Attitude</span>
+                            </div>
+                        </div>
+
+                        <!-- Thumbnails -->
+                        <div class="thumbnail-strip" id="productThumbnailStrip">
+                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai vue 1" class="active" onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/ficus-bonsai-01.jpeg" alt="Ficus bonsai vue 2" onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/ficus-bonsai-02.jpeg" alt="Ficus bonsai vue 3" onclick="changeMainImage(this.src, this.alt)">
                         </div>
                     </div>
 
                     <div class="olive-details">
-                        <span class="details-subtitle">Art et Nature</span>
+                        <span class="details-subtitle">Art & Nature</span>
                         <h1 class="details-title">Ficus bonsai</h1>
+
+                        <!-- Product Rating -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(4.9/5 - 78 avis)</span>
+                        </div>
+
                         <p class="details-intro">
                             Le Ficus bonsai est une magnifique introduction à l'art du bonsaï. Avec son tronc sinueux, ses racines aériennes et ses feuilles brillantes, il est esthétiquement captivant et relativement facile à entretenir, ce qui en fait un choix parfait pour les débutants.
                         </p>
@@ -102,75 +241,361 @@
                             <h4><i class="fas fa-ruler-combined"></i> Caractéristiques :</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Tronc S-formé et racines aériennes décoratives.</li>
-                                <li><i class="fas fa-check"></i> Feuillage dense et d'un vert profond.</li>
-                                <li><i class="fas fa-check"></i> S'adapte bien à la culture en intérieur.</li>
-                                <li><i class="fas fa-check"></i> Purifie l'air ambiant.</li>
+                                <li><i class="fas fa-check"></i> Feuillage dense et d'un vert profond, persistant toute l'année.</li>
+                                <li><i class="fas fa-check"></i> S'adapte très bien à la culture en intérieur, tolère des conditions variées.</li>
+                                <li><i class="fas fa-check"></i> Contribue à purifier l'air ambiant.</li>
                             </ul>
 
                             <h4><i class="fas fa-concierge-bell"></i> Conseils d'entretien :</h4>
                             <ul>
-                                <li><i class="fas fa-check"></i> <strong>Lumière :</strong> Placez-le dans un endroit lumineux, mais sans soleil direct prolongé.</li>
-                                <li><i class="fas fa-check"></i> <strong>Arrosage :</strong> Maintenez le sol constamment humide, mais jamais détrempé.</li>
-                                <li><i class="fas fa-check"></i> <strong>Taille :</strong> Une taille régulière est nécessaire pour maintenir sa forme miniature et esthétique.</li>
-                            </ul>
-
-                            <h4><i class="fas fa-star"></i> Idéal pour :</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Bureaux, salons et espaces de méditation.</li>
-                                <li><i class="fas fa-check"></i> Cadeau unique et symbolique.</li>
-                                <li><i class="fas fa-check"></i> Ajouter une touche de zénitude à votre décor.</li>
+                                <li><i class="fas fa-check"></i> <strong>Lumière :</strong> Placez-le dans un endroit très lumineux, mais sans soleil direct prolongé aux heures les plus chaudes.</li>
+                                <li><i class="fas fa-check"></i> <strong>Arrosage :</strong> Maintenez le sol constamment humide, mais jamais détrempé. Laissez sécher la surface avant d'arroser de nouveau.</li>
+                                <li><i class="fas fa-check"></i> <strong>Taille :</strong> Une taille régulière des nouvelles pousses est nécessaire pour maintenir sa forme miniature et esthétique.</li>
                             </ul>
                         </div>
 
+                        <!-- Price & CTA -->
                         <div class="details-cta-box">
-                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark-color); margin-bottom: 1rem;">
-                                À partir de 1199 MAD
+                            <div class="price-container">
+                                <div class="current-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 0.5rem;">
+                                    À partir de 1,199 MAD
+                                </div>
+                                <div class="price-note" style="color: var(--gray-600); font-size: 0.9rem;">
+                                    Chaque bonsaï est une pièce unique
+                                </div>
                             </div>
-                            <p>Chaque bonsaï est unique. Contactez-nous pour choisir le vôtre.</p>
+
+                            <p class="cta-description" style="color: var(--gray-600); margin: 1.5rem 0;">
+                                Chaque bonsaï est unique. Contactez-nous pour recevoir des photos des pièces disponibles et choisir la vôtre.
+                            </p>
+
                             <div class="cta-buttons">
-                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le Ficus bonsai." target="_blank" class="btn btn-primary whatsapp-btn-large">
-                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                <a href="#" data-whatsapp-link="true"
+                                   target="_blank"
+                                   class="btn btn-primary whatsapp-btn-large">
+                                    <i class="fab fa-whatsapp"></i> Voir les modèles sur WhatsApp
                                 </a>
-                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
-                                    <i class="fas fa-phone"></i> Appeler
-                                </a>
+                                <div class="secondary-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                    <a href="#" data-phone-link="true" class="btn btn-secondary">
+                                        <i class="fas fa-phone"></i> Appeler maintenant
+                                    </a>
+                                    <button class="btn btn-outline" id="requestInfo">
+                                        <i class="fas fa-info-circle"></i> Demander Conseil
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="guarantee-badges">
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Pièce unique garantie</span>
+                                </div>
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Livraison 24-48h</span>
+                                </div>
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Livraison sur le Grand Casablanca</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Specifications Table -->
+        <section class="specs-section section-padding">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>Fiche Technique</h2>
+                    <p>Caractéristiques détaillées de notre Ficus Bonsai</p>
+                </div>
+
+                <div class="animate-on-scroll">
+                    <table class="product-specs-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Spécifications techniques</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nom Botanique</strong></td>
+                                <td>Ficus retusa / Ficus microcarpa 'Ginseng'</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Famille</strong></td>
+                                <td>Moraceae</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Origine</strong></td>
+                                <td>Asie tropicale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hauteur</strong></td>
+                                <td>30cm à 60cm (selon la pièce)</td>
+                            </tr>
+                             <tr>
+                                <td><strong>Exposition</strong></td>
+                                <td>Lumière vive, sans soleil direct</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Température</strong></td>
+                                <td>15°C à 25°C</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Arrosage</strong></td>
+                                <td>Modéré et régulier</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Toxicité</strong></td>
+                                <td>Toxique pour les animaux si ingéré</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section section-padding">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>Questions Fréquentes</h2>
+                    <p>Tout ce que vous devez savoir sur l'entretien de votre Ficus Bonsai</p>
+                </div>
+
+                <div class="product-faq-section animate-on-scroll">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Mon Ficus perd ses feuilles, est-ce normal ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Une légère perte de feuilles peut survenir lors d'un changement d'environnement (stress dû au transport ou au nouvel emplacement). Assurez-vous qu'il reçoit assez de lumière et évitez les courants d'air. Une chute importante peut indiquer un problème d'arrosage (trop ou pas assez).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Dois-je utiliser de l'engrais ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, un apport d'engrais liquide pour bonsaï est recommandé toutes les deux semaines pendant la période de croissance (printemps-été) et une fois par mois en hiver. Cela lui fournira les nutriments nécessaires pour rester en bonne santé.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="contact-cta-section section-padding">
+            <div class="container">
+                <div class="contact-cta-box animate-on-scroll">
+                    <div class="cta-content">
+                        <h2>Trouvez votre Bonsaï parfait</h2>
+                        <p>Contactez nos experts pour une sélection personnalisée et des conseils sur mesure.</p>
+
+                        <div class="contact-methods">
+                            <a href="#" data-whatsapp-link="true" target="_blank" class="contact-method whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>Réponse rapide - Photos en direct</p>
+                                </div>
+                            </a>
+
+                            <a href="#" data-phone-link="true" class="contact-method phone">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <p>Appelez-nous du lundi au samedi</p>
+                                </div>
+                            </a>
+
+                            <a href="#" data-email-link="true" class="contact-method email">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>Conseils détaillés</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cta-image">
+                        <img src="assets/images/ficus-bonsai-01.jpeg" alt="Expert en bonsaï">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Sticky Bottom Bar -->
+    <div class="product-sticky-bar" id="stickyBar">
+        <div class="container">
+            <div class="sticky-bar-content">
+                <div class="sticky-bar-info">
+                    <div class="sticky-bar-title">Ficus Bonsai</div>
+                    <div class="sticky-bar-price">À partir de 1,199 MAD</div>
+                </div>
+                <div class="sticky-bar-actions">
+                    <a href="#" data-whatsapp-link="true"
+                       target="_blank"
+                       class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> Choisir le mien
+                    </a>
+                    <a href="#" data-phone-link="true" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Appeler
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-top">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3>Plantes Shop</h3>
+                        <div class="footer-about">
+                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc depuis 2010.</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Liens Rapides</h3>
+                        <div class="footer-links">
+                            <a href="index.html">Accueil</a>
+                            <a href="index.html#products">Produits</a>
+                            <a href="index.html#categories">Catégories</a>
+                            <a href="index.html#services">Services</a>
+                            <a href="index.html#blog">Blog</a>
+                            <a href="index.html#contact">Contact</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Informations</h3>
+                        <div class="footer-links">
+                            <a href="index.html#about">À Propos</a>
+                            <a href="index.html#delivery">Livraison</a>
+                            <a href="index.html#returns">Retours & Échanges</a>
+                            <a href="index.html#privacy">Politique de Confidentialité</a>
+                            <a href="index.html#terms">Conditions Générales</a>
+                            <a href="index.html#faq">FAQ</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Abonnez-vous pour recevoir nos promotions et conseils jardinage.</p>
+
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span data-phone-text="true"></span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span data-email-text="true"></span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Benslimane, Maroc</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+                <p>&copy; 2024 Plantes Shop. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> au Maroc</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                    <a href="index.html#sitemap">Plan du site</a> |
+                    <a href="index.html#accessibility">Accessibilité</a> |
+                    <a href="index.html#cookies">Cookies</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const FICUS_BONSAI_IMAGES = [
-                "assets/images/ficus-bonsai-03.jpeg",
-                "assets/images/ficus-bonsai-01.jpeg",
-                "assets/images/ficus-bonsai-02.jpeg"
-            ];
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-header">
+            <h3 style="margin: 0;">Votre Panier</h3>
+            <button class="modal-close" id="closeCart" aria-label="Fermer le panier">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
 
-            const galleryContainer = document.getElementById('ficusBonsaiThumbnails');
-            if (galleryContainer) {
-                galleryContainer.innerHTML = ''; // Clear container
-                FICUS_BONSAI_IMAGES.forEach((imgSrc, index) => {
-                    const thumb = document.createElement('img');
-                    thumb.src = imgSrc;
-                    thumb.alt = `Ficus bonsai - vue ${index + 1}`;
-                    thumb.classList.add('gallery-thumbnail');
-                    galleryContainer.appendChild(thumb);
-                });
-            }
-        });
-    </script>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Sous-total</span>
+                    <span id="cartSubtotal">0 MAD</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Livraison</span>
+                    <span id="cartShipping">Gratuite</span>
+                </div>
+                <div class="cart-summary-row cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">0 MAD</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="checkoutButton">
+                <i class="fas fa-shopping-bag"></i> Passer la Commande
+            </button>
+
+            <p style="text-align: center; margin-top: 1rem; color: var(--gray-500); font-size: 0.875rem;">
+                <i class="fas fa-shipping-fast"></i> Livraison offerte à partir de 500 MAD
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-page.js"></script>
 </body>
 </html>
