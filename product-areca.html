@@ -9,7 +9,6 @@
     <meta name="author" content="Plantes Shop">
     <meta property="og:title" content="Plantes Shop | Areca catechu">
     <meta property="og:description" content="Avec ses frondes plumeuses, le palmier Areca est parfait pour créer une ambiance exotique et saine.">
-    <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/areca-01.jpeg">
     <meta property="og:url" content="https://plantes.shop/product-areca.html">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -80,7 +79,10 @@
 
                 <div class="olive-showcase-grid">
                     <div class="olive-gallery">
-                        <div class="image-gallery olive-showcase-gallery" id="arecaThumbnails">
+                        <div class="main-image-container">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu - Vue principale" class="main-olive-image" id="mainProductImage">
+                        </div>
+                        <div class="image-gallery olive-showcase-gallery" id="productThumbnails">
                             <!-- Thumbnails will be loaded dynamically -->
                         </div>
                     </div>
@@ -128,10 +130,10 @@
                             </div>
                             <p>Un investissement durable pour un intérieur sain et élégant.</p>
                             <div class="cta-buttons">
-                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le palmier Areca catechu." target="_blank" class="btn btn-primary whatsapp-btn-large">
+                                <a data-href-template="https://wa.me/{{whatsapp}}?text=Bonjour, je suis intéressé par le palmier Areca catechu." target="_blank" class="btn btn-primary whatsapp-btn-large" id="whatsapp-link">
                                     <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
                                 </a>
-                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
+                                <a data-href-template="tel:{{phone}}" class="btn btn-secondary" id="phone-link">
                                     <i class="fas fa-phone"></i> Appeler
                                 </a>
                             </div>
@@ -150,23 +152,68 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div class="image-modal-overlay" id="imageModal">
+        <div class="image-modal-content">
+            <img src="" alt="Image en grand" id="modalImage">
+            <button class="image-modal-close" id="closeImageModal" aria-label="Fermer l'image"><i class="fas fa-times"></i></button>
+            <button class="image-modal-nav image-modal-prev" id="prevImage" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="image-modal-nav image-modal-next" id="nextImage" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- IMAGE GALLERY LOGIC ---
             const ARECA_IMAGES = [
-                "assets/images/areca-01.jpeg"
+                "assets/images/areca-01.jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 19.53.25.jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 20.22.42.jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (1).jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (2).jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (3).jpeg",
+                "assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (4).jpeg"
             ];
 
-            const galleryContainer = document.getElementById('arecaThumbnails');
-            if (galleryContainer) {
-                galleryContainer.innerHTML = ''; // Clear container
-                ARECA_IMAGES.forEach((imgSrc, index) => {
+            const mainImage = document.getElementById('mainProductImage');
+            const thumbnailsContainer = document.getElementById('productThumbnails');
+
+            if (mainImage && thumbnailsContainer) {
+                ARECA_IMAGES.forEach((src, index) => {
                     const thumb = document.createElement('img');
-                    thumb.src = imgSrc;
-                    thumb.alt = `Areca catechu - vue ${index + 1}`;
+                    thumb.src = src;
+                    thumb.alt = `Areca catechu - Image ${index + 1}`;
                     thumb.classList.add('gallery-thumbnail');
-                    galleryContainer.appendChild(thumb);
+                    if (index === 0) thumb.classList.add('active');
+
+                    thumb.addEventListener('click', () => {
+                        mainImage.src = src;
+                        document.querySelectorAll('#productThumbnails .gallery-thumbnail').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    thumbnailsContainer.appendChild(thumb);
                 });
+
+                mainImage.addEventListener('click', () => {
+                    const activeThumb = thumbnailsContainer.querySelector('.gallery-thumbnail.active') || thumbnailsContainer.querySelector('.gallery-thumbnail');
+                    if(activeThumb) openImageModal(activeThumb);
+                });
+            }
+
+            // --- DYNAMIC CONTACT LINKS LOGIC ---
+            if (typeof CONTACT_INFO !== 'undefined') {
+                const whatsappLink = document.getElementById('whatsapp-link');
+                const phoneLink = document.getElementById('phone-link');
+
+                if (whatsappLink) {
+                    let template = whatsappLink.getAttribute('data-href-template');
+                    whatsappLink.href = template.replace('{{whatsapp}}', CONTACT_INFO.whatsapp);
+                }
+                if (phoneLink) {
+                    let template = phoneLink.getAttribute('data-href-template');
+                    phoneLink.href = template.replace('{{phone}}', CONTACT_INFO.phone);
+                }
             }
         });
     </script>

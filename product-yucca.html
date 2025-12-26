@@ -9,7 +9,6 @@
     <meta name="author" content="Plantes Shop">
     <meta property="og:title" content="Plantes Shop | Yucca elephantipes (pied d’éléphant)">
     <meta property="og:description" content="Robuste et élégant, le Yucca elephantipes est le choix idéal pour un design moderne et minimaliste.">
-    <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/yucca-09.jpeg">
     <meta property="og:url" content="https://plantes.shop/product-yucca.html">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -80,7 +79,10 @@
 
                 <div class="olive-showcase-grid">
                     <div class="olive-gallery">
-                        <div class="image-gallery olive-showcase-gallery" id="yuccaThumbnails">
+                        <div class="main-image-container">
+                            <img src="assets/images/yucca-01.jpeg" alt="Yucca elephantipes - Vue principale" class="main-olive-image" id="mainProductImage">
+                        </div>
+                        <div class="image-gallery olive-showcase-gallery" id="productThumbnails">
                             <!-- Thumbnails will be loaded dynamically -->
                         </div>
                     </div>
@@ -128,10 +130,10 @@
                             </div>
                             <p>Disponible en plusieurs tailles. Contactez-nous pour choisir le vôtre.</p>
                             <div class="cta-buttons">
-                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par le Yucca elephantipes." target="_blank" class="btn btn-primary whatsapp-btn-large">
+                                <a data-href-template="https://wa.me/{{whatsapp}}?text=Bonjour, je suis intéressé par le Yucca elephantipes." target="_blank" class="btn btn-primary whatsapp-btn-large" id="whatsapp-link">
                                     <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
                                 </a>
-                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
+                                <a data-href-template="tel:{{phone}}" class="btn btn-secondary" id="phone-link">
                                     <i class="fas fa-phone"></i> Appeler
                                 </a>
                             </div>
@@ -139,7 +141,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        section>
     </main>
 
     <footer class="footer">
@@ -150,27 +152,66 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div class="image-modal-overlay" id="imageModal">
+        <div class="image-modal-content">
+            <img src="" alt="Image en grand" id="modalImage">
+            <button class="image-modal-close" id="closeImageModal" aria-label="Fermer l'image"><i class="fas fa-times"></i></button>
+            <button class="image-modal-nav image-modal-prev" id="prevImage" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="image-modal-nav image-modal-next" id="nextImage" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- IMAGE GALLERY LOGIC ---
             const YUCCA_IMAGES = [
-                "assets/images/yucca-09.jpeg",
-                "assets/images/yucca-08.jpeg",
-                "assets/images/yucca-07.jpeg",
-                "assets/images/yucca-06.jpeg",
-                "assets/images/yucca-10.jpeg"
+                "assets/images/yucca-01.jpeg", "assets/images/yucca-02.jpeg",
+                "assets/images/yucca-03.jpeg", "assets/images/yucca-04.jpeg",
+                "assets/images/yucca-05.jpeg", "assets/images/yucca-06.jpeg",
+                "assets/images/yucca-07.jpeg", "assets/images/yucca-08.jpeg",
+                "assets/images/yucca-09.jpeg", "assets/images/yucca-10.jpeg"
             ];
 
-            const galleryContainer = document.getElementById('yuccaThumbnails');
-            if (galleryContainer) {
-                galleryContainer.innerHTML = ''; // Clear container
-                YUCCA_IMAGES.forEach((imgSrc, index) => {
+            const mainImage = document.getElementById('mainProductImage');
+            const thumbnailsContainer = document.getElementById('productThumbnails');
+
+            if (mainImage && thumbnailsContainer) {
+                YUCCA_IMAGES.forEach((src, index) => {
                     const thumb = document.createElement('img');
-                    thumb.src = imgSrc;
-                    thumb.alt = `Yucca elephantipes - vue ${index + 1}`;
+                    thumb.src = src;
+                    thumb.alt = `Yucca elephantipes - Image ${index + 1}`;
                     thumb.classList.add('gallery-thumbnail');
-                    galleryContainer.appendChild(thumb);
+                    if (index === 0) thumb.classList.add('active');
+
+                    thumb.addEventListener('click', () => {
+                        mainImage.src = src;
+                        document.querySelectorAll('#productThumbnails .gallery-thumbnail').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    thumbnailsContainer.appendChild(thumb);
                 });
+
+                mainImage.addEventListener('click', () => {
+                    const activeThumb = thumbnailsContainer.querySelector('.gallery-thumbnail.active') || thumbnailsContainer.querySelector('.gallery-thumbnail');
+                    if(activeThumb) openImageModal(activeThumb);
+                });
+            }
+
+            // --- DYNAMIC CONTACT LINKS LOGIC ---
+            if (typeof CONTACT_INFO !== 'undefined') {
+                const whatsappLink = document.getElementById('whatsapp-link');
+                const phoneLink = document.getElementById('phone-link');
+
+                if (whatsappLink) {
+                    let template = whatsappLink.getAttribute('data-href-template');
+                    whatsappLink.href = template.replace('{{whatsapp}}', CONTACT_INFO.whatsapp);
+                }
+                if (phoneLink) {
+                    let template = phoneLink.getAttribute('data-href-template');
+                    phoneLink.href = template.replace('{{phone}}', CONTACT_INFO.phone);
+                }
             }
         });
     </script>
