@@ -3,41 +3,450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Plantes Shop | Pépinière en Ligne - Plantes d'Exception au Maroc</title>
-    <meta name="description" content="Pépinière en ligne spécialisée dans la vente de palmiers, arbres fruitiers, oliviers, gazon et plantes d'intérieur. Livraison dans tout le Maroc.">
-    <meta name="keywords" content="plantes, pépinière, jardinage, palmiers, arbres fruitiers, oliviers, gazon, Maroc, Benslimane, plantes d'intérieur, cactus, bonsaï">
+    <title>Olivier Tressé Topiaire | Plantes Shop - Oliviers d'Exception au Maroc</title>
+    <meta name="description" content="Oliviers tressés et topiaires de grande qualité pour projets paysagers haut de gamme. Livraison et plantation professionnelle dans tout le Maroc.">
+    <meta name="keywords" content="olivier, olea europaea, olivier tressé, olivier topiaire, arbres paysagers, aménagement jardin, projet paysager, Maroc, Benslimane">
     <meta name="author" content="Plantes Shop">
-    <meta property="og:title" content="Plantes Shop | Votre Pépinière en Ligne">
-    <meta property="og:description" content="Découvrez notre collection exclusive de plantes et créez votre oasis verte">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://votre-site.com/images/og-image.jpg">
-    <meta property="og:url" content="https://votre-site.com">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <!-- Fonts -->
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Olivier, olea europaea topiaire bonsai",
+        "description": "Olivier tressé de grande qualité pour projets paysagers haut de gamme. Tailles et formes maîtrisées, système racinaire préparé pour une reprise optimale.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Plantes Shop"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "11999",
+            "priceCurrency": "MAD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "28"
+        }
+    }
+    </script>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Animate.css for smooth animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Additional styles for product page */
+        .product-breadcrumb {
+            background: var(--light-green);
+            padding: 1rem 0;
+            margin-top: var(--header-height);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .breadcrumb-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .breadcrumb-links a {
+            color: var(--gray-600);
+            transition: var(--transition-normal);
+        }
+        
+        .breadcrumb-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--gray-400);
+        }
+        
+        .product-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            z-index: 990;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            display: none;
+        }
+        
+        .product-sticky-bar.active {
+            transform: translateY(0);
+        }
+        
+        .sticky-bar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .sticky-bar-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+        
+        .product-faq-section {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: 3rem 0;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1.5rem 2rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h4 {
+            margin: 0;
+            flex: 1;
+            color: var(--dark);
+        }
+        
+        .faq-toggle {
+            color: var(--primary-green);
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .product-specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .product-specs-table th {
+            background: var(--light-green);
+            color: var(--primary-green);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--primary-green);
+        }
+        
+        .product-specs-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+        }
+        
+        .product-specs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .product-specs-table tr:hover {
+            background: var(--light-green);
+        }
+        
+        .quick-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .quick-spec {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            color: var(--gray-700);
+        }
+        
+        .quick-spec i {
+            color: var(--primary-green);
+            font-size: 1.25rem;
+        }
+        
+        .guarantee-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--gray-700);
+        }
+        
+        .guarantee-badge i {
+            color: var(--primary-green);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .contact-cta-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            padding: 0;
+        }
+        
+        .cta-content {
+            padding: 3rem;
+        }
+        
+        .cta-content h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+        
+        .contact-method:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .contact-method i {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+        
+        .contact-method.whatsapp i {
+            background: #25D366;
+        }
+        
+        .contact-method.phone i {
+            background: var(--accent-green);
+        }
+        
+        .contact-method.email i {
+            background: var(--info-blue);
+        }
+        
+        .contact-method h4 {
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-method p {
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .cta-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-cta-box {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-sticky-bar .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .sticky-bar-content {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            
+            .sticky-bar-price {
+                font-size: 1.25rem;
+            }
+            
+            .faq-item {
+                padding: 1rem;
+            }
+            
+            .contact-cta-box {
+                margin: 2rem 0;
+            }
+            
+            .cta-content {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quick-specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guarantee-badges {
+                justify-content: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip to main content link for accessibility -->
+    <!-- Skip to main content link -->
     <a href="#main-content" class="sr-only">Passer au contenu principal</a>
     
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
             <!-- Logo -->
-            <a href="index.html#home" class="logo">
-                <img src="assets/images/logo.png" alt="Plantes Shop Logo" class="logo-img">
+            <a href="index.html" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
                 <div class="logo-text-container">
                     <span class="logo-text">Plantes Shop</span>
                     <span class="logo-slogan">Votre Oasis Verte</span>
@@ -111,7 +520,7 @@
             </div>
             
             <div class="mobile-nav-links">
-                <a href="index.html#home" class="mobile-nav-link">Accueil</a>
+                <a href="index.html#home" class="mobile-nav-link active">Accueil</a>
                 <a href="index.html#categories" class="mobile-nav-link">Catégories</a>
                 <a href="index.html#products" class="mobile-nav-link">Produits</a>
                 <a href="index.html#services" class="mobile-nav-link">Services</a>
@@ -140,44 +549,127 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full">
+                <a href="tel:+212661234567" class="btn btn-outline btn-full">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                <a href="https://wa.me/212661234567" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </div>
     </header>
     
+    <!-- Breadcrumb -->
+    <div class="product-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-links">
+                <a href="index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#products">Produits</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#exterior">Plantes d'Extérieur</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Olivier, olea europaea topiaire bonsai</span>
+            </div>
+        </div>
+    </div>
+    
     <!-- Main Content -->
-    <main id="main-content" style="padding-top: var(--header-height);">
+    <main id="main-content">
         <!-- Olive Tree Showcase Section -->
-        <section class="olive-showcase-section section-padding" id="products">
+        <section class="olive-showcase-section section-padding">
             <div class="container">
-                <div class="section-title">
-                    <h2>Notre Produit d'Exception</h2>
-                    <p>Une exclusivité Plantes Shop pour des projets grandioses</p>
+                <div class="section-title animate-on-scroll">
+                    <h2>Oliviers d'Exception</h2>
+                    <p>Des oliviers tressés et topiaires de grande qualité pour des projets paysagers remarquables</p>
                 </div>
 
-                <div class="olive-showcase-grid">
+                <div class="olive-showcase-grid animate-on-scroll">
                     <div class="olive-gallery">
-                        <div class="image-gallery olive-showcase-gallery" id="oliveThumbnails">
-                            <!-- Thumbnails will be loaded dynamically -->
+                        <!-- Main Image -->
+                        <div class="main-image-container">
+                            <img src="assets/images/olive-gallery-13.jpeg" 
+                                 alt="Olivier tressé de grande taille" 
+                                 class="main-olive-image" 
+                                 id="mainOliveImage">
+                            <div class="product-badges">
+                                <span class="badge badge-popular">Exclusivité</span>
+                                <span class="badge badge-new">Stock Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Thumbnails -->
+                        <div class="thumbnail-strip">
+                            <img src="assets/images/olive-gallery-13.jpeg" 
+                                 alt="Olivier tressé vue de face" 
+                                 class="active" 
+                                 onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/olive-gallery-1.jpeg" 
+                                 alt="Olivier tressé vue latérale" 
+                                 onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/olive-gallery-2.jpeg" 
+                                 alt="Détail du tronc tressé" 
+                                 onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/olive-gallery-3.jpeg" 
+                                 alt="Olivier dans son environnement" 
+                                 onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/olive-gallery-4.jpeg" 
+                                 alt="Feuillage détaillé" 
+                                 onclick="changeMainImage(this.src, this.alt)">
+                            <img src="assets/images/olive-gallery-5.jpeg" 
+                                 alt="Olivier avec système racinaire" 
+                                 onclick="changeMainImage(this.src, this.alt)">
                         </div>
                     </div>
 
                     <div class="olive-details">
                         <span class="details-subtitle">Projets Paysagers Haut de Gamme</span>
                         <h1 class="details-title">Olivier, olea europaea topiaire bonsai</h1>
+                        
+                        <!-- Product Rating -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(4.5/5 - 28 avis)</span>
+                        </div>
+
                         <p class="details-intro">
-                            Nous disposons d’un large stock d’Olivier, olea europaea topiaire bonsai, soigneusement sélectionnés et préparés pour l’aménagement paysager des résidences, villas, hôtels et espaces professionnels.
+                            Nous disposons d'un large stock d'oliviers tressés soigneusement sélectionnés et préparés pour l'aménagement paysager des résidences, villas, hôtels et espaces professionnels. Chaque arbre est unique et façonné avec expertise.
                         </p>
 
                         <div class="details-pills">
-                            <span class="pill"><i class="fas fa-check-circle"></i> Reprise garantie</span>
+                            <span class="pill"><i class="fas fa-check-circle"></i> Reprise garantie 98%</span>
                             <span class="pill"><i class="fas fa-truck"></i> Transport sécurisé</span>
-                            <span class="pill"><i class="fas fa-seedling"></i> Plantation Pro</span>
+                            <span class="pill"><i class="fas fa-seedling"></i> Plantation professionnelle</span>
+                            <span class="pill"><i class="fas fa-shield-alt"></i> Suivi 1 an inclus</span>
+                        </div>
+
+                        <!-- Quick Specs -->
+                        <div class="product-quick-specs">
+                            <h4><i class="fas fa-info-circle"></i> Spécifications principales</h4>
+                            <div class="quick-specs-grid">
+                                <div class="quick-spec">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <span>Hauteur: 2-4 mètres</span>
+                                </div>
+                                <div class="quick-spec">
+                                    <i class="fas fa-tree"></i>
+                                    <span>Âge: 15-25 ans</span>
+                                </div>
+                                <div class="quick-spec">
+                                    <i class="fas fa-weight"></i>
+                                    <span>Poids: 150-300 kg</span>
+                                </div>
+                                <div class="quick-spec">
+                                    <i class="fas fa-sun"></i>
+                                    <span>Exposition: Plein soleil</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="details-description">
@@ -186,45 +678,324 @@
                                 <li><i class="fas fa-check"></i> Tailles et formes maîtrisées (taille ornementale professionnelle)</li>
                                 <li><i class="fas fa-check"></i> Système racinaire préparé pour une reprise optimale</li>
                                 <li><i class="fas fa-check"></i> Arbres robustes, adaptés au climat marocain</li>
-                                <li><i class="fas fa-check"></i> Disponibles en grandes quantités</li>
+                                <li><i class="fas fa-check"></i> Disponibles en grandes quantités pour projets d'envergure</li>
+                                <li><i class="fas fa-check"></i> Sélection rigoureuse selon critères esthétiques et sanitaires</li>
                             </ul>
 
                             <h4><i class="fas fa-concierge-bell"></i> Nos services inclus :</h4>
                             <ul>
-                                <li><i class="fas fa-check"></i> Sélection de l’olivier selon l’espace et le projet</li>
-                                <li><i class="fas fa-check"></i> Transport sécurisé</li>
-                                <li><i class="fas fa-check"></i> Plantation professionnelle</li>
-                                <li><i class="fas fa-check"></i> Conseils d’entretien après installation</li>
-                            </ul>
-
-                            <h4><i class="fas fa-building"></i> Idéal pour :</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Résidences et copropriétés</li>
-                                <li><i class="fas fa-check"></i> Villas et jardins privés</li>
-                                <li><i class="fas fa-check"></i> Hôtels, maisons d’hôtes</li>
-                                <li><i class="fas fa-check"></i> Projets paysagers haut de gamme</li>
+                                <li><i class="fas fa-check"></i> Consultation gratuite sur site ou à distance</li>
+                                <li><i class="fas fa-check"></i> Sélection personnalisée selon votre espace et projet</li>
+                                <li><i class="fas fa-check"></i> Transport sécurisé avec équipement spécialisé</li>
+                                <li><i class="fas fa-check"></i> Plantation professionnelle par nos experts</li>
+                                <li><i class="fas fa-check"></i> Conseils d'entretien et suivi pendant 1 an</li>
                             </ul>
                         </div>
 
+                        <!-- Price & CTA -->
                         <div class="details-cta-box">
-                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-dark-color); margin-bottom: 1rem;">
-                                À partir de 11,999 MAD
+                            <div class="price-container">
+                                <div class="current-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 0.5rem;">
+                                    À partir de 11,999 MAD
+                                </div>
+                                <div class="price-note" style="color: var(--gray-600); font-size: 0.9rem;">
+                                    Prix selon taille et quantité
+                                </div>
                             </div>
-                            <p>Contactez-nous pour une consultation personnalisée et un devis adapté à votre projet.</p>
+                            
+                            <p class="cta-description" style="color: var(--gray-600); margin: 1.5rem 0;">
+                                Contactez-nous pour une consultation personnalisée et un devis adapté à votre projet. Réponse garantie sous 24h.
+                            </p>
+                            
                             <div class="cta-buttons">
-                                <a href="https://wa.me/${CONTACT_INFO.whatsapp}?text=Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis." target="_blank" class="btn btn-primary whatsapp-btn-large">
-                                    <i class="fab fa-whatsapp"></i> Demander un Devis WhatsApp
+                                <a href="https://wa.me/212661234567?text=Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis." 
+                                   target="_blank" 
+                                   class="btn btn-primary whatsapp-btn-large">
+                                    <i class="fab fa-whatsapp"></i> Demander un Devis sur WhatsApp
                                 </a>
-                                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-secondary">
-                                    <i class="fas fa-phone"></i> Appeler
-                                </a>
+                                <div class="secondary-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                    <a href="tel:+212661234567" class="btn btn-secondary">
+                                        <i class="fas fa-phone"></i> Appeler maintenant
+                                    </a>
+                                    <button class="btn btn-outline" id="requestCatalog">
+                                        <i class="fas fa-book"></i> Catalogue PDF
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="guarantee-badges">
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Garantie reprise 1 an</span>
+                                </div>
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Livraison 7-15 jours</span>
+                                </div>
+                                <div class="guarantee-badge">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Livraison partout au Maroc</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Specifications Table -->
+        <section class="specs-section section-padding">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>Fiche Technique</h2>
+                    <p>Caractéristiques détaillées de nos oliviers tressés</p>
+                </div>
+
+                <div class="animate-on-scroll">
+                    <table class="product-specs-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Spécifications techniques</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Espèce</strong></td>
+                                <td>Olea europaea (Olivier d'Europe)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Style</strong></td>
+                                <td>Topiaire tressé - Forme architecturale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hauteur</strong></td>
+                                <td>2 à 4 mètres (selon sélection)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Âge estimé</strong></td>
+                                <td>15 à 25 ans</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Circonférence tronc</strong></td>
+                                <td>20 à 40 cm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Poids approximatif</strong></td>
+                                <td>150 à 300 kg (avec motte)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exposition</strong></td>
+                                <td>Plein soleil (minimum 6h/jour)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Résistance au froid</strong></td>
+                                <td>-10°C à -12°C (rustique)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Type de sol</strong></td>
+                                <td>Tous types bien drainés</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Arrosage</strong></td>
+                                <td>Modéré (résistant à la sécheresse)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Croissance</strong></td>
+                                <td>Lente à modérée</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Période de livraison</strong></td>
+                                <td>Toute l'année (optimal: septembre à mai)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Examples -->
+        <section class="projects-section section-padding">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>Exemples de Projets</h2>
+                    <p>Découvrez comment nos oliviers transforment les espaces</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="assets/images/olive-gallery-7.jpeg" alt="Entrée de villa">
+                            <div class="project-badge">Villa</div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Entrée de villa prestigieuse</h4>
+                            <p>Paire d'oliviers tressés de 3m encadrant l'entrée principale, créant une allée majestueuse.</p>
+                            <div class="project-specs">
+                                <span><i class="fas fa-ruler"></i> 2 × Olivier 3m</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Marrakech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="assets/images/olive-gallery-8.jpeg" alt="Jardin d'hôtel">
+                            <div class="project-badge">Hôtel 5*</div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Jardin d'hôtel de luxe</h4>
+                            <p>Alignement de 8 oliviers tressés créant une perspective élégante dans le jardin principal.</p>
+                            <div class="project-specs">
+                                <span><i class="fas fa-ruler"></i> 8 × Olivier 2.5m</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="assets/images/olive-gallery-9.jpeg" alt="Terrasse de restaurant">
+                            <div class="project-badge">Restaurant</div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Terrasse de restaurant</h4>
+                            <p>Olivier centenaire en point focal de la terrasse, offrant ombre et caractère.</p>
+                            <div class="project-specs">
+                                <span><i class="fas fa-ruler"></i> 1 × Olivier 4m</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Rabat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section section-padding">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>Questions Fréquentes</h2>
+                    <p>Tout ce que vous devez savoir sur nos oliviers</p>
+                </div>
+
+                <div class="product-faq-section animate-on-scroll">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Quelle est la garantie sur la reprise des oliviers ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nous offrons une garantie de reprise de 1 an sur tous nos oliviers tressés. Cette garantie couvre la santé de l'arbre sous réserve du respect des conseils d'entretien fournis. En cas de problème, nous nous engageons à remplacer l'arbre ou à vous rembourser.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Quel est le délai de livraison ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le délai de livraison standard est de 7 à 15 jours ouvrables après validation de la commande. Pour les projets urgents, nous proposons une livraison express sous 3-5 jours (frais supplémentaires applicables). La période idéale de plantation au Maroc est de septembre à mai.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Comment se déroule la plantation ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Notre service de plantation professionnelle comprend : préparation du terrain, excavation, apport de terre adaptée, mise en place de l'arbre avec système de tuteurage, arrosage initial et conseils personnalisés. L'équipe utilise un équipement spécialisé pour manipuler les arbres en toute sécurité.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Peut-on visiter la pépinière ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolument ! Nous encourageons nos clients à visiter notre pépinière à Benslimane pour sélectionner personnellement leurs arbres. Sur rendez-vous, nos experts vous accompagneront dans le choix et répondront à toutes vos questions. Nous proposons également des visites virtuelles pour les clients éloignés.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Proposez-vous un service d'entretien ?</h4>
+                            <i class="fas fa-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, nous proposons des contrats d'entretien annuel incluant : taille de formation, fertilisation, traitement préventif contre les maladies, vérification du système d'arrosage et conseils saisonniers. Nos forfaits sont adaptés aux besoins spécifiques de chaque client.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="contact-cta-section section-padding">
+            <div class="container">
+                <div class="contact-cta-box animate-on-scroll">
+                    <div class="cta-content">
+                        <h2>Prêt à créer votre oasis ?</h2>
+                        <p>Contactez nos experts pour un projet sur mesure. Estimation gratuite et sans engagement.</p>
+                        
+                        <div class="contact-methods">
+                            <a href="https://wa.me/212661234567" target="_blank" class="contact-method whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>Réponse rapide - Photos en direct</p>
+                                </div>
+                            </a>
+                            
+                            <a href="tel:+212661234567" class="contact-method phone">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <p>Appelez-nous du lundi au samedi</p>
+                                </div>
+                            </a>
+                            
+                            <a href="mailto:contact@plantesshop.ma" class="contact-method email">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>Devis détaillé sous 24h</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-image">
+                        <img src="assets/images/olive-gallery-10.jpeg" alt="Expert en oliviers">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    
+    <!-- Sticky Bottom Bar -->
+    <div class="product-sticky-bar" id="stickyBar">
+        <div class="container">
+            <div class="sticky-bar-content">
+                <div class="sticky-bar-info">
+                    <div class="sticky-bar-title">Olivier tressé</div>
+                    <div class="sticky-bar-price">À partir de 11,999 MAD</div>
+                </div>
+                <div class="sticky-bar-actions">
+                    <a href="https://wa.me/212661234567?text=Bonjour, je suis intéressé par vos oliviers de grande taille et j'aimerais obtenir un devis." 
+                       target="_blank" 
+                       class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> Demander un devis
+                    </a>
+                    <a href="tel:+212661234567" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Appeler
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Footer -->
     <footer class="footer">
@@ -234,7 +1005,7 @@
                     <div class="footer-column">
                         <h3>Plantes Shop</h3>
                         <div class="footer-about">
-                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc.</p>
+                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc depuis 2010.</p>
                         </div>
                         
                         <div class="social-links">
@@ -256,7 +1027,7 @@
                     <div class="footer-column">
                         <h3>Liens Rapides</h3>
                         <div class="footer-links">
-                            <a href="index.html#home">Accueil</a>
+                            <a href="index.html">Accueil</a>
                             <a href="index.html#products">Produits</a>
                             <a href="index.html#categories">Catégories</a>
                             <a href="index.html#services">Services</a>
@@ -291,11 +1062,15 @@
                         <div class="footer-contact">
                             <div class="footer-contact-item">
                                 <i class="fas fa-phone-alt"></i>
-                                <span>${CONTACT_INFO.phone}</span>
+                                <span>+212 6 61 23 45 67</span>
                             </div>
                             <div class="footer-contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>${CONTACT_INFO.email}</span>
+                                <span>contact@plantesshop.ma</span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Benslimane, Maroc</span>
                             </div>
                         </div>
                     </div>
@@ -352,33 +1127,6 @@
         </div>
     </div>
     
-    
-    <!-- Image Modal -->
-    <div class="image-modal-overlay" id="imageModal">
-        <div class="image-modal-content">
-            <img src="" alt="Image en grand" id="modalImage">
-            <button class="image-modal-close" id="closeImageModal" aria-label="Fermer l'image"><i class="fas fa-times"></i></button>
-            <button class="image-modal-nav image-modal-prev" id="prevImage" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
-            <button class="image-modal-nav image-modal-next" id="nextImage" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-
-    <!-- Article Modal -->
-    <div class="article-modal" id="articleModal">
-        <div class="modal-header">
-            <h3 id="articleModalTitle" style="margin: 0; flex: 1; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"></h3>
-            <button class="modal-close" onclick="closeArticleModal()" aria-label="Fermer l'article">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="article-modal-body" id="articleModalBody">
-            <!-- Article content will be loaded by JavaScript -->
-        </div>
-    </div>
-
-    <!-- Overlay -->
-    <div class="modal-overlay" id="modalOverlay"></div>
-    
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
         <i class="fas fa-chevron-up"></i>
@@ -389,5 +1137,91 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Product-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail click handler
+            document.querySelectorAll('.thumbnail-strip img').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    document.querySelectorAll('.thumbnail-strip img').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    // Change main image
+                    changeMainImage(this.src, this.alt);
+                });
+            });
+            
+            // FAQ toggle
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.closest('.faq-item');
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Sticky bar on scroll
+            const stickyBar = document.getElementById('stickyBar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    stickyBar.style.display = 'block';
+                    setTimeout(() => stickyBar.classList.add('active'), 10);
+                } else {
+                    stickyBar.classList.remove('active');
+                    setTimeout(() => {
+                        if (!stickyBar.classList.contains('active')) {
+                            stickyBar.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+            
+            // Request catalog button
+            document.getElementById('requestCatalog').addEventListener('click', function() {
+                const email = prompt("Veuillez entrer votre email pour recevoir le catalogue PDF:");
+                if (email && email.includes('@')) {
+                    showNotification('Catalogue envoyé à ' + email, 'success');
+                    // Here you would normally send the email to your server
+                } else if (email !== null) {
+                    showNotification('Veuillez entrer un email valide', 'error');
+                }
+            });
+            
+            // Function to change main image
+            window.changeMainImage = function(src, alt) {
+                const mainImage = document.getElementById('mainOliveImage');
+                mainImage.src = src;
+                mainImage.alt = alt;
+            };
+            
+            // Function to show notification
+            function showNotification(message, type) {
+                const toast = document.getElementById('notificationToast');
+                toast.innerHTML = `
+                    <div class="toast-content toast-${type}">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+            
+            // Animate on scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
