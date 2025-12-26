@@ -296,7 +296,7 @@
             align-items: center;
             justify-content: space-between;
             height: 100%;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
             max-width: var(--container-max);
             margin: 0 auto;
         }
@@ -311,7 +311,7 @@
         }
         
         .logo-img {
-    height: 55px;
+    height: 60px;
             width: auto;
             object-fit: contain;
         }
@@ -323,14 +323,14 @@
         
         .logo-text {
             font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-green);
             line-height: 1;
         }
         
         .logo-slogan {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
             font-weight: 500;
             color: var(--gray-500);
             letter-spacing: 0.5px;
