@@ -151,5 +151,24 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ARECA_IMAGES = [
+                "assets/images/areca-01.jpeg"
+            ];
+
+            const galleryContainer = document.getElementById('arecaThumbnails');
+            if (galleryContainer) {
+                galleryContainer.innerHTML = ''; // Clear container
+                ARECA_IMAGES.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.alt = `Areca catechu - vue ${index + 1}`;
+                    thumb.classList.add('gallery-thumbnail');
+                    galleryContainer.appendChild(thumb);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
