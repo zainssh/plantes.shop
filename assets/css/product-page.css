@@ -1,0 +1,392 @@
+/* Additional styles for product page */
+.product-breadcrumb {
+    background: var(--light-green);
+    padding: 1rem 0;
+    margin-top: var(--header-height);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.breadcrumb-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.breadcrumb-links a {
+    color: var(--gray-600);
+    transition: var(--transition-normal);
+}
+
+.breadcrumb-links a:hover {
+    color: var(--primary-green);
+}
+
+.breadcrumb-separator {
+    color: var(--gray-400);
+}
+
+.product-sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    z-index: 990;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: none;
+}
+
+.product-sticky-bar.active {
+    transform: translateY(0);
+}
+
+.sticky-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sticky-bar-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.product-faq-section {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 3rem 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--gray-200);
+    padding: 1.5rem 2rem;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h4 {
+    margin: 0;
+    flex: 1;
+    color: var(--dark);
+}
+
+.faq-toggle {
+    color: var(--primary-green);
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-top: 1rem;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.product-specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.product-specs-table th {
+    background: var(--light-green);
+    color: var(--primary-green);
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--primary-green);
+}
+
+.product-specs-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+}
+
+.product-specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.product-specs-table tr:hover {
+    background: var(--light-green);
+}
+
+.quick-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.quick-spec {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+    color: var(--gray-700);
+}
+
+.quick-spec i {
+    color: var(--primary-green);
+    font-size: 1.25rem;
+}
+
+.guarantee-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.guarantee-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    color: var(--gray-700);
+}
+
+.guarantee-badge i {
+    color: var(--primary-green);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.contact-cta-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding: 0;
+}
+
+.cta-content {
+    padding: 3rem;
+}
+
+.cta-content h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.contact-method:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(5px);
+}
+
+.contact-method i {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+.contact-method.whatsapp i {
+    background: #25D366;
+}
+
+.contact-method.phone i {
+    background: var(--accent-green);
+}
+
+.contact-method.email i {
+    background: var(--info-blue);
+}
+
+.contact-method h4 {
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.contact-method p {
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cta-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .contact-cta-box {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-sticky-bar .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .sticky-bar-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .sticky-bar-price {
+        font-size: 1.25rem;
+    }
+
+    .faq-item {
+        padding: 1rem;
+    }
+
+    .contact-cta-box {
+        margin: 2rem 0;
+    }
+
+    .cta-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guarantee-badges {
+        justify-content: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
