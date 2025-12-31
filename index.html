@@ -49,6 +49,7 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
                     <li><a href="#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="#categories" class="nav-link"><i class="fas fa-tags"></i> Catégories</a></li>
                     <li><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
                     <li><a href="#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li>
@@ -57,10 +58,20 @@
             
             <!-- Header Actions -->
             <div class="header-actions">
+                <!-- Search Button -->
+                <button class="action-btn" id="searchButton" aria-label="Rechercher">
+                    <i class="fas fa-search"></i>
+                </button>
+                
                 <!-- Cart Button -->
                 <button class="action-btn" id="cartButton" aria-label="Panier d'achat">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="action-count" id="cartCount">0</span>
+                </button>
+                
+                <!-- User Account -->
+                <button class="action-btn" id="accountButton" aria-label="Mon compte">
+                    <i class="fas fa-user"></i>
                 </button>
                 
                 <!-- Language Selector -->
@@ -90,26 +101,63 @@
             </div>
         </div>
         
+        <!-- Search Bar -->
+        <div class="search-bar-container" id="searchBar">
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher des plantes, produits, conseils..." class="search-input" id="searchInput">
+                <button class="search-submit" aria-label="Rechercher">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="search-close" id="closeSearch" aria-label="Fermer la recherche">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-suggestions" id="searchSuggestions">
+                <!-- Suggestions will appear here -->
+            </div>
+        </div>
+        
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <div class="mobile-nav-header">
-                <h3>Menu</h3>
+                <div class="mobile-logo">
+                    <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="mobile-logo-img">
+                    <span class="mobile-logo-text">Plantes Shop</span>
+                </div>
                 <button class="mobile-menu-btn" id="closeMobileMenu">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
             <div class="mobile-nav-links">
-                <a href="#home" class="mobile-nav-link active">Accueil</a>
-                <a href="#products" class="mobile-nav-link">Produits</a>
-                <a href="#services" class="mobile-nav-link">Services</a>
-                <a href="#blog" class="mobile-nav-link">Blog</a>
-                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="#home" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i> Accueil
+                </a>
+                <a href="#products" class="mobile-nav-link">
+                    <i class="fas fa-leaf"></i> Produits
+                </a>
+                <a href="#categories" class="mobile-nav-link">
+                    <i class="fas fa-tags"></i> Catégories
+                </a>
+                <a href="#services" class="mobile-nav-link">
+                    <i class="fas fa-concierge-bell"></i> Services
+                </a>
+                <a href="#blog" class="mobile-nav-link">
+                    <i class="fas fa-newspaper"></i> Blog
+                </a>
+                <a href="#contact" class="mobile-nav-link">
+                    <i class="fas fa-phone"></i> Contact
+                </a>
             </div>
             
-
             <div class="mobile-nav-actions">
-               <div class="mobile-language-selector">
+                <a href="tel:${CONTACT_INFO.phone}" class="mobile-action-btn">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="mobile-action-btn mobile-whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <div class="mobile-language-selector">
                     <i class="fas fa-globe"></i>
                     <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
                         <option value="fr">Français</option>
@@ -120,12 +168,21 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full">
-                    <i class="fas fa-phone"></i> Appelez-nous
-                </a>
-                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <p>Suivez-nous sur les réseaux sociaux</p>
+                <div class="mobile-social-links">
+                    <a href="#" class="mobile-social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="mobile-social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="mobile-social-link" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="mobile-social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -138,24 +195,42 @@
                 <!-- Slide 1 -->
                 <div class="hero-slide active">
                     <img src="assets/images/olive-gallery-2.jpeg" alt="Collection de plantes luxuriantes" loading="eager">
+                    <div class="hero-slide-content">
+                        <h2 class="animate__animated animate__fadeInDown">Votre Oasis Verte</h2>
+                        <p class="animate__animated animate__fadeInUp animate__delay-1s">Plus de 500 espèces de plantes sélectionnées avec soin</p>
+                    </div>
                 </div>
                 <!-- Slide 2 -->
                 <div class="hero-slide">
                     <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Jardin botanique" loading="lazy">
+                    <div class="hero-slide-content">
+                        <h2>Aménagement Paysager Professionnel</h2>
+                        <p>Créez le jardin de vos rêves avec nos experts</p>
+                    </div>
                 </div>
                 <!-- Slide 3 -->
                 <div class="hero-slide">
                     <img src="assets/images/pepiniere1.jpeg" alt="Plantes d'intérieur" loading="lazy">
+                    <div class="hero-slide-content">
+                        <h2>Plantes d'Intérieur Épurées</h2>
+                        <p>Purifiez votre air et embellissez votre espace</p>
+                    </div>
                 </div>
-                                <!-- Slide 2 -->
+                <!-- Slide 4 -->
                 <div class="hero-slide">
-                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Jardin botanique" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cactus et plantes succulentes" loading="lazy">
+                    <div class="hero-slide-content">
+                        <h2>Succulentes & Cactus</h2>
+                        <p>Des plantes résistantes et décoratives</p>
+                    </div>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
             
             <div class="hero-content">
-                <span class="hero-badge"><i class="fas fa-seedling"></i> Collection Exclusive 2024</span>
+                <span class="hero-badge animate__animated animate__pulse animate__infinite">
+                    <i class="fas fa-seedling"></i> Collection Exclusive 2024
+                </span>
                 <h1 class="fade-in-up">Transformez Votre Espace en Oasis Verte</h1>
                 <p class="fade-in-up" style="animation-delay: 0.2s;">Découvrez plus de 500 espèces de plantes soigneusement sélectionnées, des conseils d'experts et un service personnalisé pour créer le jardin de vos rêves.</p>
                 
@@ -183,13 +258,1256 @@
                         <i class="fas fa-headset"></i>
                         Support expert 7j/7
                     </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        Plantes certifiées saines
+                    </div>
                 </div>
             </div>
             
             <div class="hero-slider-controls">
-                <div class="slider-dot active" data-slide="0"></div>
-                <div class="slider-dot" data-slide="1"></div>
-                <div class="slider-dot" data-slide="2"></div>
+                <button class="slider-nav prev-slide" aria-label="Slide précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                    <div class="slider-dot" data-slide="3"></div>
+                </div>
+                <button class="slider-nav next-slide" aria-label="Slide suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section section-padding" id="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nos Catégories de Plantes</h2>
+                    <p>Découvrez notre vaste collection organisée par type</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <a href="#palms" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3>Palmiers</h3>
+                        <p>Élégants et majestueux</p>
+                        <span class="category-count">25 produits</span>
+                    </a>
+                    
+                    <a href="#fruit-trees" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3>Arbres Fruitiers</h3>
+                        <p>Fraîcheur garantie</p>
+                        <span class="category-count">18 produits</span>
+                    </a>
+                    
+                    <a href="#indoor" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Plantes d'Intérieur</h3>
+                        <p>Purifient l'air</p>
+                        <span class="category-count">45 produits</span>
+                    </a>
+                    
+                    <a href="#succulents" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Succulentes & Cactus</h3>
+                        <p>Faciles d'entretien</p>
+                        <span class="category-count">32 produits</span>
+                    </a>
+                    
+                    <a href="#medicinal" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Plantes Médicinales</h3>
+                        <p>Bienfaits naturels</p>
+                        <span class="category-count">15 produits</span>
+                    </a>
+                    
+                    <a href="#bonsai" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Bonsaï</h3>
+                        <p>Art végétal</p>
+                        <span class="category-count">12 produits</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Products Section -->
+        <section class="featured-products section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Produits Populaires</h2>
+                    <p>Les préférés de nos clients</p>
+                </div>
+                
+                <div class="products-grid featured-grid">
+                    <!-- Featured products will be dynamically loaded -->
+                </div>
+                
+                <div class="section-cta">
+                    <a href="#products" class="btn btn-outline btn-large">
+                        Voir tous les produits
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Section -->
+        <section class="products-section section-padding" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Notre Collection Complète</h2>
+                        <p>Toutes nos plantes disponibles en ligne</p>
+                    </div>
+                    
+                    <div class="products-filter">
+                        <div class="filter-group">
+                            <label for="categoryFilter">Catégorie:</label>
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="all">Toutes les catégories</option>
+                                <option value="palmiers">Palmiers</option>
+                                <option value="fruitiers">Arbres fruitiers</option>
+                                <option value="interieur">Plantes d'intérieur</option>
+                                <option value="succulentes">Succulentes & Cactus</option>
+                                <option value="medicinales">Plantes médicinales</option>
+                                <option value="bonsai">Bonsaï</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="priceFilter">Prix:</label>
+                            <select id="priceFilter" class="filter-select">
+                                <option value="all">Tous les prix</option>
+                                <option value="low">Moins de 200 MAD</option>
+                                <option value="medium">200 - 500 MAD</option>
+                                <option value="high">500 - 1000 MAD</option>
+                                <option value="premium">Plus de 1000 MAD</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="sortFilter">Trier par:</label>
+                            <select id="sortFilter" class="filter-select">
+                                <option value="popular">Populaire</option>
+                                <option value="new">Nouveautés</option>
+                                <option value="price-low">Prix croissant</option>
+                                <option value="price-high">Prix décroissant</option>
+                                <option value="name">Nom A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="products-grid" id="productsContainer">
+                    <!-- Product 1: Olivier -->
+                    <div class="product-card" data-category="bonsai" data-price="premium">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="assets/images/olive-gallery-13.jpeg" alt="Olivier adulte de grande taille">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(1)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(1)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(1)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Projets Paysagers Haut de Gamme</span>
+                            <h3 class="product-title">Olivier, olea europaea topiaire bonsai</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <p class="product-description">Olivier centenaire sculpté en bonsaï, parfait pour les projets paysagers prestigieux.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Reprise garantie</span>
+                                <span class="pill"><i class="fas fa-check"></i> Transport sécurisé</span>
+                                <span class="pill"><i class="fas fa-check"></i> Conseils d'experts</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 11,999 MAD</span>
+                                    <span class="product-old-price">14,999 MAD</span>
+                                </div>
+                                <button onclick="addToCart(1)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2: Yucca -->
+                    <div class="product-card" data-category="interieur" data-price="medium">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes ( pied d'éléphant )">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(2)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(2)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(2)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Élégance et Simplicité</span>
+                            <h3 class="product-title">Yucca elephantipes</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(18)</span>
+                            </div>
+                            <p class="product-description">Plante d'intérieur robuste au tronc épais et feuillage persistant, purifie l'air naturellement.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Facile d'entretien</span>
+                                <span class="pill"><i class="fas fa-check"></i> Purificateur d'air</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance rapide</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 250 MAD</span>
+                                    <span class="product-old-price">310 MAD</span>
+                                </div>
+                                <button onclick="addToCart(2)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3: Areca -->
+                    <div class="product-card" data-category="palmiers" data-price="high">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(3)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(3)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(3)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Beauté Tropicale</span>
+                            <h3 class="product-title">Areca catechu</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-count">(32)</span>
+                            </div>
+                            <p class="product-description">Palmier élégant au feuillage dense et arqué, idéal pour apporter une touche tropicale à votre intérieur.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Excellent purificateur</span>
+                                <span class="pill"><i class="fas fa-check"></i> Ambiance tropicale</span>
+                                <span class="pill"><i class="fas fa-check"></i> Entretien modéré</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 1299 MAD</span>
+                                </div>
+                                <button onclick="addToCart(3)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4: Ficus -->
+                    <div class="product-card" data-category="bonsai" data-price="high">
+                        <div class="product-image">
+                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(4)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(4)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(4)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Art et Nature</span>
+                            <h3 class="product-title">Ficus bonsai</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(15)</span>
+                            </div>
+                            <p class="product-description">Arbre miniature sculpté avec art, symbole d'équilibre et d'harmonie, parfait pour la méditation.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Art vivant</span>
+                                <span class="pill"><i class="fas fa-check"></i> Intérieur lumineux</span>
+                                <span class="pill"><i class="fas fa-check"></i> Taille régulière</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 1199 MAD</span>
+                                </div>
+                                <button onclick="addToCart(4)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5: Strelitzia -->
+                    <div class="product-card" data-category="interieur" data-price="medium">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="assets/images/WhatsApp Image 2025-12-25 at 19.53.25.jpeg" alt="Strelitzia Augusta (Faux Bananier)">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(5)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(5)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(5)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Élégance Tropicale</span>
+                            <h3 class="product-title">Strelitzia Augusta</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(21)</span>
+                            </div>
+                            <p class="product-description">Plante majestueuse aux grandes feuilles brillantes, apportant une ambiance exotique à votre espace.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Grandes feuilles</span>
+                                <span class="pill"><i class="fas fa-check"></i> Look exotique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Pleine lumière</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 399 MAD</span>
+                                    <span class="product-old-price">470 MAD</span>
+                                </div>
+                                <button onclick="addToCart(5)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6: Dracena -->
+                    <div class="product-card" data-category="interieur" data-price="medium">
+                        <div class="product-image">
+                            <img src="assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (4).jpeg" alt="Dracena indivisa dragona">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(6)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(6)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(6)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Sculpturale et Robuste</span>
+                            <h3 class="product-title">Dracena indivisa dragona</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-count">(19)</span>
+                            </div>
+                            <p class="product-description">Plante graphique au port érigé et feuillage rubané, très résistante et peu exigeante en eau.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Très résistant</span>
+                                <span class="pill"><i class="fas fa-check"></i> Peu d'eau</span>
+                                <span class="pill"><i class="fas fa-check"></i> Design moderne</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">À partir de 350 MAD</span>
+                                </div>
+                                <button onclick="addToCart(6)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NEW PRODUCTS START HERE -->
+                    <!-- Product 7: philodendron selloum -->
+                    <div class="product-card" data-category="interieur" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="philodendron selloum" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(7)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(7)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(7)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Plantes d'Intérieur</span>
+                            <h3 class="product-title">Philodendron Selloum</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante tropicale au feuillage découpé et brillant, parfaite pour purifier l'air intérieur.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Purificateur d'air</span>
+                                <span class="pill"><i class="fas fa-check"></i> Faible entretien</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance rapide</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(7)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 8: butia capitata -->
+                    <div class="product-card" data-category="palmiers" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="butia capitata" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(8)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(8)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(8)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Palmiers</span>
+                            <h3 class="product-title">Butia Capitata</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Palmier résistant au froid avec un stipe épais et des feuilles arquées bleu-vert.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Résistant au froid</span>
+                                <span class="pill"><i class="fas fa-check"></i> Ornemental</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance lente</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(8)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 9: CORDYLINE australis 'Red Star' -->
+                    <div class="product-card" data-category="interieur" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="CORDYLINE australis 'Red Star'" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(9)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(9)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(9)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Plantes d'Intérieur</span>
+                            <h3 class="product-title">Cordyline Australis 'Red Star'</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante architecturale au feuillage rouge pourpre, idéale pour apporter de la couleur.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage coloré</span>
+                                <span class="pill"><i class="fas fa-check"></i> Résistante</span>
+                                <span class="pill"><i class="fas fa-check"></i> Design moderne</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(9)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 10: Euphorbia milii -->
+                    <div class="product-card" data-category="succulentes" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Euphorbia milii" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(10)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(10)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(10)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Euphorbia Milii (Couronne d'Épines)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante succulente épineuse produisant de magnifiques fleurs colorées toute l'année.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Floraison continue</span>
+                                <span class="pill"><i class="fas fa-check"></i> Très résistante</span>
+                                <span class="pill"><i class="fas fa-check"></i> Peu d'eau</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(10)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 11: Euphorbia ingens -->
+                    <div class="product-card" data-category="succulentes" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Euphorbia ingens" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(11)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(11)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(11)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Euphorbia Ingens (Cactus Candelabre)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Succulente arborescente imposante en forme de candélabre, très architecturale.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Forme unique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Très résistante</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance verticale</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(11)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 12: Agave desmetiana 'Variegata -->
+                    <div class="product-card" data-category="succulentes" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Agave desmetiana 'Variegata" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(12)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(12)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(12)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Agave Desmetiana 'Variegata'</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Agave ornemental aux feuilles vertes marginées de crème, formant une rosette symétrique.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage panaché</span>
+                                <span class="pill"><i class="fas fa-check"></i> Forme symétrique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Résistant à la sécheresse</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(12)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 13: crassula ovata -->
+                    <div class="product-card" data-category="succulentes" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="crassula ovata" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(13)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(13)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(13)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Crassula Ovata (Arbre de Jade)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Succulente populaire aux feuilles charnues et brillantes, symbole de prospérité.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Porte-bonheur</span>
+                                <span class="pill"><i class="fas fa-check"></i> Facile d'entretien</span>
+                                <span class="pill"><i class="fas fa-check"></i> Longue durée de vie</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(13)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 14: Aloe vera -->
+                    <div class="product-card" data-category="medicinales" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Aloe vera" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(14)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(14)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(14)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Plantes Médicinales</span>
+                            <h3 class="product-title">Aloe Vera</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante médicinale aux nombreuses vertus, gel apaisant pour la peau, purifie l'air.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Propriétés médicinales</span>
+                                <span class="pill"><i class="fas fa-check"></i> Purificateur d'air</span>
+                                <span class="pill"><i class="fas fa-check"></i> Entretien facile</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(14)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 15: opuntia microdasys -->
+                    <div class="product-card" data-category="succulentes" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="opuntia microdasys" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(15)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(15)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(15)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Opuntia Microdasys (Oreilles de Lapin)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Cactus en forme de raquettes couvertes de glochides dorés, très décoratif.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Forme unique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Floraison jaune</span>
+                                <span class="pill"><i class="fas fa-check"></i> Très résistant</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(15)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 16: echinocactus grusonii -->
+                    <div class="product-card" data-category="succulentes" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="echinocactus grusonii" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(16)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(16)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(16)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Succulentes & Cactus</span>
+                            <h3 class="product-title">Echinocactus Grusonii (Coussin de Belle-Mère)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Cactus sphérique recouvert d'épines dorées, très populaire et ornemental.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Forme sphérique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Épines dorées</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance lente</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(16)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 17: phoenix roebelenii -->
+                    <div class="product-card" data-category="palmiers" data-price="high">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="phoenix roebelenii" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(17)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(17)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(17)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Palmiers</span>
+                            <h3 class="product-title">Phoenix Roebelenii (Dattier Nain)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Palmier nain au feuillage fin et gracieux, idéal pour les petits espaces et l'intérieur.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Taille réduite</span>
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage élégant</span>
+                                <span class="pill"><i class="fas fa-check"></i> Lumière indirecte</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(17)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 18: Phoenix roebelenii Double tronc -->
+                    <div class="product-card" data-category="palmiers" data-price="premium">
+                        <div class="product-badge">Exclusif</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Phoenix roebelenii Double tronc" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(18)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(18)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(18)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Palmiers Spéciaux</span>
+                            <h3 class="product-title">Phoenix Roebelenii Double Tronc</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Version rare du dattier nain avec deux troncs, créant un effet particulièrement ornemental.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Double tronc</span>
+                                <span class="pill"><i class="fas fa-check"></i> Pièce unique</span>
+                                <span class="pill"><i class="fas fa-check"></i> Valeur décorative</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(18)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 19: thuja orientalis -->
+                    <div class="product-card" data-category="exterieur" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="thuja orientalis" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(19)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(19)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(19)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Arbres d'Extérieur</span>
+                            <h3 class="product-title">Thuja Orientalis</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Conifère persistant au port colonnaire, parfait pour les haies et l'ornementation.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Haie persistante</span>
+                                <span class="pill"><i class="fas fa-check"></i> Résistant au froid</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance rapide</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(19)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 20: Teucrium fruticans (Tree Germander) -->
+                    <div class="product-card" data-category="exterieur" data-price="low">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="Teucrium fruticans (Tree Germander)" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(20)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(20)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(20)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Arbustes d'Extérieur</span>
+                            <h3 class="product-title">Teucrium Fruticans (Germandrée Arborescente)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Arbuste méditerranéen au feuillage argenté et à la floraison bleu lavande estivale.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage argenté</span>
+                                <span class="pill"><i class="fas fa-check"></i> Floraison bleue</span>
+                                <span class="pill"><i class="fas fa-check"></i> Résistant à la sécheresse</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(20)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 21: strelitzia nicolai -->
+                    <div class="product-card" data-category="interieur" data-price="high">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="strelitzia nicolai" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(21)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(21)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(21)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Plantes d'Intérieur</span>
+                            <h3 class="product-title">Strelitzia Nicolai (Oiseau du Paradis Géant)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante imposante aux grandes feuilles en forme de bananier, très architecturale.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Taille imposante</span>
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage spectaculaire</span>
+                                <span class="pill"><i class="fas fa-check"></i> Ambiance tropicale</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(21)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 22: codiaeum variegatum -->
+                    <div class="product-card" data-category="interieur" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="codiaeum variegatum" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(22)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(22)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(22)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Plantes d'Intérieur</span>
+                            <h3 class="product-title">Codiaeum Variegatum (Croton)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Plante au feuillage multicolore très décoratif, apportant de la couleur à votre intérieur.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Feuillage coloré</span>
+                                <span class="pill"><i class="fas fa-check"></i> Très décoratif</span>
+                                <span class="pill"><i class="fas fa-check"></i> Lumière vive</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(22)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 23: carica papaya -->
+                    <div class="product-card" data-category="fruitiers" data-price="medium">
+                        <div class="product-badge">Nouveau</div>
+                        <div class="product-image">
+                            <img src="assets/images/placeholder.jpg" alt="carica papaya" class="placeholder-image">
+                            <div class="product-actions">
+                                <button class="product-action-btn" onclick="addToWishlist(23)" aria-label="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="quickView(23)" aria-label="Voir rapidement">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <button class="product-action-btn" onclick="addToCart(23)" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Arbres Fruitiers</span>
+                            <h3 class="product-title">Carica Papaya (Papayer)</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(0)</span>
+                            </div>
+                            <p class="product-description">Arbre fruitier tropical produisant des papayes délicieuses, croissance rapide en climat chaud.</p>
+                            <div class="details-pills">
+                                <span class="pill"><i class="fas fa-check"></i> Fruits savoureux</span>
+                                <span class="pill"><i class="fas fa-check"></i> Croissance rapide</span>
+                                <span class="pill"><i class="fas fa-check"></i> Climat chaud</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="price-container">
+                                    <span class="product-price">1 MAD</span>
+                                </div>
+                                <button onclick="addToCart(23)" class="btn btn-primary btn-small">
+                                    <i class="fas fa-cart-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination" id="productsPagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </section>
         
@@ -242,7 +1560,7 @@
                             <li><i class="fas fa-check"></i> Entretien régulier des espaces verts communs</li>
                             <li><i class="fas fa-check"></i> Tonte de pelouse, taille des haies et arbustes</li>
                             <li><i class="fas fa-check"></i> Suivi de la santé des plantes et arbres</li>
-                            <li><i class="fas fa-check"></i> Gestion de l’arrosage et optimisation de l’eau</li>
+                            <li><i class="fas fa-check"></i> Gestion de l'arrosage et optimisation de l'eau</li>
                             <li><i class="fas fa-check"></i> Nettoyage et valorisation des espaces extérieurs</li>
                             <li><i class="fas fa-check"></i> Intervention adaptée aux syndics et gestionnaires</li>
                         </ul>
@@ -342,137 +1660,126 @@
                         <h3>Garantie Satisfait ou Remboursé</h3>
                         <p>30 jours pour changer d'avis. Si votre plante ne s'adapte pas, nous la remplaçons ou vous remboursons.</p>
                     </div>
+                    
+                    <div class="feature-card animate-on-scroll" style="animation-delay: 0.8s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Large Sélection</h3>
+                        <p>Plus de 500 espèces de plantes disponibles, des plus communes aux plus rares et exotiques.</p>
+                    </div>
+                    
+                    <div class="feature-card animate-on-scroll" style="animation-delay: 1s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Service Personnalisé</h3>
+                        <p>Un accompagnement sur mesure pour chaque client, du choix des plantes à leur entretien.</p>
+                    </div>
                 </div>
             </div>
         </section>
         
-        
-        <!-- Products Section -->
-        <section class="olive-showcase-section section-padding" id="products">
+        <!-- Testimonials Section -->
+        <section class="testimonials-section section-padding">
             <div class="container">
                 <div class="section-title">
-                    <h2>Nos Produits d'Exception</h2>
-                    <p>Une sélection exclusive de Plantes Shop</p>
+                    <h2>Ce Que Disent Nos Clients</h2>
+                    <p>Découvrez les expériences de nos clients satisfaits</p>
                 </div>
-                <div class="products-grid">
-                    <!-- Product 1: Olivier -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/images/olive-gallery-13.jpeg" alt="Olivier adulte de grande taille">
-                        </div>
-                        <div class="product-content">
-                            <span class="product-category">Projets Paysagers Haut de Gamme</span>
-                            <h3 class="product-title">Olivier, olea europaea topiaire bonsai</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Reprise garantie</span>
-                                <span class="pill"><i class="fas fa-check"></i> Transport sécurisé</span>
-                                <span class="pill"><i class="fas fa-check"></i> Conseils d’experts</span>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 11,999 MAD</span>
-                                <a href="product-olive-trees.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product 2: Yucca -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes ( pied d’éléphant )">
-                        </div>
-                        <div class="product-content">
-                            <span class="product-category">Élégance et Simplicité</span>
-                            <h3 class="product-title">Yucca elephantipes</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Facile d'entretien</span>
-                                <span class="pill"><i class="fas fa-check"></i> Purificateur d'air</span>
-                                <span class="pill"><i class="fas fa-check"></i> Croissance rapide</span>
-                            </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 250 MAD</span>
-                                <a href="product-yucca.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <p class="testimonial-text">"Les plantes sont arrivées en parfait état, magnifiquement emballées. Le service client est exceptionnel !"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah B." class="author-avatar">
+                                <div class="author-info">
+                                    <h4>Sarah B.</h4>
+                                    <span>Rabat</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Product 3: Areca -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu">
-                        </div>
-                        <div class="product-content">
-                            <span class="product-category">Beauté Tropicale</span>
-                            <h3 class="product-title">Areca catechu</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Excellent purificateur</span>
-                                <span class="pill"><i class="fas fa-check"></i> Ambiance tropicale</span>
-                                <span class="pill"><i class="fas fa-check"></i> Entretien modéré</span>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 1299 MAD</span>
-                                <a href="product-areca.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <p class="testimonial-text">"J'ai commandé plusieurs fois et à chaque fois, je suis impressionné par la qualité des plantes et le professionnalisme."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Mohamed T." class="author-avatar">
+                                <div class="author-info">
+                                    <h4>Mohamed T.</h4>
+                                    <span>Casablanca</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Product 4: Ficus -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai">
-                        </div>
-                        <div class="product-content">
-                            <span class="product-category">Art et Nature</span>
-                            <h3 class="product-title">Ficus bonsai</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Art vivant</span>
-                                <span class="pill"><i class="fas fa-check"></i> Intérieur lumineux</span>
-                                <span class="pill"><i class="fas fa-check"></i> Taille régulière</span>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 1199 MAD</span>
-                                <a href="product-ficus-bonsai.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <p class="testimonial-text">"L'équipe a créé un jardin magnifique dans notre résidence. Le suivi est impeccable, je recommande vivement !"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Fatima Z." class="author-avatar">
+                                <div class="author-info">
+                                    <h4>Fatima Z.</h4>
+                                    <span>Marrakech</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Livraison rapide et plantes de qualité supérieure. Les conseils d'entretien ont été très utiles."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Karim L." class="author-avatar">
+                                <div class="author-info">
+                                    <h4>Karim L.</h4>
+                                    <span>Fès</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Product 5: Strelitzia -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/images/WhatsApp Image 2025-12-25 at 19.53.25.jpeg" alt="Strelitzia Augusta (Faux Bananier)">
+                    
+                    <div class="testimonials-controls">
+                        <button class="testimonial-nav prev-testimonial" aria-label="Témoignage précédent">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="testimonial-dots">
+                            <div class="testimonial-dot active" data-slide="0"></div>
+                            <div class="testimonial-dot" data-slide="1"></div>
+                            <div class="testimonial-dot" data-slide="2"></div>
+                            <div class="testimonial-dot" data-slide="3"></div>
                         </div>
-                        <div class="product-content">
-                            <span class="product-category">Élégance Tropicale</span>
-                            <h3 class="product-title">Strelitzia Augusta</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Grandes feuilles</span>
-                                <span class="pill"><i class="fas fa-check"></i> Look exotique</span>
-                                <span class="pill"><i class="fas fa-check"></i> Pleine lumière</span>
-                            </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 399 MAD</span>
-                                <a href="product-strelitzia.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product 6: Dracena -->
-                    <div class="product-card">
-                        <div class="product-image">
-                             <img src="assets/images/WhatsApp Image 2025-12-25 at 20.22.43 (4).jpeg" alt="Dracena indivisa dragona">
-                        </div>
-                        <div class="product-content">
-                            <span class="product-category">Sculpturale et Robuste</span>
-                            <h3 class="product-title">Dracena indivisa dragona</h3>
-                            <div class="details-pills">
-                                <span class="pill"><i class="fas fa-check"></i> Très résistant</span>
-                                <span class="pill"><i class="fas fa-check"></i> Peu d'eau</span>
-                                <span class="pill"><i class="fas fa-check"></i> Design moderne</span>
-                            </div>
-                            <div class="product-footer">
-                                <span class="product-price">À partir de 350 MAD</span>
-                                <a href="product-dracena.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
-                            </div>
-                        </div>
+                        <button class="testimonial-nav next-testimonial" aria-label="Témoignage suivant">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-        
         
         <!-- Blog Section -->
         <section class="blog-section section-padding" id="blog">
@@ -486,6 +1793,7 @@
                     <article class="blog-card animate-on-scroll">
                         <div class="blog-image">
                             <img src="assets/images/olive-gallery-12.jpeg" alt="Entretien des plantes">
+                            <div class="blog-category">Conseils</div>
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -506,6 +1814,7 @@
                     <article class="blog-card animate-on-scroll" style="animation-delay: 0.2s;">
                         <div class="blog-image">
                             <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Plantes purificatrices">
+                            <div class="blog-category">Santé</div>
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -526,6 +1835,7 @@
                     <article class="blog-card animate-on-scroll" style="animation-delay: 0.4s;">
                         <div class="blog-image">
                             <img src="assets/images/olive-gallery-11.jpeg" alt="Création de jardin">
+                            <div class="blog-category">Jardinage</div>
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -542,6 +1852,49 @@
                             <button onclick="openArticleModal(3)" class="btn btn-outline btn-small">Lire l'article</button>
                         </div>
                     </article>
+                </div>
+                
+                <div class="section-cta">
+                    <a href="#blog" class="btn btn-outline btn-large">
+                        Voir tous les articles
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter-section section-padding">
+            <div class="container">
+                <div class="newsletter-container">
+                    <div class="newsletter-content">
+                        <h2>Restez Informés</h2>
+                        <p>Abonnez-vous à notre newsletter pour recevoir nos conseils jardinage, nouvelles arrivées et offres exclusives.</p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-check"></i> Conseils d'experts chaque mois</li>
+                            <li><i class="fas fa-check"></i> Première info sur les nouvelles arrivées</li>
+                            <li><i class="fas fa-check"></i> Offres exclusives réservées aux abonnés</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="newsletter-form-container">
+                        <form class="newsletter-main-form" id="newsletterMainForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Votre nom" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Votre email" class="form-control" required>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletterConsent" required>
+                                <label for="newsletterConsent">J'accepte de recevoir des communications de Plantes Shop</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-paper-plane"></i> S'abonner
+                            </button>
+                        </form>
+                        <p class="newsletter-note">Nous respectons votre vie privée. Désabonnez-vous à tout moment.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -609,6 +1962,27 @@
                                 <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
                             </a>
                         </div>
+                        
+                        <div class="contact-card">
+                            <h3><i class="fas fa-info-circle"></i> Informations Complémentaires</h3>
+                            <div class="contact-details">
+                                <div class="contact-detail">
+                                    <i class="fas fa-truck"></i>
+                                    <div>
+                                        <h4>Livraison</h4>
+                                        <p>Dans tout le Maroc sous 2-5 jours</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div>
+                                        <h4>Garantie</h4>
+                                        <p>30 jours satisfait ou remboursé</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="contact-form-container">
@@ -649,6 +2023,11 @@
                                 <textarea id="message" class="form-control" rows="5" required></textarea>
                             </div>
                             
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="contactConsent" required>
+                                <label for="contactConsent">J'accepte que mes données soient utilisées pour traiter ma demande</label>
+                            </div>
+                            
                             <button type="submit" class="btn btn-primary form-submit-btn">
                                 <i class="fas fa-paper-plane"></i> Envoyer le Message
                             </button>
@@ -683,6 +2062,44 @@
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
+                    <div class="map-overlay">
+                        <div class="map-info">
+                            <h4>Plantes Shop Pépinière</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Zone Industrielle de Benslimane</p>
+                            <p><i class="fas fa-phone"></i> ${CONTACT_INFO.phone}</p>
+                            <a href="https://maps.google.com/maps?q=33.5935125,-7.1532031" target="_blank" class="btn btn-outline btn-small">
+                                <i class="fas fa-directions"></i> Itinéraire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Partners Section -->
+        <section class="partners-section section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nos Partenaires de Confiance</h2>
+                    <p>Nous collaborons avec les meilleurs pour vous offrir un service de qualité</p>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x80/2c5530/ffffff?text=Engrais+Bio" alt="Engrais Bio">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x80/2c5530/ffffff?text=Pots+Céramique" alt="Pots Céramique">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x80/2c5530/ffffff?text=Outils+Jardin" alt="Outils Jardin">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x80/2c5530/ffffff?text=Systèmes+Arrosage" alt="Systèmes Arrosage">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://via.placeholder.com/150x80/2c5530/ffffff?text=Transport+Spécialisé" alt="Transport Spécialisé">
+                    </div>
                 </div>
             </div>
         </section>
@@ -694,48 +2111,52 @@
             <div class="footer-top">
                 <div class="footer-grid">
                     <div class="footer-column">
-                        <h3>Plantes Shop</h3>
+                        <div class="footer-logo">
+                            <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
+                                <h3>Plantes Shop</h3>
+                                <span class="footer-slogan">Votre Oasis Verte</span>
+                            </div>
+                        </div>
                         <div class="footer-about">
                             <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc.</p>
                         </div>
                         
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Pinterest">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="YouTube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
+                        <div class="footer-certifications">
+                            <div class="certification">
+                                <i class="fas fa-award"></i>
+                                <span>Qualité Certifiée</span>
+                            </div>
+                            <div class="certification">
+                                <i class="fas fa-leaf"></i>
+                                <span>Agriculture Durable</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="footer-column">
                         <h3>Liens Rapides</h3>
                         <div class="footer-links">
-                            <a href="#home">Accueil</a>
-                            <a href="#products">Produits</a>
-                            <a href="#categories">Catégories</a>
-                            <a href="#services">Services</a>
-                            <a href="#blog">Blog</a>
-                            <a href="#contact">Contact</a>
+                            <a href="#home"><i class="fas fa-chevron-right"></i> Accueil</a>
+                            <a href="#products"><i class="fas fa-chevron-right"></i> Produits</a>
+                            <a href="#categories"><i class="fas fa-chevron-right"></i> Catégories</a>
+                            <a href="#services"><i class="fas fa-chevron-right"></i> Services</a>
+                            <a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a>
+                            <a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
+                            <a href="#about"><i class="fas fa-chevron-right"></i> À Propos</a>
                         </div>
                     </div>
                     
                     <div class="footer-column">
                         <h3>Informations</h3>
                         <div class="footer-links">
-                            <a href="#about">À Propos</a>
-                            <a href="#delivery">Livraison</a>
-                            <a href="#returns">Retours & Échanges</a>
-                            <a href="#privacy">Politique de Confidentialité</a>
-                            <a href="#terms">Conditions Générales</a>
-                            <a href="#faq">FAQ</a>
+                            <a href="#delivery"><i class="fas fa-chevron-right"></i> Livraison & Retours</a>
+                            <a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a>
+                            <a href="#terms"><i class="fas fa-chevron-right"></i> Conditions Générales</a>
+                            <a href="#privacy"><i class="fas fa-chevron-right"></i> Politique de Confidentialité</a>
+                            <a href="#cookies"><i class="fas fa-chevron-right"></i> Gestion des Cookies</a>
+                            <a href="#sitemap"><i class="fas fa-chevron-right"></i> Plan du Site</a>
+                            <a href="#accessibility"><i class="fas fa-chevron-right"></i> Accessibilité</a>
                         </div>
                     </div>
                     
@@ -759,18 +2180,54 @@
                                 <i class="fas fa-envelope"></i>
                                 <span>${CONTACT_INFO.email}</span>
                             </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Benslimane, Maroc</span>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
+                <div class="payment-methods">
+                    <span>Paiements sécurisés :</span>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-university"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                </div>
+                
                 <p>&copy; 2024 Plantes Shop. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> au Maroc</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-                    <a href="#sitemap">Plan du site</a> | 
-                    <a href="#accessibility">Accessibilité</a> | 
-                    <a href="#cookies">Cookies</a>
-                </p>
+                
+                <div class="footer-languages">
+                    <button onclick="changeLanguage('fr')">Français</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('ar')">العربية</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('en')">English</button>
+                </div>
             </div>
         </div>
     </footer>
@@ -786,9 +2243,14 @@
         
         <div class="cart-items" id="cartItems">
             <!-- Cart items will be loaded here -->
+            <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Votre panier est vide</p>
+                <a href="#products" class="btn btn-primary">Explorer les produits</a>
+            </div>
         </div>
         
-        <div class="cart-footer">
+        <div class="cart-footer" id="cartFooter">
             <div class="cart-summary">
                 <div class="cart-summary-row">
                     <span>Sous-total</span>
@@ -796,7 +2258,7 @@
                 </div>
                 <div class="cart-summary-row">
                     <span>Livraison</span>
-                    <span id="cartShipping">Gratuite</span>
+                    <span id="cartShipping">Calcul à l'étape suivante</span>
                 </div>
                 <div class="cart-summary-row cart-total">
                     <span>Total</span>
@@ -814,6 +2276,17 @@
         </div>
     </div>
     
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeQuickView" aria-label="Fermer la vue rapide">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Quick view content will be loaded here -->
+            </div>
+        </div>
+    </div>
     
     <!-- Image Modal -->
     <div class="image-modal-overlay" id="imageModal">
@@ -848,8 +2321,33 @@
     
     <!-- Notification Toast -->
     <div class="notification-toast" id="notificationToast"></div>
+    
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner">
+            <i class="fas fa-leaf"></i>
+        </div>
+    </div>
 
     <!-- JavaScript -->
+    <script>
+        // Configuration
+        const CONTACT_INFO = {
+            phone: "+212 6 12 34 56 78",
+            email: "contact@plantesshop.ma",
+            whatsapp: "+212612345678"
+        };
+        
+        // Apply contact info to page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Replace placeholders with actual contact info
+            document.querySelectorAll('*').forEach(element => {
+                if (element.textContent && element.textContent.includes('${CONTACT_INFO.')) {
+                    element.textContent = element.textContent.replace(/\${CONTACT_INFO\.(\w+)}/g, (match, key) => CONTACT_INFO[key] || match);
+                }
+            });
+        });
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
