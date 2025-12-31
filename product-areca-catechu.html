@@ -1,0 +1,350 @@
+<!DOCTYPE html> 
+<html lang="fr" dir="ltr"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"> 
+    <title>Areca catechu | Plantes Shop</title> 
+    <meta name="description" content="Découvrez notre Areca catechu, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur."> 
+    <meta name="author" content="Plantes Shop"> 
+     
+    <!-- Structured Data for SEO --> 
+    <script type="application/ld+json"> 
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Areca catechu",
+        "description": "Découvrez notre Areca catechu, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.",
+        "brand": { "@type": "Brand", "name": "Plantes Shop" },
+        "offers": {
+            "@type": "Offer",
+            "price": "1299",
+            "priceCurrency": "MAD",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script> 
+     
+    <!-- Fonts & Icons --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/product-page.css">
+</head> 
+<body> 
+    <!-- Skip to main content link --> 
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a> 
+     
+    <!-- Header --> 
+    <header class="header" id="header"> 
+        <div class="header-container"> 
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <span class="logo-text">Plantes Shop</span>
+                    <span class="logo-slogan">Votre Oasis Verte</span>
+                </div>
+            </a>
+             
+            <!-- Desktop Navigation --> 
+            <nav class="nav-desktop" aria-label="Navigation principale"> 
+                <ul class="nav-links"> 
+                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li> 
+                    <li class="nav-link-dropdown"> 
+                        <a href="index.html#categories" class="nav-link"><i class="fas fa-layer-group"></i> Catégories</a> 
+                        <div class="dropdown-menu"> 
+                            <a href="index.html#interior" class="dropdown-item">Plantes d'Intérieur</a> 
+                            <a href="index.html#exterior" class="dropdown-item">Plantes d'Extérieur</a> 
+                            <a href="index.html#fruit-trees" class="dropdown-item">Arbres Fruitiers</a> 
+                            <a href="index.html#palmiers" class="dropdown-item">Palmiers</a> 
+                            <a href="index.html#bonsai" class="dropdown-item">Bonsaïs & Tressés</a> 
+                            <a href="index.html#cactus" class="dropdown-item">Cactus & Succulentes</a> 
+                        </div> 
+                    </li> 
+                    <li><a href="index.html#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li> 
+                    <li><a href="index.html#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li> 
+                    <li><a href="index.html#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li> 
+                    <li><a href="index.html#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li> 
+                </ul> 
+            </nav> 
+             
+            <!-- Header Actions --> 
+            <div class="header-actions"> 
+                <!-- Cart Button --> 
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat"> 
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span class="action-count" id="cartCount">0</span> 
+                </button> 
+                 
+                <!-- Language Selector --> 
+                <div class="language-selector"> 
+                    <button class="language-btn" aria-label="Changer la langue"> 
+                        <i class="fas fa-globe"></i> 
+                        <span>FR</span> 
+                        <i class="fas fa-chevron-down"></i> 
+                    </button> 
+                    <div class="language-dropdown"> 
+                        <div class="language-option" onclick="changeLanguage('fr')"> 
+                            <span>🇫🇷</span> Français 
+                        </div> 
+                        <div class="language-option" onclick="changeLanguage('ar')"> 
+                            <span>🇲🇦</span> العربية 
+                        </div> 
+                        <div class="language-option" onclick="changeLanguage('en')"> 
+                            <span>🇬🇧</span> English 
+                        </div> 
+                    </div> 
+                </div> 
+                 
+                <!-- Mobile Menu Button --> 
+                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile"> 
+                    <i class="fas fa-bars"></i> 
+                </button> 
+            </div> 
+        </div> 
+         
+        <!-- Mobile Navigation --> 
+        <div class="mobile-nav" id="mobileNav"> 
+            <div class="mobile-nav-header"> 
+                <h3>Menu</h3> 
+                <button class="mobile-menu-btn" id="closeMobileMenu"> 
+                    <i class="fas fa-times"></i> 
+                </button> 
+            </div> 
+             
+            <div class="mobile-nav-links"> 
+                <a href="index.html#home" class="mobile-nav-link active">Accueil</a> 
+                <a href="index.html#categories" class="mobile-nav-link">Catégories</a> 
+                <a href="index.html#products" class="mobile-nav-link">Produits</a> 
+                <a href="index.html#services" class="mobile-nav-link">Services</a> 
+                <a href="index.html#blog" class="mobile-nav-link">Blog</a> 
+                <a href="index.html#contact" class="mobile-nav-link">Contact</a> 
+            </div> 
+             
+            <div class="mobile-categories"> 
+                <a href="index.html#interior" class="mobile-category">Intérieur</a> 
+                <a href="index.html#exterior" class="mobile-category">Extérieur</a> 
+                <a href="index.html#fruit-trees" class="mobile-category">Fruitiers</a> 
+                <a href="index.html#palmiers" class="mobile-category">Palmiers</a> 
+                <a href="index.html#bonsai" class="mobile-category">Bonsaïs</a> 
+                <a href="index.html#cactus" class="mobile-category">Cactus</a> 
+            </div> 
+ 
+            <div class="mobile-nav-actions"> 
+               <div class="mobile-language-selector"> 
+                    <i class="fas fa-globe"></i> 
+                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue"> 
+                        <option value="fr">Français</option> 
+                        <option value="ar">العربية</option> 
+                        <option value="en">English</option> 
+                    </select> 
+                </div> 
+            </div> 
+             
+            <div class="mobile-nav-footer">
+                <a href="#" data-phone-link="true" class="btn btn-outline btn-full">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="#" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div> 
+    </header> 
+     
+    <!-- Breadcrumb --> 
+    <div class="product-breadcrumb"> 
+        <div class="container"> 
+            <div class="breadcrumb-links"> 
+                <a href="index.html">Accueil</a> 
+                <span class="breadcrumb-separator">/</span> 
+                <a href="index.html#products">Produits</a> 
+                <span class="breadcrumb-separator">/</span> 
+                <a href="index.html#exterior">Plantes d'Extérieur</a> 
+                <span class="breadcrumb-separator">/</span> 
+                <span>Areca catechu</span> 
+            </div> 
+        </div> 
+    </div> 
+     
+    <!-- Main Content --> 
+    <main id="main-content"> 
+        <!-- Product Showcase Section --> 
+        <section class="olive-showcase-section section-padding"> 
+            <div class="container"> 
+                <div class="olive-showcase-grid animate-on-scroll"> 
+                    <div class="olive-gallery"> 
+                        <!-- Main Image -->
+                        <div class="main-image-container">
+                            <img src="assets/images/areca-01.jpeg"
+                                 alt="Areca catechu"
+                                 class="main-olive-image"
+                                 id="mainProductImage">
+                        </div>
+
+                        <!-- Thumbnails -->
+                        <div class="thumbnail-strip">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu" class="active" onclick="changeMainImage(this.src, this.alt)">
+                        </div>
+                    </div> 
+ 
+                    <div class="olive-details"> 
+                        <h1 class="details-title">Areca catechu</h1> 
+                         
+                        <p class="details-intro"> 
+                            Découvrez notre Areca catechu, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.
+                        </p> 
+ 
+                        <!-- Price & CTA --> 
+                        <div class="details-cta-box"> 
+                            <div class="price-container"> 
+                                <div class="current-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 0.5rem;"> 
+                                    À partir de 1299 MAD
+                                </div> 
+                            </div> 
+                             
+                            <div class="cta-buttons"> 
+                                <a href="#" data-whatsapp-link="true"
+                                   target="_blank"
+                                   class="btn btn-primary whatsapp-btn-large">
+                                    <i class="fab fa-whatsapp"></i> Demander un Devis sur WhatsApp
+                                </a>
+                                <div class="secondary-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                    <a href="#" data-phone-link="true" class="btn btn-secondary">
+                                        <i class="fas fa-phone"></i> Appeler maintenant
+                                    </a>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+ 
+        <!-- Specifications Table --> 
+        <section class="specs-section section-padding"> 
+            <div class="container"> 
+                <div class="section-title animate-on-scroll"> 
+                    <h2>Fiche Technique</h2> 
+                </div> 
+                <div class="animate-on-scroll"> 
+                    <p>Les spécifications détaillées pour ce produit seront bientôt disponibles.</p>
+                </div> 
+            </div> 
+        </section> 
+ 
+        <!-- FAQ Section --> 
+        <section class="faq-section section-padding"> 
+            <div class="container"> 
+                <div class="section-title animate-on-scroll"> 
+                    <h2>Questions Fréquentes</h2> 
+                </div> 
+                <div class="product-faq-section animate-on-scroll"> 
+                    <p>La section FAQ pour ce produit est en cours de préparation.</p>
+                </div> 
+            </div> 
+        </section> 
+    </main>
+
+    <!-- Footer --> 
+    <footer class="footer"> 
+        <div class="container"> 
+            <div class="footer-top"> 
+                <div class="footer-grid"> 
+                    <div class="footer-column"> 
+                        <h3>Plantes Shop</h3> 
+                        <div class="footer-about"> 
+                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc depuis 2010.</p> 
+                        </div> 
+                         
+                        <div class="social-links"> 
+                            <a href="#" class="social-link" aria-label="Facebook"> 
+                                <i class="fab fa-facebook-f"></i> 
+                            </a> 
+                            <a href="#" class="social-link" aria-label="Instagram"> 
+                                <i class="fab fa-instagram"></i> 
+                            </a> 
+                            <a href="#" class="social-link" aria-label="Pinterest"> 
+                                <i class="fab fa-pinterest-p"></i> 
+                            </a> 
+                            <a href="#" class="social-link" aria-label="YouTube"> 
+                                <i class="fab fa-youtube"></i> 
+                            </a> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="footer-column"> 
+                        <h3>Liens Rapides</h3> 
+                        <div class="footer-links"> 
+                            <a href="index.html">Accueil</a> 
+                            <a href="index.html#products">Produits</a> 
+                            <a href="index.html#categories">Catégories</a> 
+                            <a href="index.html#services">Services</a> 
+                            <a href="index.html#blog">Blog</a> 
+                            <a href="index.html#contact">Contact</a> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="footer-column"> 
+                        <h3>Informations</h3> 
+                        <div class="footer-links"> 
+                            <a href="index.html#about">À Propos</a> 
+                            <a href="index.html#delivery">Livraison</a> 
+                            <a href="index.html#returns">Retours & Échanges</a> 
+                            <a href="index.html#privacy">Politique de Confidentialité</a> 
+                            <a href="index.html#terms">Conditions Générales</a> 
+                            <a href="index.html#faq">FAQ</a> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="footer-column"> 
+                        <h3>Newsletter</h3> 
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Abonnez-vous pour recevoir nos promotions et conseils jardinage.</p> 
+                         
+                        <form class="newsletter-form" id="newsletterForm"> 
+                            <input type="email" class="newsletter-input" placeholder="Votre adresse email" required> 
+                            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;"> 
+                                <i class="fas fa-paper-plane"></i> 
+                            </button> 
+                        </form> 
+                         
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span data-phone-text="true"></span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span data-email-text="true"></span>
+                            </div>
+                            <div class="footer-contact-item"> 
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span>Benslimane, Maroc</span> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+             
+            <div class="footer-bottom"> 
+                <p>&copy; 2024 Plantes Shop. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> au Maroc</p> 
+            </div> 
+        </div> 
+    </footer> 
+     
+    <!-- Back to Top Button --> 
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"> 
+        <i class="fas fa-chevron-up"></i> 
+    </button> 
+     
+    <!-- Notification Toast --> 
+    <div class="notification-toast" id="notificationToast"></div> 
+ 
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets-js/product-page.js"></script>
+</body> 
+</html>
