@@ -68,125 +68,290 @@
     <!-- CSS Styles -->
     <style>
     /* =========================================== */
-    /* PRODUCT PAGE CSS */
+    /* RESET & BASE STYLES */
     /* =========================================== */
-    :root {
-        --product-header-height: 70px;
-        --gallery-thumb-size: 80px;
-        --gallery-thumb-size-lg: 100px;
-        --product-sidebar-width: 350px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    /* Breadcrumb */
-    .product-breadcrumb {
-        background: #f8f9fa;
-        padding: 1rem 0;
-        margin-top: 80px;
-        border-bottom: 1px solid #e9ecef;
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
     }
 
-    .breadcrumb-links {
+    body {
+        font-family: 'Inter', sans-serif;
+        color: #1a1a1a;
+        background: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* =========================================== */
+    /* HEADER STYLES */
+    /* =========================================== */
+    .product-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        color: #6c757d;
-        font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
     }
 
-    .breadcrumb-links a {
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1B5E20;
+        line-height: 1;
+    }
+
+    .logo-text span:last-child {
+        font-size: 0.65rem;
+        color: #6c757d;
+        margin-top: 2px;
+    }
+
+    .cart-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+    .cart-button:hover {
+        background: #e9ecef;
+    }
+
+    .cart-button i {
+        font-size: 1.3rem;
+        color: #495057;
+    }
+
+    .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #DC3545;
+        color: white;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    /* =========================================== */
+    /* BREADCRUMB */
+    /* =========================================== */
+    .breadcrumb-container {
+        margin-top: 70px;
+        background: #f8f9fa;
+        padding: 12px 0;
+        border-bottom: 1px solid #e9ecef;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: #6c757d;
+        white-space: nowrap;
+        padding: 0 20px;
+    }
+
+    .breadcrumb a {
         color: #6c757d;
         text-decoration: none;
-        transition: 0.3s ease;
+        transition: color 0.3s ease;
     }
 
-    .breadcrumb-links a:hover {
+    .breadcrumb a:hover {
         color: #1B5E20;
         text-decoration: underline;
     }
 
     .breadcrumb-separator {
         color: #ced4da;
-        margin: 0 0.25rem;
+        margin: 0 2px;
     }
 
-    /* Product Container */
-    .product-detail-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
+    /* =========================================== */
+    /* PRODUCT MAIN SECTION */
+    /* =========================================== */
+    .product-main {
+        padding: 30px 20px;
+        width: 100%;
+        overflow: hidden;
     }
 
+    /* Product Grid Layout */
     .product-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    @media (max-width: 992px) {
+    @media (min-width: 992px) {
         .product-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            flex-direction: row;
+        }
+        
+        .product-gallery-section {
+            flex: 1;
+            max-width: 50%;
+        }
+        
+        .product-info-section {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 40px;
         }
     }
 
-    /* Product Gallery */
-    .product-gallery {
-        position: sticky;
-        top: 100px;
-        height: fit-content;
+    /* =========================================== */
+    /* PRODUCT GALLERY - FIXED FOR MOBILE */
+    /* =========================================== */
+    .product-gallery-section {
+        position: relative;
+        width: 100%;
     }
 
-    .main-image-container {
+    .main-image-wrapper {
         position: relative;
-        border-radius: 20px;
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 16px;
         overflow: hidden;
-        margin-bottom: 1rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         background: #f8f9fa;
-        min-height: 500px;
+        min-height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .main-product-image {
+    .main-image {
         width: 100%;
         height: auto;
-        max-height: 600px;
+        max-height: 500px;
         object-fit: contain;
         transition: transform 0.3s ease;
     }
 
-    .main-image-container:hover .main-product-image {
-        transform: scale(1.02);
+    .image-zoom-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
     }
 
-    /* Thumbnails Gallery */
-    .thumbnail-gallery {
+    .image-zoom-btn i {
+        color: #495057;
+        font-size: 1.1rem;
+    }
+
+    /* Thumbnails Grid */
+    .thumbnails-grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 0.75rem;
-        margin-top: 1.5rem;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 15px;
     }
 
     @media (max-width: 768px) {
-        .thumbnail-gallery {
+        .thumbnails-grid {
             grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
         }
     }
 
     @media (max-width: 480px) {
-        .thumbnail-gallery {
+        .thumbnails-grid {
             grid-template-columns: repeat(3, 1fr);
         }
     }
 
     .thumbnail-item {
         cursor: pointer;
-        border-radius: 12px;
+        border-radius: 10px;
         overflow: hidden;
         border: 2px solid transparent;
         transition: all 0.3s ease;
@@ -194,44 +359,49 @@
         background: #f8f9fa;
     }
 
-    .thumbnail-item:hover {
-        border-color: #1B5E20;
-        transform: translateY(-3px);
-    }
-
+    .thumbnail-item:hover,
     .thumbnail-item.active {
         border-color: #1B5E20;
-        box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+        transform: translateY(-2px);
     }
 
-    .thumbnail-img {
+    .thumbnail-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    /* Product Info */
-    .product-info {
-        padding: 1rem 0;
+    /* =========================================== */
+    /* PRODUCT INFO - OPTIMIZED FOR MOBILE */
+    /* =========================================== */
+    .product-info-section {
+        position: relative;
+        width: 100%;
     }
 
     .product-title {
         font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
         color: #1a1a1a;
-        margin-bottom: 1rem;
+        margin-bottom: 12px;
         line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    @media (min-width: 768px) {
+        .product-title {
+            font-size: 2.2rem;
+        }
     }
 
     .product-subtitle {
         color: #2E7D32;
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 8px;
     }
 
     .product-subtitle i {
@@ -239,83 +409,96 @@
     }
 
     /* Product Meta */
-    .product-meta {
+    .product-meta-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .meta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid #e9ecef;
+        gap: 15px;
     }
 
     .meta-item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 8px;
         color: #495057;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .meta-item i {
         color: #2E7D32;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .rating-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 6px;
         background: #E8F5E9;
-        padding: 0.4rem 0.8rem;
-        border-radius: 50px;
+        padding: 6px 12px;
+        border-radius: 20px;
         font-weight: 600;
         color: #1B5E20;
     }
 
     .rating-stars {
         color: #D4A017;
+        font-size: 0.9rem;
     }
 
     /* Price Section */
-    .price-section {
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
+    .price-container {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
         border-bottom: 1px solid #e9ecef;
-    }
-
-    .current-price {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.8rem;
-        font-weight: 700;
-        color: #1B5E20;
-        margin-bottom: 0.5rem;
     }
 
     .price-label {
         color: #6c757d;
         font-size: 0.9rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 5px;
+    }
+
+    .current-price {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1B5E20;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 480px) {
+        .current-price {
+            font-size: 1.8rem;
+        }
     }
 
     .tax-info {
         color: #6c757d;
         font-size: 0.85rem;
-        margin-top: 0.5rem;
     }
 
     /* Delivery Info */
-    .delivery-info {
+    .delivery-info-container {
         background: #E8F5E9;
-        padding: 1.25rem;
+        padding: 20px;
         border-radius: 12px;
-        margin-bottom: 2rem;
+        margin-bottom: 25px;
     }
 
     .delivery-item {
         display: flex;
         align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 1rem;
+        gap: 12px;
+        margin-bottom: 15px;
     }
 
     .delivery-item:last-child {
@@ -323,70 +506,110 @@
     }
 
     .delivery-icon {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
         background: #2E7D32;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        flex-shrink: 0;
     }
 
     .delivery-text h4 {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
+        font-size: 0.95rem;
+        margin-bottom: 4px;
         color: #1a1a1a;
     }
 
     .delivery-text p {
         color: #495057;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin: 0;
+        line-height: 1.5;
     }
 
-    /* CTA Buttons */
-    .cta-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-bottom: 2rem;
+    /* =========================================== */
+    /* CTA BUTTONS - OPTIMIZED FOR MOBILE */
+    /* =========================================== */
+    .cta-container {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .cta-container {
+            position: relative;
+            box-shadow: none;
+            padding: 0;
+            margin-top: 0;
+            background: transparent;
+        }
     }
 
     .whatsapp-btn-large {
-        background: #25D366 !important;
-        padding: 1.25rem !important;
-        font-size: 1.1rem !important;
-        border: none !important;
-    }
-
-    .whatsapp-btn-large:hover {
-        background: #128C7E !important;
-        transform: translateY(-3px) !important;
-        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3) !important;
-    }
-
-    .secondary-actions {
         display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .btn-whatsapp {
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 16px;
         background: #25D366;
         color: white;
         border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin-bottom: 12px;
     }
 
-    .btn-whatsapp:hover {
+    .whatsapp-btn-large:hover {
         background: #128C7E;
+        transform: translateY(-2px);
+    }
+
+    .secondary-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+        .secondary-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .btn-call, .btn-favorite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid;
+        text-decoration: none;
     }
 
     .btn-call {
         background: #f8f9fa;
         color: #495057;
-        border: 1px solid #dee2e6;
+        border-color: #dee2e6;
     }
 
     .btn-call:hover {
@@ -394,20 +617,41 @@
         border-color: #495057;
     }
 
-    /* Product Tabs */
-    .product-tabs {
-        margin-top: 4rem;
+    .btn-favorite {
+        background: white;
+        color: #DC3545;
+        border-color: #DC3545;
+    }
+
+    .btn-favorite:hover {
+        background: #fff5f5;
+    }
+
+    /* =========================================== */
+    /* PRODUCT TABS */
+    /* =========================================== */
+    .tabs-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #e9ecef;
+        width: 100%;
     }
 
     .tabs-header {
         display: flex;
         border-bottom: 2px solid #e9ecef;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs-header::-webkit-scrollbar {
+        display: none;
     }
 
     .tab-btn {
-        padding: 1rem 2rem;
+        padding: 12px 20px;
         background: none;
         border: none;
         font-weight: 600;
@@ -416,7 +660,9 @@
         position: relative;
         transition: all 0.3s ease;
         font-family: 'Inter', sans-serif;
-        font-size: 1rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .tab-btn:hover {
@@ -440,128 +686,149 @@
     .tab-content {
         display: none;
         animation: fadeIn 0.5s ease;
+        width: 100%;
     }
 
     .tab-content.active {
         display: block;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Description Tab */
+    /* Description Content */
     .description-content {
         line-height: 1.8;
         color: #495057;
+        font-size: 0.95rem;
     }
 
     .description-content h3 {
         color: #1B5E20;
-        margin: 2rem 0 1rem;
-        font-size: 1.5rem;
+        margin: 25px 0 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
     }
 
     .description-content ul {
         list-style: none;
         padding: 0;
-        margin: 1rem 0;
+        margin: 15px 0;
     }
 
     .description-content li {
-        padding: 0.5rem 0;
+        padding: 8px 0;
         display: flex;
         align-items: flex-start;
-        gap: 0.75rem;
+        gap: 10px;
     }
 
     .description-content li i {
         color: #2E7D32;
-        margin-top: 0.25rem;
+        margin-top: 4px;
         flex-shrink: 0;
     }
 
-    /* Specifications Tab */
+    /* Specifications Grid */
     .specs-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .spec-item {
         background: #f8f9fa;
-        padding: 1.5rem;
+        padding: 20px;
         border-radius: 12px;
         border-left: 4px solid #2E7D32;
     }
 
     .spec-item h4 {
         color: #1B5E20;
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .spec-item p {
         color: #495057;
         margin: 0;
         line-height: 1.6;
+        font-size: 0.9rem;
     }
 
-    /* Care Instructions Tab */
+    /* Care Grid */
     .care-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .care-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .care-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .care-card {
         background: white;
         border: 1px solid #e9ecef;
         border-radius: 12px;
-        padding: 1.5rem;
+        padding: 20px;
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .care-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
 
     .care-icon {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         background: #E8F5E9;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1rem;
+        margin: 0 auto 15px;
         color: #2E7D32;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .care-card h4 {
         color: #1a1a1a;
-        margin-bottom: 0.5rem;
+        margin-bottom: 8px;
+        font-size: 1rem;
     }
 
     .care-card p {
         color: #6c757d;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin: 0;
+        line-height: 1.5;
     }
 
-    /* FAQ Tab */
+    /* FAQ */
     .faq-list {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 100%;
     }
 
     .faq-item {
         border-bottom: 1px solid #e9ecef;
-        padding: 1.5rem 0;
+        padding: 20px 0;
     }
 
     .faq-question {
@@ -569,21 +836,23 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
-        padding-right: 1rem;
+        padding-right: 10px;
+        width: 100%;
     }
 
     .faq-question h4 {
         color: #1a1a1a;
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin: 0;
         flex: 1;
+        padding-right: 10px;
     }
 
     .faq-toggle {
         background: none;
         border: none;
         color: #2E7D32;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         cursor: pointer;
         transition: transform 0.3s ease;
         flex-shrink: 0;
@@ -597,56 +866,152 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
-        padding-right: 1rem;
+        padding-right: 10px;
     }
 
     .faq-item.active .faq-answer {
         max-height: 500px;
-        margin-top: 1rem;
+        margin-top: 15px;
     }
 
     .faq-answer p {
         color: #495057;
         line-height: 1.6;
         margin: 0;
+        font-size: 0.9rem;
     }
 
-    /* Related Products */
+    /* =========================================== */
+    /* RELATED PRODUCTS */
+    /* =========================================== */
     .related-products {
-        margin-top: 6rem;
-        padding-top: 4rem;
+        margin-top: 60px;
+        padding-top: 40px;
         border-top: 1px solid #e9ecef;
+        width: 100%;
     }
 
-    .related-title {
+    .section-title {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 30px;
         font-family: 'Playfair Display', serif;
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: #1a1a1a;
         position: relative;
-        padding-bottom: 1rem;
+        padding-bottom: 15px;
     }
 
-    .related-title::after {
+    .section-title::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
+        width: 60px;
+        height: 3px;
         background: linear-gradient(90deg, #1B5E20, #4CAF50);
         border-radius: 2px;
     }
 
     .related-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
     }
 
-    /* Image Modal */
+    @media (max-width: 768px) {
+        .related-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.05);
+    }
+
+    .product-content {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-content h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+    .product-price {
+        color: #1B5E20;
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .product-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: #1B5E20;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .product-link:hover {
+        background: #2E7D32;
+        transform: translateY(-2px);
+    }
+
+    /* =========================================== */
+    /* IMAGE MODAL */
+    /* =========================================== */
     .image-modal {
         position: fixed;
         top: 0;
@@ -654,11 +1019,11 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.95);
-        z-index: 9999;
+        z-index: 2000;
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 1rem;
+        padding: 20px;
     }
 
     .image-modal.active {
@@ -669,6 +1034,7 @@
         position: relative;
         max-width: 90vw;
         max-height: 90vh;
+        width: 100%;
     }
 
     .modal-image {
@@ -689,9 +1055,12 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         cursor: pointer;
         transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .modal-close:hover {
@@ -705,10 +1074,10 @@
         background: rgba(255, 255, 255, 0.1);
         border: none;
         color: white;
-        width: 50px;
-        height: 50px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         cursor: pointer;
         transition: background 0.3s ease;
         display: flex;
@@ -721,23 +1090,157 @@
     }
 
     .modal-prev {
-        left: -70px;
+        left: 10px;
     }
 
     .modal-next {
-        right: -70px;
+        right: 10px;
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
         .modal-prev {
-            left: 10px;
+            left: -60px;
         }
+        
         .modal-next {
-            right: 10px;
+            right: -60px;
         }
     }
 
-    /* Loading Animation */
+    /* =========================================== */
+    /* FOOTER */
+    /* =========================================== */
+    .product-footer {
+        background: #0D3B1A;
+        color: white;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .footer-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .footer-description {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .footer-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .footer-btn {
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .footer-btn.whatsapp {
+        background: #25D366;
+    }
+
+    .footer-btn.phone {
+        background: #6c757d;
+    }
+
+    .footer-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.85rem;
+        margin-top: 20px;
+    }
+
+    /* =========================================== */
+    /* BACK TO TOP BUTTON */
+    /* =========================================== */
+    .back-to-top {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #1B5E20;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .back-to-top.visible {
+        display: flex;
+    }
+
+    .back-to-top:hover {
+        background: #2E7D32;
+        transform: translateY(-3px);
+    }
+
+    /* =========================================== */
+    /* ANIMATIONS */
+    /* =========================================== */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+
+    /* =========================================== */
+    /* UTILITY CLASSES */
+    /* =========================================== */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     .loading {
         position: relative;
         overflow: hidden;
@@ -759,79 +1262,129 @@
         100% { left: 100%; }
     }
 
-    /* Responsive Design */
+    /* =========================================== */
+    /* MOBILE OPTIMIZATIONS */
+    /* =========================================== */
     @media (max-width: 768px) {
+        /* Prevent horizontal scroll */
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Improve touch targets */
+        button, 
+        a,
+        .tab-btn,
+        .thumbnail-item {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Adjust font sizes */
         .product-title {
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
         
         .current-price {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
         }
         
-        .product-meta {
-            flex-direction: column;
-            gap: 1rem;
+        /* Fix spacing */
+        .product-main {
+            padding: 20px 15px;
         }
         
-        .tabs-header {
-            overflow-x: auto;
-            flex-wrap: nowrap;
+        .tabs-section {
+            margin-top: 30px;
+            padding-top: 20px;
         }
         
-        .tab-btn {
-            padding: 0.75rem 1.5rem;
-            white-space: nowrap;
+        /* Ensure content doesn't overflow */
+        .container {
+            padding: 0 15px;
         }
         
-        .secondary-actions {
-            flex-direction: column;
+        /* Fix sticky CTA on mobile */
+        .cta-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Add padding to main content for fixed CTA */
+        .product-main {
+            padding-bottom: 120px;
         }
     }
 
     @media (max-width: 480px) {
-        .product-detail-container {
-            padding: 2rem 1rem;
-        }
-        
         .product-title {
-            font-size: 1.75rem;
+            font-size: 1.4rem;
         }
         
-        .thumbnail-gallery {
+        .current-price {
+            font-size: 1.6rem;
+        }
+        
+        .thumbnails-grid {
             grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .secondary-buttons {
+            grid-template-columns: 1fr;
+        }
+        
+        .tab-btn {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Prevent content overlap */
+    .content-section {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Fix for iOS Safari */
+    @supports (-webkit-touch-callout: none) {
+        .product-main {
+            padding-bottom: 140px;
         }
     }
     </style>
 </head>
 <body>
-    <!-- Skip to main content link -->
-    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
-    
-    <!-- Header (simplifié pour l'exemple) -->
-    <header class="header" id="header">
-        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 80px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000;">
-            <!-- Logo -->
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
-                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" style="height: 50px; width: auto;">
-                <div style="display: flex; flex-direction: column;">
-                    <span style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #1B5E20;">Plantes Shop</span>
-                    <span style="font-size: 0.7rem; color: #6c757d;">Votre Oasis Verte</span>
+    <!-- Header -->
+    <header class="product-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo">
+                <div class="logo-text">
+                    <span>Plantes Shop</span>
+                    <span>Votre Oasis Verte</span>
                 </div>
             </a>
             
-            <!-- Cart Button -->
-            <button id="cartButton" style="background: none; border: none; cursor: pointer; position: relative;">
-                <i class="fas fa-shopping-cart" style="font-size: 1.5rem; color: #495057;"></i>
-                <span id="cartCount" style="position: absolute; top: -8px; right: -8px; background: #DC3545; color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">0</span>
+            <button class="cart-button" id="cartButton">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
             </button>
         </div>
     </header>
-    
+
     <!-- Breadcrumb -->
-    <div class="product-breadcrumb">
-        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
-            <div class="breadcrumb-links">
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
                 <a href="index.html">Accueil</a>
                 <span class="breadcrumb-separator">/</span>
                 <a href="index.html#products">Produits</a>
@@ -839,73 +1392,79 @@
                 <a href="index.html#exterior">Plantes d'Extérieur</a>
                 <span class="breadcrumb-separator">/</span>
                 <span>Olivier, olea europaea topiaire bonsai</span>
-            </div>
+            </nav>
         </div>
     </div>
-    
+
     <!-- Main Content -->
-    <main id="main-content">
-        <div class="product-detail-container">
-            <!-- Product Grid -->
+    <main class="product-main">
+        <div class="container">
             <div class="product-grid">
                 <!-- Product Gallery -->
-                <div class="product-gallery">
-                    <div class="main-image-container">
+                <section class="product-gallery-section">
+                    <div class="main-image-wrapper">
                         <img src="assets/images/olive-gallery-13.jpeg" 
-                             alt="Olivier, olea europaea topiaire bonsai - Vue principale"
-                             class="main-product-image"
+                             alt="Olivier, olea europaea topiaire bonsai"
+                             class="main-image"
                              id="mainProductImage">
+                        <button class="image-zoom-btn" onclick="openImageModal(0)">
+                            <i class="fas fa-expand-alt"></i>
+                        </button>
                     </div>
-                    
-                    <div class="thumbnail-gallery" id="thumbnailGallery">
-                        <!-- Thumbnails will be dynamically added -->
+
+                    <div class="thumbnails-grid" id="thumbnailGallery">
+                        <!-- Thumbnails will be loaded by JavaScript -->
                     </div>
-                </div>
-                
+                </section>
+
                 <!-- Product Info -->
-                <div class="product-info">
+                <section class="product-info-section">
                     <h1 class="product-title">Olivier, olea europaea topiaire bonsai</h1>
                     
                     <div class="product-subtitle">
                         <i class="fas fa-leaf"></i>
                         Arbre méditerranéen emblématique - Culture facile
                     </div>
-                    
+
                     <!-- Product Meta -->
-                    <div class="product-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-tag"></i>
-                            <span>Catégorie: <strong>Arbres d'extérieur</strong></span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-box"></i>
-                            <span>SKU: <strong>PS-OLV-001</strong></span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Disponibilité: <strong style="color: #28A745;">En stock</strong></span>
-                        </div>
-                        <div class="rating-badge">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+                    <div class="product-meta-container">
+                        <div class="meta-row">
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span>Catégorie: <strong>Arbres d'extérieur</strong></span>
                             </div>
-                            <span>4.8 (24 avis)</span>
+                            <div class="meta-item">
+                                <i class="fas fa-box"></i>
+                                <span>SKU: <strong>PS-OLV-001</strong></span>
+                            </div>
+                        </div>
+                        <div class="meta-row">
+                            <div class="meta-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Disponibilité: <strong style="color: #28A745;">En stock</strong></span>
+                            </div>
+                            <div class="rating-badge">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.8 (24 avis)</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Price Section -->
-                    <div class="price-section">
+
+                    <!-- Price -->
+                    <div class="price-container">
                         <div class="price-label">À partir de</div>
                         <div class="current-price">11,999 MAD</div>
                         <div class="tax-info">TVA incluse. Livraison gratuite à partir de 500 MAD</div>
                     </div>
-                    
+
                     <!-- Delivery Info -->
-                    <div class="delivery-info">
+                    <div class="delivery-info-container">
                         <div class="delivery-item">
                             <div class="delivery-icon">
                                 <i class="fas fa-shipping-fast"></i>
@@ -934,45 +1493,41 @@
                             </div>
                         </div>
                     </div>
+                </section>
+            </div>
+
+            <!-- CTA Buttons (Fixed on Mobile) -->
+            <div class="cta-container">
+                <a href="https://wa.me/212661193752?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l'Olivier%2C%20olea%20europaea%20topiaire%20bonsai%20%2811%2C999%20MAD%29"
+                   target="_blank"
+                   class="whatsapp-btn-large">
+                    <i class="fab fa-whatsapp"></i>
+                    Commander sur WhatsApp
+                </a>
+                
+                <div class="secondary-buttons">
+                    <a href="tel:+212661193752"
+                       class="btn-call">
+                        <i class="fas fa-phone"></i>
+                        Appeler pour infos
+                    </a>
                     
-                    <!-- CTA Buttons -->
-                    <div class="cta-buttons">
-                        <a href="https://wa.me/212661193752?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l'Olivier%2C%20olea%20europaea%20topiaire%20bonsai%20%2811%2C999%20MAD%29"
-                           target="_blank"
-                           class="btn whatsapp-btn-large"
-                           style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.25rem; border-radius: 12px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: white; background: #25D366; border: none;">
-                            <i class="fab fa-whatsapp"></i>
-                            Commander sur WhatsApp
-                        </a>
-                        
-                        <div class="secondary-actions">
-                            <a href="tel:+212661193752"
-                               class="btn btn-call"
-                               style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; flex: 1; background: #f8f9fa; color: #495057; border: 1px solid #dee2e6;">
-                                <i class="fas fa-phone"></i>
-                                Appeler pour infos
-                            </a>
-                            
-                            <button onclick="addToWishlist()"
-                                    class="btn"
-                                    style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; flex: 1; background: white; color: #DC3545; border: 1px solid #DC3545;">
-                                <i class="far fa-heart"></i>
-                                Ajouter aux favoris
-                            </button>
-                        </div>
-                    </div>
+                    <button class="btn-favorite" onclick="addToWishlist()">
+                        <i class="far fa-heart"></i>
+                        Favoris
+                    </button>
                 </div>
             </div>
-            
+
             <!-- Product Tabs -->
-            <div class="product-tabs">
+            <section class="tabs-section">
                 <div class="tabs-header">
                     <button class="tab-btn active" onclick="switchTab('description')">Description</button>
                     <button class="tab-btn" onclick="switchTab('specs')">Spécifications</button>
                     <button class="tab-btn" onclick="switchTab('care')">Entretien</button>
                     <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
                 </div>
-                
+
                 <!-- Description Tab -->
                 <div id="description" class="tab-content active">
                     <div class="description-content">
@@ -996,17 +1551,9 @@
                             <li><i class="fas fa-building"></i> <strong>Entrées d'immeubles:</strong> Pour un cachet prestige</li>
                             <li><i class="fas fa-pagelines"></i> <strong>Aménagement paysager:</strong> Projets d'espaces verts</li>
                         </ul>
-                        
-                        <h3>Pourquoi choisir notre Olivier?</h3>
-                        <ul>
-                            <li><i class="fas fa-seedling"></i> Sélection rigoureuse parmi nos meilleurs spécimens</li>
-                            <li><i class="fas fa-truck"></i> Emballage spécialisé pour transport sécurisé</li>
-                            <li><i class="fas fa-user-tie"></i> Fiche d'entretien personnalisée incluse</li>
-                            <li><i class="fas fa-headset"></i> Suivi personnalisé après livraison</li>
-                        </ul>
                     </div>
                 </div>
-                
+
                 <!-- Specifications Tab -->
                 <div id="specs" class="tab-content">
                     <div class="specs-grid">
@@ -1036,7 +1583,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Care Instructions Tab -->
                 <div id="care" class="tab-content">
                     <div class="care-grid">
@@ -1084,7 +1631,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- FAQ Tab -->
                 <div id="faq" class="tab-content">
                     <div class="faq-list">
@@ -1123,100 +1670,73 @@
                                 <p>La taille se fait en fin d'hiver (février-mars). Pour la forme topiaire, tailler légèrement pour maintenir la silhouette. Supprimer les branches mortes et aérer le centre.</p>
                             </div>
                         </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this)">
-                                <h4>Comment le protéger en hiver?</h4>
-                                <button class="faq-toggle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Pailler le pied avec de la paille ou des feuilles. Pour les jeunes sujets ou grands froids, utiliser un voile d'hivernage. En pot, rentrer dans un local frais et lumineux si température < -5°C.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <div class="faq-question" onclick="toggleFAQ(this)">
-                                <h4>La livraison inclut-elle le pot?</h4>
-                                <button class="faq-toggle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Oui, notre olivier est livré dans un pot de culture adapté à sa taille. Pour les plantations en pleine terre, nous conseillons un pot plus grand ou une plantation directe au printemps.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-            
+            </section>
+
             <!-- Related Products -->
-            <div class="related-products">
-                <h2 class="related-title">Produits Similaires</h2>
+            <section class="related-products">
+                <h2 class="section-title">Produits Similaires</h2>
                 <div class="related-grid">
-                    <!-- Product 1 -->
-                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
-                        <div class="product-image" style="height: 200px; overflow: hidden;">
-                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes">
                         </div>
-                        <div class="product-content" style="padding: 1.5rem;">
-                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Yucca elephantipes</h3>
-                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 250 MAD</div>
-                            <a href="product-yucca-elephantipes.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                        <div class="product-content">
+                            <h3>Yucca elephantipes</h3>
+                            <div class="product-price">À partir de 250 MAD</div>
+                            <a href="product-yucca-elephantipes.html" class="product-link">
                                 <i class="fas fa-eye"></i> Découvrir
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Product 2 -->
-                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
-                        <div class="product-image" style="height: 200px; overflow: hidden;">
-                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu">
                         </div>
-                        <div class="product-content" style="padding: 1.5rem;">
-                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Areca catechu</h3>
-                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 1,299 MAD</div>
-                            <a href="product-areca-catechu.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                        <div class="product-content">
+                            <h3>Areca catechu</h3>
+                            <div class="product-price">À partir de 1,299 MAD</div>
+                            <a href="product-areca-catechu.html" class="product-link">
                                 <i class="fas fa-eye"></i> Découvrir
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Product 3 -->
-                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
-                        <div class="product-image" style="height: 200px; overflow: hidden;">
-                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai">
                         </div>
-                        <div class="product-content" style="padding: 1.5rem;">
-                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Ficus bonsai</h3>
-                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 1,199 MAD</div>
-                            <a href="product-ficus-bonsai.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                        <div class="product-content">
+                            <h3>Ficus bonsai</h3>
+                            <div class="product-price">À partir de 1,199 MAD</div>
+                            <a href="product-ficus-bonsai.html" class="product-link">
                                 <i class="fas fa-eye"></i> Découvrir
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
 
-    <!-- Footer (simplifié) -->
-    <footer style="background: #0D3B1A; color: white; padding: 3rem 0; margin-top: 4rem;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
-            <div style="text-align: center;">
-                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Plantes Shop</h3>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Votre pépinière en ligne de confiance au Maroc</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                    <a href="https://wa.me/212661193752" target="_blank" style="color: white; background: #25D366; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="tel:+212661193752" style="color: white; background: #6c757d; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <i class="fas fa-phone"></i> +212 661 193752
-                    </a>
-                </div>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+    <!-- Footer -->
+    <footer class="product-footer">
+        <div class="footer-content">
+            <h3 class="footer-title">Plantes Shop</h3>
+            <p class="footer-description">Votre pépinière en ligne de confiance au Maroc</p>
+            
+            <div class="footer-buttons">
+                <a href="https://wa.me/212661193752" target="_blank" class="footer-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+212661193752" class="footer-btn phone">
+                    <i class="fas fa-phone"></i> +212 661 193752
+                </a>
             </div>
+            
+            <p class="copyright">&copy; 2024 Plantes Shop. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -1237,7 +1757,7 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" style="position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; border-radius: 50%; background: #1B5E20; color: white; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 1.25rem; z-index: 999;" onclick="scrollToTop()">
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -1267,12 +1787,15 @@
     // Variables globales
     let currentImageIndex = 0;
     let currentTab = 'description';
+    let isModalOpen = false;
 
     // Initialisation de la page
     document.addEventListener('DOMContentLoaded', function() {
         initGallery();
         initTabs();
         initScroll();
+        initCart();
+        initEventListeners();
         updateContactInfo();
     });
 
@@ -1283,11 +1806,15 @@
         
         if (!gallery || !mainImage) return;
         
+        // Nettoyer la galerie
+        gallery.innerHTML = '';
+        
         // Ajouter les miniatures
         PRODUCT.images.forEach((image, index) => {
             const thumb = document.createElement('div');
             thumb.className = 'thumbnail-item' + (index === 0 ? ' active' : '');
             thumb.onclick = () => changeMainImage(image, index);
+            thumb.setAttribute('aria-label', `Voir l'image ${index + 1}`);
             
             const img = document.createElement('img');
             img.src = image;
@@ -1298,6 +1825,9 @@
             thumb.appendChild(img);
             gallery.appendChild(thumb);
         });
+        
+        // Rendre l'image principale cliquable
+        mainImage.addEventListener('click', () => openImageModal(0));
     }
 
     // Changer l'image principale
@@ -1305,15 +1835,27 @@
         const mainImage = document.getElementById('mainProductImage');
         if (!mainImage) return;
         
-        mainImage.src = imageSrc;
-        mainImage.alt = `${PRODUCT.name} - Vue principale`;
+        // Ajouter un effet de chargement
+        mainImage.style.opacity = '0.7';
         
-        // Mettre à jour les miniatures actives
-        document.querySelectorAll('.thumbnail-item').forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-        });
-        
-        currentImageIndex = index;
+        setTimeout(() => {
+            mainImage.src = imageSrc;
+            mainImage.alt = `${PRODUCT.name} - Vue principale`;
+            mainImage.style.opacity = '1';
+            
+            // Mettre à jour les miniatures actives
+            document.querySelectorAll('.thumbnail-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            currentImageIndex = index;
+            
+            // Mettre à jour le bouton de zoom
+            const zoomBtn = document.querySelector('.image-zoom-btn');
+            if (zoomBtn) {
+                zoomBtn.onclick = () => openImageModal(index);
+            }
+        }, 200);
     }
 
     // Ouvrir l'image en modal
@@ -1327,13 +1869,24 @@
         modalImage.src = PRODUCT.images[index];
         modalImage.alt = `${PRODUCT.name} - Vue détaillée`;
         modal.classList.add('active');
+        isModalOpen = true;
+        
+        // Empêcher le défilement de la page
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
     }
 
     // Fermer la modal
     function closeModal() {
-        document.getElementById('imageModal').classList.remove('active');
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+        isModalOpen = false;
+        
+        // Restaurer le défilement
         document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
     }
 
     // Image précédente
@@ -1358,6 +1911,7 @@
         // Désactiver tous les onglets
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
         });
         
         document.querySelectorAll('.tab-content').forEach(content => {
@@ -1365,32 +1919,71 @@
         });
         
         // Activer l'onglet sélectionné
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            if (btn.textContent.toLowerCase().includes(tabId)) {
-                btn.classList.add('active');
-            }
-        });
+        const activeBtn = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-selected', 'true');
+        }
         
-        document.getElementById(tabId).classList.add('active');
+        const activeContent = document.getElementById(tabId);
+        if (activeContent) {
+            activeContent.classList.add('active');
+        }
+        
         currentTab = tabId;
+        
+        // Faire défiler jusqu'à l'onglet sur mobile
+        if (window.innerWidth < 768) {
+            activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
     // FAQ Toggle
     function toggleFAQ(element) {
         const item = element.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        // Fermer tous les autres FAQ
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            if (faq !== item) {
+                faq.classList.remove('active');
+            }
+        });
+        
+        // Basculer l'état actuel
         item.classList.toggle('active');
+        
+        // Mettre à jour l'aria-expanded
+        const toggleBtn = item.querySelector('.faq-toggle');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', !isActive);
+        }
     }
 
     // Gestion du scroll
     function initScroll() {
+        const backToTop = document.getElementById('backToTop');
+        
         window.addEventListener('scroll', function() {
-            const backToTop = document.getElementById('backToTop');
+            // Afficher/masquer le bouton back to top
             if (window.scrollY > 500) {
-                backToTop.style.display = 'flex';
+                backToTop.classList.add('visible');
             } else {
-                backToTop.style.display = 'none';
+                backToTop.classList.remove('visible');
+            }
+            
+            // Désactiver le défilement quand la modal est ouverte
+            if (isModalOpen) {
+                window.scrollTo(0, 0);
             }
         });
+        
+        // Empêcher le défilement du body quand on est dans la modal
+        document.addEventListener('touchmove', function(e) {
+            if (isModalOpen) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     }
 
     // Retour en haut
@@ -1401,31 +1994,31 @@
         });
     }
 
-    // Mettre à jour les infos de contact
-    function updateContactInfo() {
-        const phone = '+212661193752';
-        const whatsapp = '212661193752';
-        const email = 'contact.plantes.shop@gmail.com';
+    // Initialiser le panier
+    function initCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+    }
+
+    // Ajouter au panier
+    function addToCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
         
-        // Mettre à jour les liens
-        document.querySelectorAll('[data-phone-link]').forEach(link => {
-            link.href = `tel:${phone}`;
+        cart.push({
+            name: PRODUCT.name,
+            price: PRODUCT.price.replace(/[^0-9]/g, ''),
+            quantity: 1,
+            image: PRODUCT.images[0]
         });
         
-        document.querySelectorAll('[data-whatsapp-link]').forEach(link => {
-            const productName = encodeURIComponent(PRODUCT.name);
-            const price = encodeURIComponent(PRODUCT.price);
-            link.href = `https://wa.me/${whatsapp}?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20${productName}%20%28${price}%29`;
-        });
+        localStorage.setItem('plantesShopCart', JSON.stringify(cart));
         
-        // Mettre à jour les textes
-        document.querySelectorAll('[data-phone-text]').forEach(span => {
-            span.textContent = phone;
-        });
+        // Mettre à jour le compteur
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
         
-        document.querySelectorAll('[data-email-text]').forEach(span => {
-            span.textContent = email;
-        });
+        showNotification('Produit ajouté au panier!', 'success');
     }
 
     // Ajouter aux favoris
@@ -1437,7 +2030,8 @@
                 name: PRODUCT.name,
                 price: PRODUCT.price,
                 image: PRODUCT.images[0],
-                url: window.location.href
+                url: window.location.href,
+                date: new Date().toISOString()
             });
             
             localStorage.setItem('plantesShopWishlist', JSON.stringify(wishlist));
@@ -1456,40 +2050,73 @@
         }
     }
 
+    // Mettre à jour les infos de contact
+    function updateContactInfo() {
+        const phone = '+212661193752';
+        const whatsapp = '212661193752';
+        
+        // Mettre à jour les liens WhatsApp
+        document.querySelectorAll('.whatsapp-btn-large').forEach(link => {
+            const productName = encodeURIComponent(PRODUCT.name);
+            const price = encodeURIComponent(PRODUCT.price);
+            link.href = `https://wa.me/${whatsapp}?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20${productName}%20%28${price}%29`;
+        });
+    }
+
     // Afficher notification
     function showNotification(message, type = 'info') {
+        // Supprimer les notifications existantes
+        const existingNotifications = document.querySelectorAll('.notification-toast');
+        existingNotifications.forEach(notification => notification.remove());
+        
         const toast = document.createElement('div');
-        toast.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'success' ? '#28A745' : type === 'error' ? '#DC3545' : '#17A2B8'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-        `;
+        toast.className = 'notification-toast';
+        
+        const typeClass = {
+            'success': 'success',
+            'error': 'error',
+            'info': 'info',
+            'warning': 'warning'
+        }[type] || 'info';
+        
+        const icon = {
+            'success': 'fa-check-circle',
+            'error': 'fa-exclamation-circle',
+            'info': 'fa-info-circle',
+            'warning': 'fa-exclamation-triangle'
+        }[type] || 'fa-info-circle';
         
         toast.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
+            <div style="background: ${type === 'success' ? '#28A745' : type === 'error' ? '#DC3545' : '#17A2B8'}; 
+                        color: white; 
+                        padding: 12px 16px; 
+                        border-radius: 8px; 
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        animation: slideIn 0.3s ease;
+                        max-width: 90vw;">
+                <i class="fas ${icon}" style="font-size: 1.2rem;"></i>
+                <span style="font-size: 0.95rem;">${message}</span>
             </div>
+        `;
+        
+        // Positionner la notification
+        toast.style.cssText = `
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 90vw;
         `;
         
         document.body.appendChild(toast);
         
-        setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-        
-        // Ajouter les animations CSS
-        if (!document.querySelector('#notification-styles')) {
+        // Ajouter les animations CSS si elles n'existent pas
+        if (!document.querySelector('#notification-animations')) {
             const style = document.createElement('style');
-            style.id = 'notification-styles';
+            style.id = 'notification-animations';
             style.textContent = `
                 @keyframes slideIn {
                     from { transform: translateX(100%); opacity: 0; }
@@ -1501,6 +2128,95 @@
                 }
             `;
             document.head.appendChild(style);
+        }
+        
+        setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    // Initialiser les écouteurs d'événements
+    function initEventListeners() {
+        // Échap pour fermer la modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isModalOpen) {
+                closeModal();
+            }
+            
+            if (isModalOpen) {
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+            }
+        });
+        
+        // Fermer la modal en cliquant à l'extérieur
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Gestion du touch sur mobile pour la modal
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            if (isModalOpen) {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            if (isModalOpen) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe gauche -> image suivante
+                    nextImage();
+                } else {
+                    // Swipe droite -> image précédente
+                    prevImage();
+                }
+            }
+        }
+        
+        // Empêcher le zoom sur les boutons
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
+        
+        // Optimiser le chargement des images
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
         }
     }
 
@@ -1522,9 +2238,6 @@
             case 'whatsapp':
                 shareUrl = `https://wa.me/?text=${text}%20${url}`;
                 break;
-            case 'pinterest':
-                shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
-                break;
         }
         
         if (shareUrl) {
@@ -1532,60 +2245,25 @@
         }
     }
 
-    // Gestion du panier (simplifiée)
-    function addToCart() {
-        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
-        
-        cart.push({
-            name: PRODUCT.name,
-            price: PRODUCT.price.replace(/[^0-9]/g, ''),
-            quantity: 1,
-            image: PRODUCT.images[0]
+    // Détecter et ajuster pour iOS
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    // Ajustements spécifiques pour iOS
+    if (isIOS()) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix pour la hauteur de la fenêtre sur iOS
+            function setVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setVH();
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
         });
-        
-        localStorage.setItem('plantesShopCart', JSON.stringify(cart));
-        
-        // Mettre à jour le compteur
-        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById('cartCount').textContent = count;
-        
-        showNotification('Produit ajouté au panier!', 'success');
     }
-
-    // Écouteurs d'événements supplémentaires
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-        
-        if (document.getElementById('imageModal').classList.contains('active')) {
-            if (e.key === 'ArrowLeft') prevImage();
-            if (e.key === 'ArrowRight') nextImage();
-        }
-    });
-
-    // Click sur l'image principale pour ouvrir la modal
-    document.getElementById('mainProductImage').addEventListener('click', function() {
-        openImageModal(currentImageIndex);
-    });
-
-    // Rendre la galerie cliquable
-    document.getElementById('thumbnailGallery').addEventListener('click', function(e) {
-        if (e.target.closest('.thumbnail-item')) {
-            const index = Array.from(this.children).indexOf(e.target.closest('.thumbnail-item'));
-            openImageModal(index);
-        }
-    });
-
-    // Initialiser le panier
-    function initCart() {
-        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
-        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById('cartCount').textContent = count;
-    }
-
-    // Appeler l'initialisation du panier
-    initCart();
     </script>
 </body>
 </html>
