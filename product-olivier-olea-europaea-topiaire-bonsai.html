@@ -1,350 +1,1591 @@
-<!DOCTYPE html> 
-<html lang="fr" dir="ltr"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"> 
-    <title>Olivier, olea europaea topiaire bonsai | Plantes Shop</title> 
-    <meta name="description" content="Découvrez notre Olivier, olea europaea topiaire bonsai, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur."> 
-    <meta name="author" content="Plantes Shop"> 
-     
-    <!-- Structured Data for SEO --> 
-    <script type="application/ld+json"> 
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Olivier, olea europaea topiaire bonsai | Plantes Shop</title>
+    <meta name="description" content="Olivier, olea europaea topiaire bonsai - Arbre méditerranéen emblématique. Plante d'exception pour jardin, terrasse ou intérieur. Livraison partout au Maroc.">
+    <meta name="keywords" content="olivier, olea europaea, bonsai, arbre méditerranéen, plante extérieure, arbre d'ornement, Maroc">
+    <meta name="author" content="Plantes Shop">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Olivier, olea europaea topiaire bonsai",
-        "description": "Découvrez notre Olivier, olea europaea topiaire bonsai, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.",
-        "brand": { "@type": "Brand", "name": "Plantes Shop" },
+        "description": "Olivier, olea europaea topiaire bonsai - Arbre méditerranéen emblématique. Plante d'exception pour jardin, terrasse ou intérieur.",
+        "image": [
+            "assets/images/olive-gallery-13.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.01.24.jpeg"
+        ],
+        "brand": {
+            "@type": "Brand",
+            "name": "Plantes Shop"
+        },
         "offers": {
             "@type": "Offer",
-            "price": "11999",
+            "url": "https://www.plantes-shop.com/product-olivier-olea-europaea-topiaire-bonsai.html",
             "priceCurrency": "MAD",
-            "availability": "https://schema.org/InStock"
+            "price": "11999",
+            "priceValidUntil": "2024-12-31",
+            "availability": "https://schema.org/InStock",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "MAD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "MA"
+                }
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "24"
         }
     }
-    </script> 
-     
-    <!-- Fonts & Icons --> 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Olivier, olea europaea topiaire bonsai | Plantes Shop">
+    <meta property="og:description" content="Olivier, olea europaea topiaire bonsai - Arbre méditerranéen emblématique. Livraison partout au Maroc.">
+    <meta property="og:image" content="https://www.plantes-shop.com/assets/images/olive-gallery-13.jpeg">
+    <meta property="og:url" content="https://www.plantes-shop.com/product-olivier-olea-europaea-topiaire-bonsai.html">
+    <meta property="og:type" content="product">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/product-page.css">
-</head> 
-<body> 
-    <!-- Skip to main content link --> 
-    <a href="#main-content" class="sr-only">Passer au contenu principal</a> 
-     
-    <!-- Header --> 
-    <header class="header" id="header"> 
-        <div class="header-container"> 
+    
+    <!-- CSS Styles -->
+    <style>
+    /* =========================================== */
+    /* PRODUCT PAGE CSS */
+    /* =========================================== */
+    :root {
+        --product-header-height: 70px;
+        --gallery-thumb-size: 80px;
+        --gallery-thumb-size-lg: 100px;
+        --product-sidebar-width: 350px;
+    }
+
+    /* Breadcrumb */
+    .product-breadcrumb {
+        background: #f8f9fa;
+        padding: 1rem 0;
+        margin-top: 80px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .breadcrumb-links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        color: #6c757d;
+        font-size: 0.9rem;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .breadcrumb-links a {
+        color: #6c757d;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+    .breadcrumb-links a:hover {
+        color: #1B5E20;
+        text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+        color: #ced4da;
+        margin: 0 0.25rem;
+    }
+
+    /* Product Container */
+    .product-detail-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    @media (max-width: 992px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    /* Product Gallery */
+    .product-gallery {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .main-image-container {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        background: #f8f9fa;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-product-image {
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .main-image-container:hover .main-product-image {
+        transform: scale(1.02);
+    }
+
+    /* Thumbnails Gallery */
+    .thumbnail-gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .thumbnail-gallery {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .thumbnail-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .thumbnail-item {
+        cursor: pointer;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        aspect-ratio: 1;
+        background: #f8f9fa;
+    }
+
+    .thumbnail-item:hover {
+        border-color: #1B5E20;
+        transform: translateY(-3px);
+    }
+
+    .thumbnail-item.active {
+        border-color: #1B5E20;
+        box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+    }
+
+    .thumbnail-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Product Info */
+    .product-info {
+        padding: 1rem 0;
+    }
+
+    .product-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .product-subtitle {
+        color: #2E7D32;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .product-subtitle i {
+        color: #D4A017;
+    }
+
+    /* Product Meta */
+    .product-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #495057;
+        font-size: 0.95rem;
+    }
+
+    .meta-item i {
+        color: #2E7D32;
+        font-size: 1.1rem;
+    }
+
+    .rating-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #E8F5E9;
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        color: #1B5E20;
+    }
+
+    .rating-stars {
+        color: #D4A017;
+    }
+
+    /* Price Section */
+    .price-section {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .current-price {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #1B5E20;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tax-info {
+        color: #6c757d;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Delivery Info */
+    .delivery-info {
+        background: #E8F5E9;
+        padding: 1.25rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .delivery-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .delivery-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .delivery-icon {
+        width: 40px;
+        height: 40px;
+        background: #2E7D32;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .delivery-text h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        color: #1a1a1a;
+    }
+
+    .delivery-text p {
+        color: #495057;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* CTA Buttons */
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .whatsapp-btn-large {
+        background: #25D366 !important;
+        padding: 1.25rem !important;
+        font-size: 1.1rem !important;
+        border: none !important;
+    }
+
+    .whatsapp-btn-large:hover {
+        background: #128C7E !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3) !important;
+    }
+
+    .secondary-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .btn-whatsapp {
+        background: #25D366;
+        color: white;
+        border: none;
+    }
+
+    .btn-whatsapp:hover {
+        background: #128C7E;
+    }
+
+    .btn-call {
+        background: #f8f9fa;
+        color: #495057;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn-call:hover {
+        background: #e9ecef;
+        border-color: #495057;
+    }
+
+    /* Product Tabs */
+    .product-tabs {
+        margin-top: 4rem;
+    }
+
+    .tabs-header {
+        display: flex;
+        border-bottom: 2px solid #e9ecef;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        padding: 1rem 2rem;
+        background: none;
+        border: none;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+    }
+
+    .tab-btn:hover {
+        color: #1B5E20;
+    }
+
+    .tab-btn.active {
+        color: #1B5E20;
+    }
+
+    .tab-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #1B5E20;
+    }
+
+    .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Description Tab */
+    .description-content {
+        line-height: 1.8;
+        color: #495057;
+    }
+
+    .description-content h3 {
+        color: #1B5E20;
+        margin: 2rem 0 1rem;
+        font-size: 1.5rem;
+    }
+
+    .description-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    .description-content li {
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .description-content li i {
+        color: #2E7D32;
+        margin-top: 0.25rem;
+        flex-shrink: 0;
+    }
+
+    /* Specifications Tab */
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .spec-item {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid #2E7D32;
+    }
+
+    .spec-item h4 {
+        color: #1B5E20;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .spec-item p {
+        color: #495057;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* Care Instructions Tab */
+    .care-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .care-card {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .care-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .care-icon {
+        width: 60px;
+        height: 60px;
+        background: #E8F5E9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: #2E7D32;
+        font-size: 1.5rem;
+    }
+
+    .care-card h4 {
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+    }
+
+    .care-card p {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* FAQ Tab */
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #e9ecef;
+        padding: 1.5rem 0;
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding-right: 1rem;
+    }
+
+    .faq-question h4 {
+        color: #1a1a1a;
+        font-size: 1.1rem;
+        margin: 0;
+        flex: 1;
+    }
+
+    .faq-toggle {
+        background: none;
+        border: none;
+        color: #2E7D32;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding-right: 1rem;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+        margin-top: 1rem;
+    }
+
+    .faq-answer p {
+        color: #495057;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Related Products */
+    .related-products {
+        margin-top: 6rem;
+        padding-top: 4rem;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .related-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: #1a1a1a;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .related-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #1B5E20, #4CAF50);
+        border-radius: 2px;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Image Modal */
+    .image-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .image-modal.active {
+        display: flex;
+    }
+
+    .modal-image-container {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
+    .modal-image {
+        width: 100%;
+        height: auto;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-prev {
+        left: -70px;
+    }
+
+    .modal-next {
+        right: -70px;
+    }
+
+    @media (max-width: 768px) {
+        .modal-prev {
+            left: 10px;
+        }
+        .modal-next {
+            right: 10px;
+        }
+    }
+
+    /* Loading Animation */
+    .loading {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .product-title {
+            font-size: 2rem;
+        }
+        
+        .current-price {
+            font-size: 2.2rem;
+        }
+        
+        .product-meta {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .tabs-header {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            white-space: nowrap;
+        }
+        
+        .secondary-actions {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .product-detail-container {
+            padding: 2rem 1rem;
+        }
+        
+        .product-title {
+            font-size: 1.75rem;
+        }
+        
+        .thumbnail-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+    
+    <!-- Header (simplifié pour l'exemple) -->
+    <header class="header" id="header">
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 80px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000;">
             <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
-                <div class="logo-text-container">
-                    <span class="logo-text">Plantes Shop</span>
-                    <span class="logo-slogan">Votre Oasis Verte</span>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" style="height: 50px; width: auto;">
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #1B5E20;">Plantes Shop</span>
+                    <span style="font-size: 0.7rem; color: #6c757d;">Votre Oasis Verte</span>
                 </div>
             </a>
-             
-            <!-- Desktop Navigation --> 
-            <nav class="nav-desktop" aria-label="Navigation principale"> 
-                <ul class="nav-links"> 
-                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li> 
-                    <li class="nav-link-dropdown"> 
-                        <a href="index.html#categories" class="nav-link"><i class="fas fa-layer-group"></i> Catégories</a> 
-                        <div class="dropdown-menu"> 
-                            <a href="index.html#interior" class="dropdown-item">Plantes d'Intérieur</a> 
-                            <a href="index.html#exterior" class="dropdown-item">Plantes d'Extérieur</a> 
-                            <a href="index.html#fruit-trees" class="dropdown-item">Arbres Fruitiers</a> 
-                            <a href="index.html#palmiers" class="dropdown-item">Palmiers</a> 
-                            <a href="index.html#bonsai" class="dropdown-item">Bonsaïs & Tressés</a> 
-                            <a href="index.html#cactus" class="dropdown-item">Cactus & Succulentes</a> 
-                        </div> 
-                    </li> 
-                    <li><a href="index.html#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li> 
-                    <li><a href="index.html#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li> 
-                    <li><a href="index.html#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li> 
-                    <li><a href="index.html#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li> 
-                </ul> 
-            </nav> 
-             
-            <!-- Header Actions --> 
-            <div class="header-actions"> 
-                <!-- Cart Button --> 
-                <button class="action-btn" id="cartButton" aria-label="Panier d'achat"> 
-                    <i class="fas fa-shopping-cart"></i> 
-                    <span class="action-count" id="cartCount">0</span> 
-                </button> 
-                 
-                <!-- Language Selector --> 
-                <div class="language-selector"> 
-                    <button class="language-btn" aria-label="Changer la langue"> 
-                        <i class="fas fa-globe"></i> 
-                        <span>FR</span> 
-                        <i class="fas fa-chevron-down"></i> 
-                    </button> 
-                    <div class="language-dropdown"> 
-                        <div class="language-option" onclick="changeLanguage('fr')"> 
-                            <span>🇫🇷</span> Français 
-                        </div> 
-                        <div class="language-option" onclick="changeLanguage('ar')"> 
-                            <span>🇲🇦</span> العربية 
-                        </div> 
-                        <div class="language-option" onclick="changeLanguage('en')"> 
-                            <span>🇬🇧</span> English 
-                        </div> 
-                    </div> 
-                </div> 
-                 
-                <!-- Mobile Menu Button --> 
-                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile"> 
-                    <i class="fas fa-bars"></i> 
-                </button> 
-            </div> 
-        </div> 
-         
-        <!-- Mobile Navigation --> 
-        <div class="mobile-nav" id="mobileNav"> 
-            <div class="mobile-nav-header"> 
-                <h3>Menu</h3> 
-                <button class="mobile-menu-btn" id="closeMobileMenu"> 
-                    <i class="fas fa-times"></i> 
-                </button> 
-            </div> 
-             
-            <div class="mobile-nav-links"> 
-                <a href="index.html#home" class="mobile-nav-link active">Accueil</a> 
-                <a href="index.html#categories" class="mobile-nav-link">Catégories</a> 
-                <a href="index.html#products" class="mobile-nav-link">Produits</a> 
-                <a href="index.html#services" class="mobile-nav-link">Services</a> 
-                <a href="index.html#blog" class="mobile-nav-link">Blog</a> 
-                <a href="index.html#contact" class="mobile-nav-link">Contact</a> 
-            </div> 
-             
-            <div class="mobile-categories"> 
-                <a href="index.html#interior" class="mobile-category">Intérieur</a> 
-                <a href="index.html#exterior" class="mobile-category">Extérieur</a> 
-                <a href="index.html#fruit-trees" class="mobile-category">Fruitiers</a> 
-                <a href="index.html#palmiers" class="mobile-category">Palmiers</a> 
-                <a href="index.html#bonsai" class="mobile-category">Bonsaïs</a> 
-                <a href="index.html#cactus" class="mobile-category">Cactus</a> 
-            </div> 
- 
-            <div class="mobile-nav-actions"> 
-               <div class="mobile-language-selector"> 
-                    <i class="fas fa-globe"></i> 
-                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue"> 
-                        <option value="fr">Français</option> 
-                        <option value="ar">العربية</option> 
-                        <option value="en">English</option> 
-                    </select> 
-                </div> 
-            </div> 
-             
-            <div class="mobile-nav-footer">
-                <a href="#" data-phone-link="true" class="btn btn-outline btn-full">
-                    <i class="fas fa-phone"></i> Appelez-nous
-                </a>
-                <a href="#" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+            
+            <!-- Cart Button -->
+            <button id="cartButton" style="background: none; border: none; cursor: pointer; position: relative;">
+                <i class="fas fa-shopping-cart" style="font-size: 1.5rem; color: #495057;"></i>
+                <span id="cartCount" style="position: absolute; top: -8px; right: -8px; background: #DC3545; color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">0</span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="product-breadcrumb">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
+            <div class="breadcrumb-links">
+                <a href="index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#products">Produits</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#exterior">Plantes d'Extérieur</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Olivier, olea europaea topiaire bonsai</span>
             </div>
-        </div> 
-    </header> 
-     
-    <!-- Breadcrumb --> 
-    <div class="product-breadcrumb"> 
-        <div class="container"> 
-            <div class="breadcrumb-links"> 
-                <a href="index.html">Accueil</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <a href="index.html#products">Produits</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <a href="index.html#exterior">Plantes d'Extérieur</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <span>Olivier, olea europaea topiaire bonsai</span> 
-            </div> 
-        </div> 
-    </div> 
-     
-    <!-- Main Content --> 
-    <main id="main-content"> 
-        <!-- Product Showcase Section --> 
-        <section class="olive-showcase-section section-padding"> 
-            <div class="container"> 
-                <div class="olive-showcase-grid animate-on-scroll"> 
-                    <div class="olive-gallery"> 
-                        <!-- Main Image -->
-                        <div class="main-image-container">
-                            <img src="assets/images/olive-gallery-13.jpeg"
-                                 alt="Olivier, olea europaea topiaire bonsai"
-                                 class="main-olive-image"
-                                 id="mainProductImage">
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="product-detail-container">
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image-container">
+                        <img src="assets/images/olive-gallery-13.jpeg" 
+                             alt="Olivier, olea europaea topiaire bonsai - Vue principale"
+                             class="main-product-image"
+                             id="mainProductImage">
+                    </div>
+                    
+                    <div class="thumbnail-gallery" id="thumbnailGallery">
+                        <!-- Thumbnails will be dynamically added -->
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 class="product-title">Olivier, olea europaea topiaire bonsai</h1>
+                    
+                    <div class="product-subtitle">
+                        <i class="fas fa-leaf"></i>
+                        Arbre méditerranéen emblématique - Culture facile
+                    </div>
+                    
+                    <!-- Product Meta -->
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span>Catégorie: <strong>Arbres d'extérieur</strong></span>
                         </div>
-
-                        <!-- Thumbnails -->
-                        <div class="thumbnail-strip">
-                            <img src="assets/images/olive-gallery-13.jpeg" alt="Olivier, olea europaea topiaire bonsai" class="active" onclick="changeMainImage(this.src, this.alt)">
+                        <div class="meta-item">
+                            <i class="fas fa-box"></i>
+                            <span>SKU: <strong>PS-OLV-001</strong></span>
                         </div>
-                    </div> 
- 
-                    <div class="olive-details"> 
-                        <h1 class="details-title">Olivier, olea europaea topiaire bonsai</h1> 
-                         
-                        <p class="details-intro"> 
-                            Découvrez notre Olivier, olea europaea topiaire bonsai, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.
-                        </p> 
- 
-                        <!-- Price & CTA --> 
-                        <div class="details-cta-box"> 
-                            <div class="price-container"> 
-                                <div class="current-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 0.5rem;"> 
-                                    À partir de 11,999 MAD
-                                </div> 
-                            </div> 
-                             
-                            <div class="cta-buttons"> 
-                                <a href="#" data-whatsapp-link="true"
-                                   target="_blank"
-                                   class="btn btn-primary whatsapp-btn-large">
-                                    <i class="fab fa-whatsapp"></i> Demander un Devis sur WhatsApp
-                                </a>
-                                <div class="secondary-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
-                                    <a href="#" data-phone-link="true" class="btn btn-secondary">
-                                        <i class="fas fa-phone"></i> Appeler maintenant
-                                    </a>
-                                </div> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
- 
-        <!-- Specifications Table --> 
-        <section class="specs-section section-padding"> 
-            <div class="container"> 
-                <div class="section-title animate-on-scroll"> 
-                    <h2>Fiche Technique</h2> 
-                </div> 
-                <div class="animate-on-scroll"> 
-                    <p>Les spécifications détaillées pour ce produit seront bientôt disponibles.</p>
-                </div> 
-            </div> 
-        </section> 
- 
-        <!-- FAQ Section --> 
-        <section class="faq-section section-padding"> 
-            <div class="container"> 
-                <div class="section-title animate-on-scroll"> 
-                    <h2>Questions Fréquentes</h2> 
-                </div> 
-                <div class="product-faq-section animate-on-scroll"> 
-                    <p>La section FAQ pour ce produit est en cours de préparation.</p>
-                </div> 
-            </div> 
-        </section> 
+                        <div class="meta-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Disponibilité: <strong style="color: #28A745;">En stock</strong></span>
+                        </div>
+                        <div class="rating-badge">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>4.8 (24 avis)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Section -->
+                    <div class="price-section">
+                        <div class="price-label">À partir de</div>
+                        <div class="current-price">11,999 MAD</div>
+                        <div class="tax-info">TVA incluse. Livraison gratuite à partir de 500 MAD</div>
+                    </div>
+                    
+                    <!-- Delivery Info -->
+                    <div class="delivery-info">
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Livraison Rapide</h4>
+                                <p>Livraison dans tout le Maroc en 2-5 jours ouvrés</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Garantie 30 Jours</h4>
+                                <p>Garantie de reprise ou remboursement sous 30 jours</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Support Expert</h4>
+                                <p>Conseils d'entretien gratuits par nos experts</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/212661193752?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l'Olivier%2C%20olea%20europaea%20topiaire%20bonsai%20%2811%2C999%20MAD%29"
+                           target="_blank"
+                           class="btn whatsapp-btn-large"
+                           style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.25rem; border-radius: 12px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: white; background: #25D366; border: none;">
+                            <i class="fab fa-whatsapp"></i>
+                            Commander sur WhatsApp
+                        </a>
+                        
+                        <div class="secondary-actions">
+                            <a href="tel:+212661193752"
+                               class="btn btn-call"
+                               style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; flex: 1; background: #f8f9fa; color: #495057; border: 1px solid #dee2e6;">
+                                <i class="fas fa-phone"></i>
+                                Appeler pour infos
+                            </a>
+                            
+                            <button onclick="addToWishlist()"
+                                    class="btn"
+                                    style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; flex: 1; background: white; color: #DC3545; border: 1px solid #DC3545;">
+                                <i class="far fa-heart"></i>
+                                Ajouter aux favoris
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('description')">Description</button>
+                    <button class="tab-btn" onclick="switchTab('specs')">Spécifications</button>
+                    <button class="tab-btn" onclick="switchTab('care')">Entretien</button>
+                    <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
+                </div>
+                
+                <!-- Description Tab -->
+                <div id="description" class="tab-content active">
+                    <div class="description-content">
+                        <h3>Présentation de l'Olivier</h3>
+                        <p>L'Olivier (Olea europaea) est un arbre emblématique de la Méditerranée, reconnu pour sa longévité exceptionnelle, sa beauté sculpturale et sa symbolique de paix et de sagesse. Ce spécimen en forme topiaire bonsaï offre une version miniaturisée et artistique de cet arbre mythique.</p>
+                        
+                        <h3>Caractéristiques principales</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>Hauteur:</strong> Variable selon spécimen (80-150cm)</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Forme:</strong> Topiaire bonsaï - Taille artistique</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Feuillage:</strong> Persistant, vert argenté caractéristique</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Type:</strong> Arbre d'ornement méditerranéen</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Rusticité:</strong> Jusqu'à -10°C une fois bien établi</li>
+                        </ul>
+                        
+                        <h3>Utilisations recommandées</h3>
+                        <p>Cet olivier topiaire s'adapte à divers environnements:</p>
+                        <ul>
+                            <li><i class="fas fa-home"></i> <strong>Jardin méditerranéen:</strong> En isolé ou en alignement</li>
+                            <li><i class="fas fa-umbrella-beach"></i> <strong>Terrasses & patios:</strong> En pot ornemental</li>
+                            <li><i class="fas fa-building"></i> <strong>Entrées d'immeubles:</strong> Pour un cachet prestige</li>
+                            <li><i class="fas fa-pagelines"></i> <strong>Aménagement paysager:</strong> Projets d'espaces verts</li>
+                        </ul>
+                        
+                        <h3>Pourquoi choisir notre Olivier?</h3>
+                        <ul>
+                            <li><i class="fas fa-seedling"></i> Sélection rigoureuse parmi nos meilleurs spécimens</li>
+                            <li><i class="fas fa-truck"></i> Emballage spécialisé pour transport sécurisé</li>
+                            <li><i class="fas fa-user-tie"></i> Fiche d'entretien personnalisée incluse</li>
+                            <li><i class="fas fa-headset"></i> Suivi personnalisé après livraison</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Specifications Tab -->
+                <div id="specs" class="tab-content">
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h4><i class="fas fa-ruler"></i> Dimensions</h4>
+                            <p>Hauteur: 100-150 cm<br>Largeur: 60-80 cm<br>Pot: 40-50 cm de diamètre</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-sun"></i> Exposition</h4>
+                            <p>Plein soleil (minimum 6h/jour)<br>Tolère la mi-ombre légère<br>Protéger des vents forts</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-temperature-low"></i> Température</h4>
+                            <p>Optimal: 15-25°C<br>Minimal: -10°C (adulte)<br>Maximal: +40°C</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-tint"></i> Arrosage</h4>
+                            <p>Modéré - laisser sécher entre 2 arrosages<br>Réduire en hiver<br>Éviter l'eau stagnante</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-seedling"></i> Sol</h4>
+                            <p>Drainant, léger, calcaire toléré<br>Mélange terreux spécial méditerranéen<br>pH: 6.5-8.5</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-clock"></i> Croissance</h4>
+                            <p>Lente à modérée<br>Longévité: 100+ ans<br>Floraison: Printemps</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Care Instructions Tab -->
+                <div id="care" class="tab-content">
+                    <div class="care-grid">
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4>Arrosage</h4>
+                            <p>Arroser quand le sol est sec sur 3cm. Réduire en hiver. Éviter l'excès d'eau.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h4>Lumière</h4>
+                            <p>Maximum de soleil direct. Minimum 6 heures par jour pour une croissance optimale.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4>Taille</h4>
+                            <p>Taille légère en fin d'hiver. Conserver la forme topiaire. Éliminer les rejets.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4>Engrais</h4>
+                            <p>Engrais spécial olivier au printemps et en été. Cesser en automne/hiver.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <h4>Hivernage</h4>
+                            <p>Protéger les jeunes sujets du gel. Pailler le pied. Rentrer en pot si -5°C.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h4>Parasites</h4>
+                            <p>Résistant aux maladies. Surveiller la mouche de l'olive et la cochenille.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Tab -->
+                <div id="faq" class="tab-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Quelle est la durée de vie d'un olivier?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Un olivier peut vivre plusieurs siècles. En conditions optimales, il atteint facilement 100-200 ans. Certains spécimens en Méditerranée ont plus de 1000 ans.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Puis-je le garder en intérieur?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>L'olivier est avant tout une plante d'extérieur. Il peut être placé en intérieur lumineux (véranda, grande baie vitrée) mais préfère l'extérieur. En hiver, une pièce fraîche et lumineuse est idéale.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Quand et comment le tailler?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>La taille se fait en fin d'hiver (février-mars). Pour la forme topiaire, tailler légèrement pour maintenir la silhouette. Supprimer les branches mortes et aérer le centre.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Comment le protéger en hiver?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Pailler le pied avec de la paille ou des feuilles. Pour les jeunes sujets ou grands froids, utiliser un voile d'hivernage. En pot, rentrer dans un local frais et lumineux si température < -5°C.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>La livraison inclut-elle le pot?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Oui, notre olivier est livré dans un pot de culture adapté à sa taille. Pour les plantations en pleine terre, nous conseillons un pot plus grand ou une plantation directe au printemps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2 class="related-title">Produits Similaires</h2>
+                <div class="related-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
+                        <div class="product-image" style="height: 200px; overflow: hidden;">
+                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-content" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Yucca elephantipes</h3>
+                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 250 MAD</div>
+                            <a href="product-yucca-elephantipes.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
+                        <div class="product-image" style="height: 200px; overflow: hidden;">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-content" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Areca catechu</h3>
+                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 1,299 MAD</div>
+                            <a href="product-areca-catechu.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s ease;">
+                        <div class="product-image" style="height: 200px; overflow: hidden;">
+                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-content" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Ficus bonsai</h3>
+                            <div style="color: #1B5E20; font-weight: 700; margin-bottom: 1rem;">À partir de 1,199 MAD</div>
+                            <a href="product-ficus-bonsai.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #1B5E20; color: white; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer --> 
-    <footer class="footer"> 
-        <div class="container"> 
-            <div class="footer-top"> 
-                <div class="footer-grid"> 
-                    <div class="footer-column"> 
-                        <h3>Plantes Shop</h3> 
-                        <div class="footer-about"> 
-                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc depuis 2010.</p> 
-                        </div> 
-                         
-                        <div class="social-links"> 
-                            <a href="#" class="social-link" aria-label="Facebook"> 
-                                <i class="fab fa-facebook-f"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="Instagram"> 
-                                <i class="fab fa-instagram"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="Pinterest"> 
-                                <i class="fab fa-pinterest-p"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="YouTube"> 
-                                <i class="fab fa-youtube"></i> 
-                            </a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Liens Rapides</h3> 
-                        <div class="footer-links"> 
-                            <a href="index.html">Accueil</a> 
-                            <a href="index.html#products">Produits</a> 
-                            <a href="index.html#categories">Catégories</a> 
-                            <a href="index.html#services">Services</a> 
-                            <a href="index.html#blog">Blog</a> 
-                            <a href="index.html#contact">Contact</a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Informations</h3> 
-                        <div class="footer-links"> 
-                            <a href="index.html#about">À Propos</a> 
-                            <a href="index.html#delivery">Livraison</a> 
-                            <a href="index.html#returns">Retours & Échanges</a> 
-                            <a href="index.html#privacy">Politique de Confidentialité</a> 
-                            <a href="index.html#terms">Conditions Générales</a> 
-                            <a href="index.html#faq">FAQ</a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Newsletter</h3> 
-                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Abonnez-vous pour recevoir nos promotions et conseils jardinage.</p> 
-                         
-                        <form class="newsletter-form" id="newsletterForm"> 
-                            <input type="email" class="newsletter-input" placeholder="Votre adresse email" required> 
-                            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;"> 
-                                <i class="fas fa-paper-plane"></i> 
-                            </button> 
-                        </form> 
-                         
-                        <div class="footer-contact">
-                            <div class="footer-contact-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <span data-phone-text="true"></span>
-                            </div>
-                            <div class="footer-contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span data-email-text="true"></span>
-                            </div>
-                            <div class="footer-contact-item"> 
-                                <i class="fas fa-map-marker-alt"></i> 
-                                <span>Benslimane, Maroc</span> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-             
-            <div class="footer-bottom"> 
-                <p>&copy; 2024 Plantes Shop. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> au Maroc</p> 
-            </div> 
-        </div> 
-    </footer> 
-     
-    <!-- Back to Top Button --> 
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"> 
-        <i class="fas fa-chevron-up"></i> 
-    </button> 
-     
-    <!-- Notification Toast --> 
-    <div class="notification-toast" id="notificationToast"></div> 
- 
+    <!-- Footer (simplifié) -->
+    <footer style="background: #0D3B1A; color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
+            <div style="text-align: center;">
+                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Plantes Shop</h3>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Votre pépinière en ligne de confiance au Maroc</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <a href="https://wa.me/212661193752" target="_blank" style="color: white; background: #25D366; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="tel:+212661193752" style="color: white; background: #6c757d; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-phone"></i> +212 661 193752
+                    </a>
+                </div>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-image-container">
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="modal-nav modal-prev" onclick="prevImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; border-radius: 50%; background: #1B5E20; color: white; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 1.25rem; z-index: 999;" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets-js/product-page.js"></script>
-</body> 
+    <script>
+    // Configuration du produit
+    const PRODUCT = {
+        name: "Olivier, olea europaea topiaire bonsai",
+        price: "11,999 MAD",
+        images: [
+            "assets/images/olive-gallery-13.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.01.24.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.01.23 (2).jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.01.23 (1).jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.01.23.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.00.17 (3).jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.00.17 (2).jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.00.17 (1).jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 18.00.17.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 17.59.37.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 17.58.12.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 17.58.11.jpeg",
+            "assets/images/WhatsApp Image 2025-12-23 at 17.58.10.jpeg"
+        ]
+    };
+
+    // Variables globales
+    let currentImageIndex = 0;
+    let currentTab = 'description';
+
+    // Initialisation de la page
+    document.addEventListener('DOMContentLoaded', function() {
+        initGallery();
+        initTabs();
+        initScroll();
+        updateContactInfo();
+    });
+
+    // Initialisation de la galerie
+    function initGallery() {
+        const gallery = document.getElementById('thumbnailGallery');
+        const mainImage = document.getElementById('mainProductImage');
+        
+        if (!gallery || !mainImage) return;
+        
+        // Ajouter les miniatures
+        PRODUCT.images.forEach((image, index) => {
+            const thumb = document.createElement('div');
+            thumb.className = 'thumbnail-item' + (index === 0 ? ' active' : '');
+            thumb.onclick = () => changeMainImage(image, index);
+            
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = `${PRODUCT.name} - Vue ${index + 1}`;
+            img.className = 'thumbnail-img';
+            img.loading = 'lazy';
+            
+            thumb.appendChild(img);
+            gallery.appendChild(thumb);
+        });
+    }
+
+    // Changer l'image principale
+    function changeMainImage(imageSrc, index) {
+        const mainImage = document.getElementById('mainProductImage');
+        if (!mainImage) return;
+        
+        mainImage.src = imageSrc;
+        mainImage.alt = `${PRODUCT.name} - Vue principale`;
+        
+        // Mettre à jour les miniatures actives
+        document.querySelectorAll('.thumbnail-item').forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        
+        currentImageIndex = index;
+    }
+
+    // Ouvrir l'image en modal
+    function openImageModal(index) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        if (!modal || !modalImage) return;
+        
+        currentImageIndex = index;
+        modalImage.src = PRODUCT.images[index];
+        modalImage.alt = `${PRODUCT.name} - Vue détaillée`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Fermer la modal
+    function closeModal() {
+        document.getElementById('imageModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Image précédente
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + PRODUCT.images.length) % PRODUCT.images.length;
+        document.getElementById('modalImage').src = PRODUCT.images[currentImageIndex];
+    }
+
+    // Image suivante
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % PRODUCT.images.length;
+        document.getElementById('modalImage').src = PRODUCT.images[currentImageIndex];
+    }
+
+    // Gestion des onglets
+    function initTabs() {
+        // Activer le premier onglet par défaut
+        switchTab('description');
+    }
+
+    function switchTab(tabId) {
+        // Désactiver tous les onglets
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Activer l'onglet sélectionné
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            if (btn.textContent.toLowerCase().includes(tabId)) {
+                btn.classList.add('active');
+            }
+        });
+        
+        document.getElementById(tabId).classList.add('active');
+        currentTab = tabId;
+    }
+
+    // FAQ Toggle
+    function toggleFAQ(element) {
+        const item = element.closest('.faq-item');
+        item.classList.toggle('active');
+    }
+
+    // Gestion du scroll
+    function initScroll() {
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    }
+
+    // Retour en haut
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Mettre à jour les infos de contact
+    function updateContactInfo() {
+        const phone = '+212661193752';
+        const whatsapp = '212661193752';
+        const email = 'contact.plantes.shop@gmail.com';
+        
+        // Mettre à jour les liens
+        document.querySelectorAll('[data-phone-link]').forEach(link => {
+            link.href = `tel:${phone}`;
+        });
+        
+        document.querySelectorAll('[data-whatsapp-link]').forEach(link => {
+            const productName = encodeURIComponent(PRODUCT.name);
+            const price = encodeURIComponent(PRODUCT.price);
+            link.href = `https://wa.me/${whatsapp}?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20${productName}%20%28${price}%29`;
+        });
+        
+        // Mettre à jour les textes
+        document.querySelectorAll('[data-phone-text]').forEach(span => {
+            span.textContent = phone;
+        });
+        
+        document.querySelectorAll('[data-email-text]').forEach(span => {
+            span.textContent = email;
+        });
+    }
+
+    // Ajouter aux favoris
+    function addToWishlist() {
+        const wishlist = JSON.parse(localStorage.getItem('plantesShopWishlist') || '[]');
+        
+        if (!wishlist.find(item => item.name === PRODUCT.name)) {
+            wishlist.push({
+                name: PRODUCT.name,
+                price: PRODUCT.price,
+                image: PRODUCT.images[0],
+                url: window.location.href
+            });
+            
+            localStorage.setItem('plantesShopWishlist', JSON.stringify(wishlist));
+            
+            // Afficher notification
+            showNotification('Produit ajouté aux favoris!', 'success');
+            
+            // Animer le cœur
+            const heart = event.currentTarget.querySelector('i');
+            heart.classList.remove('far');
+            heart.classList.add('fas');
+            event.currentTarget.style.color = '#DC3545';
+            event.currentTarget.style.borderColor = '#DC3545';
+        } else {
+            showNotification('Ce produit est déjà dans vos favoris', 'info');
+        }
+    }
+
+    // Afficher notification
+    function showNotification(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: ${type === 'success' ? '#28A745' : type === 'error' ? '#DC3545' : '#17A2B8'};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        `;
+        
+        toast.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+        
+        // Ajouter les animations CSS
+        if (!document.querySelector('#notification-styles')) {
+            const style = document.createElement('style');
+            style.id = 'notification-styles';
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // Partage sur les réseaux sociaux
+    function shareProduct(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(PRODUCT.name);
+        const text = encodeURIComponent(`Découvrez ${PRODUCT.name} sur Plantes Shop: ${PRODUCT.price}`);
+        
+        let shareUrl = '';
+        
+        switch(platform) {
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                break;
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                break;
+            case 'whatsapp':
+                shareUrl = `https://wa.me/?text=${text}%20${url}`;
+                break;
+            case 'pinterest':
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
+                break;
+        }
+        
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    }
+
+    // Gestion du panier (simplifiée)
+    function addToCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
+        
+        cart.push({
+            name: PRODUCT.name,
+            price: PRODUCT.price.replace(/[^0-9]/g, ''),
+            quantity: 1,
+            image: PRODUCT.images[0]
+        });
+        
+        localStorage.setItem('plantesShopCart', JSON.stringify(cart));
+        
+        // Mettre à jour le compteur
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+        
+        showNotification('Produit ajouté au panier!', 'success');
+    }
+
+    // Écouteurs d'événements supplémentaires
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+        
+        if (document.getElementById('imageModal').classList.contains('active')) {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        }
+    });
+
+    // Click sur l'image principale pour ouvrir la modal
+    document.getElementById('mainProductImage').addEventListener('click', function() {
+        openImageModal(currentImageIndex);
+    });
+
+    // Rendre la galerie cliquable
+    document.getElementById('thumbnailGallery').addEventListener('click', function(e) {
+        if (e.target.closest('.thumbnail-item')) {
+            const index = Array.from(this.children).indexOf(e.target.closest('.thumbnail-item'));
+            openImageModal(index);
+        }
+    });
+
+    // Initialiser le panier
+    function initCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+    }
+
+    // Appeler l'initialisation du panier
+    initCart();
+    </script>
+</body>
 </html>
