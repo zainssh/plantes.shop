@@ -1,350 +1,2206 @@
-<!DOCTYPE html> 
-<html lang="fr" dir="ltr"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"> 
-    <title>Yucca elephantipes | Plantes Shop</title> 
-    <meta name="description" content="Découvrez notre Yucca elephantipes, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur."> 
-    <meta name="author" content="Plantes Shop"> 
-     
-    <!-- Structured Data for SEO --> 
-    <script type="application/ld+json"> 
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Yucca elephantipes | Plantes Shop</title>
+    <meta name="description" content="Yucca elephantipes (Yucca géant) - Plante d'intérieur résistante et décorative. Idéale pour purifier l'air. Livraison partout au Maroc.">
+    <meta name="keywords" content="yucca elephantipes, yucca, plante d'intérieur, plante dépolluante, pied d'éléphant, plante verte, décoration intérieure, Maroc">
+    <meta name="author" content="Plantes Shop">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Yucca elephantipes",
-        "description": "Découvrez notre Yucca elephantipes, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.",
-        "brand": { "@type": "Brand", "name": "Plantes Shop" },
+        "description": "Yucca elephantipes (Yucca géant) - Plante d'intérieur résistante et décorative. Idéale pour purifier l'air.",
+        "image": [
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.28.jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.26.jpeg"
+        ],
+        "brand": {
+            "@type": "Brand",
+            "name": "Plantes Shop"
+        },
         "offers": {
             "@type": "Offer",
-            "price": "250",
+            "url": "https://www.plantes-shop.com/product-yucca-elephantipes.html",
             "priceCurrency": "MAD",
-            "availability": "https://schema.org/InStock"
+            "price": "250",
+            "priceValidUntil": "2024-12-31",
+            "availability": "https://schema.org/InStock",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "MAD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "MA"
+                }
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "18"
         }
     }
-    </script> 
-     
-    <!-- Fonts & Icons --> 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Yucca elephantipes | Plantes Shop">
+    <meta property="og:description" content="Yucca elephantipes (Yucca géant) - Plante d'intérieur résistante et décorative. Livraison partout au Maroc.">
+    <meta property="og:image" content="https://www.plantes-shop.com/assets/images/WhatsApp Image 2026-01-01 at 18.24.28.jpeg">
+    <meta property="og:url" content="https://www.plantes-shop.com/product-yucca-elephantipes.html">
+    <meta property="og:type" content="product">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/product-page.css">
-</head> 
-<body> 
-    <!-- Skip to main content link --> 
-    <a href="#main-content" class="sr-only">Passer au contenu principal</a> 
-     
-    <!-- Header --> 
-    <header class="header" id="header"> 
-        <div class="header-container"> 
-            <!-- Logo -->
+    
+    <!-- CSS Styles -->
+    <style>
+    /* =========================================== */
+    /* RESET & BASE STYLES */
+    /* =========================================== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: #1a1a1a;
+        background: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* =========================================== */
+    /* HEADER STYLES */
+    /* =========================================== */
+    .product-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1B5E20;
+        line-height: 1;
+    }
+
+    .logo-text span:last-child {
+        font-size: 0.65rem;
+        color: #6c757d;
+        margin-top: 2px;
+    }
+
+    .cart-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+    .cart-button:hover {
+        background: #e9ecef;
+    }
+
+    .cart-button i {
+        font-size: 1.3rem;
+        color: #495057;
+    }
+
+    .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #DC3545;
+        color: white;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    /* =========================================== */
+    /* BREADCRUMB */
+    /* =========================================== */
+    .breadcrumb-container {
+        margin-top: 70px;
+        background: #f8f9fa;
+        padding: 12px 0;
+        border-bottom: 1px solid #e9ecef;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: #6c757d;
+        white-space: nowrap;
+        padding: 0 20px;
+    }
+
+    .breadcrumb a {
+        color: #6c757d;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+        color: #1B5E20;
+        text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+        color: #ced4da;
+        margin: 0 2px;
+    }
+
+    /* =========================================== */
+    /* PRODUCT MAIN SECTION */
+    /* =========================================== */
+    .product-main {
+        padding: 30px 20px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Product Grid Layout */
+    .product-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 992px) {
+        .product-grid {
+            flex-direction: row;
+        }
+        
+        .product-gallery-section {
+            flex: 1;
+            max-width: 50%;
+        }
+        
+        .product-info-section {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 40px;
+        }
+    }
+
+    /* =========================================== */
+    /* PRODUCT GALLERY */
+    /* =========================================== */
+    .product-gallery-section {
+        position: relative;
+        width: 100%;
+    }
+
+    .main-image-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #f8f9fa;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .image-zoom-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+    }
+
+    .image-zoom-btn i {
+        color: #495057;
+        font-size: 1.1rem;
+    }
+
+    /* Thumbnails Grid */
+    .thumbnails-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .thumbnails-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .thumbnails-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .thumbnail-item {
+        cursor: pointer;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        aspect-ratio: 1;
+        background: #f8f9fa;
+    }
+
+    .thumbnail-item:hover,
+    .thumbnail-item.active {
+        border-color: #1B5E20;
+        transform: translateY(-2px);
+    }
+
+    .thumbnail-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* =========================================== */
+    /* PRODUCT INFO */
+    /* =========================================== */
+    .product-info-section {
+        position: relative;
+        width: 100%;
+    }
+
+    .product-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    @media (min-width: 768px) {
+        .product-title {
+            font-size: 2.2rem;
+        }
+    }
+
+    .product-subtitle {
+        color: #2E7D32;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .product-subtitle i {
+        color: #D4A017;
+    }
+
+    /* Product Meta */
+    .product-meta-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #495057;
+        font-size: 0.9rem;
+    }
+
+    .meta-item i {
+        color: #2E7D32;
+        font-size: 1rem;
+    }
+
+    .rating-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #E8F5E9;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        color: #1B5E20;
+    }
+
+    .rating-stars {
+        color: #D4A017;
+        font-size: 0.9rem;
+    }
+
+    /* Price Section */
+    .price-container {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .price-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .current-price {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1B5E20;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 480px) {
+        .current-price {
+            font-size: 1.8rem;
+        }
+    }
+
+    .tax-info {
+        color: #6c757d;
+        font-size: 0.85rem;
+    }
+
+    /* Delivery Info */
+    .delivery-info-container {
+        background: #E8F5E9;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+    }
+
+    .delivery-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .delivery-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .delivery-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        background: #2E7D32;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .delivery-text h4 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: #1a1a1a;
+    }
+
+    .delivery-text p {
+        color: #495057;
+        font-size: 0.85rem;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* =========================================== */
+    /* CTA BUTTONS */
+    /* =========================================== */
+    .cta-container {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .cta-container {
+            position: relative;
+            box-shadow: none;
+            padding: 0;
+            margin-top: 0;
+            background: transparent;
+        }
+    }
+
+    .whatsapp-btn-large {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 16px;
+        background: #25D366;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin-bottom: 12px;
+    }
+
+    .whatsapp-btn-large:hover {
+        background: #128C7E;
+        transform: translateY(-2px);
+    }
+
+    .secondary-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+        .secondary-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .btn-call, .btn-favorite {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid;
+        text-decoration: none;
+    }
+
+    .btn-call {
+        background: #f8f9fa;
+        color: #495057;
+        border-color: #dee2e6;
+    }
+
+    .btn-call:hover {
+        background: #e9ecef;
+        border-color: #495057;
+    }
+
+    .btn-favorite {
+        background: white;
+        color: #DC3545;
+        border-color: #DC3545;
+    }
+
+    .btn-favorite:hover {
+        background: #fff5f5;
+    }
+
+    /* =========================================== */
+    /* PRODUCT TABS */
+    /* =========================================== */
+    .tabs-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #e9ecef;
+        width: 100%;
+    }
+
+    .tabs-header {
+        display: flex;
+        border-bottom: 2px solid #e9ecef;
+        margin-bottom: 30px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs-header::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-btn {
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .tab-btn:hover {
+        color: #1B5E20;
+    }
+
+    .tab-btn.active {
+        color: #1B5E20;
+    }
+
+    .tab-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #1B5E20;
+    }
+
+    .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+        width: 100%;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /* Description Content */
+    .description-content {
+        line-height: 1.8;
+        color: #495057;
+        font-size: 0.95rem;
+    }
+
+    .description-content h3 {
+        color: #1B5E20;
+        margin: 25px 0 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .description-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .description-content li {
+        padding: 8px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .description-content li i {
+        color: #2E7D32;
+        margin-top: 4px;
+        flex-shrink: 0;
+    }
+
+    /* Specifications Grid */
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .spec-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 4px solid #2E7D32;
+    }
+
+    .spec-item h4 {
+        color: #1B5E20;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .spec-item p {
+        color: #495057;
+        margin: 0;
+        line-height: 1.6;
+        font-size: 0.9rem;
+    }
+
+    /* Care Grid */
+    .care-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .care-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .care-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .care-card {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .care-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .care-icon {
+        width: 50px;
+        height: 50px;
+        background: #E8F5E9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        color: #2E7D32;
+        font-size: 1.3rem;
+    }
+
+    .care-card h4 {
+        color: #1a1a1a;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .care-card p {
+        color: #6c757d;
+        font-size: 0.85rem;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq-list {
+        max-width: 100%;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #e9ecef;
+        padding: 20px 0;
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding-right: 10px;
+        width: 100%;
+    }
+
+    .faq-question h4 {
+        color: #1a1a1a;
+        font-size: 1rem;
+        margin: 0;
+        flex: 1;
+        padding-right: 10px;
+    }
+
+    .faq-toggle {
+        background: none;
+        border: none;
+        color: #2E7D32;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding-right: 10px;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+        margin-top: 15px;
+    }
+
+    .faq-answer p {
+        color: #495057;
+        line-height: 1.6;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    /* =========================================== */
+    /* RELATED PRODUCTS */
+    /* =========================================== */
+    .related-products {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid #e9ecef;
+        width: 100%;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #1B5E20, #4CAF50);
+        border-radius: 2px;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .related-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.05);
+    }
+
+    .product-content {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-content h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+    .product-price {
+        color: #1B5E20;
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .product-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: #1B5E20;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .product-link:hover {
+        background: #2E7D32;
+        transform: translateY(-2px);
+    }
+
+    /* =========================================== */
+    /* IMAGE MODAL */
+    /* =========================================== */
+    .image-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .image-modal.active {
+        display: flex;
+    }
+
+    .modal-image-container {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 100%;
+    }
+
+    .modal-image {
+        width: 100%;
+        height: auto;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-prev {
+        left: 10px;
+    }
+
+    .modal-next {
+        right: 10px;
+    }
+
+    @media (min-width: 768px) {
+        .modal-prev {
+            left: -60px;
+        }
+        
+        .modal-next {
+            right: -60px;
+        }
+    }
+
+    /* =========================================== */
+    /* FOOTER */
+    /* =========================================== */
+    .product-footer {
+        background: #0D3B1A;
+        color: white;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .footer-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .footer-description {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .footer-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .footer-btn {
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .footer-btn.whatsapp {
+        background: #25D366;
+    }
+
+    .footer-btn.phone {
+        background: #6c757d;
+    }
+
+    .footer-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.85rem;
+        margin-top: 20px;
+    }
+
+    /* =========================================== */
+    /* BACK TO TOP BUTTON */
+    /* =========================================== */
+    .back-to-top {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #1B5E20;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .back-to-top.visible {
+        display: flex;
+    }
+
+    .back-to-top:hover {
+        background: #2E7D32;
+        transform: translateY(-3px);
+    }
+
+    /* =========================================== */
+    /* ANIMATIONS */
+    /* =========================================== */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+
+    /* =========================================== */
+    /* MOBILE OPTIMIZATIONS */
+    /* =========================================== */
+    @media (max-width: 768px) {
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        button, 
+        a,
+        .tab-btn,
+        .thumbnail-item {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        .product-title {
+            font-size: 1.6rem;
+        }
+        
+        .current-price {
+            font-size: 1.8rem;
+        }
+        
+        .product-main {
+            padding: 20px 15px;
+        }
+        
+        .tabs-section {
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+        
+        .container {
+            padding: 0 15px;
+        }
+        
+        .cta-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-main {
+            padding-bottom: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .product-title {
+            font-size: 1.4rem;
+        }
+        
+        .current-price {
+            font-size: 1.6rem;
+        }
+        
+        .thumbnails-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .secondary-buttons {
+            grid-template-columns: 1fr;
+        }
+        
+        .tab-btn {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        .product-main {
+            padding-bottom: 140px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="product-header">
+        <div class="header-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
-                <div class="logo-text-container">
-                    <span class="logo-text">Plantes Shop</span>
-                    <span class="logo-slogan">Votre Oasis Verte</span>
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo">
+                <div class="logo-text">
+                    <span>Plantes Shop</span>
+                    <span>Votre Oasis Verte</span>
                 </div>
             </a>
-             
-            <!-- Desktop Navigation --> 
-            <nav class="nav-desktop" aria-label="Navigation principale"> 
-                <ul class="nav-links"> 
-                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li> 
-                    <li class="nav-link-dropdown"> 
-                        <a href="index.html#categories" class="nav-link"><i class="fas fa-layer-group"></i> Catégories</a> 
-                        <div class="dropdown-menu"> 
-                            <a href="index.html#interior" class="dropdown-item">Plantes d'Intérieur</a> 
-                            <a href="index.html#exterior" class="dropdown-item">Plantes d'Extérieur</a> 
-                            <a href="index.html#fruit-trees" class="dropdown-item">Arbres Fruitiers</a> 
-                            <a href="index.html#palmiers" class="dropdown-item">Palmiers</a> 
-                            <a href="index.html#bonsai" class="dropdown-item">Bonsaïs & Tressés</a> 
-                            <a href="index.html#cactus" class="dropdown-item">Cactus & Succulentes</a> 
-                        </div> 
-                    </li> 
-                    <li><a href="index.html#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li> 
-                    <li><a href="index.html#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li> 
-                    <li><a href="index.html#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li> 
-                    <li><a href="index.html#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li> 
-                </ul> 
-            </nav> 
-             
-            <!-- Header Actions --> 
-            <div class="header-actions"> 
-                <!-- Cart Button --> 
-                <button class="action-btn" id="cartButton" aria-label="Panier d'achat"> 
-                    <i class="fas fa-shopping-cart"></i> 
-                    <span class="action-count" id="cartCount">0</span> 
-                </button> 
-                 
-                <!-- Language Selector --> 
-                <div class="language-selector"> 
-                    <button class="language-btn" aria-label="Changer la langue"> 
-                        <i class="fas fa-globe"></i> 
-                        <span>FR</span> 
-                        <i class="fas fa-chevron-down"></i> 
-                    </button> 
-                    <div class="language-dropdown"> 
-                        <div class="language-option" onclick="changeLanguage('fr')"> 
-                            <span>🇫🇷</span> Français 
-                        </div> 
-                        <div class="language-option" onclick="changeLanguage('ar')"> 
-                            <span>🇲🇦</span> العربية 
-                        </div> 
-                        <div class="language-option" onclick="changeLanguage('en')"> 
-                            <span>🇬🇧</span> English 
-                        </div> 
-                    </div> 
-                </div> 
-                 
-                <!-- Mobile Menu Button --> 
-                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile"> 
-                    <i class="fas fa-bars"></i> 
-                </button> 
-            </div> 
-        </div> 
-         
-        <!-- Mobile Navigation --> 
-        <div class="mobile-nav" id="mobileNav"> 
-            <div class="mobile-nav-header"> 
-                <h3>Menu</h3> 
-                <button class="mobile-menu-btn" id="closeMobileMenu"> 
-                    <i class="fas fa-times"></i> 
-                </button> 
-            </div> 
-             
-            <div class="mobile-nav-links"> 
-                <a href="index.html#home" class="mobile-nav-link active">Accueil</a> 
-                <a href="index.html#categories" class="mobile-nav-link">Catégories</a> 
-                <a href="index.html#products" class="mobile-nav-link">Produits</a> 
-                <a href="index.html#services" class="mobile-nav-link">Services</a> 
-                <a href="index.html#blog" class="mobile-nav-link">Blog</a> 
-                <a href="index.html#contact" class="mobile-nav-link">Contact</a> 
-            </div> 
-             
-            <div class="mobile-categories"> 
-                <a href="index.html#interior" class="mobile-category">Intérieur</a> 
-                <a href="index.html#exterior" class="mobile-category">Extérieur</a> 
-                <a href="index.html#fruit-trees" class="mobile-category">Fruitiers</a> 
-                <a href="index.html#palmiers" class="mobile-category">Palmiers</a> 
-                <a href="index.html#bonsai" class="mobile-category">Bonsaïs</a> 
-                <a href="index.html#cactus" class="mobile-category">Cactus</a> 
-            </div> 
- 
-            <div class="mobile-nav-actions"> 
-               <div class="mobile-language-selector"> 
-                    <i class="fas fa-globe"></i> 
-                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue"> 
-                        <option value="fr">Français</option> 
-                        <option value="ar">العربية</option> 
-                        <option value="en">English</option> 
-                    </select> 
-                </div> 
-            </div> 
-             
-            <div class="mobile-nav-footer">
-                <a href="#" data-phone-link="true" class="btn btn-outline btn-full">
-                    <i class="fas fa-phone"></i> Appelez-nous
-                </a>
-                <a href="#" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
-        </div> 
-    </header> 
-     
-    <!-- Breadcrumb --> 
-    <div class="product-breadcrumb"> 
-        <div class="container"> 
-            <div class="breadcrumb-links"> 
-                <a href="index.html">Accueil</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <a href="index.html#products">Produits</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <a href="index.html#exterior">Plantes d'Extérieur</a> 
-                <span class="breadcrumb-separator">/</span> 
-                <span>Yucca elephantipes</span> 
-            </div> 
-        </div> 
-    </div> 
-     
-    <!-- Main Content --> 
-    <main id="main-content"> 
-        <!-- Product Showcase Section --> 
-        <section class="olive-showcase-section section-padding"> 
-            <div class="container"> 
-                <div class="olive-showcase-grid animate-on-scroll"> 
-                    <div class="olive-gallery"> 
-                        <!-- Main Image -->
-                        <div class="main-image-container">
-                            <img src="assets/images/yucca-09.jpeg"
-                                 alt="Yucca elephantipes"
-                                 class="main-olive-image"
-                                 id="mainProductImage">
-                        </div>
+            
+            <button class="cart-button" id="cartButton">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
 
-                        <!-- Thumbnails -->
-                        <div class="thumbnail-strip">
-                            <img src="assets/images/yucca-09.jpeg" alt="Yucca elephantipes" class="active" onclick="changeMainImage(this.src, this.alt)">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#products">Produits</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html#interior">Plantes d'Intérieur</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Yucca elephantipes</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="product-main">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Product Gallery -->
+                <section class="product-gallery-section">
+                    <div class="main-image-wrapper">
+                        <img src="assets/images/WhatsApp Image 2026-01-01 at 18.24.28.jpeg" 
+                             alt="Yucca elephantipes - Vue principale"
+                             class="main-image"
+                             id="mainProductImage">
+                        <button class="image-zoom-btn" onclick="openImageModal(0)">
+                            <i class="fas fa-expand-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="thumbnails-grid" id="thumbnailGallery">
+                        <!-- Thumbnails will be loaded by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Product Info -->
+                <section class="product-info-section">
+                    <h1 class="product-title">Yucca elephantipes</h1>
+                    
+                    <div class="product-subtitle">
+                        <i class="fas fa-leaf"></i>
+                        Plante d'intérieur dépolluante - Très résistante
+                    </div>
+
+                    <!-- Product Meta -->
+                    <div class="product-meta-container">
+                        <div class="meta-row">
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span>Catégorie: <strong>Plantes d'intérieur</strong></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-box"></i>
+                                <span>SKU: <strong>PS-YUC-002</strong></span>
+                            </div>
                         </div>
-                    </div> 
- 
-                    <div class="olive-details"> 
-                        <h1 class="details-title">Yucca elephantipes</h1> 
-                         
-                        <p class="details-intro"> 
-                            Découvrez notre Yucca elephantipes, une plante magnifique et facile d'entretien. Parfaite pour ajouter une touche de verdure à votre intérieur ou extérieur.
-                        </p> 
- 
-                        <!-- Price & CTA --> 
-                        <div class="details-cta-box"> 
-                            <div class="price-container"> 
-                                <div class="current-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 0.5rem;"> 
-                                    À partir de 250 MAD
-                                </div> 
-                            </div> 
-                             
-                            <div class="cta-buttons"> 
-                                <a href="#" data-whatsapp-link="true"
-                                   target="_blank"
-                                   class="btn btn-primary whatsapp-btn-large">
-                                    <i class="fab fa-whatsapp"></i> Demander un Devis sur WhatsApp
-                                </a>
-                                <div class="secondary-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
-                                    <a href="#" data-phone-link="true" class="btn btn-secondary">
-                                        <i class="fas fa-phone"></i> Appeler maintenant
-                                    </a>
-                                </div> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
- 
-        <!-- Specifications Table --> 
-        <section class="specs-section section-padding"> 
-            <div class="container"> 
-                <div class="section-title animate-on-scroll"> 
-                    <h2>Fiche Technique</h2> 
-                </div> 
-                <div class="animate-on-scroll"> 
-                    <p>Les spécifications détaillées pour ce produit seront bientôt disponibles.</p>
-                </div> 
-            </div> 
-        </section> 
- 
-        <!-- FAQ Section --> 
-        <section class="faq-section section-padding"> 
-            <div class="container"> 
-                <div class="section-title animate-on-scroll"> 
-                    <h2>Questions Fréquentes</h2> 
-                </div> 
-                <div class="product-faq-section animate-on-scroll"> 
-                    <p>La section FAQ pour ce produit est en cours de préparation.</p>
-                </div> 
-            </div> 
-        </section> 
+                        <div class="meta-row">
+                            <div class="meta-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Disponibilité: <strong style="color: #28A745;">En stock</strong></span>
+                            </div>
+                            <div class="rating-badge">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.6 (18 avis)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="price-container">
+                        <div class="price-label">À partir de</div>
+                        <div class="current-price">250 MAD</div>
+                        <div class="tax-info">TVA incluse. Livraison gratuite à partir de 500 MAD</div>
+                    </div>
+
+                    <!-- Delivery Info -->
+                    <div class="delivery-info-container">
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Livraison Rapide</h4>
+                                <p>Livraison dans tout le Maroc en 2-5 jours ouvrés</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Garantie 30 Jours</h4>
+                                <p>Garantie de reprise ou remboursement sous 30 jours</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                            <div class="delivery-text">
+                                <h4>Plante Dépolluante</h4>
+                                <p>Purifie l'air intérieur naturellement</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-container">
+                <a href="https://wa.me/212661193752?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Yucca%20elephantipes%20%28250%20MAD%29"
+                   target="_blank"
+                   class="whatsapp-btn-large">
+                    <i class="fab fa-whatsapp"></i>
+                    Commander sur WhatsApp
+                </a>
+                
+                <div class="secondary-buttons">
+                    <a href="tel:+212661193752"
+                       class="btn-call">
+                        <i class="fas fa-phone"></i>
+                        Appeler pour infos
+                    </a>
+                    
+                    <button class="btn-favorite" onclick="addToWishlist()">
+                        <i class="far fa-heart"></i>
+                        Favoris
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <section class="tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('description')">Description</button>
+                    <button class="tab-btn" onclick="switchTab('specs')">Spécifications</button>
+                    <button class="tab-btn" onclick="switchTab('care')">Entretien</button>
+                    <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
+                </div>
+
+                <!-- Description Tab -->
+                <div id="description" class="tab-content active">
+                    <div class="description-content">
+                        <h3>Présentation du Yucca elephantipes</h3>
+                        <p>Le Yucca elephantipes, également appelé "Yucca géant" ou "Pied d'éléphant", est une plante d'intérieur très populaire pour sa robustesse et son aspect tropical. Originaire d'Amérique centrale, cette plante succulente est particulièrement appréciée pour sa capacité à purifier l'air intérieur.</p>
+                        
+                        <h3>Caractéristiques principales</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>Hauteur:</strong> 80-150 cm selon spécimen</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Feuillage:</strong> Vert foncé, longues feuilles effilées</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Tronc:</strong> Épais, ressemblant à un pied d'éléphant</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Type:</strong> Plante succulente arbustive</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Croissance:</strong> Lente à modérée</li>
+                        </ul>
+                        
+                        <h3>Avantages du Yucca</h3>
+                        <ul>
+                            <li><i class="fas fa-wind"></i> <strong>Dépolluant:</strong> Filtre le benzène, formaldéhyde et COV</li>
+                            <li><i class="fas fa-heart"></i> <strong>Résistant:</strong> Tolère la négligence et conditions difficiles</li>
+                            <li><i class="fas fa-sun"></i> <strong>Adaptable:</strong> Supporte différents niveaux de lumière</li>
+                            <li><i class="fas fa-tint"></i> <strong>Économe:</strong> Faibles besoins en arrosage</li>
+                        </ul>
+                        
+                        <h3>Utilisations recommandées</h3>
+                        <ul>
+                            <li><i class="fas fa-home"></i> <strong>Salon & bureau:</strong> Plante décorative et dépolluante</li>
+                            <li><i class="fas fa-building"></i> <strong>Espaces commerciaux:</strong> Centres commerciaux, hôtels</li>
+                            <li><i class="fas fa-hospital"></i> <strong>Établissements de santé:</strong> Purification naturelle de l'air</li>
+                            <li><i class="fas fa-school"></i> <strong>Écoles:</strong> Plante éducative et décorative</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div id="specs" class="tab-content">
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h4><i class="fas fa-ruler"></i> Dimensions</h4>
+                            <p>Hauteur: 80-150 cm<br>Largeur: 40-60 cm<br>Pot: 20-30 cm de diamètre</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-sun"></i> Exposition</h4>
+                            <p>Lumineuse à très lumineuse<br>Tolère la mi-ombre<br>Éviter le soleil direct intense</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-temperature-low"></i> Température</h4>
+                            <p>Optimal: 18-24°C<br>Minimal: 10°C<br>Maximal: 30°C</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-tint"></i> Arrosage</h4>
+                            <p>Modéré - laisser sécher entre 2 arrosages<br>Réduire en hiver<br>Éviter l'excès d'eau</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-seedling"></i> Sol</h4>
+                            <p>Drainant, léger, terreau spécial plantes vertes<br>Mélange terreux bien aéré<br>pH: 5.5-7.5</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4><i class="fas fa-leaf"></i> Feuillage</h4>
+                            <p>Persistant, vert foncé<br>Longues feuilles effilées<br>Croissance en rosette</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Care Instructions Tab -->
+                <div id="care" class="tab-content">
+                    <div class="care-grid">
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4>Arrosage</h4>
+                            <p>Arroser quand le sol est sec sur 3-4cm. Réduire en hiver. Éviter l'eau stagnante.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h4>Lumière</h4>
+                            <p>Placez près d'une fenêtre lumineuse. Évitez le soleil direct intense l'été.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4>Entretien</h4>
+                            <p>Nettoyer les feuilles avec un chiffon humide. Retirer les feuilles sèches.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4>Engrais</h4>
+                            <p>Engrais plantes vertes au printemps et été. Pas d'engrais en automne/hiver.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h4>Parasites</h4>
+                            <p>Résistant aux parasites. Surveiller les cochenilles farineuses occasionnellement.</p>
+                        </div>
+                        <div class="care-card">
+                            <div class="care-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h4>Rempotage</h4>
+                            <p>Tous les 2-3 ans au printemps. Augmenter légèrement la taille du pot.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Tab -->
+                <div id="faq" class="tab-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Le Yucca est-il toxique pour les animaux?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Le Yucca elephantipes est généralement considéré comme non toxique pour les chats et chiens, mais il peut provoquer des troubles digestifs légers en cas d'ingestion massive. Il est préférable de le placer hors de portée des animaux qui aiment mâchouiller les plantes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>À quelle fréquence dois-je l'arroser?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>En été, arrosez environ une fois par semaine. En hiver, réduisez à une fois toutes les 2-3 semaines. Toujours vérifier que le sol est sec sur 3-4 cm avant d'arroser. Le Yucca supporte mieux la sécheresse que l'excès d'eau.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Pourquoi les pointes des feuilles brunissent?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Les pointes brunes sont généralement dues à l'air trop sec, un arrosage irrégulier ou un excès de sels minéraux. Vous pouvez couper les pointes brunes avec des ciseaux propres. Augmentez l'humidité ambiante si l'air est très sec.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h4>Peut-il fleurir en intérieur?</h4>
+                                <button class="faq-toggle">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer">
+                                <p>En intérieur, la floraison est rare mais possible sur des sujets matures en conditions optimales. Les fleurs sont blanches, en panicules. La floraison demande beaucoup d'énergie à la plante et nécessite des conditions spécifiques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2 class="section-title">Produits Similaires</h2>
+                <div class="related-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/olive-gallery-13.jpeg" alt="Olivier, olea europaea topiaire bonsai">
+                        </div>
+                        <div class="product-content">
+                            <h3>Olivier, olea europaea topiaire bonsai</h3>
+                            <div class="product-price">À partir de 11,999 MAD</div>
+                            <a href="product-olivier-olea-europaea-topiaire-bonsai.html" class="product-link">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/areca-01.jpeg" alt="Areca catechu">
+                        </div>
+                        <div class="product-content">
+                            <h3>Areca catechu</h3>
+                            <div class="product-price">À partir de 1,299 MAD</div>
+                            <a href="product-areca-catechu.html" class="product-link">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/ficus-bonsai-03.jpeg" alt="Ficus bonsai">
+                        </div>
+                        <div class="product-content">
+                            <h3>Ficus bonsai</h3>
+                            <div class="product-price">À partir de 1,199 MAD</div>
+                            <a href="product-ficus-bonsai.html" class="product-link">
+                                <i class="fas fa-eye"></i> Découvrir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <!-- Footer --> 
-    <footer class="footer"> 
-        <div class="container"> 
-            <div class="footer-top"> 
-                <div class="footer-grid"> 
-                    <div class="footer-column"> 
-                        <h3>Plantes Shop</h3> 
-                        <div class="footer-about"> 
-                            <p>Votre pépinière en ligne de confiance, spécialisée dans la vente de plantes d'exception et les services d'aménagement paysager au Maroc depuis 2010.</p> 
-                        </div> 
-                         
-                        <div class="social-links"> 
-                            <a href="#" class="social-link" aria-label="Facebook"> 
-                                <i class="fab fa-facebook-f"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="Instagram"> 
-                                <i class="fab fa-instagram"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="Pinterest"> 
-                                <i class="fab fa-pinterest-p"></i> 
-                            </a> 
-                            <a href="#" class="social-link" aria-label="YouTube"> 
-                                <i class="fab fa-youtube"></i> 
-                            </a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Liens Rapides</h3> 
-                        <div class="footer-links"> 
-                            <a href="index.html">Accueil</a> 
-                            <a href="index.html#products">Produits</a> 
-                            <a href="index.html#categories">Catégories</a> 
-                            <a href="index.html#services">Services</a> 
-                            <a href="index.html#blog">Blog</a> 
-                            <a href="index.html#contact">Contact</a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Informations</h3> 
-                        <div class="footer-links"> 
-                            <a href="index.html#about">À Propos</a> 
-                            <a href="index.html#delivery">Livraison</a> 
-                            <a href="index.html#returns">Retours & Échanges</a> 
-                            <a href="index.html#privacy">Politique de Confidentialité</a> 
-                            <a href="index.html#terms">Conditions Générales</a> 
-                            <a href="index.html#faq">FAQ</a> 
-                        </div> 
-                    </div> 
-                     
-                    <div class="footer-column"> 
-                        <h3>Newsletter</h3> 
-                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Abonnez-vous pour recevoir nos promotions et conseils jardinage.</p> 
-                         
-                        <form class="newsletter-form" id="newsletterForm"> 
-                            <input type="email" class="newsletter-input" placeholder="Votre adresse email" required> 
-                            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;"> 
-                                <i class="fas fa-paper-plane"></i> 
-                            </button> 
-                        </form> 
-                         
-                        <div class="footer-contact">
-                            <div class="footer-contact-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <span data-phone-text="true"></span>
-                            </div>
-                            <div class="footer-contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span data-email-text="true"></span>
-                            </div>
-                            <div class="footer-contact-item"> 
-                                <i class="fas fa-map-marker-alt"></i> 
-                                <span>Benslimane, Maroc</span> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-             
-            <div class="footer-bottom"> 
-                <p>&copy; 2024 Plantes Shop. Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> au Maroc</p> 
-            </div> 
-        </div> 
-    </footer> 
-     
-    <!-- Back to Top Button --> 
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"> 
-        <i class="fas fa-chevron-up"></i> 
-    </button> 
-     
-    <!-- Notification Toast --> 
-    <div class="notification-toast" id="notificationToast"></div> 
- 
+    <!-- Footer -->
+    <footer class="product-footer">
+        <div class="footer-content">
+            <h3 class="footer-title">Plantes Shop</h3>
+            <p class="footer-description">Votre pépinière en ligne de confiance au Maroc</p>
+            
+            <div class="footer-buttons">
+                <a href="https://wa.me/212661193752" target="_blank" class="footer-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+212661193752" class="footer-btn phone">
+                    <i class="fas fa-phone"></i> +212 661 193752
+                </a>
+            </div>
+            
+            <p class="copyright">&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-image-container">
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="modal-nav modal-prev" onclick="prevImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets-js/product-page.js"></script>
-</body> 
+    <script>
+    // Configuration du produit
+    const PRODUCT = {
+        name: "Yucca elephantipes",
+        price: "250 MAD",
+        images: [
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.28.jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.26.jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.27 (1).jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.27 (2).jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.27 (3).jpeg",
+            "assets/images/WhatsApp Image 2026-01-01 at 18.24.27.jpeg"
+        ]
+    };
+
+    // Variables globales
+    let currentImageIndex = 0;
+    let currentTab = 'description';
+    let isModalOpen = false;
+
+    // Initialisation de la page
+    document.addEventListener('DOMContentLoaded', function() {
+        initGallery();
+        initTabs();
+        initScroll();
+        initCart();
+        initEventListeners();
+        updateContactInfo();
+    });
+
+    // Initialisation de la galerie
+    function initGallery() {
+        const gallery = document.getElementById('thumbnailGallery');
+        const mainImage = document.getElementById('mainProductImage');
+        
+        if (!gallery || !mainImage) return;
+        
+        // Nettoyer la galerie
+        gallery.innerHTML = '';
+        
+        // Ajouter les miniatures
+        PRODUCT.images.forEach((image, index) => {
+            const thumb = document.createElement('div');
+            thumb.className = 'thumbnail-item' + (index === 0 ? ' active' : '');
+            thumb.onclick = () => changeMainImage(image, index);
+            thumb.setAttribute('aria-label', `Voir l'image ${index + 1}`);
+            
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = `${PRODUCT.name} - Vue ${index + 1}`;
+            img.className = 'thumbnail-img';
+            img.loading = 'lazy';
+            
+            thumb.appendChild(img);
+            gallery.appendChild(thumb);
+        });
+        
+        // Rendre l'image principale cliquable
+        mainImage.addEventListener('click', () => openImageModal(0));
+    }
+
+    // Changer l'image principale
+    function changeMainImage(imageSrc, index) {
+        const mainImage = document.getElementById('mainProductImage');
+        if (!mainImage) return;
+        
+        // Ajouter un effet de chargement
+        mainImage.style.opacity = '0.7';
+        
+        setTimeout(() => {
+            mainImage.src = imageSrc;
+            mainImage.alt = `${PRODUCT.name} - Vue principale`;
+            mainImage.style.opacity = '1';
+            
+            // Mettre à jour les miniatures actives
+            document.querySelectorAll('.thumbnail-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            currentImageIndex = index;
+            
+            // Mettre à jour le bouton de zoom
+            const zoomBtn = document.querySelector('.image-zoom-btn');
+            if (zoomBtn) {
+                zoomBtn.onclick = () => openImageModal(index);
+            }
+        }, 200);
+    }
+
+    // Ouvrir l'image en modal
+    function openImageModal(index) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        if (!modal || !modalImage) return;
+        
+        currentImageIndex = index;
+        modalImage.src = PRODUCT.images[index];
+        modalImage.alt = `${PRODUCT.name} - Vue détaillée`;
+        modal.classList.add('active');
+        isModalOpen = true;
+        
+        // Empêcher le défilement de la page
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+    }
+
+    // Fermer la modal
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+        isModalOpen = false;
+        
+        // Restaurer le défilement
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+    }
+
+    // Image précédente
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + PRODUCT.images.length) % PRODUCT.images.length;
+        document.getElementById('modalImage').src = PRODUCT.images[currentImageIndex];
+    }
+
+    // Image suivante
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % PRODUCT.images.length;
+        document.getElementById('modalImage').src = PRODUCT.images[currentImageIndex];
+    }
+
+    // Gestion des onglets
+    function initTabs() {
+        // Activer le premier onglet par défaut
+        switchTab('description');
+    }
+
+    function switchTab(tabId) {
+        // Désactiver tous les onglets
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+        });
+        
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Activer l'onglet sélectionné
+        const activeBtn = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-selected', 'true');
+        }
+        
+        const activeContent = document.getElementById(tabId);
+        if (activeContent) {
+            activeContent.classList.add('active');
+        }
+        
+        currentTab = tabId;
+        
+        // Faire défiler jusqu'à l'onglet sur mobile
+        if (window.innerWidth < 768) {
+            activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // FAQ Toggle
+    function toggleFAQ(element) {
+        const item = element.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        // Fermer tous les autres FAQ
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            if (faq !== item) {
+                faq.classList.remove('active');
+            }
+        });
+        
+        // Basculer l'état actuel
+        item.classList.toggle('active');
+        
+        // Mettre à jour l'aria-expanded
+        const toggleBtn = item.querySelector('.faq-toggle');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', !isActive);
+        }
+    }
+
+    // Gestion du scroll
+    function initScroll() {
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            // Afficher/masquer le bouton back to top
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Désactiver le défilement quand la modal est ouverte
+            if (isModalOpen) {
+                window.scrollTo(0, 0);
+            }
+        });
+        
+        // Empêcher le défilement du body quand on est dans la modal
+        document.addEventListener('touchmove', function(e) {
+            if (isModalOpen) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+
+    // Retour en haut
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Initialiser le panier
+    function initCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+    }
+
+    // Ajouter au panier
+    function addToCart() {
+        const cart = JSON.parse(localStorage.getItem('plantesShopCart') || '[]');
+        
+        cart.push({
+            name: PRODUCT.name,
+            price: PRODUCT.price.replace(/[^0-9]/g, ''),
+            quantity: 1,
+            image: PRODUCT.images[0]
+        });
+        
+        localStorage.setItem('plantesShopCart', JSON.stringify(cart));
+        
+        // Mettre à jour le compteur
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+        
+        showNotification('Produit ajouté au panier!', 'success');
+    }
+
+    // Ajouter aux favoris
+    function addToWishlist() {
+        const wishlist = JSON.parse(localStorage.getItem('plantesShopWishlist') || '[]');
+        
+        if (!wishlist.find(item => item.name === PRODUCT.name)) {
+            wishlist.push({
+                name: PRODUCT.name,
+                price: PRODUCT.price,
+                image: PRODUCT.images[0],
+                url: window.location.href,
+                date: new Date().toISOString()
+            });
+            
+            localStorage.setItem('plantesShopWishlist', JSON.stringify(wishlist));
+            
+            // Afficher notification
+            showNotification('Produit ajouté aux favoris!', 'success');
+            
+            // Animer le cœur
+            const heart = event.currentTarget.querySelector('i');
+            heart.classList.remove('far');
+            heart.classList.add('fas');
+            event.currentTarget.style.color = '#DC3545';
+            event.currentTarget.style.borderColor = '#DC3545';
+        } else {
+            showNotification('Ce produit est déjà dans vos favoris', 'info');
+        }
+    }
+
+    // Mettre à jour les infos de contact
+    function updateContactInfo() {
+        const phone = '+212661193752';
+        const whatsapp = '212661193752';
+        
+        // Mettre à jour les liens WhatsApp
+        document.querySelectorAll('.whatsapp-btn-large').forEach(link => {
+            const productName = encodeURIComponent(PRODUCT.name);
+            const price = encodeURIComponent(PRODUCT.price);
+            link.href = `https://wa.me/${whatsapp}?text=Bonjour%20Plantes%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20${productName}%20%28${price}%29`;
+        });
+    }
+
+    // Afficher notification
+    function showNotification(message, type = 'info') {
+        // Supprimer les notifications existantes
+        const existingNotifications = document.querySelectorAll('.notification-toast');
+        existingNotifications.forEach(notification => notification.remove());
+        
+        const toast = document.createElement('div');
+        toast.className = 'notification-toast';
+        
+        const typeClass = {
+            'success': 'success',
+            'error': 'error',
+            'info': 'info',
+            'warning': 'warning'
+        }[type] || 'info';
+        
+        const icon = {
+            'success': 'fa-check-circle',
+            'error': 'fa-exclamation-circle',
+            'info': 'fa-info-circle',
+            'warning': 'fa-exclamation-triangle'
+        }[type] || 'fa-info-circle';
+        
+        toast.innerHTML = `
+            <div style="background: ${type === 'success' ? '#28A745' : type === 'error' ? '#DC3545' : '#17A2B8'}; 
+                        color: white; 
+                        padding: 12px 16px; 
+                        border-radius: 8px; 
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        animation: slideIn 0.3s ease;
+                        max-width: 90vw;">
+                <i class="fas ${icon}" style="font-size: 1.2rem;"></i>
+                <span style="font-size: 0.95rem;">${message}</span>
+            </div>
+        `;
+        
+        // Positionner la notification
+        toast.style.cssText = `
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 90vw;
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Ajouter les animations CSS si elles n'existent pas
+        if (!document.querySelector('#notification-animations')) {
+            const style = document.createElement('style');
+            style.id = 'notification-animations';
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    // Initialiser les écouteurs d'événements
+    function initEventListeners() {
+        // Échap pour fermer la modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isModalOpen) {
+                closeModal();
+            }
+            
+            if (isModalOpen) {
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+            }
+        });
+        
+        // Fermer la modal en cliquant à l'extérieur
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Gestion du touch sur mobile pour la modal
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            if (isModalOpen) {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            if (isModalOpen) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe gauche -> image suivante
+                    nextImage();
+                } else {
+                    // Swipe droite -> image précédente
+                    prevImage();
+                }
+            }
+        }
+        
+        // Empêcher le zoom sur les boutons
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
+        
+        // Optimiser le chargement des images
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    }
+
+    // Détecter et ajuster pour iOS
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    // Ajustements spécifiques pour iOS
+    if (isIOS()) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix pour la hauteur de la fenêtre sur iOS
+            function setVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setVH();
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
+        });
+    }
+    </script>
+</body>
 </html>
