@@ -57,11 +57,6 @@
             
             <!-- Header Actions -->
             <div class="header-actions">
-                <!-- Cart Button -->
-                <button class="action-btn" id="cartButton" aria-label="Panier d'achat" data-translate-key="cart_title" title="Panier d'achat">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="action-count" id="cartCount">0</span>
-                </button>
                 
                 <!-- Language Selector -->
                 <div class="language-selector">
@@ -105,19 +100,20 @@
                 <a href="#services" class="mobile-nav-link" data-translate-key="mobile_services">Services</a>
                 <a href="#blog" class="mobile-nav-link" data-translate-key="mobile_blog">Blog</a>
                 <a href="#contact" class="mobile-nav-link" data-translate-key="mobile_contact">Contact</a>
+                <div class="mobile-language-selector" style="margin-top: 1rem; padding: 1rem; border-top: 1px solid var(--gray-200);">
+                    <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                        <span>🇫🇷</span> Français
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                        <span>🇲🇦</span> العربية
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                        <span>🇬🇧</span> English
+                    </div>
+                </div>
             </div>
             
 
-            <div class="mobile-nav-actions">
-               <div class="mobile-language-selector">
-                    <i class="fas fa-globe"></i>
-                    <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
-                        <option value="fr" data-translate-key="lang_fr">Français</option>
-                        <option value="ar" data-translate-key="lang_ar">العربية</option>
-                        <option value="en" data-translate-key="lang_en">English</option>
-                    </select>
-                </div>
-            </div>
             
             <div class="mobile-nav-footer">
                 <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
