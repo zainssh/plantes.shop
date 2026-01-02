@@ -703,6 +703,7 @@
         // FONCTIONS DE LANGUE
         // ============================================
 
+        // Central object for all site translations
         const TRANSLATIONS = {
             fr: {
                 "logo_slogan": "Votre Oasis Verte",
