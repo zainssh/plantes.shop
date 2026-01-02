@@ -179,28 +179,54 @@
             // Observer les éléments pour les animations
             setupIntersectionObserver();
 
-            // Mettre à jour les informations de contact
+            // Injecter la section CTA et mettre à jour les infos de contact
+            injectContactCTA();
             updateContactInfo();
         }
 
         function updateContactInfo() {
-            document.querySelectorAll('a, p, span').forEach(el => {
-                // Remplacer dans les attributs href
-                if (el.hasAttribute('href')) {
-                    let href = el.getAttribute('href');
-                    href = href.replace(/\$\{CONTACT_INFO\.phone\}/g, `tel:${CONTACT_INFO.phone}`);
-                    href = href.replace(/\$\{CONTACT_INFO\.whatsapp\}/g, `https://wa.me/${CONTACT_INFO.whatsapp}`);
-                    href = href.replace(/\$\{CONTACT_INFO\.email\}/g, `mailto:${CONTACT_INFO.email}`);
-                    el.setAttribute('href', href);
-                }
+            const phoneUrl = `tel:${CONTACT_INFO.phone}`;
+            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`;
+            const emailUrl = `mailto:${CONTACT_INFO.email}`;
 
-                // Remplacer dans le contenu textuel
-                if (el.innerHTML.includes('${CONTACT_INFO')) {
-                    el.innerHTML = el.innerHTML.replace(/\$\{CONTACT_INFO\.phone\}/g, CONTACT_INFO.phone);
-                    el.innerHTML = el.innerHTML.replace(/\$\{CONTACT_INFO\.whatsapp\}/g, CONTACT_INFO.whatsapp);
-                    el.innerHTML = el.innerHTML.replace(/\$\{CONTACT_INFO\.email\}/g, CONTACT_INFO.email);
-                }
-            });
+            document.querySelectorAll('a[data-phone-link="true"]').forEach(el => el.href = phoneUrl);
+            document.querySelectorAll('a[data-whatsapp-link="true"]').forEach(el => el.href = whatsappUrl);
+            document.querySelectorAll('a[data-email-link="true"]').forEach(el => el.href = emailUrl);
+
+            document.querySelectorAll('[data-phone-text="true"]').forEach(el => el.textContent = CONTACT_INFO.phone);
+            document.querySelectorAll('[data-whatsapp-text="true"]').forEach(el => el.textContent = CONTACT_INFO.whatsapp);
+            document.querySelectorAll('[data-email-text="true"]').forEach(el => el.textContent = CONTACT_INFO.email);
+        }
+
+        // ============================================
+        // INJECTION DYNAMIQUE DE CONTENU
+        // ============================================
+        function injectContactCTA() {
+            // S'exécute uniquement sur les pages qui contiennent une section de produit
+            const isProductPage = document.querySelector('.olive-showcase-section, .product-breadcrumb');
+            const mainElement = document.querySelector('main');
+
+            if (isProductPage && mainElement) {
+                const contactSectionHTML = `
+                    <section class="contact-cta-section section-padding">
+                        <div class="container text-center">
+                            <div class="section-title">
+                                <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+                                <p>Notre pépinière regorge de trésors qui ne sont pas tous en ligne. Contactez-nous pour une demande spécifique !</p>
+                            </div>
+                            <div class="contact-buttons">
+                                <a href="#" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-large">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="#" data-phone-link="true" class="btn btn-secondary btn-large">
+                                    <i class="fas fa-phone"></i> Appeler
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                `;
+                mainElement.insertAdjacentHTML('beforeend', contactSectionHTML);
+            }
         }
 
         // ============================================

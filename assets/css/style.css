@@ -240,6 +240,13 @@
             width: 100%;
         }
         
+        .btn-header-back {
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            gap: 0.5rem;
+        }
+
         .badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -2110,6 +2117,20 @@
             animation: float 6s ease-in-out infinite;
         }
         
+        /* =============================== */
+        /* CONTACT CTA SECTION */
+        /* =============================== */
+        .contact-cta-section {
+            background-color: var(--beige);
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
         /* =============================== */
         /* RESPONSIVE DESIGN */
         /* =============================== */
