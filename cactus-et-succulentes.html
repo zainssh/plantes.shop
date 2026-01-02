@@ -19,16 +19,97 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="index.html" class="logo">
+            <!-- Logo -->
+            <a href="index.html#home" class="logo">
                 <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
                 <div class="logo-text-container">
                     <span class="logo-text">Plantes Shop</span>
-                    <span class="logo-slogan">Votre Oasis Verte</span>
+                    <span class="logo-slogan" data-translate-key="logo_slogan">Votre Oasis Verte</span>
                 </div>
             </a>
-            <a href="index.html" class="btn btn-primary btn-header-back"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop" aria-label="Navigation principale">
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link active" data-translate-key="nav_home"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="index.html#products" class="nav-link" data-translate-key="nav_products"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="index.html#services" class="nav-link" data-translate-key="nav_services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="index.html#blog" class="nav-link" data-translate-key="nav_blog"><i class="fas fa-newspaper"></i> Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-translate-key="nav_contact"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" aria-label="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span>FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                            <span>🇫🇷</span> Français
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                            <span>🇲🇦</span> العربية
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                            <span>🇬🇧</span> English
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <h3 data-translate-key="mobile_menu_title">Menu</h3>
+                <button class="mobile-menu-btn" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-links">
+                <a href="index.html#home" class="mobile-nav-link active" data-translate-key="mobile_home">Accueil</a>
+                <a href="index.html#products" class="mobile-nav-link" data-translate-key="mobile_products">Produits</a>
+                <a href="index.html#services" class="mobile-nav-link" data-translate-key="mobile_services">Services</a>
+                <a href="index.html#blog" class="mobile-nav-link" data-translate-key="mobile_blog">Blog</a>
+                <a href="index.html#contact" class="mobile-nav-link" data-translate-key="mobile_contact">Contact</a>
+                <div class="mobile-language-selector" style="margin-top: 1rem; padding: 1rem; border-top: 1px solid var(--gray-200);">
+                    <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                        <span>🇫🇷</span> Français
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                        <span>🇲🇦</span> العربية
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                        <span>🇬🇧</span> English
+                    </div>
+                </div>
+            </div>
+            
+
+            
+            <div class="mobile-nav-footer">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
         </div>
     </header>
     
@@ -36,8 +117,8 @@
         <section class="section-padding">
             <div class="container">
                 <div class="section-title">
-                    <h2>Cactus et Succulentes</h2>
-                    <p>Des plantes résistantes et graphiques, parfaites pour les jardiniers de tous niveaux.</p>
+                    <h2 data-translate-key="cactus_title">Cactus et Succulentes</h2>
+                    <p data-translate-key="cactus_description">Des plantes résistantes et graphiques, parfaites pour les jardiniers de tous niveaux.</p>
                 </div>
                 <div class="products-grid">
                     <!-- New Product 4 -->
@@ -46,9 +127,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.00.jpeg" alt="Euphorbia milii">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Euphorbia milii</h3>
-                            <span class="product-price">À partir de 149 MAD</span>
-                            <a href="product-Euphorbia-milii.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_euphorbia_milii">Euphorbia milii</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 149 MAD</span>
+                            <a href="product-Euphorbia-milii.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 5 -->
@@ -57,9 +138,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.17.14.jpeg" alt="Euphorbia ingens">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Euphorbia ingens</h3>
-                            <span class="product-price">À partir de 99 MAD</span>
-                            <a href="product-Euphorbia-ingens.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_euphorbia_ingens">Euphorbia ingens</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 99 MAD</span>
+                            <a href="product-Euphorbia-ingens.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 6 -->
@@ -68,9 +149,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.04.jpeg" alt="Agave desmetiana 'Variegata'">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Agave desmetiana 'Variegata'</h3>
-                            <span class="product-price">À partir de 169 MAD</span>
-                            <a href="product-Agave-desmetiana.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_agave">Agave desmetiana 'Variegata'</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 169 MAD</span>
+                            <a href="product-Agave-desmetiana.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 7 -->
@@ -79,9 +160,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.04 (1).jpeg" alt="crassula ovata">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">crassula ovata</h3>
-                            <span class="product-price">À partir de 39 MAD</span>
-                            <a href="product-crassula-ovata.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_crassula">crassula ovata</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 39 MAD</span>
+                            <a href="product-crassula-ovata.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 8 -->
@@ -90,9 +171,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.05.jpeg" alt="Aloe vera">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Aloe vera</h3>
-                            <span class="product-price">À partir de 149 MAD</span>
-                            <a href="product-Aloe-vera.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_aloe">Aloe vera</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 149 MAD</span>
+                            <a href="product-Aloe-vera.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 9 -->
@@ -101,9 +182,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.05 (1).jpeg" alt="opuntia microdasys">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">opuntia microdasys</h3>
-                            <span class="product-price">À partir de 59 MAD</span>
-                            <a href="product-opuntia-microdasys.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_opuntia">opuntia microdasys</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 59 MAD</span>
+                            <a href="product-opuntia-microdasys.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                     <!-- New Product 10 -->
@@ -112,9 +193,9 @@
                             <img src="assets/images/WhatsApp Image 2025-12-31 at 17.09.05 (2).jpeg" alt="echinocactus grusonii">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">echinocactus grusonii</h3>
-                            <span class="product-price">À partir de 599 MAD</span>
-                            <a href="product-echinocactus-grusonii.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                            <h3 class="product-title" data-translate-key="product_echinocactus">echinocactus grusonii</h3>
+                            <span class="product-price" data-translate-key="price_from">À partir de</span> 599 MAD</span>
+                            <a href="product-echinocactus-grusonii.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> <span data-translate-key="discover_button">Découvrir</span></a>
                         </div>
                     </div>
                 </div>
