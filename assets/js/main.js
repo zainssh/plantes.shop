@@ -3,8 +3,8 @@
         // CONFIGURATION & DONNÉES
         // ============================================
         const CONTACT_INFO = {
-            phone: "+212 661-193752",
-            whatsapp: "+212 661-193752",
+            phone: "+212661193752",
+            whatsapp: "+212661193752",
             email: "contact.plantes.shop@gmail.com"
         };
 
@@ -152,7 +152,6 @@
         // INITIALISATION
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            updateContactInfo();
             initializeApp();
             setupEventListeners();
             startAnimations();
@@ -182,16 +181,12 @@
 
             // Injecter la section CTA et mettre à jour les infos de contact
             injectContactCTA();
+            updateContactInfo();
         }
 
         function updateContactInfo() {
-            // Pour 'tel:', on garde le '+' mais on enlève les espaces/tirets pour la compatibilité
-            const phoneUrl = `tel:${CONTACT_INFO.phone.replace(/[\s-]/g, '')}`;
-
-            // Pour 'wa.me', on enlève tout ce qui n'est pas un chiffre.
-            const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\D/g, '');
-            const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-
+            const phoneUrl = `tel:${CONTACT_INFO.phone}`;
+            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`;
             const emailUrl = `mailto:${CONTACT_INFO.email}`;
 
             document.querySelectorAll('a[data-phone-link="true"]').forEach(el => el.href = phoneUrl);
@@ -743,56 +738,7 @@
                 "category_palms": "Palmiers",
                 "category_indoor": "Plantes d'Intérieur",
                 "category_cactus": "Cactus et Succulentes",
-                "category_outdoor": "Plantes d'Extérieur",
-                "trees_title": "Arbres et Grands Végétaux",
-                "trees_description": "Des plantes majestueuses pour donner de la structure et de la hauteur à vos espaces.",
-                "discover_button": "Découvrir",
-                "price_from": "À partir de",
-                "product_olivier": "Olivier, olea europaea topiaire bonsai",
-                "product_ficus_bonsai": "Ficus bonsai",
-                "product_dracaena_draco": "DRACAENA DRACO A - VERVETA",
-                "product_araucaria": "Araucaria excelsa (pin de norfolk)",
-                "product_ficus_nitida": "Ficus nitida",
-                "product_thuja": "thuja orientalis",
-                "product_ficus_benjamina": "Ficus nitida benjamina",
-                "product_ficus_boule": "Ficus boule",
-                "cactus_title": "Cactus et Succulentes",
-                "cactus_description": "Des plantes résistantes et graphiques, parfaites pour les jardiniers de tous niveaux.",
-                "product_euphorbia_milii": "Euphorbia milii",
-                "product_euphorbia_ingens": "Euphorbia ingens",
-                "product_agave": "Agave desmetiana 'Variegata'",
-                "product_crassula": "crassula ovata",
-                "product_aloe": "Aloe vera",
-                "product_opuntia": "opuntia microdasys",
-                "product_echinocactus": "echinocactus grusonii",
-                "palms_title": "Palmiers",
-                "palms_description": "Apportez une touche d'exotisme à votre jardin ou intérieur avec notre collection de palmiers.",
-                "product_areca": "Areca catechu",
-                "product_cycas": "Cycas revoluta",
-                "product_butia": "butia capitata",
-                "product_phoenix": "phoenix roebelenii",
-                "product_phoenix_double": "Phoenix roebelenii Double tronc",
-                "product_cocos": "Cocos australis",
-                "product_cycas_japon": "Cycas du japon",
-                "outdoor_title": "Plantes d'Extérieur et Arbustes",
-                "outdoor_description": "Idéales pour embellir vos jardins, balcons et terrasses toute l'année.",
-                "product_atreplex": "Atreplex boulle",
-                "product_califia": "Califia",
-                "product_biscuse": "Biscuse",
-                "product_orange": "orange",
-                "product_papaya": "carica papaya",
-                "indoor_title": "Plantes d'Intérieur et Décoratives",
-                "indoor_description": "Purifiez votre air et ajoutez une touche de nature à votre intérieur avec nos plantes décoratives.",
-                "product_yucca": "Yucca elephantipes",
-                "product_strelitzia_augusta": "Strelitzia Augusta",
-                "product_dracena_indivisa": "Dracena indivisa dragona",
-                "product_philodendron": "philodendron selloum",
-                "product_cordyline": "CORDYLINE australis 'Red Star'",
-                "product_strelitzia_nicolai": "strelitzia nicolai",
-                "product_sansevieria": "Sanverieria trifaciata",
-                "product_codiaeum": "codiaeum variegatum",
-                "product_crotone": "Crotone Hawaï",
-                "product_ojinia": "Ojinia"
+                "category_outdoor": "Plantes d'Extérieur"
             },
             ar: {
                 "logo_slogan": "واحتك الخضراء",
@@ -828,56 +774,7 @@
                 "category_palms": "النخيل",
                 "category_indoor": "النباتات الداخلية",
                 "category_cactus": "الصبار والعصاريات",
-                "category_outdoor": "النباتات الخارجية",
-                "trees_title": "الأشجار والنباتات الكبيرة",
-                "trees_description": "نباتات مهيبة لإضفاء هيكل وارتفاع على مساحاتك.",
-                "discover_button": "اكتشف",
-                "price_from": "ابتداء من",
-                "product_olivier": "شجرة الزيتون، بونساي توبياري",
-                "product_ficus_bonsai": "فيكس بونساي",
-                "product_dracaena_draco": "دراسينا دراكو أ - فيرفيتا",
-                "product_araucaria": "أروكاريا إكسلسا (صنوبر نورفولك)",
-                "product_ficus_nitida": "فيكس نيتيدا",
-                "product_thuja": "ثويا أورينتاليس",
-                "product_ficus_benjamina": "فيكس نيتيدا بنجامينا",
-                "product_ficus_boule": "فيكس بول",
-                "cactus_title": "الصبار والعصاريات",
-                "cactus_description": "نباتات مقاومة ورسومية، مثالية للبستانيين من جميع المستويات.",
-                "product_euphorbia_milii": "إيفوربيا ميلي",
-                "product_euphorbia_ingens": "إيفوربيا إنجنس",
-                "product_agave": "أغاف ديسميتيانا 'فاريغاتا'",
-                "product_crassula": "كراسولا أوفاتا",
-                "product_aloe": "صبار الألوفيرا",
-                "product_opuntia": "أوبونتيا ميكروداسيس",
-                "product_echinocactus": "إيكينوكاكتوس غروسوني",
-                "palms_title": "النخيل",
-                "palms_description": "أضف لمسة من الغرابة إلى حديقتك أو منزلك مع مجموعتنا من أشجار النخيل.",
-                "product_areca": "أريكا كاتيشو",
-                "product_cycas": "سيكاس ريفولوتا",
-                "product_butia": "بوتيا كابيتاتا",
-                "product_phoenix": "فينيكس روبيليني",
-                "product_phoenix_double": "فينيكس روبيليني جذع مزدوج",
-                "product_cocos": "كوكوس أوستراليس",
-                "product_cycas_japon": "سيكاس اليابان",
-                "outdoor_title": "النباتات الخارجية والشجيرات",
-                "outdoor_description": "مثالية لتجميل حدائقكم وشرفاتكم وتراساتكم على مدار السنة.",
-                "product_atreplex": "أتريبلكس بول",
-                "product_califia": "كاليفيا",
-                "product_biscuse": "بيسكوز",
-                "product_orange": "البرتقال",
-                "product_papaya": "كاريكا بابايا",
-                "indoor_title": "النباتات الداخلية والديكورية",
-                "indoor_description": "نقي الهواء وأضف لمسة من الطبيعة إلى منزلك مع نباتاتنا الزخرفية.",
-                "product_yucca": "يوكا إيليفانتيبس",
-                "product_strelitzia_augusta": "ستريليتزيا أوغوستا",
-                "product_dracena_indivisa": "دراسينا إنديفيسا دراغونا",
-                "product_philodendron": "فيلوديندرون سيلوم",
-                "product_cordyline": "كورديلاين أوستراليس 'ريد ستار'",
-                "product_strelitzia_nicolai": "ستريليتزيا نيكولاي",
-                "product_sansevieria": "سانسيفيريا تريفاسياتا",
-                "product_codiaeum": "كوديوم فاريغاتوم",
-                "product_crotone": "كروتون هاواي",
-                "product_ojinia": "أوجينيا"
+                "category_outdoor": "النباتات الخارجية"
             },
             en: {
                 "logo_slogan": "Your Green Oasis",
@@ -913,56 +810,7 @@
                 "category_palms": "Palm Trees",
                 "category_indoor": "Indoor Plants",
                 "category_cactus": "Cactus and Succulents",
-                "category_outdoor": "Outdoor Plants",
-                "trees_title": "Trees and Large Plants",
-                "trees_description": "Majestic plants to give structure and height to your spaces.",
-                "discover_button": "Discover",
-                "price_from": "From",
-                "product_olivier": "Olivier, olea europaea topiary bonsai",
-                "product_ficus_bonsai": "Ficus bonsai",
-                "product_dracaena_draco": "DRACAENA DRACO A - VERVETA",
-                "product_araucaria": "Araucaria excelsa (pin de norfolk)",
-                "product_ficus_nitida": "Ficus nitida",
-                "product_thuja": "thuja orientalis",
-                "product_ficus_benjamina": "Ficus nitida benjamina",
-                "product_ficus_boule": "Ficus boule",
-                "cactus_title": "Cactus and Succulents",
-                "cactus_description": "Resistant and graphic plants, perfect for gardeners of all levels.",
-                "product_euphorbia_milii": "Euphorbia milii",
-                "product_euphorbia_ingens": "Euphorbia ingens",
-                "product_agave": "Agave desmetiana 'Variegata'",
-                "product_crassula": "crassula ovata",
-                "product_aloe": "Aloe vera",
-                "product_opuntia": "opuntia microdasys",
-                "product_echinocactus": "echinocactus grusonii",
-                "palms_title": "Palm Trees",
-                "palms_description": "Bring a touch of the exotic to your garden or interior with our collection of palm trees.",
-                "product_areca": "Areca catechu",
-                "product_cycas": "Cycas revoluta",
-                "product_butia": "butia capitata",
-                "product_phoenix": "phoenix roebelenii",
-                "product_phoenix_double": "Phoenix roebelenii Double tronc",
-                "product_cocos": "Cocos australis",
-                "product_cycas_japon": "Cycas du japon",
-                "outdoor_title": "Outdoor Plants and Shrubs",
-                "outdoor_description": "Ideal for embellishing your gardens, balconies and terraces all year round.",
-                "product_atreplex": "Atreplex boulle",
-                "product_califia": "Califia",
-                "product_biscuse": "Biscuse",
-                "product_orange": "orange",
-                "product_papaya": "carica papaya",
-                "indoor_title": "Indoor and Decorative Plants",
-                "indoor_description": "Purify your air and add a touch of nature to your interior with our decorative plants.",
-                "product_yucca": "Yucca elephantipes",
-                "product_strelitzia_augusta": "Strelitzia Augusta",
-                "product_dracena_indivisa": "Dracena indivisa dragona",
-                "product_philodendron": "philodendron selloum",
-                "product_cordyline": "CORDYLINE australis 'Red Star'",
-                "product_strelitzia_nicolai": "strelitzia nicolai",
-                "product_sansevieria": "Sanverieria trifaciata",
-                "product_codiaeum": "codiaeum variegatum",
-                "product_crotone": "Crotone Hawaï",
-                "product_ojinia": "Ojinia"
+                "category_outdoor": "Outdoor Plants"
             }
         };
 
@@ -1213,5 +1061,3 @@
         window.closeArticleModal = closeArticleModal;
 
     
-});
-});
