@@ -527,7 +527,7 @@
                 "mobile_whatsapp": "<i class=\"fab fa-whatsapp\"></i> WhatsApp",
                 "hero_badge": "Collection Exclusive 2024",
                 "hero_title": "Transformez Votre Espace en Oasis Verte",
-                "hero_subtitle": "Découvrez plus de 500 espèces de plantes soigneusement sélectionnées, des conseils d'experts et un service personnalisé pour créer le jardin de vos rêves.",
+                "hero_subtitle": "Venez découvrir notre pépinière exceptionnelle au Maroc, précisément dans la ville de Benslimane. Laissez-nous vous aider à créer votre propre havre de paix végétal",
                 "hero_button_explore": "Explorer la Boutique",
                 "hero_button_consult": "Consultation Gratuite",
                 "hero_feature_delivery": "Livraison dans tout le Maroc",
