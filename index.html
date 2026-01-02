@@ -10,9 +10,9 @@
     <meta property="og:title" content="Plantes Shop | Votre Pépinière en Ligne">
     <meta property="og:description" content="Découvrez notre collection exclusive de plantes et créez votre oasis verte">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://votre-site.com/images/og-image.jpg">
     <meta property="og:url" content="https://votre-site.com">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta property="og:image" content="assets/images/Emblem Style Logo for Plantes Shop (1).png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Fonts -->
@@ -55,6 +55,14 @@
                 </ul>
             </nav>
             
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Cart Button -->
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat" data-translate-key="cart_title" title="Panier d'achat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="action-count" id="cartCount">0</span>
+                </button>
+                
                 <!-- Language Selector -->
                 <div class="language-selector">
                     <button class="language-btn" aria-label="Changer la langue">
@@ -112,10 +120,10 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:+212661193752" data-phone-link="true" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/212661193752" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
