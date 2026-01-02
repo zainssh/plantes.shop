@@ -1314,20 +1314,96 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="product-header">
+    <header class="header" id="header">
         <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo">
-                <div class="logo-text">
-                    <span>Plantes Shop</span>
-                    <span>Votre Oasis Verte</span>
+            <!-- Logo -->
+            <a href="index.html#home" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <span class="logo-text">Plantes Shop</span>
+                    <span class="logo-slogan" data-translate-key="logo_slogan">Votre Oasis Verte</span>
                 </div>
             </a>
             
-            <button class="cart-button" id="cartButton">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop" aria-label="Navigation principale">
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link active" data-translate-key="nav_home"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="index.html#products" class="nav-link" data-translate-key="nav_products"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="index.html#services" class="nav-link" data-translate-key="nav_services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="index.html#blog" class="nav-link" data-translate-key="nav_blog"><i class="fas fa-newspaper"></i> Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-translate-key="nav_contact"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" aria-label="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span>FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                            <span>🇫🇷</span> Français
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                            <span>🇲🇦</span> العربية
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                            <span>🇬🇧</span> English
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <h3 data-translate-key="mobile_menu_title">Menu</h3>
+                <button class="mobile-menu-btn" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-links">
+                <a href="index.html#home" class="mobile-nav-link active" data-translate-key="mobile_home">Accueil</a>
+                <a href="index.html#products" class="mobile-nav-link" data-translate-key="mobile_products">Produits</a>
+                <a href="index.html#services" class="mobile-nav-link" data-translate-key="mobile_services">Services</a>
+                <a href="index.html#blog" class="mobile-nav-link" data-translate-key="mobile_blog">Blog</a>
+                <a href="index.html#contact" class="mobile-nav-link" data-translate-key="mobile_contact">Contact</a>
+                <div class="mobile-language-selector" style="margin-top: 1rem; padding: 1rem; border-top: 1px solid var(--gray-200);">
+                    <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                        <span>🇫🇷</span> Français
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                        <span>🇲🇦</span> العربية
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                        <span>🇬🇧</span> English
+                    </div>
+                </div>
+            </div>
+            
+
+            
+            <div class="mobile-nav-footer">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
         </div>
     </header>
 
