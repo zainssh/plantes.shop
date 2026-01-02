@@ -3,8 +3,8 @@
         // CONFIGURATION & DONNÉES
         // ============================================
         const CONTACT_INFO = {
-            phone: "+212661193752",
-            whatsapp: "+212661193752",
+            phone: "+212 661-193752",
+            whatsapp: "+212 661-193752",
             email: "contact.plantes.shop@gmail.com"
         };
 
@@ -152,6 +152,7 @@
         // INITIALISATION
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
+            updateContactInfo();
             initializeApp();
             setupEventListeners();
             startAnimations();
@@ -181,12 +182,16 @@
 
             // Injecter la section CTA et mettre à jour les infos de contact
             injectContactCTA();
-            updateContactInfo();
         }
 
         function updateContactInfo() {
-            const phoneUrl = `tel:${CONTACT_INFO.phone}`;
-            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`;
+            // Pour 'tel:', on garde le '+' mais on enlève les espaces/tirets pour la compatibilité
+            const phoneUrl = `tel:${CONTACT_INFO.phone.replace(/[\s-]/g, '')}`;
+
+            // Pour 'wa.me', on enlève tout ce qui n'est pas un chiffre.
+            const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\D/g, '');
+            const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
             const emailUrl = `mailto:${CONTACT_INFO.email}`;
 
             document.querySelectorAll('a[data-phone-link="true"]').forEach(el => el.href = phoneUrl);
