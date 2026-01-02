@@ -1884,10 +1884,10 @@
     // Gestion des onglets
     function initTabs() {
         // Activer le premier onglet par défaut
-        switchTab('description');
+        switchTab('description', true);
     }
 
-    function switchTab(tabId) {
+    function switchTab(tabId, isInitialLoad = false) {
         // Désactiver tous les onglets
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -1913,7 +1913,7 @@
         currentTab = tabId;
         
         // Faire défiler jusqu'à l'onglet sur mobile
-        if (window.innerWidth < 768) {
+        if (!isInitialLoad && window.innerWidth < 768) {
             activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
