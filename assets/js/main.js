@@ -137,14 +137,12 @@
         // ÉTAT DE L'APPLICATION
         // ============================================
         let state = {
-            cart: JSON.parse(localStorage.getItem('plantesShopCart')) || [],
             currentLanguage: localStorage.getItem('plantesShopLanguage') || CONFIG.defaultLanguage,
             currentFilter: 'all',
             currentSort: 'popular',
             displayedProducts: 6,
             currentHeroSlide: 0,
             currentTestimonial: 0,
-            isCartOpen: false,
             isMobileMenuOpen: false
         };
 
@@ -158,9 +156,6 @@
         });
 
         function initializeApp() {
-            // Mettre à jour les compteurs
-            updateCartCount();
-            
             // Rendre les produits
             initializeOliveShowcase(); // Remplacer renderProducts()
             
@@ -254,11 +249,6 @@
             // Menu mobile
             onId('mobileMenuButton', 'click', toggleMobileMenu);
             onId('closeMobileMenu', 'click', toggleMobileMenu);
-            
-            // Panier
-            onId('cartButton', 'click', openCart);
-            onId('closeCart', 'click', closeCart);
-            onId('checkoutButton', 'click', proceedToCheckout);
             
             // Modals
             onId('modalOverlay', 'click', closeAllModals);
@@ -393,193 +383,6 @@
             });
         }
 
-        // ============================================
-        // FONCTIONS DU PANIER
-        // ============================================
-        function addToCart(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product || product.availability < 1) {
-                showNotification('Stock insuffisant', 'error');
-                return;
-            }
-            
-            const existingItem = state.cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                state.cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.images[0],
-                    quantity: 1,
-                    sku: product.sku,
-                    maxQuantity: product.availability
-                });
-            }
-            
-            // Mettre à jour le stock virtuel
-            product.availability -= 1;
-            
-            saveState();
-            updateCartCount();
-            showNotification(`${product.name} ajouté au panier`, 'success');
-            
-            // Ouvrir le panier sur desktop
-            if (window.innerWidth > 768) {
-                openCart();
-            }
-        }
-
-        function removeFromCart(productId) {
-            const itemIndex = state.cart.findIndex(item => item.id === productId);
-            if (itemIndex === -1) return;
-            
-            const item = state.cart[itemIndex];
-            const product = PRODUCTS.find(p => p.id === productId);
-            
-            // Restaurer le stock
-            if (product) {
-                product.availability += item.quantity;
-            }
-            
-            state.cart.splice(itemIndex, 1);
-            
-            saveState();
-            updateCartCount();
-            renderCartItems();
-            showNotification('Article retiré du panier', 'info');
-        }
-
-        function updateCartQuantity(productId, change) {
-            const item = state.cart.find(item => item.id === productId);
-            if (!item) return;
-            
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-            
-            const newQuantity = item.quantity + change;
-            
-            // Vérifier les limites
-            if (newQuantity < 1) {
-                removeFromCart(productId);
-                return;
-            }
-            
-            if (newQuantity > product.availability + item.quantity) {
-                showNotification('Stock insuffisant', 'error');
-                return;
-            }
-            
-            // Mettre à jour le stock
-            product.availability -= change;
-            item.quantity = newQuantity;
-            
-            saveState();
-            updateCartCount();
-            renderCartItems();
-        }
-
-        function renderCartItems() {
-            const container = document.getElementById('cartItems');
-            const footer = document.querySelector('.cart-footer');
-            
-            if (state.cart.length === 0) {
-                container.innerHTML = `
-                    <div class="cart-empty">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h4>Votre panier est vide</h4>
-                        <p>Découvrez nos magnifiques plantes</p>
-                        <button class="btn btn-primary" onclick="closeAllModals()">
-                            <i class="fas fa-store"></i> Explorer la boutique
-                        </button>
-                    </div>
-                `;
-                footer.style.display = 'none';
-                return;
-            }
-            
-            container.innerHTML = state.cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="${item.image}" alt="${item.name}">
-                    </div>
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">${formatPrice(item.price)}</div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})" aria-label="Retirer">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-            `).join('');
-            
-            updateCartSummary();
-            footer.style.display = 'block';
-        }
-
-        function updateCartSummary() {
-            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const shipping = subtotal >= CONFIG.freeShippingThreshold ? 0 : 50;
-            const total = subtotal + shipping;
-            
-            document.getElementById('cartSubtotal').textContent = formatPrice(subtotal);
-            document.getElementById('cartShipping').textContent = shipping === 0 ? 'Gratuite' : formatPrice(shipping);
-            document.getElementById('cartTotal').textContent = formatPrice(total);
-            
-            // Mettre à jour le message de livraison gratuite
-            const freeShippingRemaining = CONFIG.freeShippingThreshold - subtotal;
-            if (freeShippingRemaining > 0) {
-                document.querySelector('.cart-footer p').innerHTML = `
-                    <i class="fas fa-shipping-fast"></i> Plus que ${formatPrice(freeShippingRemaining)} pour la livraison gratuite
-                `;
-            }
-        }
-
-        function updateCartCount() {
-            const count = state.cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').textContent = count;
-        }
-
-        function openCart() {
-            const modal = document.getElementById('cartModal');
-            const overlay = document.getElementById('modalOverlay');
-            
-            renderCartItems();
-            modal.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCart() {
-            const modal = document.getElementById('cartModal');
-            const overlay = document.getElementById('modalOverlay');
-            
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function proceedToCheckout() {
-            if (state.cart.length === 0) {
-                showNotification('Votre panier est vide', 'error');
-                return;
-            }
-            
-            closeCart();
-            showNotification('Fonctionnalité de paiement à implémenter', 'info');
-            // Ici, vous pouvez rediriger vers une page de paiement
-        }
 
         // ============================================
         // FONCTIONS DES SLIDERS
@@ -711,7 +514,6 @@
                 "nav_services": "<i class=\"fas fa-concierge-bell\"></i> Services",
                 "nav_blog": "<i class=\"fas fa-newspaper\"></i> Blog",
                 "nav_contact": "<i class=\"fas fa-phone\"></i> Contact",
-                "cart_title": "Panier d'achat",
                 "lang_fr": "Français",
                 "lang_ar": "العربية",
                 "lang_en": "English",
@@ -747,7 +549,6 @@
                 "nav_services": "<i class=\"fas fa-concierge-bell\"></i> الخدمات",
                 "nav_blog": "<i class=\"fas fa-newspaper\"></i> المدونة",
                 "nav_contact": "<i class=\"fas fa-phone\"></i> اتصل بنا",
-                "cart_title": "سلة التسوق",
                 "lang_fr": "Français",
                 "lang_ar": "العربية",
                 "lang_en": "English",
@@ -783,7 +584,6 @@
                 "nav_services": "<i class=\"fas fa-concierge-bell\"></i> Services",
                 "nav_blog": "<i class=\"fas fa-newspaper\"></i> Blog",
                 "nav_contact": "<i class=\"fas fa-phone\"></i> Contact",
-                "cart_title": "Shopping Cart",
                 "lang_fr": "Français",
                 "lang_ar": "العربية",
                 "lang_en": "English",
@@ -966,7 +766,6 @@
         }
 
         function closeAllModals() {
-            closeCart();
             closeImageModal();
             
             if (state.isMobileMenuOpen) {
@@ -982,7 +781,6 @@
         }
 
         function saveState() {
-            localStorage.setItem('plantesShopCart', JSON.stringify(state.cart));
             localStorage.setItem('plantesShopLanguage', state.currentLanguage);
         }
 
@@ -1017,9 +815,6 @@
         // ============================================
         // EXPORT DES FONCTIONS GLOBALES
         // ============================================
-        window.addToCart = addToCart;
-        window.removeFromCart = removeFromCart;
-        window.updateCartQuantity = updateCartQuantity;
         window.closeAllModals = closeAllModals;
         window.changeLanguage = changeLanguage;
         window.scrollToTop = scrollToTop;
