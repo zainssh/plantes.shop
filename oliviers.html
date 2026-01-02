@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Oliviers | Plantes Shop</title>
+    <meta name="description" content="Découvrez notre sélection d'oliviers, symboles de paix et de longévité. Livraison dans tout le Maroc.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="index.html#home" class="logo">
+                <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <span class="logo-text">Plantes Shop</span>
+                    <span class="logo-slogan" data-translate-key="logo_slogan">Votre Oasis Verte</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop" aria-label="Navigation principale">
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link active" data-translate-key="nav_home"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="index.html#products" class="nav-link" data-translate-key="nav_products"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="index.html#services" class="nav-link" data-translate-key="nav_services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="index.html#blog" class="nav-link" data-translate-key="nav_blog"><i class="fas fa-newspaper"></i> Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-translate-key="nav_contact"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" aria-label="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span>FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                            <span>🇫🇷</span> Français
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                            <span>🇲🇦</span> العربية
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                            <span>🇬🇧</span> English
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Menu mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <h3 data-translate-key="mobile_menu_title">Menu</h3>
+                <button class="mobile-menu-btn" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-links">
+                <a href="index.html#home" class="mobile-nav-link active" data-translate-key="mobile_home">Accueil</a>
+                <a href="index.html#products" class="mobile-nav-link" data-translate-key="mobile_products">Produits</a>
+                <a href="index.html#services" class="mobile-nav-link" data-translate-key="mobile_services">Services</a>
+                <a href="index.html#blog" class="mobile-nav-link" data-translate-key="mobile_blog">Blog</a>
+                <a href="index.html#contact" class="mobile-nav-link" data-translate-key="mobile_contact">Contact</a>
+                <div class="mobile-language-selector" style="margin-top: 1rem; padding: 1rem; border-top: 1px solid var(--gray-200);">
+                    <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
+                        <span>🇫🇷</span> Français
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
+                        <span>🇲🇦</span> العربية
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
+                        <span>🇬🇧</span> English
+                    </div>
+                </div>
+            </div>
+            
+
+            
+            <div class="mobile-nav-footer">
+                <a href="tel:+212661193752" data-phone-link="true" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
+                    <i class="fas fa-phone"></i> Appelez-nous
+                </a>
+                <a href="https://wa.me/212661193752" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-translate-key="olives_title">Oliviers</h2>
+                    <p data-translate-key="olives_description">Apportez une touche méditerranéenne à votre jardin avec notre sélection d'oliviers.</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card"> 
+                        <div class="product-image"> 
+                            <img src="assets/images/WhatsApp Image 2026-01-02 at 17.37.49.jpeg" alt="Olivier, olea europaea"> 
+                        </div> 
+                        <div class="product-content"> 
+                            <h3 class="product-title">Olivier, olea europaea</h3> 
+                            <span class="product-price">À partir de 1499 MAD</span> 
+                            <a href="product-Olivier-olea-europaea.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a> 
+                        </div> 
+                    </div> 
+                    <!-- Product 1: Olivier -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/olive-gallery-13.jpeg" alt="Olivier adulte de grande taille">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title" data-translate-key="product_olivier">Olivier, olea europaea topiaire bonsai</h3>
+                            <span class="product-price">À partir de 11,999 MAD</span>
+                            <a href="product-olivier-olea-europaea-topiaire-bonsai.html" class="btn btn-primary btn-small"><i class="fas fa-eye"></i> Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Plantes Shop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
