@@ -10,9 +10,9 @@
     <meta property="og:title" content="Plantes Shop | Votre Pépinière en Ligne">
     <meta property="og:description" content="Découvrez notre collection exclusive de plantes et créez votre oasis verte">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://votre-site.com/images/og-image.jpg">
     <meta property="og:url" content="https://votre-site.com">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta property="og:image" content="assets/images/Emblem Style Logo for Plantes Shop (1).png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Fonts -->
@@ -55,6 +55,14 @@
                 </ul>
             </nav>
             
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Cart Button -->
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat" data-translate-key="cart_title" title="Panier d'achat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="action-count" id="cartCount">0</span>
+                </button>
+                
                 <!-- Language Selector -->
                 <div class="language-selector">
                     <button class="language-btn" aria-label="Changer la langue">
@@ -112,10 +120,10 @@
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:+212661193752" data-phone-link="true" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/212661193752" data-whatsapp-link="true" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -848,7 +856,7 @@
                                     <i class="fas fa-phone-alt"></i>
                                     <div>
                                         <h4>Téléphone</h4>
-                                        <p data-phone-text="true">+212 661-193752</p>
+                                        <p>${CONTACT_INFO.phone}</p>
                                     </div>
                                 </div>
                                 
@@ -856,7 +864,7 @@
                                     <i class="fas fa-envelope"></i>
                                     <div>
                                         <h4>Email</h4>
-                                        <p data-email-text="true">contact.plantes.shop@gmail.com</p>
+                                        <p>${CONTACT_INFO.email}</p>
                                     </div>
                                 </div>
                                 
@@ -864,12 +872,12 @@
                                     <i class="fab fa-whatsapp"></i>
                                     <div>
                                         <h4>WhatsApp</h4>
-                                        <p data-whatsapp-text="true">+212 661-193752</p>
+                                        <p>${CONTACT_INFO.whatsapp}</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <a href="https://wa.me/212661193752" data-whatsapp-link="true" target="_blank" class="whatsapp-btn">
+                            <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="whatsapp-btn">
                                 <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
                             </a>
                         </div>
@@ -1017,11 +1025,11 @@
                         <div class="footer-contact">
                             <div class="footer-contact-item">
                                 <i class="fas fa-phone-alt"></i>
-                                <span data-phone-text="true">+212 661-193752</span>
+                                <span>${CONTACT_INFO.phone}</span>
                             </div>
                             <div class="footer-contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span data-email-text="true">contact.plantes.shop@gmail.com</span>
+                                <span>${CONTACT_INFO.email}</span>
                             </div>
                         </div>
                     </div>
@@ -1038,7 +1046,46 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-header">
+            <h3 style="margin: 0;">Votre Panier</h3>
+            <button class="modal-close" id="closeCart" aria-label="Fermer le panier">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
         
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Sous-total</span>
+                    <span id="cartSubtotal">0 MAD</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Livraison</span>
+                    <span id="cartShipping">Gratuite</span>
+                </div>
+                <div class="cart-summary-row cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">0 MAD</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary btn-full" id="checkoutButton">
+                <i class="fas fa-shopping-bag"></i> Passer la Commande
+            </button>
+            
+            <p style="text-align: center; margin-top: 1rem; color: var(--gray-500); font-size: 0.875rem;">
+                <i class="fas fa-shipping-fast"></i> Livraison offerte à partir de 500 MAD
+            </p>
+        </div>
+    </div>
+    
     
     <!-- Image Modal -->
     <div class="image-modal-overlay" id="imageModal">
