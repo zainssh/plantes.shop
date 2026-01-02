@@ -1213,3 +1213,5 @@
         window.closeArticleModal = closeArticleModal;
 
     
+});
+});
