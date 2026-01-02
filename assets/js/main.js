@@ -702,22 +702,158 @@
         // ============================================
         // FONCTIONS DE LANGUE
         // ============================================
+
+        const TRANSLATIONS = {
+            fr: {
+                "logo_slogan": "Votre Oasis Verte",
+                "nav_home": "<i class=\"fas fa-home\"></i> Accueil",
+                "nav_products": "<i class=\"fas fa-leaf\"></i> Produits",
+                "nav_services": "<i class=\"fas fa-concierge-bell\"></i> Services",
+                "nav_blog": "<i class=\"fas fa-newspaper\"></i> Blog",
+                "nav_contact": "<i class=\"fas fa-phone\"></i> Contact",
+                "cart_title": "Panier d'achat",
+                "lang_fr": "Français",
+                "lang_ar": "العربية",
+                "lang_en": "English",
+                "mobile_menu_title": "Menu",
+                "mobile_home": "Accueil",
+                "mobile_products": "Produits",
+                "mobile_services": "Services",
+                "mobile_blog": "Blog",
+                "mobile_contact": "Contact",
+                "mobile_call_us": "<i class=\"fas fa-phone\"></i> Appelez-nous",
+                "mobile_whatsapp": "<i class=\"fab fa-whatsapp\"></i> WhatsApp",
+                "hero_badge": "Collection Exclusive 2024",
+                "hero_title": "Transformez Votre Espace en Oasis Verte",
+                "hero_subtitle": "Découvrez plus de 500 espèces de plantes soigneusement sélectionnées, des conseils d'experts et un service personnalisé pour créer le jardin de vos rêves.",
+                "hero_button_explore": "Explorer la Boutique",
+                "hero_button_consult": "Consultation Gratuite",
+                "hero_feature_delivery": "Livraison dans tout le Maroc",
+                "hero_feature_guarantee": "Garantie de reprise 30 jours",
+                "hero_feature_support": "Support expert 7j/7",
+                "toast_language_changed": "Langue changée en",
+                "products_section_title": "Nos Produits d'Exception",
+                "products_section_subtitle": "Une sélection exclusive de Plantes Shop, organisée pour vous.",
+                "category_trees": "Arbres et Grands Végétaux",
+                "category_palms": "Palmiers",
+                "category_indoor": "Plantes d'Intérieur",
+                "category_cactus": "Cactus et Succulentes",
+                "category_outdoor": "Plantes d'Extérieur"
+            },
+            ar: {
+                "logo_slogan": "واحتك الخضراء",
+                "nav_home": "<i class=\"fas fa-home\"></i> الرئيسية",
+                "nav_products": "<i class=\"fas fa-leaf\"></i> المنتجات",
+                "nav_services": "<i class=\"fas fa-concierge-bell\"></i> الخدمات",
+                "nav_blog": "<i class=\"fas fa-newspaper\"></i> المدونة",
+                "nav_contact": "<i class=\"fas fa-phone\"></i> اتصل بنا",
+                "cart_title": "سلة التسوق",
+                "lang_fr": "Français",
+                "lang_ar": "العربية",
+                "lang_en": "English",
+                "mobile_menu_title": "القائمة",
+                "mobile_home": "الرئيسية",
+                "mobile_products": "المنتجات",
+                "mobile_services": "الخدمات",
+                "mobile_blog": "المدونة",
+                "mobile_contact": "اتصل بنا",
+                "mobile_call_us": "<i class=\"fas fa-phone\"></i> اتصل بنا",
+                "mobile_whatsapp": "<i class=\"fab fa-whatsapp\"></i> واتساب",
+                "hero_badge": "تشكيلة حصرية 2024",
+                "hero_title": "حوّل مساحتك إلى واحة خضراء",
+                "hero_subtitle": "اكتشف أكثر من 500 نوع من النباتات المختارة بعناية، نصائح الخبراء وخدمة شخصية لإنشاء حديقة أحلامك.",
+                "hero_button_explore": "اكتشف المتجر",
+                "hero_button_consult": "استشارة مجانية",
+                "hero_feature_delivery": "توصيل لجميع أنحاء المغرب",
+                "hero_feature_guarantee": "ضمان استرجاع لمدة 30 يومًا",
+                "hero_feature_support": "دعم فني 7/7 أيام",
+                "toast_language_changed": "تم تغيير اللغة إلى",
+                "products_section_title": "منتجاتنا الاستثنائية",
+                "products_section_subtitle": "تشكيلة حصرية من بلانت شوب، منسقة لأجلكم.",
+                "category_trees": "الأشجار والنباتات الكبيرة",
+                "category_palms": "النخيل",
+                "category_indoor": "النباتات الداخلية",
+                "category_cactus": "الصبار والعصاريات",
+                "category_outdoor": "النباتات الخارجية"
+            },
+            en: {
+                "logo_slogan": "Your Green Oasis",
+                "nav_home": "<i class=\"fas fa-home\"></i> Home",
+                "nav_products": "<i class=\"fas fa-leaf\"></i> Products",
+                "nav_services": "<i class=\"fas fa-concierge-bell\"></i> Services",
+                "nav_blog": "<i class=\"fas fa-newspaper\"></i> Blog",
+                "nav_contact": "<i class=\"fas fa-phone\"></i> Contact",
+                "cart_title": "Shopping Cart",
+                "lang_fr": "Français",
+                "lang_ar": "العربية",
+                "lang_en": "English",
+                "mobile_menu_title": "Menu",
+                "mobile_home": "Home",
+                "mobile_products": "Products",
+                "mobile_services": "Services",
+                "mobile_blog": "Blog",
+                "mobile_contact": "Contact",
+                "mobile_call_us": "<i class=\"fas fa-phone\"></i> Call Us",
+                "mobile_whatsapp": "<i class=\"fab fa-whatsapp\"></i> WhatsApp",
+                "hero_badge": "Exclusive Collection 2024",
+                "hero_title": "Transform Your Space into a Green Oasis",
+                "hero_subtitle": "Discover over 500 species of carefully selected plants, expert advice, and personalized service to create the garden of your dreams.",
+                "hero_button_explore": "Explore the Shop",
+                "hero_button_consult": "Free Consultation",
+                "hero_feature_delivery": "Delivery throughout Morocco",
+                "hero_feature_guarantee": "30-day return guarantee",
+                "hero_feature_support": "Expert support 7/7",
+                "toast_language_changed": "Language changed to",
+                "products_section_title": "Our Exceptional Products",
+                "products_section_subtitle": "An exclusive selection from Plantes Shop, curated for you.",
+                "category_trees": "Trees and Large Plants",
+                "category_palms": "Palm Trees",
+                "category_indoor": "Indoor Plants",
+                "category_cactus": "Cactus and Succulents",
+                "category_outdoor": "Outdoor Plants"
+            }
+        };
+
         function changeLanguage(lang) {
             state.currentLanguage = lang;
             saveState();
             updateLanguage();
-            showNotification(`Langue changée en ${CONFIG.languages[lang]}`, 'info');
+            const toastMessage = `${TRANSLATIONS[lang].toast_language_changed} ${CONFIG.languages[lang]}`;
+            showNotification(toastMessage, 'info');
         }
 
         function updateLanguage() {
-            // Mettre à jour le bouton de langue
-            const langBtn = document.querySelector('.language-btn span');
-            if (langBtn) {
-                langBtn.textContent = state.currentLanguage.toUpperCase();
+            const lang = state.currentLanguage;
+            const translations = TRANSLATIONS[lang];
+
+            // Set page direction
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
             }
-            
-            // Ici, vous pourriez mettre à jour tout le contenu textuel
-            // Pour l'instant, nous gardons le français comme langue par défaut
+
+            // Update lang attribute
+            document.documentElement.setAttribute('lang', lang);
+
+            // Update text content based on data-translate-key
+            document.querySelectorAll('[data-translate-key]').forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (translations[key]) {
+                    element.innerHTML = translations[key]; // Use innerHTML to support icons
+                }
+            });
+
+            // Update language selector display
+            const langBtnText = document.querySelector('.language-btn span');
+            if (langBtnText) {
+                langBtnText.textContent = lang.toUpperCase();
+            }
+
+            const mobileLangSelect = document.getElementById('mobile-lang-select');
+            if (mobileLangSelect) {
+                mobileLangSelect.value = lang;
+            }
         }
 
         // ============================================

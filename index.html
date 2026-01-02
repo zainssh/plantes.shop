@@ -40,25 +40,25 @@
                 <img src="assets/images/Emblem Style Logo for Plantes Shop (1).png" alt="Plantes Shop Logo" class="logo-img">
                 <div class="logo-text-container">
                     <span class="logo-text">Plantes Shop</span>
-                    <span class="logo-slogan">Votre Oasis Verte</span>
+                    <span class="logo-slogan" data-translate-key="logo_slogan">Votre Oasis Verte</span>
                 </div>
             </a>
             
             <!-- Desktop Navigation -->
             <nav class="nav-desktop" aria-label="Navigation principale">
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href="#products" class="nav-link"><i class="fas fa-leaf"></i> Produits</a></li>
-                    <li><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                    <li><a href="#blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li>
-                    <li><a href="#contact" class="nav-link"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="#home" class="nav-link active" data-translate-key="nav_home"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#products" class="nav-link" data-translate-key="nav_products"><i class="fas fa-leaf"></i> Produits</a></li>
+                    <li><a href="#services" class="nav-link" data-translate-key="nav_services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#blog" class="nav-link" data-translate-key="nav_blog"><i class="fas fa-newspaper"></i> Blog</a></li>
+                    <li><a href="#contact" class="nav-link" data-translate-key="nav_contact"><i class="fas fa-phone"></i> Contact</a></li>
                 </ul>
             </nav>
             
             <!-- Header Actions -->
             <div class="header-actions">
                 <!-- Cart Button -->
-                <button class="action-btn" id="cartButton" aria-label="Panier d'achat">
+                <button class="action-btn" id="cartButton" aria-label="Panier d'achat" data-translate-key="cart_title" title="Panier d'achat">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="action-count" id="cartCount">0</span>
                 </button>
@@ -71,13 +71,13 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="language-dropdown">
-                        <div class="language-option" onclick="changeLanguage('fr')">
+                        <div class="language-option" onclick="changeLanguage('fr')" data-translate-key="lang_fr">
                             <span>🇫🇷</span> Français
                         </div>
-                        <div class="language-option" onclick="changeLanguage('ar')">
+                        <div class="language-option" onclick="changeLanguage('ar')" data-translate-key="lang_ar">
                             <span>🇲🇦</span> العربية
                         </div>
-                        <div class="language-option" onclick="changeLanguage('en')">
+                        <div class="language-option" onclick="changeLanguage('en')" data-translate-key="lang_en">
                             <span>🇬🇧</span> English
                         </div>
                     </div>
@@ -93,18 +93,18 @@
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <div class="mobile-nav-header">
-                <h3>Menu</h3>
+                <h3 data-translate-key="mobile_menu_title">Menu</h3>
                 <button class="mobile-menu-btn" id="closeMobileMenu">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
             <div class="mobile-nav-links">
-                <a href="#home" class="mobile-nav-link active">Accueil</a>
-                <a href="#products" class="mobile-nav-link">Produits</a>
-                <a href="#services" class="mobile-nav-link">Services</a>
-                <a href="#blog" class="mobile-nav-link">Blog</a>
-                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="#home" class="mobile-nav-link active" data-translate-key="mobile_home">Accueil</a>
+                <a href="#products" class="mobile-nav-link" data-translate-key="mobile_products">Produits</a>
+                <a href="#services" class="mobile-nav-link" data-translate-key="mobile_services">Services</a>
+                <a href="#blog" class="mobile-nav-link" data-translate-key="mobile_blog">Blog</a>
+                <a href="#contact" class="mobile-nav-link" data-translate-key="mobile_contact">Contact</a>
             </div>
             
 
@@ -112,18 +112,18 @@
                <div class="mobile-language-selector">
                     <i class="fas fa-globe"></i>
                     <select id="mobile-lang-select" onchange="changeLanguage(this.value)" aria-label="Changer la langue">
-                        <option value="fr">Français</option>
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
+                        <option value="fr" data-translate-key="lang_fr">Français</option>
+                        <option value="ar" data-translate-key="lang_ar">العربية</option>
+                        <option value="en" data-translate-key="lang_en">English</option>
                     </select>
                 </div>
             </div>
             
             <div class="mobile-nav-footer">
-                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full">
+                <a href="tel:${CONTACT_INFO.phone}" class="btn btn-outline btn-full" data-translate-key="mobile_call_us">
                     <i class="fas fa-phone"></i> Appelez-nous
                 </a>
-                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                <a href="https://wa.me/${CONTACT_INFO.whatsapp}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 1rem;" data-translate-key="mobile_whatsapp">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -155,33 +155,33 @@
             </div>
             
             <div class="hero-content">
-                <span class="hero-badge"><i class="fas fa-seedling"></i> Collection Exclusive 2024</span>
-                <h1 class="fade-in-up">Transformez Votre Espace en Oasis Verte</h1>
-                <p class="fade-in-up" style="animation-delay: 0.2s;">Découvrez plus de 500 espèces de plantes soigneusement sélectionnées, des conseils d'experts et un service personnalisé pour créer le jardin de vos rêves.</p>
+                <span class="hero-badge"><i class="fas fa-seedling"></i> <span data-translate-key="hero_badge">Collection Exclusive 2024</span></span>
+                <h1 class="fade-in-up" data-translate-key="hero_title">Transformez Votre Espace en Oasis Verte</h1>
+                <p class="fade-in-up" style="animation-delay: 0.2s;" data-translate-key="hero_subtitle">Découvrez plus de 500 espèces de plantes soigneusement sélectionnées, des conseils d'experts et un service personnalisé pour créer le jardin de vos rêves.</p>
                 
                 <div class="hero-buttons">
                     <a href="#products" class="btn btn-primary btn-large fade-in-up" style="animation-delay: 0.4s;">
                         <i class="fas fa-shopping-bag"></i>
-                        Explorer la Boutique
+                        <span data-translate-key="hero_button_explore">Explorer la Boutique</span>
                     </a>
                     <a href="#services" class="btn btn-secondary btn-large fade-in-up" style="animation-delay: 0.6s;">
                         <i class="fas fa-calendar-alt"></i>
-                        Consultation Gratuite
+                        <span data-translate-key="hero_button_consult">Consultation Gratuite</span>
                     </a>
                 </div>
                 
                 <div class="hero-features fade-in-up" style="animation-delay: 0.8s;">
                     <div class="hero-feature">
                         <i class="fas fa-shipping-fast"></i>
-                        Livraison dans tout le Maroc
+                        <span data-translate-key="hero_feature_delivery">Livraison dans tout le Maroc</span>
                     </div>
                     <div class="hero-feature">
                         <i class="fas fa-check-circle"></i>
-                        Garantie de reprise 30 jours
+                        <span data-translate-key="hero_feature_guarantee">Garantie de reprise 30 jours</span>
                     </div>
                     <div class="hero-feature">
                         <i class="fas fa-headset"></i>
-                        Support expert 7j/7
+                        <span data-translate-key="hero_feature_support">Support expert 7j/7</span>
                     </div>
                 </div>
             </div>
@@ -197,16 +197,16 @@
         <section class="olive-showcase-section section-padding" id="products">
             <div class="container">
                 <div class="section-title">
-                    <h2 style="font-size: 3rem; font-weight: 800; color: var(--primary-color);">Nos Produits d'Exception</h2>
-                    <p style="font-size: 1.2rem; color: var(--gray-600);">Une sélection exclusive de Plantes Shop, organisée pour vous.</p>
+                    <h2 style="font-size: 3rem; font-weight: 800; color: var(--primary-color);" data-translate-key="products_section_title">Nos Produits d'Exception</h2>
+                    <p style="font-size: 1.2rem; color: var(--gray-600);" data-translate-key="products_section_subtitle">Une sélection exclusive de Plantes Shop, organisée pour vous.</p>
                 </div>
 
                 <div class="category-filters" style="margin-bottom: 3rem; text-align: center;">
-                    <a href="arbres-et-grands-vegetaux.html" class="btn btn-outline">Arbres et Grands Végétaux</a>
-                    <a href="palmiers.html" class="btn btn-outline">Palmiers</a>
-                    <a href="plantes-interieur-decoratives.html" class="btn btn-outline">Plantes d'Intérieur</a>
-                    <a href="cactus-et-succulentes.html" class="btn btn-outline">Cactus et Succulentes</a>
-                    <a href="plantes-exterieur-arbustes.html" class="btn btn-outline">Plantes d'Extérieur</a>
+                    <a href="arbres-et-grands-vegetaux.html" class="btn btn-outline" data-translate-key="category_trees">Arbres et Grands Végétaux</a>
+                    <a href="palmiers.html" class="btn btn-outline" data-translate-key="category_palms">Palmiers</a>
+                    <a href="plantes-interieur-decoratives.html" class="btn btn-outline" data-translate-key="category_indoor">Plantes d'Intérieur</a>
+                    <a href="cactus-et-succulentes.html" class="btn btn-outline" data-translate-key="category_cactus">Cactus et Succulentes</a>
+                    <a href="plantes-exterieur-arbustes.html" class="btn btn-outline" data-translate-key="category_outdoor">Plantes d'Extérieur</a>
                 </div>
 
                 <div class="products-grid">
