@@ -4,8 +4,11 @@
         // ============================================
         const CONTACT_INFO = {
             phone: "+212661193752",
-            whatsapp: "+212661193752",
-            email: "contact.plantes.shop@gmail.com"
+            whatsapp: "+212763594862",
+            email: "contact.plantes.shop@gmail.com",
+            instagram: "https://www.instagram.com/plantes.shop?igsh=MXJqazNqYzJ2ZWJmMg%3D%3D&utm_source=qr",
+            tiktok: "https://www.tiktok.com/@plantes.shop?_r=1&_t=ZS-93HwNTfajyx",
+            facebook: "https://www.facebook.com/share/1AXMR4qd4A/?mibextid=wwXIfr"
         };
 
         const CONFIG = {
@@ -180,13 +183,17 @@
         }
 
         function updateContactInfo() {
-            const phoneUrl = `tel:${CONTACT_INFO.phone}`;
-            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`;
+            const phoneUrl = `tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`;
+            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '').replace(/\s/g, '')}`;
             const emailUrl = `mailto:${CONTACT_INFO.email}`;
 
             document.querySelectorAll('a[data-phone-link="true"]').forEach(el => el.href = phoneUrl);
             document.querySelectorAll('a[data-whatsapp-link="true"]').forEach(el => el.href = whatsappUrl);
             document.querySelectorAll('a[data-email-link="true"]').forEach(el => el.href = emailUrl);
+
+            document.querySelectorAll('a[data-instagram-link="true"]').forEach(el => el.href = CONTACT_INFO.instagram);
+            document.querySelectorAll('a[data-tiktok-link="true"]').forEach(el => el.href = CONTACT_INFO.tiktok);
+            document.querySelectorAll('a[data-facebook-link="true"]').forEach(el => el.href = CONTACT_INFO.facebook);
 
             document.querySelectorAll('[data-phone-text="true"]').forEach(el => el.textContent = CONTACT_INFO.phone);
             document.querySelectorAll('[data-whatsapp-text="true"]').forEach(el => el.textContent = CONTACT_INFO.whatsapp);
@@ -540,7 +547,8 @@
                 "category_palms": "Palmiers",
                 "category_indoor": "Plantes d'Intérieur",
                 "category_cactus": "Cactus et Succulentes",
-                "category_outdoor": "Plantes d'Extérieur"
+                "category_outdoor": "Plantes d'Extérieur",
+                "visit_us_social": "Suivez-nous sur les réseaux sociaux"
             },
             ar: {
                 "logo_slogan": "واحتك الخضراء",
@@ -575,7 +583,8 @@
                 "category_palms": "النخيل",
                 "category_indoor": "النباتات الداخلية",
                 "category_cactus": "الصبار والعصاريات",
-                "category_outdoor": "النباتات الخارجية"
+                "category_outdoor": "النباتات الخارجية",
+                "visit_us_social": "زورونا على مواقع التواصل"
             },
             en: {
                 "logo_slogan": "Your Green Oasis",
@@ -610,7 +619,8 @@
                 "category_palms": "Palm Trees",
                 "category_indoor": "Indoor Plants",
                 "category_cactus": "Cactus and Succulents",
-                "category_outdoor": "Outdoor Plants"
+                "category_outdoor": "Outdoor Plants",
+                "visit_us_social": "Follow us on social media"
             }
         };
 
